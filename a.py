@@ -14,12 +14,13 @@ data = {
 url = "https://console.gtsiom.net/v1/users/actions/login"
 
 class Test1(unittest.TestCase):
-    def setUp(self):
-        self.r = requests.post(url, json=data, verify=False)
+    @classmethod
+    def setUpClass(cls):
+        cls.r = requests.post(url, json=data, verify=False)
 
     def test_1_status_code(self):
         '''status_code是否是200'''
-        self.assertEqual(self.r.status_code, 200, msg='status_code is not 200')
+        self.assertEqual(self.r.status_code, 201, msg='status_code is not 200')
 
     def test_2_reason(self):
         '''reason是否是OK'''
@@ -29,11 +30,13 @@ class Test1(unittest.TestCase):
         '''url是否是https://console.gtsiom.net/v1/users/actions/login'''
         self.assertEqual(self.r.url, "https://console.gtsiom.net/v1/users/actions/login", msg='url is not "https://console.gtsiom.net/v1/users/actions/login"')
 
+    @unittest.skip("I don't want to run this case!")
     def test_4_encoding(self):
         '''encoding是否是None'''
         self.assertIsNone(self.r.encoding, msg='encoding is not None')
 
-    def tearDown(self):
+    @classmethod
+    def tearDownClass(cls):
         pass
 
 

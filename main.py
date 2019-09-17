@@ -2,6 +2,7 @@
 import unittest
 from BeautifulReport import BeautifulReport
 
+
 from a import Test1
 
 from a import Test2

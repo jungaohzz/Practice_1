@@ -2,7 +2,7 @@ import requests
 import datetime
 import time
 data = {
-    "password":"123456781",
+    "password":"12345678",
     "username":"admin7"
 }
 url = "https://console.gtsiom.net/v1/users/actions/login"
@@ -30,6 +30,7 @@ print(111111111111111111111)
 print(r.raw)
 print(r.text)
 print(11111)
+print(r.headers["Content-Type"])
 print(r.content)
 print(r.encoding)
 
