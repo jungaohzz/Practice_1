@@ -7128,13 +7128,33 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 1,
+    "testPass": 3,
     "testResult": [
         {
-            "className": "PortForwarding",
-            "methodName": "test_portForwarding_add_withoutExternalNetwork",
-            "description": "端口转发-新增-无外网IP",
-            "spendTime": "23.5 s",
+            "className": "DmzHost",
+            "methodName": "test_dmz_off",
+            "description": "关闭DMZ",
+            "spendTime": "12.0 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "DmzHost",
+            "methodName": "test_dmz_on",
+            "description": "开启DMZ",
+            "spendTime": "11.2 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "DmzHost",
+            "methodName": "test_dmz_save",
+            "description": "保存DMZ信息",
+            "spendTime": "11.2 s",
             "status": "成功",
             "log": [
                 ""
@@ -7142,10 +7162,10 @@
         }
     ],
     "testName": "路由器UI自动化测试报告",
-    "testAll": 1,
+    "testAll": 3,
     "testFail": 0,
-    "beginTime": "2019-09-16 10:19:53",
-    "totalTime": "23s",
+    "beginTime": "2019-09-18 23:19:29",
+    "totalTime": "34s",
     "testSkip": 0,
     "testError": 0
 };

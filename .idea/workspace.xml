@@ -2,43 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9735d93a-b6d6-46cc-9f5b-a801c6ac523e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AutoTest/test1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AutoTest/test2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebAuto/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebAuto/login.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebAuto/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebAuto/test_my_wifi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/report/WebUI-调试.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/report/api/rweb/路由器UI自动化测试.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/report/新增用户-测试报告.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/report/调试报告.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/path/devices.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/path/homePage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/path/limitTime.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/path/portForwarding.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/path/routerManagement.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/test_base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/test_language.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/test_limit.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/test_login.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/test_portForwarding.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/test_staticDhcpLease.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rweb/test_timeZone.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schema/smartota/user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartota/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartota/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartota/test_base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartota/test_user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test2/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Practice_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Practice_1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.py" beforeDir="false" afterPath="$PROJECT_DIR$/a.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/b.py" beforeDir="false" afterPath="$PROJECT_DIR$/b.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/测试报告.html" beforeDir="false" afterPath="$PROJECT_DIR$/report/测试报告.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/api/rweb/路由器UI自动化测试.html" beforeDir="false" afterPath="$PROJECT_DIR$/report/api/rweb/路由器UI自动化测试.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/path/homePage.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/path/homePage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/path/portForwarding.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/path/portForwarding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_portForwarding.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_portForwarding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_staticDhcpLease.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_staticDhcpLease.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,17 +23,19 @@
     <SUITE FILE_PATH="coverage/Practice_1$a.coverage" NAME="a Coverage Results" MODIFIED="1562601572589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Practice_1$cookie.coverage" NAME="cookie Coverage Results" MODIFIED="1562678656871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Practice_1$test1.coverage" NAME="test1 Coverage Results" MODIFIED="1562774047943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Practice_1$schema.coverage" NAME="schema Coverage Results" MODIFIED="1563201360727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Practice_1$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1565789197332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Practice_1$b.coverage" NAME="b Coverage Results" MODIFIED="1562682751441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Practice_1$main.coverage" NAME="main Coverage Results" MODIFIED="1562678284539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/test$a.coverage" NAME="a Coverage Results" MODIFIED="1562489533038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rweb/test_limit.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rweb/test_dmzHost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5232">
-              <caret line="228" column="49" selection-start-line="217" selection-start-column="8" selection-end-line="228" selection-end-column="49" />
+            <state relative-caret-position="311">
+              <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
               <folding>
                 <element signature="e#91#106#0" expanded="true" />
               </folding>
@@ -69,11 +43,50 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rweb/path/dmzHost.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rweb/test_staticDhcpLease.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="152" column="62" lean-forward="true" selection-start-line="152" selection-start-column="62" selection-end-line="152" selection-end-column="62" />
+              <folding>
+                <element signature="e#91#106#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rweb/path/staticDhcpLease.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rweb/test_limit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-105">
+              <caret line="117" column="17" lean-forward="true" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rweb/test_portForwarding.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="-2443">
+              <caret line="82" column="24" lean-forward="true" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
               <folding>
                 <element signature="e#92#107#0" expanded="true" />
               </folding>
@@ -101,69 +114,32 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/HTMLTestRunner.py" />
         <option value="$PROJECT_DIR$/a.py" />
-        <option value="$PROJECT_DIR$/b.py" />
-        <option value="$PROJECT_DIR$/schema/user.py" />
-        <option value="$PROJECT_DIR$/smartota/apis.py" />
-        <option value="$PROJECT_DIR$/smartota/__init__.py" />
-        <option value="$PROJECT_DIR$/test/test_base.py" />
-        <option value="$PROJECT_DIR$/test/aaa.py" />
-        <option value="$PROJECT_DIR$/test/__init__.py" />
-        <option value="$PROJECT_DIR$/test/test_user.py" />
-        <option value="$PROJECT_DIR$/test/main.py" />
-        <option value="$PROJECT_DIR$/smartota/test_base.py" />
-        <option value="$PROJECT_DIR$/smartota/user.py" />
-        <option value="$PROJECT_DIR$/smartota/main.py" />
-        <option value="$PROJECT_DIR$/test2.py" />
-        <option value="$PROJECT_DIR$/smartota/test_user.py" />
-        <option value="$PROJECT_DIR$/rweb/111.py" />
-        <option value="$PROJECT_DIR$/rweb/test2.py" />
+        <option value="$PROJECT_DIR$/a.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/WebAuto/__init__.py" />
-        <option value="$PROJECT_DIR$/WebAuto/login.py" />
-        <option value="$PROJECT_DIR$/AutoTest/test2.py" />
-        <option value="$PROJECT_DIR$/WebAuto/main.py" />
-        <option value="$PROJECT_DIR$/WebAuto/test_my_wifi.py" />
-        <option value="$PROJECT_DIR$/test2/main.py" />
-        <option value="$PROJECT_DIR$/AutoTest/test1.py" />
-        <option value="$PROJECT_DIR$/rweb/test_login.py" />
-        <option value="$PROJECT_DIR$/rweb/page_path.py" />
-        <option value="$PROJECT_DIR$/rweb/path.py" />
-        <option value="$PROJECT_DIR$/rweb/path/set.py" />
-        <option value="$PROJECT_DIR$/rweb/1111.py" />
-        <option value="$PROJECT_DIR$/rweb/test_timezone.py" />
-        <option value="$PROJECT_DIR$/rweb/path/others.py" />
-        <option value="$PROJECT_DIR$/rweb/path/test_limit_time.py" />
-        <option value="$PROJECT_DIR$/rweb/test_limit_time.py" />
-        <option value="$PROJECT_DIR$/rweb/path/advanced_settings.py" />
-        <option value="$PROJECT_DIR$/rweb/path/homePageLocators.py" />
-        <option value="$PROJECT_DIR$/rweb/path/upgrade_firmware.py" />
-        <option value="$PROJECT_DIR$/rweb/path/mywifi.py" />
-        <option value="$PROJECT_DIR$/rweb/test_timeZone.py" />
-        <option value="$PROJECT_DIR$/rweb/path/routerManagement.py" />
-        <option value="$PROJECT_DIR$/rweb/test_language.py" />
-        <option value="$PROJECT_DIR$/rweb/path/devices.py" />
-        <option value="$PROJECT_DIR$/rweb/path/limitTime.py" />
-        <option value="$PROJECT_DIR$/rweb/test_base.py" />
+        <option value="$PROJECT_DIR$/venv/cookie.py" />
+        <option value="$PROJECT_DIR$/cookie.py" />
+        <option value="$PROJECT_DIR$/b.py" />
+        <option value="$PROJECT_DIR$/test1.py" />
+        <option value="$PROJECT_DIR$/rweb/test_portForwarding.py" />
         <option value="$PROJECT_DIR$/rweb/path/homePage.py" />
-        <option value="$PROJECT_DIR$/rweb/test_cloneMacAddress.py" />
-        <option value="$PROJECT_DIR$/rweb/test_limit.py" />
+        <option value="$PROJECT_DIR$/rweb/path/portForwarding.py" />
+        <option value="$PROJECT_DIR$/rweb/path/staticDhcpLease.py" />
         <option value="$PROJECT_DIR$/rweb/test_staticDhcpLease.py" />
         <option value="$PROJECT_DIR$/rweb/main.py" />
-        <option value="$PROJECT_DIR$/rweb/path/portForwarding.py" />
-        <option value="$PROJECT_DIR$/rweb/test_portForwarding.py" />
+        <option value="$PROJECT_DIR$/rweb/path/dmzHost.py" />
+        <option value="$PROJECT_DIR$/rweb/test_dmzHost.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
+    <option name="x" value="10" />
     <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
   </component>
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -176,24 +152,6 @@
             <path>
               <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
-              <item name="report" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
-              <item name="report" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
-              <item name="report" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="rweb" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
@@ -213,22 +171,15 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\PyCharm\Practice_1\AutoTest" />
-      <recent name="D:\PyCharm\Practice_1\schema\smartota" />
-      <recent name="D:\PyCharm\Practice_1\schema" />
-      <recent name="D:\PyCharm\Practice_1\rweb" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\PyCharm\Practice_1\test" />
+      <recent name="D:\PyCharm\Practice_1\rweb\path" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -243,8 +194,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for main.LearnElement">
-    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.a">
+    <configuration name="a" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Practice_1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -252,11 +203,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/AutoTest" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AutoTest/test2.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/a.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -265,24 +217,101 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for main.LearnElement" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="b" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Practice_1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/WebAuto" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;main.LearnElement&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/b.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cookie" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Practice_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cookie.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Practice_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Python365\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Practice_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for main.LearnElement" />
-        <item itemvalue="Python.test2" />
+        <item itemvalue="Python.test1" />
+        <item itemvalue="Python.b" />
+        <item itemvalue="Python.cookie" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.a" />
       </list>
     </recent_temporary>
   </component>
@@ -305,10 +334,35 @@
       <workItem from="1562597735633" duration="3914000" />
       <workItem from="1562678217494" duration="7825000" />
       <workItem from="1562768597239" duration="2770000" />
+      <workItem from="1568717465490" duration="1186000" />
+      <workItem from="1568719047856" duration="613000" />
+      <workItem from="1568807599789" duration="1837000" />
+      <workItem from="1568809990243" duration="9442000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="Unittests_in_a_py - 2019.07.07 at 23h 29m 35s.xml">
+      <configuration name="Unittests in a.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_a_py - 2019.07.07 at 23h 31m 02s.xml">
+      <configuration name="Unittests in a.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_a_py - 2019.07.07 at 23h 33m 04s.xml">
+      <configuration name="Unittests in a.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_a_py - 2019.07.07 at 23h 33m 12s.xml">
+      <configuration name="Unittests in a.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_a_py - 2019.07.07 at 23h 33m 21s.xml">
+      <configuration name="Unittests in a.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_a_py - 2019.07.07 at 23h 39m 28s.xml">
+      <configuration name="Unittests in a.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_a_py - 2019.07.07 at 23h 40m 58s.xml">
+      <configuration name="Unittests in a.py" configurationId="tests" />
+    </history-entry>
     <history-entry file="Unittests_in_a_py - 2019.07.07 at 23h 42m 31s.xml">
       <configuration name="Unittests in a.py" configurationId="tests" />
     </history-entry>
@@ -318,50 +372,30 @@
     <history-entry file="Unittests_in_a_py - 2019.07.07 at 23h 47m 40s.xml">
       <configuration name="Unittests in a.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_a_Test1 - 2019.07.18 at 13h 44m 39s.xml">
-      <configuration name="Unittests for a.Test1" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_a_Test1 - 2019.07.18 at 13h 46m 31s.xml">
-      <configuration name="Unittests for a.Test1" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_a_Test1 - 2019.07.18 at 13h 47m 05s.xml">
-      <configuration name="Unittests for a.Test1" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_a_Test1 - 2019.07.18 at 13h 47m 33s.xml">
-      <configuration name="Unittests for a.Test1" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_a_Test1 - 2019.07.18 at 13h 47m 56s.xml">
-      <configuration name="Unittests for a.Test1" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_a_Test1 - 2019.07.18 at 13h 48m 15s.xml">
-      <configuration name="Unittests for a.Test1" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_main_LearnElement - 2019.07.31 at 15h 04m 46s.xml">
-      <configuration name="Unittests for main.LearnElement" configurationId="tests" />
-    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35387000" />
+    <option name="totallyTimeSpent" value="48491000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20916754" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30559757" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.54772234" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.34369886" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.329718" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.2618658" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.23752712" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3275488" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.22295082" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -372,178 +406,69 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rweb/test_portForwarding.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/report/新增用户-测试报告.html">
+    <entry file="file://$PROJECT_DIR$/report/api/2019-07-08 00_04_17_result.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_schema.py" />
-    <entry file="file://D:/Python365/Lib/site-packages/BeautifulReport/BeautifulReport.py">
+    <entry file="file://$PROJECT_DIR$/HTMLTestRunner.py" />
+    <entry file="file://$PROJECT_DIR$/report/api/2019-07-08 00_10_54_result.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-579063310/builtins.py" />
+    <entry file="file://D:/Python365/Lib/site-packages/requests/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="363" selection-start-line="363" selection-end-line="363" />
+        <state relative-caret-position="20136">
+          <caret line="872" column="8" selection-start-line="872" selection-start-column="8" selection-end-line="872" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schema/smartota/user.py">
+    <entry file="file://$PROJECT_DIR$/report/测试报告.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/smartota/test_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#90#105#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smartota/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-          <folding>
-            <element signature="e#23#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smartota/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/smartota/test_user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#43#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/111.py" />
-    <entry file="file://$PROJECT_DIR$/b.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="11" column="19" lean-forward="true" selection-end-line="37" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Python365/Lib/site-packages/selenium/webdriver/common/by.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/report/WebUI-调试.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebAuto/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebAuto/test_my_wifi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-          <folding>
-            <element signature="e#90#105#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebAuto/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding>
-            <element signature="e#92#107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Python365/Lib/unittest/suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1032">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebAuto/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/Python365/Lib/site-packages/BeautifulReport/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/report/调试报告.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144">
-          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test2/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
-          <folding>
-            <element signature="e#92#107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/cookie.py" />
     <entry file="file://$PROJECT_DIR$/cookie.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello_world.py">
+    <entry file="file://D:/Python365/Lib/site-packages/requests/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://D:/Python365/Lib/site-packages/requests/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="43" selection-start-line="2" selection-end-line="2" selection-end-column="43" />
+        <state relative-caret-position="64">
+          <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../helpers/typeshed/stdlib/3/unittest/__init__.pyi">
+    <entry file="file://$PROJECT_DIR$/b.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AutoTest/test2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
-          <folding>
-            <element signature="e#90#105#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="168">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/a.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+        <state relative-caret-position="120">
+          <caret line="17" column="59" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="59" />
           <folding>
             <element signature="e#23#38#0" expanded="true" />
           </folding>
@@ -552,144 +477,111 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AutoTest/test1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="17" column="84" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="84" />
+        <state relative-caret-position="168">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#23#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/1111.py" />
-    <entry file="file://$PROJECT_DIR$/report/测试报告.html">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        <state relative-caret-position="235">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#23#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/path/test_limit_time.py" />
-    <entry file="file://D:/Python365/Lib/site-packages/selenium/webdriver/support/expected_conditions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="292" column="8" selection-start-line="292" selection-start-column="8" selection-end-line="292" selection-end-column="8" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/smartota/main.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/path/upgrade_firmware.py" />
-    <entry file="file://$PROJECT_DIR$/rweb/path/others.py" />
-    <entry file="file://$PROJECT_DIR$/rweb/test_login.py">
+    <entry file="file://$PROJECT_DIR$/rweb/path/routerManagement.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/path/mywifi.py" />
-    <entry file="file://$PROJECT_DIR$/rweb/path/set.py" />
-    <entry file="file://$PROJECT_DIR$/rweb/path/advanced_settings.py" />
-    <entry file="file://$PROJECT_DIR$/rweb/path/limitTime.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+        <state>
+          <caret selection-end-line="4" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rweb/path/devices.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#92#107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_language.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/path/routerManagement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/report/api/rweb/路由器UI自动化测试.html">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/path/homePage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/path/limitTime.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/path/portForwarding.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rweb/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        <state relative-caret-position="368">
+          <caret line="23" column="15" lean-forward="true" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
           <folding>
             <element signature="e#92#135#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/path/homePage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/test_staticDhcpLease.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/path/portForwarding.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_timeZone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="12" column="47" lean-forward="true" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_limit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5232">
-          <caret line="228" column="49" selection-start-line="217" selection-start-column="8" selection-end-line="228" selection-end-column="49" />
+        <state relative-caret-position="272">
+          <caret line="152" column="62" lean-forward="true" selection-start-line="152" selection-start-column="62" selection-end-line="152" selection-end-column="62" />
           <folding>
             <element signature="e#91#106#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/path/staticDhcpLease.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/path/dmzHost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_limit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="117" column="17" lean-forward="true" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/test_portForwarding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="-2443">
+          <caret line="82" column="24" lean-forward="true" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
           <folding>
             <element signature="e#92#107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_dmzHost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="e#91#106#0" expanded="true" />
           </folding>
         </state>
       </provider>

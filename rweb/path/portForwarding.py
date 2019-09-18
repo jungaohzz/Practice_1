@@ -4,9 +4,9 @@
 # @Time  :  2019/7/24 13:43
 # @Author:  GaoJun
 
-
+"""端口转发"""
 class PortForwardingLocators(object):
-    """端口转发首页 - 列表"""
+    """端口转发 首页 - 列表"""
     Add = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[1]/div[2]/button[1]"
     # 批量删除
     Deletes = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[1]/div[2]/button[3]"
@@ -18,12 +18,14 @@ class PortForwardingLocators(object):
     List_LocalPort = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[3]/div/div[3]/p[2]"
     List_ProtocolType = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[3]/div/div[4]"
     List_Statu = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[3]/div/div[5]/div/div"
-    # 每一个的删除按钮
+    # 每一个的 编辑 和 删除 按钮
+    Edit = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[3]/div/div[6]/a[1]"
     Delete = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[3]/div/div[6]/a[2]"
+    Delete_ok = "/html/body/div[3]/div/div[2]/button[2]"
 
 
     """新增端口转发"""
-    ProtocolType_TCP_UDP = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[1]/div/div[1]/div[1]"
+    ProtocolType_TcpUdp = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[1]/div/div[1]/div[1]"
     ProtocolType_TCP = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[1]/div/div[2]/div[1]"
     ProtocolType_UDP = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[1]/div/div[3]/div[1]"
     Name= "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[2]/div/div/div/input"
