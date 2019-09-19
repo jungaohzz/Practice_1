@@ -15,13 +15,14 @@ from .test_limit import Limit
 from .test_portForwarding import PortForwarding
 from .test_staticDhcpLease import StaticDHCPLease
 from .test_dmzHost import DmzHost
+from .test_fireWall import FireWall
 
 
 
 def core():
     s = []
     class_tests = [
-        Limit
+        FireWall
     ]
     
     

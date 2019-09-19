@@ -32,10 +32,11 @@ class DmzHost(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.DMZ_Host))
         ).click()
-        time.sleep(1)
+        time.sleep(0.5)
 
+    @unittest.skip("跳过")
     def test_A_dmz_save(self):
-        """保存DMZ信息"""
+        """DMZ-保存"""
         # 输入IP地址：192.168.127.200
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, DmzHostLocators.DmzHostIp))
@@ -55,16 +56,16 @@ class DmzHost(Base):
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
+        self.driver.refresh()
         # 断言：DMZ host的IP地址是否为：192.168.127.200
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, DmzHostLocators.DmzHostIp))
         )
         assert self.driver.find_element_by_xpath(DmzHostLocators.DmzHostIp).get_attribute("value") == "192.168.127.200"
 
-
-
+    @unittest.skip("跳过")
     def test_B_dmz_on(self):
-        """开启DMZ"""
+        """DMZ-开启"""
         # 判断：如果已关闭，才进行开启操作
         if self.driver.find_element_by_xpath(DmzHostLocators.Statu).get_attribute('class') == "box":
             # 开启 DMZ
@@ -80,6 +81,7 @@ class DmzHost(Base):
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+            self.driver.refresh()
 
         # 断言：DMZ状态是否为：开启
         WebDriverWait(self.driver, 10).until(
@@ -89,9 +91,8 @@ class DmzHost(Base):
 
 
 
-
     def test_C_dmz_off(self):
-        """关闭DMZ"""
+        """DMZ-关闭"""
         # 判断：如果已开启，才进行关闭操作
         if self.driver.find_element_by_xpath(DmzHostLocators.Statu).get_attribute('class') == "box checked":
             # 关闭 DMZ
@@ -107,6 +108,7 @@ class DmzHost(Base):
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+            self.driver.refresh()
 
         # 断言：DMZ状态是否为：关闭
         WebDriverWait(self.driver, 10).until(

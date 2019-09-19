@@ -59,8 +59,11 @@ class StaticDHCPLease(Base):
             EC.element_to_be_clickable(
                 (By.XPATH, StaticDHCPLeaseLocators.Save))
         ).click()
-
-        time.sleep(3)
+        # 断言:toast提示：保存成功
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
         # 断言：名称是否为：3
         WebDriverWait(self.driver, 10).until(
@@ -136,8 +139,11 @@ class StaticDHCPLease(Base):
             EC.element_to_be_clickable(
                 (By.XPATH, StaticDHCPLeaseLocators.Save))
         ).click()
-
-        time.sleep(3)
+        # 断言:toast提示：保存成功
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
 
         # 批量删除

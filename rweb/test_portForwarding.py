@@ -66,7 +66,11 @@ class PortForwarding(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.Save))
         ).click()
-        time.sleep(2)
+        # 断言:toast提示：新增成功
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
         # 断言：名称是否为：无外网IP
         WebDriverWait(self.driver, 10).until(
@@ -118,7 +122,7 @@ class PortForwarding(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.Delete_ok))
         ).click()
-        time.sleep(2)
+
 
 
     def test_B_portForwarding_add_ExternalNetwork(self):
@@ -161,7 +165,11 @@ class PortForwarding(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.Save))
         ).click()
-        time.sleep(2)
+        # 断言:toast提示：打开开关成功
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
         # 断言：名称是否为：有外网IP
         WebDriverWait(self.driver, 10).until(
@@ -214,7 +222,11 @@ class PortForwarding(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.List_Statu))
         ).click()
-        time.sleep(3)
+        # 断言:toast提示：关闭开关成功
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
         # 点击编辑按钮
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.Edit))
@@ -274,7 +286,11 @@ class PortForwarding(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.Save))
         ).click()
-        time.sleep(2)
+        # 断言:toast提示：编辑后保存成功
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
         # 断言：名称是否为：编辑
         WebDriverWait(self.driver, 10).until(
@@ -326,5 +342,4 @@ class PortForwarding(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.Delete_ok))
         ).click()
-        time.sleep(2)
 

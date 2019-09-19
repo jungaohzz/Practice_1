@@ -18,7 +18,7 @@ from rweb.path.routerManagement import RouterManagementLocators
 class Language(Base):
 
     def test_A_set_English(self):
-        """检查是否为英文"""
+        """语言-成功切换为英文"""
         # time.sleep(1)
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
@@ -29,7 +29,7 @@ class Language(Base):
         assert self.driver.find_element_by_xpath(CommonLocators.Logout).text == "Logout", CommonLocators.Logout
 
     def test_B_set_Chinese(self):
-        """切换为中文"""
+        """语言-成功切换为为中文"""
         # 鼠标移动到切换语言的按钮上
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Language))
@@ -48,7 +48,7 @@ class Language(Base):
         assert self.driver.find_element_by_xpath(CommonLocators.Logout).text == "退出登录", CommonLocators.Logout
 
     def test_C_set_Deutsch(self):
-        """切换为德文"""
+        """语言-成功切换为德文"""
         # 鼠标移动到切换语言的按钮上
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Language))
