@@ -22,7 +22,7 @@ from rweb.path.dmzHost import DmzHostLocators
 """DMZ主机"""
 class DmzHost(Base):
 
-    def test_dmz_save(self):
+    def test_A_dmz_save(self):
         """保存DMZ信息"""
         # 鼠标模拟移动到：高级设置
         WebDriverWait(self.driver, 10).until(
@@ -58,7 +58,7 @@ class DmzHost(Base):
 
 
 
-    def test_dmz_on(self):
+    def test_B_dmz_on(self):
         """开启DMZ"""
         # 鼠标模拟移动到：高级设置
         WebDriverWait(self.driver, 10).until(
@@ -93,7 +93,7 @@ class DmzHost(Base):
 
 
 
-    def test_dmz_off(self):
+    def test_C_dmz_off(self):
         """关闭DMZ"""
         # 鼠标模拟移动到：高级设置
         WebDriverWait(self.driver, 10).until(

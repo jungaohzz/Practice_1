@@ -18,9 +18,9 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 class Limit(Base):
-    def test_limit_time(self):
-        """设置限时"""
 
+    def test_A_limit_time(self):
+        """设置限时"""
         # WebDriverWait(self.driver, 10).until(
         #     EC.element_to_be_clickable((By.XPATH, HomePageLocators.LEVEL_1_MyWifi))
         # ).click()
@@ -84,7 +84,7 @@ class Limit(Base):
 
 
 
-    def test_limit_rate(self):
+    def test_B_limit_rate(self):
         """设置限速"""
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, HomePageLocators.LEVEL_1_MyWifi))
@@ -160,7 +160,7 @@ class Limit(Base):
 
 
 
-    def test_limit_WebsiteBlacklist(self):
+    def test_C_limit_WebsiteBlacklist(self):
         """设置网址黑名单"""
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, HomePageLocators.LEVEL_1_MyWifi))

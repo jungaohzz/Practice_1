@@ -17,7 +17,7 @@ from rweb.path.routerManagement import RouterManagementLocators
 
 class Language(Base):
 
-    def test_set_English(self):
+    def test_A_set_English(self):
         """检查是否为英文"""
         # time.sleep(1)
         WebDriverWait(self.driver, 10).until(
@@ -28,7 +28,7 @@ class Language(Base):
         assert self.driver.find_element_by_xpath(RouterManagementLocators.Mesh_Topology).text == "Mesh Topology", RouterManagementLocators.Mesh_Topology
         assert self.driver.find_element_by_xpath(HomePageLocators.Logout).text == "Logout", HomePageLocators.Logout
 
-    def test_set_Chinese(self):
+    def test_B_set_Chinese(self):
         """切换为中文"""
         # 鼠标移动到切换语言的按钮上
         WebDriverWait(self.driver, 10).until(
@@ -47,7 +47,7 @@ class Language(Base):
         assert self.driver.find_element_by_xpath(RouterManagementLocators.Mesh_Topology).text == "Mesh拓扑图", RouterManagementLocators.Mesh_Topology
         assert self.driver.find_element_by_xpath(HomePageLocators.Logout).text == "退出登录", HomePageLocators.Logout
 
-    def test_set_Deutsch(self):
+    def test_C_set_Deutsch(self):
         """切换为德文"""
         # 鼠标移动到切换语言的按钮上
         WebDriverWait(self.driver, 10).until(

@@ -21,7 +21,7 @@ from .test_dmzHost import DmzHost
 def core():
     s = []
     class_tests = [
-        DmzHost
+        DmzHost, TimeZone, Language, Limit, PortForwarding, StaticDHCPLease
     ]
     
     
