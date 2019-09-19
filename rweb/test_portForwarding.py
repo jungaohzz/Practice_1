@@ -12,26 +12,26 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
-from rweb.path.homePage import HomePageLocators
+from rweb.path.common import CommonLocators
 from rweb.path.portForwarding import PortForwardingLocators
 
 
 class PortForwarding(Base):
 
+    def setUp(self):
+        super(PortForwarding, self).setUp()
+        # 进入端口转发
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.LEVEL_1_AdvancedSettings))
+        ).click()
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.PortForwarding))
+        ).click()
+        # time.sleep(8)  #loading页面
+        time.sleep(2)
 
     def test_A_portForwarding_add_withoutExternalNetwork(self):
         """端口转发-新增-无外网IP"""
-        # 进入端口转发
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.LEVEL_1_AdvancedSettings))
-        ).click()
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.PortForwarding))
-        ).click()
-
-        #time.sleep(8)  #loading页面
-        time.sleep(2)
-
         # 点击新增按钮
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.Add))
@@ -123,17 +123,6 @@ class PortForwarding(Base):
 
     def test_B_portForwarding_add_ExternalNetwork(self):
         """端口转发-新增-有外网IP"""
-        # 进入端口转发
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.LEVEL_1_AdvancedSettings))
-        ).click()
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.PortForwarding))
-        ).click()
-
-        # time.sleep(8)  #loading页面
-        time.sleep(2)
-
         # 点击新增按钮
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.Add))
@@ -221,16 +210,6 @@ class PortForwarding(Base):
 
     def test_C_portForwarding_edit(self):
         """端口转发-编辑"""
-        # 进入端口转发
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.LEVEL_1_AdvancedSettings))
-        ).click()
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.PortForwarding))
-        ).click()
-
-        # time.sleep(8)  #loading页面
-        time.sleep(2)
         # 将状态变为：关闭
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.List_Statu))

@@ -11,7 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
-from rweb.path.homePage import HomePageLocators
+from rweb.path.common import CommonLocators
 from rweb.path.devices import DevicesLocators
 from rweb.path.limitTime import LimitTimeLocators
 from selenium.webdriver.common.action_chains import ActionChains
@@ -19,27 +19,26 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 class Limit(Base):
 
-    def test_A_limit_time(self):
-        """设置限时"""
-        # WebDriverWait(self.driver, 10).until(
-        #     EC.element_to_be_clickable((By.XPATH, HomePageLocators.LEVEL_1_MyWifi))
-        # ).click()
+    def setUp(self):
+        super(Limit, self).setUp()
         # 鼠标移动到切换“我的WiFi”按钮上
         WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, HomePageLocators.LEVEL_1_MyWifi))
+            EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
         )
-        mouse = self.driver.find_element_by_xpath(HomePageLocators.LEVEL_1_MyWifi)
+        mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
         ActionChains(self.driver).move_to_element(mouse).perform()
-
-
         # 点击 接入设备
         WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.Devices))
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
         ).click()
         # 点击主网-设置
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, DevicesLocators.Set))
         ).click()
+
+    @unittest.skip("跳过")
+    def test_A_limit_time(self):
+        """设置限时"""
         # 点击限时的新增按钮
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Add))
@@ -48,9 +47,17 @@ class Limit(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div[2]/div/div[1]/div[4]/div/div[1]/div/label/div[1]"))
         ).click()
+        # 点击 新增 按钮
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div[2]/div/div[3]/button[2]"))
         ).click()
+
+        # 断言:是否操作成功：保存
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+
 
         # 断言:判断是否选中的星期一
         WebDriverWait(self.driver, 10).until(
@@ -68,35 +75,30 @@ class Limit(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[1]/div/div/div[1]/div[2]/div/div/div[3]/div/div[4]/div/div/div"))
         ).click()
+
+
+
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located(
                 (By.XPATH, "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div/div[4]/div/div/div"))
         )
         assert self.driver.find_element_by_xpath("/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div/div[4]/div/div/div").get_attribute('class') == "switch switch-animation"
 
+        time.sleep(1)
+
         # 最后删除限时
-
-        time.sleep(1)   #这里为什么必须需要sleep？？？？？？？？？？？？？？？？？？？？？？？？？？
-
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.LINK_TEXT, "Delete"))
         ).click()
+        # 断言:toast提示：成功
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
-
-
+    @unittest.skip("跳过")
     def test_B_limit_rate(self):
         """设置限速"""
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.LEVEL_1_MyWifi))
-        ).click()
-        # 点击 设备
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.Devices))
-        ).click()
-        # 点击主网-设置
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, DevicesLocators.Set))
-        ).click()
         # 切换到限速页
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div/div[1]/div[1]/div[3]/div/div[2]"))
@@ -122,6 +124,13 @@ class Limit(Base):
                 (By.XPATH, "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div/div[3]/button"))
         ).click()
 
+        # 断言:toast提示：成功
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+
+
         # 断言:判断上下行是否设置为了12000
         upRate = self.driver.find_element_by_xpath("/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div/div[1]/div[1]/div/div/div/input")
         downRate = self.driver.find_element_by_xpath("/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div/div[1]/div[2]/div/div/div/input")
@@ -139,7 +148,7 @@ class Limit(Base):
         )
         assert self.driver.find_element_by_xpath("/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div/div[2]/div/label/div[1]").get_attribute('class') == "box checked"
 
-        time.sleep(2)   #为什么必须要sleep？？？？？？？？？？？？？？？？？？？？？
+        #time.sleep(2)   #为什么必须要sleep？？？？？？？？？？？？？？？？？？？？？
 
         # 断言：关闭开关，再判断开关是否关闭
         WebDriverWait(self.driver, 10).until(
@@ -159,20 +168,8 @@ class Limit(Base):
             "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div/div[2]/div/label/div[1]").get_attribute('class') == "box"
 
 
-
     def test_C_limit_WebsiteBlacklist(self):
         """设置网址黑名单"""
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.LEVEL_1_MyWifi))
-        ).click()
-        # 点击 设备
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.Devices))
-        ).click()
-        # 点击主网-设置
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, DevicesLocators.Set))
-        ).click()
         # 切换到网址黑名单页
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div/div[1]/div[1]/div[3]/div/div[3]"))

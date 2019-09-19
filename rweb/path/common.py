@@ -5,7 +5,7 @@
 # @Author:  GaoJun
 
 """首页"""
-class HomePageLocators(object):
+class CommonLocators(object):
 
     """更新提示框"""
 
@@ -85,3 +85,6 @@ class HomePageLocators(object):
 
     """退出登录"""
     Logout = "/html/body/div[1]/div/div/div/header/div[4]/div[3]"
+
+    """成功的toast"""
+    Success_Toast = "//div[@class='toast-container success']"

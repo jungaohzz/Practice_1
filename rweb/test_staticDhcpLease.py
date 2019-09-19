@@ -10,33 +10,34 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
-from rweb.path.homePage import HomePageLocators
+from rweb.path.common import CommonLocators
 from rweb.path.devices import DevicesLocators
 from rweb.path.limitTime import LimitTimeLocators
 from selenium.webdriver.common.action_chains import ActionChains
 from rweb.path.staticDhcpLease import StaticDHCPLeaseLocators
 
-
-
 """Mac与IP绑定"""
+
 class StaticDHCPLease(Base):
 
-    def test_A_limit_time(self):
-        """Mac与IP绑定-新增绑定"""
-
+    def setUp(self):
+        super(StaticDHCPLease, self).setUp()
         # 鼠标模拟移动到：高级设置
         WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, HomePageLocators.LEVEL_1_AdvancedSettings))
+            EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_AdvancedSettings))
         )
-        mouse = self.driver.find_element_by_xpath(HomePageLocators.LEVEL_1_AdvancedSettings)
+        mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_AdvancedSettings)
         ActionChains(self.driver).move_to_element(mouse).perform()
 
         # 点击 Mac与IP绑定
         WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.Static_DHCP_Lease))
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.Static_DHCP_Lease))
         ).click()
         time.sleep(1)
 
+
+    def test_A_limit_time(self):
+        """Mac与IP绑定-新增绑定"""
         # 点击 新增
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, StaticDHCPLeaseLocators.Add))
@@ -77,7 +78,6 @@ class StaticDHCPLease(Base):
         )
         assert self.driver.find_element_by_xpath(StaticDHCPLeaseLocators.List_IpAddr).text == "192.168.127.120"
 
-
         # #以下代码左右：连续新增20条记录
         # i=1
         # while i<=20:
@@ -114,18 +114,6 @@ class StaticDHCPLease(Base):
 
     def test_B_deletes(self):
         """Mac与IP绑定-批量删除"""
-        # 鼠标移动到切换语言的按钮上
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, HomePageLocators.LEVEL_1_AdvancedSettings))
-        )
-        mouse = self.driver.find_element_by_xpath(HomePageLocators.LEVEL_1_AdvancedSettings)
-        ActionChains(self.driver).move_to_element(mouse).perform()
-
-        # 点击 Mac与IP绑定
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.Static_DHCP_Lease))
-        ).click()
-        time.sleep(1)
         # 需要再新增1条记录检验
         # 新增
         WebDriverWait(self.driver, 10).until(

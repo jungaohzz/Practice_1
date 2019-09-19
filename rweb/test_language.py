@@ -12,7 +12,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
 from selenium.webdriver.common.action_chains import ActionChains
-from rweb.path.homePage import HomePageLocators
+from rweb.path.common import CommonLocators
 from rweb.path.routerManagement import RouterManagementLocators
 
 class Language(Base):
@@ -21,48 +21,48 @@ class Language(Base):
         """检查是否为英文"""
         # time.sleep(1)
         WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, HomePageLocators.LEVEL_1_MyWifi))
+            EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
         )
         # 检验3个地方
-        assert self.driver.find_element_by_xpath(HomePageLocators.LEVEL_1_MyWifi).text == "My WiFi", HomePageLocators.LEVEL_1_MyWifi
+        assert self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).text == "My WiFi", CommonLocators.LEVEL_1_MyWifi
         assert self.driver.find_element_by_xpath(RouterManagementLocators.Mesh_Topology).text == "Mesh Topology", RouterManagementLocators.Mesh_Topology
-        assert self.driver.find_element_by_xpath(HomePageLocators.Logout).text == "Logout", HomePageLocators.Logout
+        assert self.driver.find_element_by_xpath(CommonLocators.Logout).text == "Logout", CommonLocators.Logout
 
     def test_B_set_Chinese(self):
         """切换为中文"""
         # 鼠标移动到切换语言的按钮上
         WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, HomePageLocators.Language))
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Language))
         )
-        mouse = self.driver.find_element_by_xpath(HomePageLocators.Language)
+        mouse = self.driver.find_element_by_xpath(CommonLocators.Language)
         ActionChains(self.driver).move_to_element(mouse).perform()
 
         # 切换为中文
         WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.Language_Chinese))
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.Language_Chinese))
         ).click()
 
         # 检验3个地方
-        assert self.driver.find_element_by_xpath(HomePageLocators.LEVEL_1_MyWifi).text == "我的WiFi", HomePageLocators.LEVEL_1_MyWifi
+        assert self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).text == "我的WiFi", CommonLocators.LEVEL_1_MyWifi
         assert self.driver.find_element_by_xpath(RouterManagementLocators.Mesh_Topology).text == "Mesh拓扑图", RouterManagementLocators.Mesh_Topology
-        assert self.driver.find_element_by_xpath(HomePageLocators.Logout).text == "退出登录", HomePageLocators.Logout
+        assert self.driver.find_element_by_xpath(CommonLocators.Logout).text == "退出登录", CommonLocators.Logout
 
     def test_C_set_Deutsch(self):
         """切换为德文"""
         # 鼠标移动到切换语言的按钮上
         WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, HomePageLocators.Language))
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Language))
         )
-        mouse = self.driver.find_element_by_xpath(HomePageLocators.Language)
+        mouse = self.driver.find_element_by_xpath(CommonLocators.Language)
         ActionChains(self.driver).move_to_element(mouse).perform()
 
         # 切换为德文
         WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, HomePageLocators.Language_Deutsch))
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.Language_Deutsch))
         ).click()
 
         # 检验3个地方
-        assert self.driver.find_element_by_xpath(HomePageLocators.LEVEL_1_MyWifi).text == "Mein WLAN", HomePageLocators.LEVEL_1_MyWifi
+        assert self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).text == "Mein WLAN", CommonLocators.LEVEL_1_MyWifi
         assert self.driver.find_element_by_xpath(RouterManagementLocators.Mesh_Topology).text == "Netzwerk Topologie", RouterManagementLocators.Mesh_Topology
-        assert self.driver.find_element_by_xpath(HomePageLocators.Logout).text == "Ausloggen", HomePageLocators.Logout
+        assert self.driver.find_element_by_xpath(CommonLocators.Logout).text == "Ausloggen", CommonLocators.Logout
 
