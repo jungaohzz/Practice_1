@@ -33,7 +33,7 @@ class FireWall(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Firewall))
         ).click()
-        time.sleep(0.5)
+        time.sleep(1)
 
 
     def test_A_set_FireWall(self):

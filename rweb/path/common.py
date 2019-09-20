@@ -88,3 +88,4 @@ class CommonLocators(object):
 
     """成功的toast"""
     Success_Toast = "//div[@class='toast-container success']"
+    Loading = "loading-container"

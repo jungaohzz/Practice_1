@@ -25,6 +25,7 @@ class Base(unittest.TestCase):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div/div[1]/div[1]/div[1]/div[2]/div/div[2]/button"))
         ).click()
+        time.sleep(0.5)
 
 
     def tearDown(self):

@@ -40,7 +40,7 @@ class Limit(Base):
             EC.element_to_be_clickable((By.XPATH, DevicesLocators.Set))
         ).click()
 
-    @unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_limit_time(self):
         """设置限时"""
         # 点击限时的新增按钮
@@ -101,7 +101,7 @@ class Limit(Base):
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
-    @unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_B_limit_rate(self):
         """设置限速"""
         # 切换到限速页

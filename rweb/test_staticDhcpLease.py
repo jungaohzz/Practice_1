@@ -33,7 +33,7 @@ class StaticDHCPLease(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Static_DHCP_Lease))
         ).click()
-        time.sleep(1)
+        time.sleep(2)
 
 
     def test_A_limit_time(self):
