@@ -7128,39 +7128,34 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 0,
+    "testPass": 1,
     "testResult": [
         {
-            "className": "FireWall",
-            "methodName": "test_A_set_FireWall",
-            "description": "设置 防火墙",
-            "spendTime": "15.7 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_fireWall.py\", line 68, in test_A_set_FireWall\n    assert Firewall_Statu_class == \"switch switch-animation checked\", Firewall_Statu_class\n",
-                "AssertionError: switch switch-animation\n"
-            ]
-        },
-        {
-            "className": "FireWall",
-            "methodName": "test_B_set_WanPing",
-            "description": "设置 WAN ping",
+            "className": "WifiSettings",
+            "methodName": "test_A_wifiSetting_changePassword",
+            "description": "WiFi设置-修改WiFi密码为各种字符组合",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
                 "跳过"
             ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_B_wifiSetting_SmartConnect",
+            "description": "WiFi设置-修改双频合一开关：由开->关",
+            "spendTime": "9.71 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
         }
     ],
     "testName": "路由器UI自动化测试报告",
     "testAll": 2,
-    "testFail": 1,
-    "beginTime": "2019-09-20 14:26:51",
-    "totalTime": "15s",
+    "testFail": 0,
+    "beginTime": "2019-09-21 00:38:59",
+    "totalTime": "10s",
     "testSkip": 1,
     "testError": 0
 };

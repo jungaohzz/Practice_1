@@ -16,19 +16,21 @@ from .test_portForwarding import PortForwarding
 from .test_staticDhcpLease import StaticDHCPLease
 from .test_dmzHost import DmzHost
 from .test_fireWall import FireWall
+from .test_dhcp import Dhcp
+from .test_cloneMacAddress import CloneMacAddress
+from .test_ddns import DDNS
+from .test_networkMode import NetworkMode
+from .test_networkDiagnosis import NetworkDiagnosis
+from .test_systemLog import SystemLog
+from .test_wifiSettings import WifiSettings
 
 
 
 def core():
     s = []
     class_tests = [
-        FireWall,
-        # TimeZone,
-        # Language,
-        # Limit,
-        # PortForwarding,
-        # StaticDHCPLease,
-        # DmzHost
+        # 注：模式切换最好最后执行，因为如果失败将导致其它用例全部出错
+        WifiSettings
     ]
     
     

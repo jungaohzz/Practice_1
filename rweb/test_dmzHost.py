@@ -48,7 +48,6 @@ class DmzHost(Base):
             EC.element_to_be_clickable((By.XPATH, DmzHostLocators.DmzHostIp))
         ).clear()
         time.sleep(0.5)
-        print(2222)
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, DmzHostLocators.DmzHostIp))
         ).send_keys("192.168.127.200")

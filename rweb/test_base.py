@@ -11,6 +11,7 @@ import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from . import const
 
 
 class Base(unittest.TestCase):
@@ -18,9 +19,10 @@ class Base(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.get('http://mywifi.mercku.tech/#/login')
         self.driver.maximize_window()
+
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.CLASS_NAME, "has-icon"))
-        ).send_keys("11111111")
+        ).send_keys(const.PASSWORD)
 
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div/div[1]/div[1]/div[1]/div[2]/div/div[2]/button"))
