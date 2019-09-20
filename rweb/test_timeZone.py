@@ -49,7 +49,7 @@ class TimeZone(Base):
             EC.presence_of_element_located((By.TAG_NAME, "input"))
         )
         timezone_value = self.driver.find_element_by_tag_name("input").get_attribute('value')
-        assert timezone_value == "(GMT+08:00)Beijing, Chongqing, HongKong, Urumqi", timezone_value
+        assert timezone_value == "(GMT+08:00)Beijing, Chongqing, Hong Kong, Urumqi", timezone_value
 
 
 

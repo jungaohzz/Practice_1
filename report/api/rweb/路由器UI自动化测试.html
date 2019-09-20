@@ -7128,47 +7128,40 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 3,
+    "testPass": 0,
     "testResult": [
         {
-            "className": "DmzHost",
-            "methodName": "test_A_dmz_save",
-            "description": "DMZ-保存",
-            "spendTime": "14.0 s",
-            "status": "成功",
+            "className": "FireWall",
+            "methodName": "test_A_set_FireWall",
+            "description": "设置 防火墙",
+            "spendTime": "15.7 s",
+            "status": "失败",
             "log": [
-                "11111111",
-                "2222",
-                ""
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_fireWall.py\", line 68, in test_A_set_FireWall\n    assert Firewall_Statu_class == \"switch switch-animation checked\", Firewall_Statu_class\n",
+                "AssertionError: switch switch-animation\n"
             ]
         },
         {
-            "className": "DmzHost",
-            "methodName": "test_B_dmz_on",
-            "description": "DMZ-开启",
-            "spendTime": "11.7 s",
-            "status": "成功",
+            "className": "FireWall",
+            "methodName": "test_B_set_WanPing",
+            "description": "设置 WAN ping",
+            "spendTime": "0.0 s",
+            "status": "跳过",
             "log": [
-                ""
-            ]
-        },
-        {
-            "className": "DmzHost",
-            "methodName": "test_C_dmz_off",
-            "description": "DMZ-关闭",
-            "spendTime": "11.9 s",
-            "status": "成功",
-            "log": [
-                ""
+                "跳过"
             ]
         }
     ],
     "testName": "路由器UI自动化测试报告",
-    "testAll": 3,
-    "testFail": 0,
-    "beginTime": "2019-09-20 10:45:11",
-    "totalTime": "37s",
-    "testSkip": 0,
+    "testAll": 2,
+    "testFail": 1,
+    "beginTime": "2019-09-20 14:26:51",
+    "totalTime": "15s",
+    "testSkip": 1,
     "testError": 0
 };
 

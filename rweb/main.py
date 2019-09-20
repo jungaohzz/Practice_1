@@ -22,13 +22,13 @@ from .test_fireWall import FireWall
 def core():
     s = []
     class_tests = [
-        # FireWall,
+        FireWall,
         # TimeZone,
         # Language,
         # Limit,
         # PortForwarding,
         # StaticDHCPLease,
-        DmzHost
+        # DmzHost
     ]
     
     
