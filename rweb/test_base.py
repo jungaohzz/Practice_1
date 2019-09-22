@@ -12,20 +12,21 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from . import const
+from rweb.path.common import CommonLocators
 
 
 class Base(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
-        self.driver.get('http://mywifi.mercku.tech/#/login')
+        self.driver.get(const.URL)
         self.driver.maximize_window()
 
         WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.CLASS_NAME, "has-icon"))
+            EC.presence_of_element_located((By.XPATH, CommonLocators.InputPassword))
         ).send_keys(const.PASSWORD)
 
         WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div/div[1]/div[1]/div[1]/div[2]/div/div[2]/button"))
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Login))
         ).click()
         time.sleep(0.5)
 

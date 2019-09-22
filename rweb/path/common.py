@@ -7,6 +7,11 @@
 """首页"""
 class CommonLocators(object):
 
+    """登录页面"""
+    InputPassword = "/html/body/div[1]/div/div/div/div[1]/div[1]/div[1]/div[2]/div/div[1]/div/div/div[1]/input"
+    Login = "/html/body/div[1]/div/div/div/div[1]/div[1]/div[1]/div[2]/div/div[2]/button"
+
+
     """更新提示框"""
 
 

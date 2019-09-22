@@ -25,7 +25,7 @@ from rweb.path.routerManagement import RouterManagementLocators
 class WifiSettings(Base):
     def setUp(self):
         super(WifiSettings, self).setUp()
-        # 鼠标模拟移动到：高级设置
+        # 鼠标模拟移动到：设置
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
         )

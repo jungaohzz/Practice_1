@@ -23,14 +23,20 @@ from .test_networkMode import NetworkMode
 from .test_networkDiagnosis import NetworkDiagnosis
 from .test_systemLog import SystemLog
 from .test_wifiSettings import WifiSettings
+from .test_internetSettings import InternetSettings
+from .test_adminPassword import AdminPassword
+from .test_blacklist import Blacklist
+
 
 
 
 def core():
     s = []
     class_tests = [
-        # 注：模式切换最好最后执行，因为如果失败将导致其它用例全部出错
-        WifiSettings
+        # 建议执行顺序
+        # 最后：管理密码
+        # 倒二：工作方式
+        Blacklist
     ]
     
     

@@ -16,7 +16,7 @@ from rweb.path.timeZone import TimeZoneLocators
 class TimeZone(Base):
 
     def test_set_timezone(self):
-        """设置时区"""
+        """时区-设置"""
         # 点击 设置
         WebDriverWait(self.driver,10).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.LEVEL_1_Set))
