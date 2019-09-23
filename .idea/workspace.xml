@@ -4,14 +4,7 @@
     <list default="true" id="9735d93a-b6d6-46cc-9f5b-a801c6ac523e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report/api/rweb/路由器UI自动化测试.html" beforeDir="false" afterPath="$PROJECT_DIR$/report/api/rweb/路由器UI自动化测试.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rweb/const.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/const.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rweb/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rweb/note.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/note.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rweb/path/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/path/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rweb/path/devices.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/path/devices.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rweb/test_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rweb/test_timeZone.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_timeZone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rweb/test_wifiSettings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_wifiSettings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_blacklist.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_blacklist.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,12 +24,12 @@
     <SUITE FILE_PATH="coverage/test$a.coverage" NAME="a Coverage Results" MODIFIED="1562489533038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rweb/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-48">
-              <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+            <state relative-caret-position="288">
+              <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
               <folding>
                 <element signature="e#92#135#0" expanded="true" />
               </folding>
@@ -47,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rweb/test_blacklist.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="75" column="12" lean-forward="true" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+            <state relative-caret-position="286">
+              <caret line="114" column="90" selection-start-line="114" selection-start-column="90" selection-end-line="114" selection-end-column="90" />
               <folding>
                 <element signature="e#91#106#0" expanded="true" />
               </folding>
@@ -59,7 +52,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rweb/path/devices.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="416">
               <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
             </state>
           </provider>
@@ -140,7 +133,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -158,6 +151,24 @@
             <path>
               <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
+              <item name="report" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
+              <item name="report" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
+              <item name="report" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="rweb" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
@@ -348,6 +359,8 @@
       <workItem from="1568899665764" duration="7870000" />
       <workItem from="1568977612347" duration="20477000" />
       <workItem from="1569040494862" duration="19097000" />
+      <workItem from="1569140978407" duration="719000" />
+      <workItem from="1569250152196" duration="3188000" />
     </task>
     <servers />
   </component>
@@ -384,13 +397,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96453000" />
+    <option name="totallyTimeSpent" value="100360000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32980332" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34039333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -404,7 +417,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.2618658" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2852459" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.21147542" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -746,16 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-48">
-          <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
-          <folding>
-            <element signature="e#92#135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/test_wifiSettings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
@@ -793,17 +796,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+          <folding>
+            <element signature="e#92#135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/path/devices.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="416">
           <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rweb/test_blacklist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="75" column="12" lean-forward="true" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+        <state relative-caret-position="286">
+          <caret line="114" column="90" selection-start-line="114" selection-start-column="90" selection-end-line="114" selection-end-column="90" />
           <folding>
             <element signature="e#91#106#0" expanded="true" />
           </folding>
