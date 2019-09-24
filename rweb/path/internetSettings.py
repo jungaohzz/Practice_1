@@ -38,3 +38,6 @@ class InternetSettingsLocators(object):
 
     Save = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[2]/div[5]/button"
     Save_Ok = "/html/body/div[3]/div/div[2]/button[2]"
+
+    # 主页中，判断网络是否通的那根线
+    Line = "/html/body/div[1]/div/div/div/div[1]/div[1]/div/div[4]"

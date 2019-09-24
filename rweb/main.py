@@ -26,7 +26,8 @@ from .test_wifiSettings import WifiSettings
 from .test_internetSettings import InternetSettings
 from .test_adminPassword import AdminPassword
 from .test_blacklist import Blacklist
-
+from .test_guestWifi import GuestWifi
+from .test_vpn import VPN
 
 
 
@@ -36,7 +37,7 @@ def core():
         # 建议执行顺序
         # 最后：管理密码
         # 倒二：工作方式
-        Blacklist
+        InternetSettings
     ]
     
     

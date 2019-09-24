@@ -22,6 +22,7 @@ from rweb.path.routerManagement import RouterManagementLocators
 from rweb.path.adminPassword import AdminPasswordLocators
 from rweb.path.devices import DevicesLocators
 from rweb.path.blacklist import BlacklistLocators
+from selenium.common.exceptions import NoSuchElementException
 
 
 """黑名单"""
@@ -98,6 +99,7 @@ class Blacklist(Base):
             #DeviceName_First = self.driver.find_element_by_xpath(DevicesLocators.Offline_DeviceName_First).text
 
             # 断言：检验是否加入黑名单列表中
+            # DeviceName_First = self.driver.find_element_by_xpath(DevicesLocators.Offline_DeviceName_First).text
             # 进入 黑名单
             WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
@@ -116,8 +118,10 @@ class Blacklist(Base):
             print(555555)
 
 
-        except:
+        except NoSuchElementException:
             print("离线设备列表为空，暂无法检验从离线列表加入黑名单的功能是否正常！")
-            assert 1 == 0       # 该断言用于使该用例失败
+
+            print(2222222)
+            #assert 1 == 0       # 该断言用于使该用例失败
 
 

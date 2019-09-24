@@ -48,6 +48,9 @@ class SystemLog(Base):
         """路由器日志-开启"""
         # 默认状态：关闭
         # 如果状态为：关闭，才进行if的打开操作
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, SystemLogLocators.Statu))
+        )
         Statu_class = self.driver.find_element_by_xpath(SystemLogLocators.Statu).get_attribute('class')
         if Statu_class == "switch switch-animation":
             WebDriverWait(self.driver, 10).until(
@@ -69,6 +72,9 @@ class SystemLog(Base):
     def test_B_systemLog_off(self):
         """路由器日志-关闭"""
         # 如果状态为：打开，才进行if的关闭操作
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, SystemLogLocators.Statu))
+        )
         Statu_class = self.driver.find_element_by_xpath(SystemLogLocators.Statu).get_attribute('class')
         if Statu_class == "switch switch-animation checked":
             WebDriverWait(self.driver, 10).until(

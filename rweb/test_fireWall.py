@@ -38,6 +38,9 @@ class FireWall(Base):
     # @unittest.skip("跳过")
     def test_A_set_FireWall(self):
         """设置 防火墙"""
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, FireWallLocators.Firewall_Statu))
+        )
         Firewall_Statu_class = self.driver.find_element_by_xpath(FireWallLocators.Firewall_Statu).get_attribute('class')
         # 默认状态：关闭
         # 如果状态为：关闭，才进行打开操作
@@ -90,6 +93,9 @@ class FireWall(Base):
     @unittest.skip("跳过")
     def test_B_set_WanPing(self):
         """设置 WAN ping"""
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, FireWallLocators.WAN_Ping_Statu))
+        )
         WanPing_Statu_class = self.driver.find_element_by_xpath(FireWallLocators.WAN_Ping_Statu).get_attribute('class')
         # 默认状态：打开
         # 如果状态为：打开，才进行关闭操作
@@ -113,7 +119,7 @@ class FireWall(Base):
 
         # 断言：判断开关是否关闭
         WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, FireWallLocators.WAN_Ping_Statu))
+            EC.presence_of_element_located((By.XPATH, FireWallLocators.WAN_Ping_Statu))
         )
         WanPing_Statu_class = self.driver.find_element_by_xpath(FireWallLocators.WAN_Ping_Statu).get_attribute('class')
         assert WanPing_Statu_class == "switch switch-animation", WanPing_Statu_class

@@ -8,7 +8,7 @@
 3. 更改是否选中的判断
    if not self.driver.find_element_by_xpath(SystemLogLocators.Statu).is_selected():
 
-4. 因为网络不通，所以在“上网设置”中切换三种模式，是否成功没有检查主页那根线是否通，三种方式都没有进行断言
+4. 因为网络不通，所以在“上网设置”中切换三种模式，是否成功没有检查主页那根线是否通，三种方式都没有进行断言没有通过！！！没有通过！！！
 
 5. 检验元素是否可见
    assert self.driver.find_element_by_xpath(CommonLocators.Logout).is_displayed()

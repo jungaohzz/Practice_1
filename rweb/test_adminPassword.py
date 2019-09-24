@@ -51,7 +51,7 @@ class AdminPassword(Base):
             EC.element_to_be_clickable((By.XPATH, AdminPasswordLocators.Save))
         ).click()
 
-        #断言：修改成功后悔跳转到登录页面，则查看是否有登录按钮即可
+        #断言：修改成功后会跳转到登录页面，则查看是否有“登录”按钮即可
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Login))
         )

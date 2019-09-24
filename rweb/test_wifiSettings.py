@@ -86,6 +86,9 @@ class WifiSettings(Base):
     def test_B_wifiSetting_SmartConnect(self):
         """WiFi设置-修改双频合一开关：由开->关"""
 
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Smart_Connect))
+        )
         Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class')
         # 默认状态：打开
         # 如果状态为：打开，才进行if的关闭操作

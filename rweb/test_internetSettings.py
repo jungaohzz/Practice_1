@@ -40,7 +40,9 @@ class InternetSettings(Base):
     #@unittest.skip("跳过")
     def test_A_PPPoE(self):
         """上网设置-PPPoE"""
-
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
+        )
         Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
         # 如果上网方式不为PPPoE，才进行下面的if操作，切换为PPPoE
         if Internet_Way_value != "PPPoE":
@@ -75,7 +77,11 @@ class InternetSettings(Base):
             WebDriverWait(self.driver, 60).until(
                 EC.presence_of_element_located((By.XPATH, RouterManagementLocators.Mesh_Topology))
             )
+
+            # 断言：判断主页那根线是否是通的
             time.sleep(10)
+            assert self.driver.find_element_by_xpath(InternetSettingsLocators.Line).get_attribute('class') == "line"
+
             # 断言：判断是否修改为：PPPoE
             # 再次进入 上网设置 页
             WebDriverWait(self.driver, 10).until(
@@ -95,14 +101,14 @@ class InternetSettings(Base):
         Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
         assert Internet_Way_value == "PPPoE", Internet_Way_value
 
-        # 断言：判断主页那根线是否是通的？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-
-
 
 
     #@unittest.skip("跳过")
     def test_B_StaticIP(self):
         """上网设置-静态IP"""
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
+        )
         Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
         # 如果上网方式不为静态IP，才进行下面的if操作，切换为静态IP
         if Internet_Way_value != "Static IP":
@@ -147,7 +153,11 @@ class InternetSettings(Base):
             WebDriverWait(self.driver, 60).until(
                 EC.presence_of_element_located((By.XPATH, RouterManagementLocators.Mesh_Topology))
             )
+
+            # 断言：判断主页那根线是否是通的
             time.sleep(10)
+            assert self.driver.find_element_by_xpath(InternetSettingsLocators.Line).get_attribute('class') == "line"
+
             # 断言：判断是否修改为：静态IP
             # 再次进入 上网设置 页
             WebDriverWait(self.driver, 10).until(
@@ -167,12 +177,13 @@ class InternetSettings(Base):
         Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
         assert Internet_Way_value == "Static IP", Internet_Way_value
 
-        # 断言：判断主页那根线是否是通的？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-
 
     #@unittest.skip("跳过")
     def test_C_DHCP(self):
         """上网设置-动态IP"""
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
+        )
         Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
         # 如果上网方式不为动态IP，才进行下面的if操作，切换为动态IP
         if Internet_Way_value != "DHCP":
@@ -197,7 +208,11 @@ class InternetSettings(Base):
             WebDriverWait(self.driver, 60).until(
                 EC.presence_of_element_located((By.XPATH, RouterManagementLocators.Mesh_Topology))
             )
+
+            # 断言：判断主页那根线是否是通的
             time.sleep(10)
+            assert self.driver.find_element_by_xpath(InternetSettingsLocators.Line).get_attribute('class') == "line"
+
             # 断言：判断是否修改为：动态IP
             # 再次进入 上网设置 页
             WebDriverWait(self.driver, 10).until(
@@ -217,6 +232,19 @@ class InternetSettings(Base):
         Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
         assert Internet_Way_value == "DHCP", Internet_Way_value
 
-        # 断言：判断主页那根线是否是通的？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
