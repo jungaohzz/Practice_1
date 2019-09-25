@@ -132,7 +132,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     #@unittest.skip("跳过")
-    def test_D_limit_WebsiteBlacklist(self):
+    def test_D_limitWebsiteBlacklist_delete(self):
         """网址黑名单-删除"""
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Delete))
