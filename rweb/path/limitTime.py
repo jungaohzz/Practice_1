@@ -21,5 +21,7 @@ class LimitTimeLocators(object):
 
     """新增限时"""
     Mondey = "/html/body/div[3]/div[2]/div/div[1]/div[4]/div/div[1]/div/label/div[1]"
+    Tuesday = "/html/body/div[3]/div[2]/div/div[1]/div[4]/div/div[2]/div/label/div[1]"
+
     # 保存按钮
     Save = "/html/body/div[3]/div[2]/div/div[3]/button[2]"

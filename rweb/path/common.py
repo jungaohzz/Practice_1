@@ -95,3 +95,4 @@ class CommonLocators(object):
     Success_Toast = "//div[@class='toast-container success']"
     # 修改的loading元素（好像不生效）
     Loading = "loading-container"
+    Shadow = "/html/body/div[4]/div[1]"

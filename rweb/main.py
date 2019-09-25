@@ -11,7 +11,9 @@ import os
 from unittest import TestLoader
 from .test_timeZone import TimeZone
 from .test_language import Language
-from .test_limit import Limit
+from .test_limitTime import LimitTime
+from .test_limitRate import LimitRate
+from .test_limitWebsiteBlacklist import LimitWebsiteBlacklist
 from .test_portForwarding import PortForwarding
 from .test_staticDhcpLease import StaticDHCPLease
 from .test_dmzHost import DmzHost
@@ -37,7 +39,7 @@ def core():
         # 建议执行顺序
         # 最后：管理密码
         # 倒二：工作方式
-        InternetSettings
+        LimitTime
     ]
     
     

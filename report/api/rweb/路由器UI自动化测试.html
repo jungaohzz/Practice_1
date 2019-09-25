@@ -7128,59 +7128,55 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 0,
+    "testPass": 4,
     "testResult": [
         {
-            "className": "InternetSettings",
-            "methodName": "test_A_PPPoE",
-            "description": "上网设置-PPPoE",
-            "spendTime": "21.8 s",
-            "status": "失败",
+            "className": "LimitTime",
+            "methodName": "test_A_limitTime_add",
+            "description": "限时-新增限时",
+            "spendTime": "13.2 s",
+            "status": "成功",
             "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_internetSettings.py\", line 83, in test_A_PPPoE\n    assert self.driver.find_element_by_xpath(InternetSettingsLocators.Line).get_attribute('class') == \"line\"\n",
-                "AssertionError\n"
+                ""
             ]
         },
         {
-            "className": "InternetSettings",
-            "methodName": "test_B_StaticIP",
-            "description": "上网设置-静态IP",
-            "spendTime": "23.6 s",
-            "status": "失败",
+            "className": "LimitTime",
+            "methodName": "test_B_limitTime_edit_value",
+            "description": "限时-编辑-修改限时参数",
+            "spendTime": "15.2 s",
+            "status": "成功",
             "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_internetSettings.py\", line 159, in test_B_StaticIP\n    assert self.driver.find_element_by_xpath(InternetSettingsLocators.Line).get_attribute('class') == \"line\"\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 394, in find_element_by_xpath\n    return self.find_element(by=By.XPATH, value=xpath)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 978, in find_element\n    'value': value})['value']\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"/html/body/div[1]/div/div/div/div[1]/div[1]/div/div[4]\"}\n  (Session info: chrome=76.0.3809.132)\n\n"
+                ""
             ]
         },
         {
-            "className": "InternetSettings",
-            "methodName": "test_C_DHCP",
-            "description": "上网设置-动态IP",
-            "spendTime": "0.0 s",
-            "status": "跳过",
+            "className": "LimitTime",
+            "methodName": "test_C_limitTime_edit_statu",
+            "description": "限时-编辑-修改状态：由开变为关",
+            "spendTime": "12.6 s",
+            "status": "成功",
             "log": [
-                "跳过"
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_D_limitTime_delete",
+            "description": "限时-删除限时",
+            "spendTime": "12.1 s",
+            "status": "成功",
+            "log": [
+                ""
             ]
         }
     ],
     "testName": "路由器UI自动化测试报告",
-    "testAll": 3,
-    "testFail": 2,
-    "beginTime": "2019-09-24 18:03:02",
-    "totalTime": "45s",
-    "testSkip": 1,
+    "testAll": 4,
+    "testFail": 0,
+    "beginTime": "2019-09-25 11:11:30",
+    "totalTime": "53s",
+    "testSkip": 0,
     "testError": 0
 };
 

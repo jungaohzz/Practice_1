@@ -40,10 +40,76 @@ class InternetSettings(Base):
     #@unittest.skip("跳过")
     def test_A_PPPoE(self):
         """上网设置-PPPoE"""
+        # WebDriverWait(self.driver, 10).until(
+        #     EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
+        # )
+        # Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
+        # # 如果上网方式不为PPPoE，才进行下面的if操作，切换为PPPoE
+        # if Internet_Way_value != "PPPoE":
+        #     # 点击上网方式
+        #     WebDriverWait(self.driver, 10).until(
+        #         EC.element_to_be_clickable((By.XPATH, InternetSettingsLocators.Internet_Way))
+        #     ).click()
+        #     # 选择 PPPoE
+        #     WebDriverWait(self.driver, 10).until(
+        #         EC.element_to_be_clickable((By.XPATH, InternetSettingsLocators.PPPoE))
+        #     ).click()
+        #     # 输入 宽带账号
+        #     WebDriverWait(self.driver, 10).until(
+        #         EC.element_to_be_clickable((By.XPATH, InternetSettingsLocators.PPPoE_Username))
+        #     ).clear()
+        #     self.driver.find_element_by_xpath(InternetSettingsLocators.PPPoE_Username).send_keys("gaojun")
+        #     # 输入 宽带密码
+        #     WebDriverWait(self.driver, 10).until(
+        #         EC.element_to_be_clickable((By.XPATH, InternetSettingsLocators.PPPoE_Password))
+        #     ).clear()
+        #     self.driver.find_element_by_xpath(InternetSettingsLocators.PPPoE_Password).send_keys("gaojun@2019")
+        #     # 保存
+        #     WebDriverWait(self.driver, 10).until(
+        #         EC.element_to_be_clickable((By.XPATH, InternetSettingsLocators.Save))
+        #     ).click()
+        #     WebDriverWait(self.driver, 10).until(
+        #         EC.element_to_be_clickable((By.XPATH, InternetSettingsLocators.Save_Ok))
+        #     ).click()
+        #
+        #     # 因为修改成功后没有toast提示，所以不能用成功的toast提示判断是否完成reboot
+        #     # 又因为reboot完成后，页面处于：我的WiFi-管理路由器，故可借判断管理路由器页的“mesh拓扑图”元素是否加载出来，来判断是否完成reboot
+        #     WebDriverWait(self.driver, 60).until(
+        #         EC.presence_of_element_located((By.XPATH, RouterManagementLocators.Mesh_Topology))
+        #     )
+        #
+        #     # 断言：判断主页那根线是否是通的
+        #     time.sleep(5)
+        #     self.driver.refresh()
+        #     time.sleep(5)
+        #     assert self.driver.find_element_by_xpath(InternetSettingsLocators.Line).get_attribute('class') == "line"
+        #
+        #     # 断言：判断是否修改为：PPPoE
+        #     # 再次进入 上网设置 页
+        #     WebDriverWait(self.driver, 10).until(
+        #         EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
+        #     )
+        #     mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_Set)
+        #     ActionChains(self.driver).move_to_element(mouse).perform()
+        #     # 点击 上网设置
+        #     WebDriverWait(self.driver, 10).until(
+        #         EC.element_to_be_clickable((By.XPATH, CommonLocators.Internet_Settings))
+        #     ).click()
+        #     time.sleep(2)
+        # # 断言：是否为：PPPoE：
+        # WebDriverWait(self.driver, 10).until(
+        #     EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
+        # )
+        # Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
+        # assert Internet_Way_value == "PPPoE", Internet_Way_value
+
+
+
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )
-        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
+        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute(
+            'value')
         # 如果上网方式不为PPPoE，才进行下面的if操作，切换为PPPoE
         if Internet_Way_value != "PPPoE":
             # 点击上网方式
@@ -78,32 +144,41 @@ class InternetSettings(Base):
                 EC.presence_of_element_located((By.XPATH, RouterManagementLocators.Mesh_Topology))
             )
 
-            # 断言：判断主页那根线是否是通的
-            time.sleep(10)
-            assert self.driver.find_element_by_xpath(InternetSettingsLocators.Line).get_attribute('class') == "line"
-
-            # 断言：判断是否修改为：PPPoE
-            # 再次进入 上网设置 页
-            WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
+            time.sleep(5)
+            WebDriverWait(self.driver, 60).until_not(
+                EC.presence_of_element_located((By.XPATH, CommonLocators.Shadow))
             )
-            mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_Set)
-            ActionChains(self.driver).move_to_element(mouse).perform()
-            # 点击 上网设置
-            WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, CommonLocators.Internet_Settings))
-            ).click()
-            time.sleep(2)
+
+
         # 断言：是否为：PPPoE：
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )
-        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
+        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute("value")
         assert Internet_Way_value == "PPPoE", Internet_Way_value
 
+        # # 进入 管理设备 页，目的：断言那根线是否是通的
+        # WebDriverWait(self.driver, 10).until(
+        #     EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
+        # )
+        # mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
+        # ActionChains(self.driver).move_to_element(mouse).perform()
+        # # 点击 管理设备
+        # WebDriverWait(self.driver, 10).until(
+        #     EC.element_to_be_clickable((By.XPATH, CommonLocators.Router_Management))
+        # ).click()
+        # time.sleep(2)
 
 
-    #@unittest.skip("跳过")
+        # # 断言：判断主页那根线是否是通的
+        # time.sleep(5)
+        # self.driver.refresh()
+        # time.sleep(5)
+        # assert self.driver.find_element_by_xpath(InternetSettingsLocators.Line).get_attribute('class') == "line"
+
+
+
+    @unittest.skip("跳过")
     def test_B_StaticIP(self):
         """上网设置-静态IP"""
         WebDriverWait(self.driver, 10).until(
@@ -155,7 +230,9 @@ class InternetSettings(Base):
             )
 
             # 断言：判断主页那根线是否是通的
-            time.sleep(10)
+            time.sleep(5)
+            self.driver.refresh()
+            time.sleep(5)
             assert self.driver.find_element_by_xpath(InternetSettingsLocators.Line).get_attribute('class') == "line"
 
             # 断言：判断是否修改为：静态IP
@@ -178,7 +255,7 @@ class InternetSettings(Base):
         assert Internet_Way_value == "Static IP", Internet_Way_value
 
 
-    #@unittest.skip("跳过")
+    @unittest.skip("跳过")
     def test_C_DHCP(self):
         """上网设置-动态IP"""
         WebDriverWait(self.driver, 10).until(
