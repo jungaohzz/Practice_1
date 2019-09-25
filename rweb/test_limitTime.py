@@ -19,6 +19,8 @@ from rweb.path.limitTime import LimitTimeLocators
 from rweb.path.limitRate import LimitRateLocators
 from rweb.path.websiteBlacklist import WebsiteBlacklistLocators
 
+from router.time_limit import test_time_limit_add_1
+
 
 
 class LimitTime(Base):
@@ -77,9 +79,20 @@ class LimitTime(Base):
         assert self.driver.find_element_by_xpath(LimitTimeLocators.Statu).get_attribute('class') == "switch switch-animation checked"
 
 
+        a=test_time_limit_add_1.test_ping()
+        print(1111111111111111111111)
+        print(a)
+        assert a == 1
 
 
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
+    # def test_B_limitTime_assert(self):
+    #     """限时-检验路由器配置是否生效"""
+
+
+
+
+    @unittest.skip("跳过")
     def test_B_limitTime_edit_value(self):
         """限时-编辑-修改参数值"""
         # 点击 编辑 按钮
@@ -118,7 +131,7 @@ class LimitTime(Base):
         assert self.driver.find_element_by_xpath(LimitTimeLocators.Statu).get_attribute(
             'class') == "switch switch-animation checked"
 
-    #@unittest.skip("跳过")
+    @unittest.skip("跳过")
     def test_C_limitTime_edit_statu(self):
         """限时-编辑-修改状态：由开变为关"""
         # 点击 开关 按钮，由开变为关
@@ -141,7 +154,7 @@ class LimitTime(Base):
 
 
 
-    #@unittest.skip("跳过")
+    @unittest.skip("跳过")
     def test_D_limitTime_delete(self):
         """限时-删除"""
         WebDriverWait(self.driver, 10).until(
