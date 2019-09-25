@@ -28,13 +28,13 @@ class AdminPassword(Base):
     def setUp(self):
         super(AdminPassword, self).setUp()
         # 鼠标模拟移动到：设置
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
         )
         mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_Set)
         ActionChains(self.driver).move_to_element(mouse).perform()
         # 点击 管理密码
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Admin_Password))
         ).click()
         time.sleep(2)
@@ -43,24 +43,24 @@ class AdminPassword(Base):
     def test_set_admin_password(self):
         """管理密码-设置管理密码：各种字符组合"""
         # 输入 新密码，各种组合
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, AdminPasswordLocators.New_Password))
         ).send_keys(const.PASSWORD_MIX)
         # 保存
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, AdminPasswordLocators.Save))
         ).click()
 
         #断言：修改成功后会跳转到登录页面，则查看是否有“登录”按钮即可
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.REBOOT_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Login))
         )
 
         #重新登录
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.InputPassword))
         ).send_keys(const.PASSWORD_MIX)
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Login))
         ).click()
         time.sleep(0.5)
@@ -70,27 +70,27 @@ class AdminPassword(Base):
 
         # 重新将复杂的密码改回简单的密码
         #  进入 管理密码页
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
         )
         mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_Set)
         ActionChains(self.driver).move_to_element(mouse).perform()
 
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Admin_Password))
         ).click()
         time.sleep(2)
         # 改回普通密码
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, AdminPasswordLocators.New_Password))
         ).send_keys(const.PASSWORD)
         # 保存
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, AdminPasswordLocators.Save))
         ).click()
 
-        # 断言：修改成功后悔跳转到登录页面，则查看是否有登录按钮即可
-        WebDriverWait(self.driver, 10).until(
+        # 断言：修改成功后会跳转到登录页面，则查看是否有登录按钮即可
+        WebDriverWait(self.driver, const.REBOOT_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Login))
         )
 

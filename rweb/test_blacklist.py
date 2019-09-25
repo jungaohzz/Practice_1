@@ -31,13 +31,13 @@ class Blacklist(Base):
     def setUp(self):
         super(Blacklist, self).setUp()
         # 鼠标模拟移动到：我的WiFi
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
         )
         mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
         ActionChains(self.driver).move_to_element(mouse).perform()
         # 点击 接入设备
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
         ).click()
         time.sleep(1)
@@ -57,7 +57,7 @@ class Blacklist(Base):
     def test_C_blacklist_Offline(self):
         """黑名单-从离线加入黑名单"""
         # 进入 离线列表
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, DevicesLocators.Offline))
         ).click()
 
@@ -67,15 +67,15 @@ class Blacklist(Base):
             # 如果离线设备列表找不到第一个设备名元素，则该列表为空
             DeviceName_First = self.driver.find_element_by_xpath(DevicesLocators.Offline_DeviceName_First).text
             # 加入黑名单
-            WebDriverWait(self.driver, 10).until(
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, DevicesLocators.Offline_AddToBlacklist))
             ).click()
-            WebDriverWait(self.driver, 10).until(
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, DevicesLocators.Offline_AddToBlacklist_Ok))
             ).click()
 
             # 断言:toast提示：加入黑名单成功
-            WebDriverWait(self.driver, 10).until(
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
@@ -101,13 +101,13 @@ class Blacklist(Base):
             # 断言：检验是否加入黑名单列表中
             # DeviceName_First = self.driver.find_element_by_xpath(DevicesLocators.Offline_DeviceName_First).text
             # 进入 黑名单
-            WebDriverWait(self.driver, 10).until(
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
             )
             mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_Set)
             ActionChains(self.driver).move_to_element(mouse).perform()
             # 点击 接入设备
-            WebDriverWait(self.driver, 10).until(
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, CommonLocators.Blacklist))
             ).click()
             time.sleep(1)

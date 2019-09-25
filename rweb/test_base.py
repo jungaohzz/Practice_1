@@ -21,11 +21,11 @@ class Base(unittest.TestCase):
         self.driver.get(const.URL)
         self.driver.maximize_window()
 
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.InputPassword))
         ).send_keys(const.PASSWORD)
 
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Login))
         ).click()
         time.sleep(0.5)

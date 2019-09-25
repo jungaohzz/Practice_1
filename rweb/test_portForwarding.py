@@ -30,6 +30,7 @@ class PortForwarding(Base):
         # time.sleep(8)  #loading页面
         time.sleep(2)
 
+    #@unittest.skip("跳过")
     def test_A_portForwarding_add_withoutExternalNetwork(self):
         """端口转发-新增-无外网IP"""
         # 点击新增按钮
@@ -124,7 +125,7 @@ class PortForwarding(Base):
         ).click()
 
 
-
+    #@unittest.skip("跳过")
     def test_B_portForwarding_add_ExternalNetwork(self):
         """端口转发-新增-有外网IP"""
         # 点击新增按钮
@@ -215,18 +216,9 @@ class PortForwarding(Base):
             'class') == "switch switch-animation checked"
 
 
-
-    def test_C_portForwarding_edit(self):
-        """端口转发-编辑"""
-        # 将状态变为：关闭
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.List_Statu))
-        ).click()
-        # 断言:toast提示：关闭开关成功
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
-        )
-        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+    #@unittest.skip("跳过")
+    def test_C_portForwarding_edit_value(self):
+        """端口转发-编辑-修改参数值"""
         # 点击编辑按钮
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.Edit))
@@ -328,13 +320,34 @@ class PortForwarding(Base):
         )
         assert self.driver.find_element_by_xpath(PortForwardingLocators.List_ProtocolType).text == "TCP&UDP"
 
+
+
+    #@unittest.skip("跳过")
+    def test_D_portForwarding_edit_statu_off(self):
+        """端口转发-编辑-修改状态：由开到关"""
+        time.sleep(2)
+        # 点击状态按钮，将状态变为：关闭
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.List_Statu))
+        ).click()
+        # 断言:toast提示：关闭成功
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+
         # 断言：状态是否为：关闭
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, PortForwardingLocators.List_Statu))
         )
-        assert self.driver.find_element_by_xpath(PortForwardingLocators.List_Statu).get_attribute(
-            'class') == "switch switch-animation"
+        Statu_class = self.driver.find_element_by_xpath(PortForwardingLocators.List_Statu).get_attribute('class')
+        assert Statu_class == "switch switch-animation", Statu_class
 
+
+
+    # @unittest.skip("跳过")
+    def test_E_portForwarding_delete(self):
+        """端口转发-删除"""
         # 删除
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.Delete))
@@ -343,3 +356,8 @@ class PortForwarding(Base):
             EC.element_to_be_clickable((By.XPATH, PortForwardingLocators.Delete_ok))
         ).click()
 
+        # 断言:toast提示：删除成功
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"

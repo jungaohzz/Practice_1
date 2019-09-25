@@ -38,7 +38,7 @@ class WifiSettings(Base):
         time.sleep(2)
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_A_wifiSetting_changePassword(self):
         """WiFi设置-修改WiFi密码为各种字符组合"""
         # 密码框，输入各种组合，如：abc~!@#$%^123
@@ -83,7 +83,7 @@ class WifiSettings(Base):
 
 
     # @unittest.skip("跳过")
-    def test_B_wifiSetting_SmartConnect(self):
+    def test_B_wifiSetting_SmartConnect_off(self):
         """WiFi设置-修改双频合一开关：由开->关"""
 
         WebDriverWait(self.driver, 10).until(

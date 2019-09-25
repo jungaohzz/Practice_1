@@ -25,13 +25,13 @@ class CloneMacAddress(Base):
     def setUp(self):
         super(CloneMacAddress, self).setUp()
         # 鼠标模拟移动到：高级设置
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_AdvancedSettings))
         )
         mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_AdvancedSettings)
         ActionChains(self.driver).move_to_element(mouse).perform()
         # 点击 MAC地址克隆
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Clone_MAC_Address))
         ).click()
         time.sleep(2)
@@ -41,33 +41,33 @@ class CloneMacAddress(Base):
     def test_A_custom_mac(self):
         """MAC地址克隆-自定义Mac地址"""
         # 点击按钮 自定义MAC地址
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CloneMacAddressLocators.Custom_Mac_Button))
         ).click()
 
         #输入自定义的Mac地址：f8:27:2e:01:1a:e1
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CloneMacAddressLocators.Custom_Mac))
         ).clear()
         self.driver.find_element_by_xpath(CloneMacAddressLocators.Custom_Mac).send_keys("f8:27:2e:01:1a:e1")
 
         # 点击 保存
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CloneMacAddressLocators.Save))
         ).click()
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CloneMacAddressLocators.Save_Ok))
         ).click()
 
         # 断言:toast提示：重启成功
-        WebDriverWait(self.driver, 60).until(
+        WebDriverWait(self.driver, const.REBOOT_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
         self.driver.refresh()
         # 断言：是否将自定义Mac地址设置为了：f8:27:2e:01:1a:e1
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CloneMacAddressLocators.Custom_Mac))
         )
         Custom_Mac_value = self.driver.find_element_by_xpath(CloneMacAddressLocators.Custom_Mac).get_attribute('value')

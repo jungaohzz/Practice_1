@@ -111,7 +111,7 @@ class GuestWifi(Base):
 
     @unittest.skip("跳过")
     def test_B_guestWifi_off(self):
-        """访客WiFi-启用"""
+        """访客WiFi-关闭"""
         time.sleep(2)  # 用于切换按钮
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, GuestWifiLocators.Satatu))

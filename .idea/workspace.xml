@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9735d93a-b6d6-46cc-9f5b-a801c6ac523e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/rweb/test_limitWebsiteBlacklist.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_limitWebsiteBlacklist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/api/rweb/路由器UI自动化测试.html" beforeDir="false" afterPath="$PROJECT_DIR$/report/api/rweb/路由器UI自动化测试.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/const.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/const.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_adminPassword.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_adminPassword.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_blacklist.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_blacklist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_cloneMacAddress.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_cloneMacAddress.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_ddns.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_ddns.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_guestWifi.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_guestWifi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_internetSettings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_internetSettings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_portForwarding.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_portForwarding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_timeZone.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_timeZone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rweb/test_wifiSettings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_wifiSettings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,41 +35,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rweb/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+            <state relative-caret-position="452">
+              <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
               <folding>
                 <element signature="e#92#135#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rweb/path/common.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="97" column="39" lean-forward="true" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/rweb/test_limitWebsiteBlacklist.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rweb/path/websiteBlacklist.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="9" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -87,7 +72,6 @@
         <option value="$PROJECT_DIR$/rweb/path/staticDhcpLease.py" />
         <option value="$PROJECT_DIR$/rweb/path/dmzHost.py" />
         <option value="$PROJECT_DIR$/rweb/test_language.py" />
-        <option value="$PROJECT_DIR$/rweb/test_portForwarding.py" />
         <option value="$PROJECT_DIR$/rweb/path/timeZone.py" />
         <option value="$PROJECT_DIR$/rweb/path/websiteBlacklist.py" />
         <option value="$PROJECT_DIR$/rweb/path/limitRate.py" />
@@ -97,10 +81,8 @@
         <option value="$PROJECT_DIR$/rweb/path/dhcp.py" />
         <option value="$PROJECT_DIR$/rweb/path/cloneMacAddress.py" />
         <option value="$PROJECT_DIR$/rweb/path/test_ddns.html" />
-        <option value="$PROJECT_DIR$/rweb/test_cloneMacAddress.py" />
         <option value="$PROJECT_DIR$/rweb/path/ddns.py" />
         <option value="$PROJECT_DIR$/rweb/test_dhcp.py" />
-        <option value="$PROJECT_DIR$/rweb/test_ddns.py" />
         <option value="$PROJECT_DIR$/rweb/path/networkMode.py" />
         <option value="$PROJECT_DIR$/rweb/test_networkMode.py" />
         <option value="$PROJECT_DIR$/rweb/path/networkDiagnosis.py" />
@@ -109,39 +91,42 @@
         <option value="$PROJECT_DIR$/rweb/path/systemLog.py" />
         <option value="$PROJECT_DIR$/rweb/path/wifiSettings.py" />
         <option value="$PROJECT_DIR$/rweb/path/adminPassword.py" />
-        <option value="$PROJECT_DIR$/rweb/const.py" />
-        <option value="$PROJECT_DIR$/rweb/test_base.py" />
-        <option value="$PROJECT_DIR$/rweb/test_timeZone.py" />
         <option value="$PROJECT_DIR$/rweb/path/blacklist.py" />
         <option value="$PROJECT_DIR$/rweb/path/devices.py" />
-        <option value="$PROJECT_DIR$/rweb/test_blacklist.py" />
         <option value="$PROJECT_DIR$/rweb/path/test_guestWifi.py" />
-        <option value="$PROJECT_DIR$/rweb/test_adminPassword.py" />
         <option value="$PROJECT_DIR$/rweb/path/guestWifi.py" />
         <option value="$PROJECT_DIR$/rweb/path/vpn.py" />
         <option value="$PROJECT_DIR$/rweb/test_vpn.py" />
         <option value="$PROJECT_DIR$/rweb/test_fireWall.py" />
-        <option value="$PROJECT_DIR$/rweb/test_guestWifi.py" />
         <option value="$PROJECT_DIR$/rweb/test_systemLog.py" />
-        <option value="$PROJECT_DIR$/rweb/test_wifiSettings.py" />
         <option value="$PROJECT_DIR$/rweb/path/internetSettings.py" />
         <option value="$PROJECT_DIR$/rweb/note.py" />
         <option value="$PROJECT_DIR$/rweb/path/common.py" />
-        <option value="$PROJECT_DIR$/rweb/test_internetSettings.py" />
         <option value="$PROJECT_DIR$/rweb/test_limit.py" />
         <option value="$PROJECT_DIR$/rweb/path/limitTime.py" />
         <option value="$PROJECT_DIR$/rweb/test_limitTime.py" />
-        <option value="$PROJECT_DIR$/rweb/main.py" />
         <option value="$PROJECT_DIR$/rweb/test_limitRate.py" />
         <option value="$PROJECT_DIR$/rweb/test_limitWebsiteBlacklist.py" />
+        <option value="$PROJECT_DIR$/rweb/test_wifiSettings.py" />
+        <option value="$PROJECT_DIR$/rweb/test_internetSettings.py" />
+        <option value="$PROJECT_DIR$/rweb/test_guestWifi.py" />
+        <option value="$PROJECT_DIR$/rweb/test_timeZone.py" />
+        <option value="$PROJECT_DIR$/rweb/test_portForwarding.py" />
+        <option value="$PROJECT_DIR$/rweb/const.py" />
+        <option value="$PROJECT_DIR$/rweb/test_base.py" />
+        <option value="$PROJECT_DIR$/rweb/test_blacklist.py" />
+        <option value="$PROJECT_DIR$/rweb/test_adminPassword.py" />
+        <option value="$PROJECT_DIR$/rweb/test_cloneMacAddress.py" />
+        <option value="$PROJECT_DIR$/rweb/test_ddns.py" />
+        <option value="$PROJECT_DIR$/rweb/main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
+    <option name="x" value="260" />
     <option name="y" value="20" />
-    <option name="width" value="1346" />
-    <option name="height" value="688" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -162,12 +147,6 @@
               <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
               <item name="rweb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
-              <item name="rweb" type="462c0819:PsiDirectoryNode" />
-              <item name="path" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -398,7 +377,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19178082" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19178082" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -412,7 +391,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.2618658" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.18221258" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.23427331" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -506,23 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/const.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#92#107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/path/portForwarding.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
@@ -541,16 +503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_blacklist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="101" column="14" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -582,62 +534,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_adminPassword.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="85" column="34" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="34" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_cloneMacAddress.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="827">
-          <caret line="70" column="15" selection-start-line="70" selection-start-column="15" selection-end-line="70" selection-end-column="15" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_ddns.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1573">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_dhcp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1751">
-          <caret line="93" column="17" lean-forward="true" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/test_fireWall.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
           <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="42" selection-end-column="9" />
           <folding>
             <element signature="e#91#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_guestWifi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="115" column="8" selection-start-line="115" selection-start-column="8" selection-end-line="117" selection-end-column="9" />
-          <folding>
-            <element signature="e#93#108#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -666,16 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_portForwarding.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="115" column="57" lean-forward="true" selection-start-line="114" selection-start-column="8" selection-end-line="115" selection-end-column="57" />
-          <folding>
-            <element signature="e#92#107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/test_staticDhcpLease.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2376">
@@ -696,32 +588,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_timeZone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="15" lean-forward="true" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
-          <folding>
-            <element signature="e#92#119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/test_vpn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2893">
           <caret line="240" column="12" lean-forward="true" selection-start-line="240" selection-start-column="12" selection-end-line="240" selection-end-column="12" />
           <folding>
             <element signature="e#92#107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_wifiSettings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -757,16 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_internetSettings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="142" column="22" lean-forward="true" selection-start-line="142" selection-start-column="22" selection-end-line="142" selection-end-column="22" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/note.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -791,27 +653,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/path/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="97" column="39" lean-forward="true" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
-          <folding>
-            <element signature="e#92#135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/test_limitRate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="151" column="30" lean-forward="true" selection-start-line="151" selection-start-column="30" selection-end-line="151" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_limitWebsiteBlacklist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
         </state>
       </provider>
     </entry>
@@ -822,10 +674,137 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_limitWebsiteBlacklist.py">
+    <entry file="file://$PROJECT_DIR$/rweb/path/common.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
+        <state relative-caret-position="488">
+          <caret line="97" column="39" lean-forward="true" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_wifiSettings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="85" column="43" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="43" />
+          <folding>
+            <element signature="e#91#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_internetSettings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-656">
+          <caret line="259" column="23" selection-start-line="259" selection-start-column="11" selection-end-line="259" selection-end-column="23" />
+          <folding>
+            <element signature="e#91#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_guestWifi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="113" column="20" selection-start-line="113" selection-start-column="11" selection-end-line="113" selection-end-column="20" />
+          <folding>
+            <element signature="e#93#108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_timeZone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="35" />
+          <folding>
+            <element signature="e#92#119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_adminPassword.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="86" column="12" selection-start-line="86" selection-start-column="10" selection-end-line="86" selection-end-column="12" />
+          <folding>
+            <element signature="e#91#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#92#107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_blacklist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
+          <folding>
+            <element signature="e#91#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_cloneMacAddress.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1452">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="e#91#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_ddns.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="175" lean-forward="true" selection-start-line="175" selection-end-line="175" />
+          <folding>
+            <element signature="e#91#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_dhcp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="93" column="17" lean-forward="true" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
+          <folding>
+            <element signature="e#91#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/const.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="11" selection-start-line="14" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/test_portForwarding.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7018">
+          <caret line="346" selection-start-line="346" selection-end-line="346" />
+          <folding>
+            <element signature="e#92#107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rweb/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+          <folding>
+            <element signature="e#92#135#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -39,7 +39,7 @@ class InternetSettings(Base):
 
     #@unittest.skip("跳过")
     def test_A_PPPoE(self):
-        """上网设置-PPPoE"""
+        """上网设置-设置为PPPoE"""
         # WebDriverWait(self.driver, 10).until(
         #     EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         # )
@@ -180,7 +180,7 @@ class InternetSettings(Base):
 
     @unittest.skip("跳过")
     def test_B_StaticIP(self):
-        """上网设置-静态IP"""
+        """上网设置-设置为静态IP"""
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )
@@ -257,7 +257,7 @@ class InternetSettings(Base):
 
     @unittest.skip("跳过")
     def test_C_DHCP(self):
-        """上网设置-动态IP"""
+        """上网设置-设置为动态IP"""
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )

@@ -8,6 +8,11 @@
 # 路由器web的网址
 URL = "http://mywifi.mercku.tech/#/login"
 PASSWORD = "11111111"
+# 等待时间
+FAST_WAIT = 5
+MEDIUM_WAIT = 10
+SLOW_WAIT = 30
+REBOOT_WAIT = 60
 
 
 
