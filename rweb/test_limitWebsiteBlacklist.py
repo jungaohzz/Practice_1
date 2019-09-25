@@ -47,10 +47,9 @@ class LimitWebsiteBlacklist(Base):
 
 
     @unittest.skip("跳过")
-    def test_C_limit_WebsiteBlacklist(self):
-        """设置网址黑名单"""
-
-        # 点击黑名单的新增按钮
+    def test_A_limitWebsiteBlacklist_add(self):
+        """网址黑名单-新增"""
+        # 点击黑名单 新增 按钮
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Add))
         ).click()
@@ -67,46 +66,80 @@ class LimitWebsiteBlacklist(Base):
             EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-        # 打开网址黑名单开关
-        time.sleep(1)
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Statu))
-        ).click()
-        # 断言:toast提示：打开开关成功
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
-        )
-        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
-        self.driver.refresh()
         # 断言:判断添加的网址是否是：www.baidu.com
+        self.driver.refresh()
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.List_Website))
         )
         assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.List_Website).text == "www.baidu.com"
 
+
+
+    @unittest.skip("跳过")
+    def test_B_limitWebsiteBlacklist_statu_on(self):
+        """网址黑名单-修改状态：由关变为开"""
+        # 状态理应为关闭，如果为关闭状态才进行if的启用操作
+        Statu_class = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Statu).get_attribute('class')
+        if Statu_class == "switch switch-animation":
+            # 打开网址黑名单开关
+            time.sleep(1)
+            WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Statu))
+            ).click()
+            # 断言:toast提示：打开开关成功
+            WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+            )
+            assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+
+        self.driver.refresh()
+        time.sleep(2)   #用于状态按钮切换
         # 断言：判断开关是否开启
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Statu))
         )
-        assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Statu).get_attribute('class') == "switch switch-animation checked"
+        Statu_class = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Statu).get_attribute('class')
+        assert Statu_class == "switch switch-animation checked", Statu_class
 
-        # 断言：关闭开关，再判断开关是否关闭
-        time.sleep(1)
+
+
+    @unittest.skip("跳过")
+    def test_C_limitWebsiteBlacklist_statu_off(self):
+        """网址黑名单-修改状态：由开变为关"""
+        # 状态理应为开启，如果为开启状态才进行if的关闭操作
+        Statu_class = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Statu).get_attribute('class')
+        if Statu_class == "switch switch-animation checked":
+            # 关闭网址黑名单开关
+            time.sleep(1)
+            WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Statu))
+            ).click()
+            # 断言:toast提示：关闭开关成功
+            WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+            )
+            assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+
+        self.driver.refresh()
+        # 断言：判断开关是否关闭
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Statu))
+        )
+        Statu_class = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Statu).get_attribute('class')
+        assert Statu_class == "switch switch-animation", Statu_class
+
+
+
+    #@unittest.skip("跳过")
+    def test_D_limit_WebsiteBlacklist(self):
+        """网址黑名单-删除"""
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Delete))
         ).click()
-        # 断言:toast提示：关闭开关成功
+
+        # 断言:toast提示：删除成功
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Statu))
-        )
-        assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Statu).get_attribute('class') == "switch switch-animation"
-
-        # 最后删除网址黑名单
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Delete))
-        ).click()

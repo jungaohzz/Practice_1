@@ -39,7 +39,7 @@ def core():
         # 建议执行顺序
         # 最后：管理密码
         # 倒二：工作方式
-        LimitRate
+        LimitWebsiteBlacklist
     ]
     
     
