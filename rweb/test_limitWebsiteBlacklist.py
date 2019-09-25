@@ -35,19 +35,21 @@ class LimitWebsiteBlacklist(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
         ).click()
+        self.driver.refresh()
         # 点击主网-设置
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, DevicesLocators.Set))
+        ).click()
+        # 切换到网址黑名单页
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Page_WebsiteBlacklist))
         ).click()
 
 
     @unittest.skip("跳过")
     def test_C_limit_WebsiteBlacklist(self):
         """设置网址黑名单"""
-        # 切换到网址黑名单页
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Page_WebsiteBlacklist))
-        ).click()
+
         # 点击黑名单的新增按钮
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Add))

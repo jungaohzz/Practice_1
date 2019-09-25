@@ -43,7 +43,7 @@ class LimitTime(Base):
 
     #@unittest.skip("跳过")
     def test_A_limitTime_add(self):
-        """限时-新增限时"""
+        """限时-新增"""
         # 点击 新增 按钮
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Add))
@@ -81,7 +81,7 @@ class LimitTime(Base):
 
     #@unittest.skip("跳过")
     def test_B_limitTime_edit_value(self):
-        """限时-编辑-修改限时参数"""
+        """限时-编辑-修改参数值"""
         # 点击 编辑 按钮
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Edit))
@@ -143,7 +143,7 @@ class LimitTime(Base):
 
     #@unittest.skip("跳过")
     def test_D_limitTime_delete(self):
-        """限时-删除限时"""
+        """限时-删除"""
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Delete))
         ).click()
