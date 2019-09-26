@@ -7,15 +7,19 @@
 """限时"""
 class LimitTimeLocators(object):
     Add = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/button"
+    List_Null = "/html/body/div[1]/div[1]/div/div/div[1]/div[2]/div/div/div[3]/div/p"
+
+    # 列表头
+    Table_Heads = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[2]/div[{num}]"
+
     Cut_Off_Time = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div[1]/div[1]/span[1]"
     Recovery_Time = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div[1]/div[2]"
     # 重复
-    Repeat = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div/div[3]"
-    Statu = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div[1]/div[4]/div/div/div"
+    Repeat = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div[{num}]/div[3]"
+    Statu = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div[{num}]/div[4]/div/div/div"
     # 每一个的 编辑 和 删除 按钮
-    Edit = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div[1]/div[4]/a[1]"
-    Delete = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div[1]/div[4]/a[2]"
-
+    Edit = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div[{num}]/div[4]/a[1]"
+    Delete = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div[{num}]/div[4]/a[2]"
 
 
 

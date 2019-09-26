@@ -7128,21 +7128,26 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 0,
+    "testPass": 1,
     "testResult": [
         {
             "className": "LimitTime",
             "methodName": "test_A_limitTime_add",
             "description": "限时-新增",
-            "spendTime": "29.4 s",
-            "status": "失败",
+            "spendTime": "0.0 s",
+            "status": "跳过",
             "log": [
-                "pingstatus=0\n1\ndhasdhask\n0\n0\npingstatus_1=0\npingstatus_2=0\n090130123\n1\n3123\n1111111111111111111111\n0\n",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_limitTime.py\", line 85, in test_A_limitTime_add\n    assert a == 1\n",
-                "AssertionError\n"
+                "跳过"
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_A_limitTime_null",
+            "description": "限时-列表为空检验",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
             ]
         },
         {
@@ -7153,6 +7158,16 @@
             "status": "跳过",
             "log": [
                 "跳过"
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_B_limitTime_elementAssert",
+            "description": "限时-页面元素检测",
+            "spendTime": "10.2 s",
+            "status": "成功",
+            "log": [
+                ""
             ]
         },
         {
@@ -7177,11 +7192,11 @@
         }
     ],
     "testName": "路由器UI自动化测试报告",
-    "testAll": 4,
-    "testFail": 1,
-    "beginTime": "2019-09-25 16:21:35",
-    "totalTime": "30s",
-    "testSkip": 3,
+    "testAll": 6,
+    "testFail": 0,
+    "beginTime": "2019-09-26 13:48:53",
+    "totalTime": "11s",
+    "testSkip": 5,
     "testError": 0
 };
 
