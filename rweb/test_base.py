@@ -30,6 +30,5 @@ class Base(unittest.TestCase):
         ).click()
         time.sleep(0.5)
 
-
     def tearDown(self):
         self.driver.quit()

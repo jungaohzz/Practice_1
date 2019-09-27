@@ -32,7 +32,6 @@ from .test_guestWifi import GuestWifi
 from .test_vpn import VPN
 
 
-
 def core():
     s = []
     class_tests = [
@@ -41,9 +40,7 @@ def core():
         # 倒二：工作方式
         LimitTime
     ]
-    
-    
-    
+
     for t in class_tests:
         suite = TestLoader().loadTestsFromTestCase(t)
         s.append(suite)

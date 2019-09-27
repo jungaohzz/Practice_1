@@ -19,4 +19,6 @@
 7.要将所有列表的获取变为动态获取：Delete = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div/div[3]/div[{num}]/div[4]/a[2]"
    目前已经实现的模块：限时
 
+8.语言切换中，荷兰语没有写
+
 """
