@@ -8,3 +8,5 @@
 class FireWallLocators(object):
     Firewall_Statu = "//div[@class='page-content']/div/div/div/div"
     WAN_Ping_Statu = "//div[@class='page-content']/div/div[2]/div/div"
+
+
