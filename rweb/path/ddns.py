@@ -7,8 +7,9 @@
 """DDNS"""
 class DDNSLocators(object):
     # 服务提供商
-    Service_Provider_DynDNS = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[1]/div/div[1]/div[1]"
-    Service_Provider_Oray = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[1]/div/div[2]/div[1]"
+    "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[1]/div/div[1]"
+    Service_Provider_DynDNS = "//div[@class='radio-group-container horizontal']/div[1]"
+    Service_Provider_Oray = "//div[@class='radio-group-container horizontal']/div[2]"
     # 域名
     Domain_Name = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[2]/div/div/div/input"
     # 用户名
