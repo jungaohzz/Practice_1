@@ -7,7 +7,7 @@
 """管理密码"""
 class AdminPasswordLocators(object):
     # 新密码
-    New_Password = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]/input"
+    New_Password = "//input[@type='password']"
 
-    Save = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[2]/button"
+    Save = "//button[@class='btn']"
 

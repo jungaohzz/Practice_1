@@ -6,5 +6,5 @@
 
 """防火墙"""
 class FireWallLocators(object):
-    Firewall_Statu = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[1]/div/div"
-    WAN_Ping_Statu = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[2]/div/div"
+    Firewall_Statu = "//div[@class='page-content']/div/div/div/div"
+    WAN_Ping_Statu = "//div[@class='page-content']/div/div[2]/div/div"

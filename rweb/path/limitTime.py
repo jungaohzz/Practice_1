@@ -36,7 +36,6 @@ class LimitTimeLocators(object):
     Minute_59 = "//div[@class='combobox']/div[1]/div[2]/ul/li[60]"
     Insert_CutOffTime_Ok = "//div[@class='combobox']/div[@class='button-wrap']/button[2]"
 
-
-    Insert_RecoveryTime = "/html/body/div[2]/div[2]/div/div[1]/div[3]/div/div/input"
-    Cancel = "/html/body/div[2]/div[2]/div/div[3]/button[1]"
-    Save = "/html/body/div[3]/div[2]/div/div[3]/button[2]"
+    Insert_RecoveryTime = "//div[@class='modal-form']/div[3]/div"
+    Cancel = "//button[@class='btn btn-default']"
+    Save = "//button[@class='btn']"

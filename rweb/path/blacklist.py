@@ -7,4 +7,4 @@
 """黑名单"""
 
 class BlacklistLocators(object):
-    Device_Name = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[3]/div/div[1]/div[2]"
+    Device_Name = "//div[@class='device']/div/div[2]"
