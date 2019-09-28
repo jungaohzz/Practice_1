@@ -20,7 +20,7 @@ class StaticDHCPLeaseLocators(object):
     # 每一个的 编辑 和 删除 按钮
     Edit = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[3]/div/div[4]/a[1]"
     Delete = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[3]/div/div[4]/a[2]"
-    Delete_ok = "/html/body/div[3]/div/div[2]/button[2]"
+    Delete_ok = "//div[@class='dialog-buttons']/button[2]"
 
 
 

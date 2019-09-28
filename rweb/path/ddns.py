@@ -8,15 +8,15 @@
 class DDNSLocators(object):
     # 服务提供商
     "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[1]/div/div[1]"
-    Service_Provider_DynDNS = "//div[@class='radio-group-container horizontal']/div[1]"
-    Service_Provider_Oray = "//div[@class='radio-group-container horizontal']/div[2]"
+    Service_Provider_DynDNS = "//div[@class='form']/div[1]/div/div[1]"
+    Service_Provider_Oray = "//div[@class='form']/div[1]/div/div[2]"
     # 域名
-    Domain_Name = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[2]/div/div/div/input"
+    Domain_Name = "//div[@class='form']/div[2]/div/div/div/input"
     # 用户名
-    Username = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[3]/div/div/div/input"
+    Username = "//div[@class='form']/div[3]/div/div/div/input"
     # 密码
-    Password = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[4]/div/div/div[1]/input"
+    Password = "//div[@class='form']/div[4]/div/div/div/input"
     # 启用
-    Statu = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[5]/div/label/div[1]"
+    Statu = "//label/div[1]"
     # 保存
-    Save = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[2]/button"
+    Save = "//button[@class='btn']"

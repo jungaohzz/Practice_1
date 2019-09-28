@@ -7,9 +7,9 @@
 """端口转发"""
 class PortForwardingLocators(object):
     """端口转发 首页 - 列表"""
-    Add = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[1]/div[2]/button[1]"
+    Add = "//button[@class='btn btn-small']"
     # 批量删除
-    Deletes = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[1]/div[2]/button[3]"
+    Deletes = "//button[@class='btn m-btn btn-small']"
 
     List_Name = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[3]/div/div[1]/span[2]"
     List_OutNetIp = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[3]/div/div[2]/p[1]"
@@ -21,7 +21,7 @@ class PortForwardingLocators(object):
     # 每一个的 编辑 和 删除 按钮
     Edit = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[3]/div/div[6]/a[1]"
     Delete = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[3]/div/div[6]/a[2]"
-    Delete_ok = "/html/body/div[3]/div/div[2]/button[2]"
+    Delete_ok = "//div[@class='dialog-buttons']/button[2]"
 
 
     """新增端口转发"""

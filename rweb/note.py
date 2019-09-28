@@ -21,4 +21,8 @@
 
 8.语言切换中，荷兰语没有写
 
+
+9. 将所有的save_ok 的xpath路径均放到const文件中：//div[@class='dialog-buttons']/button[2]
+   注：Delete_ok好像也是
+
 """

@@ -14,7 +14,7 @@ class VpnLocators(object):
     Statu_Text = "/html/body/div[1]/div[1]/div/div/div[1]/div[2]/div/div[1]/div/div[1]/div[1]/div/span"
     Edit = "/html/body/div[1]/div[1]/div/div/div[1]/div[2]/div/div[1]/div/div[2]/div[1]"
     Delete = "/html/body/div[1]/div[1]/div/div/div[1]/div[2]/div/div[1]/div/div[2]/div[2]"
-    Delete_Ok = "/html/body/div[3]/div/div[2]/button[2]"
+    Delete_Ok = "//div[@class='dialog-buttons']/button[2]"
     # 名称
     Name = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[1]/div/div/div/input"
     # 协议类型

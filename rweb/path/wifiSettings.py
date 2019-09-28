@@ -19,4 +19,4 @@ class WifiSettingsLocators(object):
     Smart_Connect = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[5]/div/div/div"
 
     Save = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[2]/button"
-    Save_Ok = "/html/body/div[3]/div/div[2]/button[2]"
+    Save_Ok = "//div[@class='dialog-buttons']/button[2]"
