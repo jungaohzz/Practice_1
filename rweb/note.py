@@ -23,6 +23,7 @@
 
 
 9. 将所有的save_ok 的xpath路径均放到const文件中：//div[@class='dialog-buttons']/button[2]
-   注：Delete_ok好像也是
+   注：好像是所有弹窗的确定按钮都是：//div[@class='dialog-buttons']/button[2]
 
+10.所有有add功能的页面，好像元素都是：//button[@class='btn btn-small']
 """

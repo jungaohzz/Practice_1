@@ -216,11 +216,6 @@ class VPN(Base):
                 EC.element_to_be_clickable((By.XPATH, VpnLocators.Statu))
             ).click()
 
-            # 断言：正在连接中：是否有文字提示：Trying to connect
-            time.sleep(2)
-            print(self.driver.find_element_by_xpath(VpnLocators.Statu_Text).text)
-            assert self.driver.find_element_by_xpath(VpnLocators.Statu_Text).text == "Trying to connect"
-
             # 断言:toast提示：打开成功
             WebDriverWait(self.driver, 60).until(
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
@@ -253,11 +248,6 @@ class VPN(Base):
             WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, VpnLocators.Statu))
             ).click()
-
-            # 断言：正在连接中：是否有文字提示：Disconnecting
-            time.sleep(2)
-            print(self.driver.find_element_by_xpath(VpnLocators.Statu_Text).text)
-            assert self.driver.find_element_by_xpath(VpnLocators.Statu_Text).text == "Disconnecting"
 
             # 断言:toast提示：关闭成功
             WebDriverWait(self.driver, 60).until(

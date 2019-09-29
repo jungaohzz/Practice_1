@@ -6,6 +6,9 @@
 
 """限时"""
 class LimitTimeLocators(object):
+    Page_TimeLimit = "//div[@class='tabs tabs']/div[2]"
+
+
     Add = "//button[@class='btn btn-small']"
 
 
@@ -30,12 +33,14 @@ class LimitTimeLocators(object):
 
     """新增限时"""
     Insert_Statu = "//div[@class='item']/div/div"
-    Weeks = "/html/body/div[3]/div[2]/div/div[1]/div[4]/div/div[{num}]/div/label/div[1]"
     Insert_CutOffTime_Form = "//div[@class='modal-form']/div[2]/div"
     Hour_14 = "//div[@class='combobox']/div[1]/div/ul/li[15]"
     Minute_59 = "//div[@class='combobox']/div[1]/div[2]/ul/li[60]"
     Insert_CutOffTime_Ok = "//div[@class='combobox']/div[@class='button-wrap']/button[2]"
 
     Insert_RecoveryTime = "//div[@class='modal-form']/div[3]/div"
+
+    Weeks = "//div[@class='date-wrap']/div[{num}]/div/label/div[1]"
+
     Cancel = "//button[@class='btn btn-default']"
     Save = "//button[@class='btn']"

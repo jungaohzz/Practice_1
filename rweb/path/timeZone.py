@@ -7,6 +7,6 @@
 """时区"""
 class TimeZoneLocators(object):
 
-    TimeZone ="/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div/div/div/input"
-    TimeZone_Chinese = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div/div/div/ul/li[49]"
-    Save = "/html/body/div[1]/div/div/div/div[1]/div[2]/div[2]/button"
+    TimeZone ="//input[@class='select-text']"
+    TimeZone_Chinese = "//ul[@class='select-popup']/li[49]"
+    Save = "//button[@class='btn']"

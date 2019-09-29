@@ -6,5 +6,5 @@
 
 """路由器日志"""
 class SystemLogLocators(object):
-    Statu = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[1]/div/div"
-    SystemLog_Text = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[2]/pre[2]"
+    Statu = "//div[@class='form']/div[1]/div/div"
+    SystemLog_Text = "//div[@class='log-container']/pre[2]"

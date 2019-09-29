@@ -7,5 +7,5 @@
 
 class RouterManagementLocators(object):
     # mesh拓扑图
-    Mesh_Topology = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[1]/div/div[1]"
+    Mesh_Topology = "//div[@class='mesh-info']/div[1]/div/div[1]"
     # 列表
