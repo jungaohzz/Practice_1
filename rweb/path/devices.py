@@ -11,7 +11,7 @@ class DevicesLocators(object):
     """主网列表"""
     MyWifi = "//div[@class='tabs']/div[1]"
     # 操作-设置按钮
-    Set = "//div[@class='table-inner']/div[2]/div/ul/li[7]/span[1]"
+    Set = "//span[@class='black-btn btn-text setting']"
 
 
     """访客列表"""

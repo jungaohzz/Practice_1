@@ -17,8 +17,8 @@ class LimitTimeLocators(object):
     # 列表头
     Table_Heads = "//div[@class='table-head']/div[{num}]"
     List_Null = "//p[@class='empty-text']"
-    Cut_Off_Time = "//div[@class='table-body']/div[{num}]/div/span[1]"
-    Recovery_Time = "//div[@class='table-body']/div[{num}]/div/span[3]"
+    Cut_Off_Time = "//div[@class='table-body']/div[{num}]/div[1]/span[1]"
+    Recovery_Time = "//div[@class='table-body']/div[{num}]/div[2]"
 
     # 重复
     Repeat = "//div[@class='table-body']/div[{num}]/div[3]"
@@ -34,13 +34,15 @@ class LimitTimeLocators(object):
     """新增限时"""
     Insert_Statu = "//div[@class='item']/div/div"
     Insert_CutOffTime_Form = "//div[@class='modal-form']/div[2]/div"
-    Hour_14 = "//div[@class='combobox']/div[1]/div/ul/li[15]"
-    Minute_59 = "//div[@class='combobox']/div[1]/div[2]/ul/li[60]"
-    Insert_CutOffTime_Ok = "//div[@class='combobox']/div[@class='button-wrap']/button[2]"
+    Insert_RecoveryTime_Form = "//div[@class='modal-form']/div[3]/div"
+    Form_Confirm = "//div[@class='combobox']/div[@class='button-wrap']/button[2]"
+    Hour = "//div[@class='combobox']/div[1]/div/ul/li[{num}+1]"
+    Minute = "//div[@class='combobox']/div[1]/div[2]/ul/li[{num}+1]"
+
 
     Insert_RecoveryTime = "//div[@class='modal-form']/div[3]/div"
 
     Weeks = "//div[@class='date-wrap']/div[{num}]/div/label/div[1]"
 
-    Cancel = "//button[@class='btn btn-default']"
-    Save = "//button[@class='btn']"
+    Insert_Cancel = "//button[@class='btn btn-default']"
+    Insert_Add = "//button[@class='btn']"
