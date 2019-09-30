@@ -38,7 +38,8 @@ def core():
         # 建议执行顺序
         # 最后：管理密码
         # 倒二：工作方式
-        LimitTime
+        # 限时？如果被限制住未删掉情况怎么处理
+        LimitRate
     ]
 
     for t in class_tests:

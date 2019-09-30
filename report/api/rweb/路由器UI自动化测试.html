@@ -7128,149 +7128,75 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 10,
+    "testPass": 1,
     "testResult": [
         {
-            "className": "LimitTime",
-            "methodName": "test_A_limitTime_null",
-            "description": "限时-列表为空检验",
-            "spendTime": "15.2 s",
+            "className": "LimitRate",
+            "methodName": "test_A_limitRate_add",
+            "description": "限速-新增",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_A_limitRate_elementCheck",
+            "description": "限速-页面元素检测 及 默认参数",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_B_limitRate_edit_value",
+            "description": "限速-修改参数值",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_B_limitRate_error",
+            "description": "限速-异常情况检查",
+            "spendTime": "12.0 s",
             "status": "成功",
             "log": [
                 ""
             ]
         },
         {
-            "className": "LimitTime",
-            "methodName": "test_B_limitTime_insert_check",
-            "description": "限时-新增框元素检查、默认值检查、重复时间为空保存有提示、取消则未新增成功",
-            "spendTime": "15.8 s",
-            "status": "成功",
+            "className": "LimitRate",
+            "methodName": "test_C_limitRate_edit_statu_on",
+            "description": "限速-修改状态：由关变为开",
+            "spendTime": "0.0 s",
+            "status": "跳过",
             "log": [
-                ""
+                "跳过"
             ]
         },
         {
-            "className": "LimitTime",
-            "methodName": "test_C_limitTime_add",
-            "description": "限时-新增",
-            "spendTime": "12.8 s",
-            "status": "成功",
+            "className": "LimitRate",
+            "methodName": "test_D_limitRate_edit_statu_off",
+            "description": "限速-修改状态：由开变为关",
+            "spendTime": "0.0 s",
+            "status": "跳过",
             "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_D_limitTime_time_style",
-            "description": "限时-时间显示格式为24小时制",
-            "spendTime": "10.2 s",
-            "status": "成功",
-            "log": [
-                "111111",
-                "23:59",
-                ""
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_E_limitTime_elementAssert",
-            "description": "限时-页面元素检测",
-            "spendTime": "11.8 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_F_limitTime_edit_value",
-            "description": "限时-编辑-修改参数值",
-            "spendTime": "12.9 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_G_limitTime_add_Weekdays",
-            "description": "限时-新增-重复时间为周一 ~ 周五，显示为：Weekdays",
-            "spendTime": "16.1 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_H_limitTime_add_Everyday",
-            "description": "限时-新增-重复时间每天，显示为：Everyday",
-            "spendTime": "14.2 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_I_limitTime_add_Everyday",
-            "description": "限时-新增-重复时间为任意6天，显示具体的星期",
-            "spendTime": "21.1 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 601, in run\n    self.setUp()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_limitTime.py\", line 44, in setUp\n    EC.element_to_be_clickable((By.XPATH, DevicesLocators.Set))\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py\", line 80, in until\n    raise TimeoutException(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.TimeoutException: Message: \n\n"
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_J_limitTime_add_OtherMondey",
-            "description": "限时-新增-再添加一个星期一，显示2个星期一",
-            "spendTime": "26.5 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_K_limitTime_edit_statu",
-            "description": "限时-编辑-修改状态：由开变为关",
-            "spendTime": "14.5 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_L_limitTime_delete",
-            "description": "限时-删除",
-            "spendTime": "30.3 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_limitTime.py\", line 611, in test_L_limitTime_delete\n    EC.element_to_be_clickable((By.XPATH, Delete))\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py\", line 80, in until\n    raise TimeoutException(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.TimeoutException: Message: \n\n"
+                "跳过"
             ]
         }
     ],
     "testName": "路由器UI自动化测试报告",
-    "testAll": 12,
-    "testFail": 2,
-    "beginTime": "2019-09-29 18:03:28",
-    "totalTime": "202s",
-    "testSkip": 0,
+    "testAll": 6,
+    "testFail": 0,
+    "beginTime": "2019-09-30 18:02:30",
+    "totalTime": "12s",
+    "testSkip": 5,
     "testError": 0
 };
 
