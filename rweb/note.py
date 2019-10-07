@@ -26,4 +26,19 @@
    注：好像是所有弹窗的确定按钮都是：//div[@class='dialog-buttons']/button[2]
 
 10.所有有add功能的页面，好像元素都是：//button[@class='btn btn-small']
+
+11.模拟双击和删除键
+    from selenium.webdriver.common.keys import Keys
+    # 模拟鼠标双击
+    inputBox = self.driver.find_element_by_xpath(LimitRateLocators.Download)
+    action_chains = ActionChains(self.driver)
+    action_chains.double_click(inputBox).perform()
+    # 模拟键盘删除键
+    self.driver.find_element_by_xpath(LimitRateLocators.Download).send_keys(Keys.BACK_SPACE)
+
+12.在“test_limitWebsiteBlacklist.py”中，用条用例的最后一点没有检验
+    用例-1974 : 网址列表-单个设备添加的总网址数量超过15条，点击“新增”，有文字提示
+                给连接的任意一个设备，增加15条网址黑名单
+                这个设备，再次点击“新增”，看是否提示“已经达到上限。trans0060” ： 是
+                其他设备，点击“新增”，看是否不提示，而是弹出新增框 ： 是                  ->   这一点没有检验
 """

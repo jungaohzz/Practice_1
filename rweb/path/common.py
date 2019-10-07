@@ -94,7 +94,10 @@ class CommonLocators(object):
 
     """成功的toast"""
     Success_Toast = "//div[@class='toast-container success']"
+    """失败的toast"""
     Error_Toast = "//div[@class='toast-container error']/span"
+    """空列表"""
+    Empty_List = "//p[@class='empty-text']"
     ""
     # 修改的loading元素（好像不生效）
     Loading = "loading-container"

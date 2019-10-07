@@ -330,11 +330,11 @@ class LimitTime(Base):
         assert self.driver.find_element_by_xpath(Edit).is_displayed()
 
         # 删除按钮
-        Delete = LimitTimeLocators.Edit.format(num="last()")
+        Delete = LimitTimeLocators.Delete.format(num="last()")
         assert self.driver.find_element_by_xpath(Delete).is_displayed()
 
         # 新增按钮
-        Insert = LimitTimeLocators.Edit.format(num="last()")
+        Insert = LimitTimeLocators.Add.format(num="last()")
         assert self.driver.find_element_by_xpath(Insert).is_displayed()
 
 
@@ -919,19 +919,21 @@ class LimitTime(Base):
     #@unittest.skip("跳过")
     def test_O_limitTime_delete(self):
         """限时-删除限时记录"""
-        i = 1
-        while i <= 5:
-            Delete = LimitTimeLocators.Delete.format(num="last()")
-            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-                EC.element_to_be_clickable((By.XPATH, Delete))
-            ).click()
-            # 断言:toast提示：成功
-            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-                EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
-            )
-            assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-            i += 1
-            time.sleep(2)
+        flag = False
+        while flag == False:
+            try:
+                assert self.driver.find_element_by_xpath(LimitTimeLocators.List_Null).is_displayed()
+                flag = True
+            except:
+                Delete = LimitTimeLocators.Delete.format(num="last()")
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, Delete))
+                ).click()
+                # 断言:toast提示：成功
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+                )
+                time.sleep(2)
 
 
 

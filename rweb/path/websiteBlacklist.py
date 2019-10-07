@@ -10,9 +10,12 @@ class WebsiteBlacklistLocators(object):
 
     Add = "//button[@class='btn btn-small']"
     Statu = "//div[@class='switch-container']/div"
-    List_Website = "//div[@class='table']/div[3]/div/div[1]"
-    Delete = "//div[@class='table']/div[3]/div/div[2]/a"
+    List_Null = "//p[@class='empty-text']"
+    List_Website = "//div[@class='table']/div[3]/div[{num}]/div[1]"
+    Delete = "//div[@class='table']/div[3]/div[{num}]/div[2]/a"
 
     """新增-网址黑名单"""
     Website = "//div[@class='inputarea']/div/input"
+    Error_Message = "//span[@class='error-message']"
+    Cancel = "//div[@class='btn-info']/button[1]"
     Save = "//div[@class='btn-info']/button[2]"

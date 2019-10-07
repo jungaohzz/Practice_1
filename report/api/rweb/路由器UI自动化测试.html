@@ -7128,103 +7128,55 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 10,
+    "testPass": 5,
     "testResult": [
         {
-            "className": "LimitRate",
-            "methodName": "test_A_limitRate_elementCheck",
-            "description": "限速-页面元素检测 及 默认参数",
-            "spendTime": "9.44 s",
+            "className": "LimitTime",
+            "methodName": "test_A_limitTime_null",
+            "description": "限时-列表为空检验",
+            "spendTime": "8.93 s",
             "status": "成功",
             "log": [
                 ""
             ]
         },
         {
-            "className": "LimitRate",
-            "methodName": "test_B_limitRate_error",
-            "description": "限速-异常情况检查",
-            "spendTime": "13.4 s",
+            "className": "LimitTime",
+            "methodName": "test_B_limitTime_insertCheck",
+            "description": "限时-新增框元素检查、默认值检查、重复时间为空保存有提示、取消则未新增成功",
+            "spendTime": "13.8 s",
             "status": "成功",
             "log": [
                 ""
             ]
         },
         {
-            "className": "LimitRate",
-            "methodName": "test_C_limitRate_errorNotSave",
-            "description": "限速-输入框有错误时点击“保存”无效",
-            "spendTime": "12.3 s",
+            "className": "LimitTime",
+            "methodName": "test_C_limitTime_add",
+            "description": "限时-新增",
+            "spendTime": "11.6 s",
             "status": "成功",
             "log": [
                 ""
             ]
         },
         {
-            "className": "LimitRate",
-            "methodName": "test_D_limitRate_add",
-            "description": "限速-新增成功",
-            "spendTime": "12.3 s",
+            "className": "LimitTime",
+            "methodName": "test_D_limitTime_timeStyle",
+            "description": "限时-时间显示格式为24小时制",
+            "spendTime": "8.86 s",
             "status": "成功",
             "log": [
+                "111111",
+                "23:59",
                 ""
             ]
         },
         {
-            "className": "LimitRate",
-            "methodName": "test_E_limitRate_edit_statu_on",
-            "description": "限速-修改状态：由关变为开",
-            "spendTime": "12.0 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_F_limitRate_edit_statu_off",
-            "description": "限速-配置成功后再次查看是否一致",
-            "spendTime": "8.99 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_G_limitRate_edit_statu_off",
-            "description": "限速-修改状态：由开变为关",
-            "spendTime": "11.5 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_H_limitRate_edit_value",
-            "description": "限速-超过125000但为6位数，自动截取为125000",
-            "spendTime": "18.2 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_I_limitRate_onlyLimitUpload",
-            "description": "限速-只限制上行，可成功保存",
-            "spendTime": "12.4 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_J_limitRate_onlyLimitDownload",
-            "description": "限速-只限制下行，可成功保存",
-            "spendTime": "12.7 s",
+            "className": "LimitTime",
+            "methodName": "test_E_limitTime_elementCheck",
+            "description": "限时-列表页面元素检测",
+            "spendTime": "11.3 s",
             "status": "成功",
             "log": [
                 ""
@@ -7232,10 +7184,10 @@
         }
     ],
     "testName": "路由器UI自动化测试报告",
-    "testAll": 10,
+    "testAll": 5,
     "testFail": 0,
-    "beginTime": "2019-10-04 00:32:04",
-    "totalTime": "123s",
+    "beginTime": "2019-10-07 19:01:22",
+    "totalTime": "54s",
     "testSkip": 0,
     "testError": 0
 };

@@ -39,7 +39,7 @@ def core():
         # 最后：管理密码
         # 倒二：工作方式
         # 限时？如果被限制住未删掉情况怎么处理
-        LimitRate
+        LimitTime
     ]
 
     for t in class_tests:
