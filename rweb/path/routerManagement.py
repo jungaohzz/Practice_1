@@ -9,9 +9,13 @@ class RouterManagementLocators(object):
     """mesh拓扑图"""
     Mesh_Topology = "//div[@class='mesh-info']/div[1]/div/div[1]"
     # mesh穿墙
-    Increase_Mesh_Coverage = "//div[@class='switch-wrap']/div[1]/label/span"
+    Increase_Mesh_Coverage_Icon = "//div[@class='switch-wrap']/div[1]/label/div/div/div[1]/img"
+    Increase_Mesh_Coverage_Note = "//div[@class='switch-wrap']/div[1]/label/div/div/div[2]/div[{num}]"
+    Increase_Mesh_Coverage_Statu = "//div[@class='switch-wrap']/div[1]/div/div"
     # 完整拓扑
-    Complete_Graph = "//div[@class='switch-wrap']/div[2]/label/span"
+    Complete_Graph_Icon = "//div[@class='switch-wrap']/div[2]/label/div/div/div[1]/img"
+    Complete_Graph_Note ="//div[@class='switch-wrap']/div[2]/label/div/div/div[2]/div[{num}]"
+    Complete_Graph_Statu = "//div[@class='switch-wrap']/div[2]/div/div"
 
 
     """列表"""
