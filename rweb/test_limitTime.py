@@ -6,7 +6,6 @@
 
 import unittest
 import time
-# from bs4 import BeautifulSoup
 from selenium import webdriver
 from .test_base import Base
 from selenium.webdriver.support.ui import WebDriverWait

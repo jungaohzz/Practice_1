@@ -9,6 +9,7 @@ from BeautifulReport import BeautifulReport
 import unittest
 import os
 from unittest import TestLoader
+from .test_routerManagement import RouterManagement
 from .test_timeZone import TimeZone
 from .test_language import Language
 from .test_limitTime import LimitTime
@@ -39,7 +40,7 @@ def core():
         # 最后：管理密码
         # 倒二：工作方式
         # 限时？如果被限制住未删掉情况怎么处理
-        LimitTime
+        RouterManagement
     ]
 
     for t in class_tests:

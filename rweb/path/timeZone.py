@@ -8,5 +8,5 @@
 class TimeZoneLocators(object):
 
     TimeZone ="//input[@class='select-text']"
-    TimeZone_Chinese = "//ul[@class='select-popup']/li[49]"
+    TimeZone_All = "//ul[@class='select-popup']/li[{num}]"
     Save = "//button[@class='btn']"

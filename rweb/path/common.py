@@ -84,10 +84,10 @@ class CommonLocators(object):
 
     """语言"""
     Language = "//span[@class='current-text']"
-    Language_Chinese = "//div[@class='lang-selector']/ul/li[1]"
-    Language_English = "//div[@class='lang-selector']/ul/li[2]"
-    Language_Deutsch = "//div[@class='lang-selector']/ul/li[3]"     # 德语
-    Language_Dutch = "//div[@class='lang-selector']/ul/li[4]"       # 荷兰语
+    Language_Chinese = "//div[@class='right-wrap']/div[1]/ul/li[1]"
+    Language_English = "//div[@class='right-wrap']/div[1]/ul/li[2]"
+    Language_Deutsch = "//div[@class='right-wrap']/div[1]/ul/li[3]"         # 德语
+    Language_Dutch =   "//div[@class='right-wrap']/div[1]/ul/li[4]"         # 荷兰语
 
     """退出登录"""
     Logout = "//div[@class='exit']"
