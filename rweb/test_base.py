@@ -22,11 +22,11 @@ class Base(unittest.TestCase):
         self.driver.maximize_window()
 
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.presence_of_element_located((By.XPATH, CommonLocators.InputPassword))
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.InputPassword))
         ).send_keys(const.PASSWORD)
 
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.presence_of_element_located((By.XPATH, CommonLocators.Login))
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.Login))
         ).click()
         time.sleep(0.5)
 

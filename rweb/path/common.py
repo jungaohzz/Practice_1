@@ -101,9 +101,12 @@ class CommonLocators(object):
     ""
     # 修改的loading元素（好像不生效）
     Loading = "loading-container"
-    Shadow = "/html/body/div[4]/div[1]"
+    # 遮罩（如倒计时的）
+    Shade = "//div[@class='reboot-model-contanier']"
+    Shade_Note = "//div[@class='reboot-model-contanier']/div[3]"
 
     # 对话框
     Dialog = "//div[@class='dialog-container mask-layer']/div[@class='dialog-content']"
-    Cancel = "//div[@class='dialog-container mask-layer']/div/div[2]/button[1]'"
+    Dialog_Note = "//div[@class='dialog-container mask-layer']/div[@class='dialog-content']/div[1]"
+    Cancel = "//div[@class='dialog-container mask-layer']/div/div[2]/button[1]"
     Confirm = "//div[@class='dialog-container mask-layer']/div/div[2]/button[2]"

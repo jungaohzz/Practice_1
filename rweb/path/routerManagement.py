@@ -20,13 +20,25 @@ class RouterManagementLocators(object):
 
     """列表"""
     List = "//div[@class='mesh-info']/div[1]/div/div[2]"
+    PrimaryRoute_Name = "//div[@class='table-content']/div[1]/div[1]/div[2]/div[1]"
+    PrimaryRoute_EditName = "//div[@class='edit']"
     # 重启
-    Reboot = "//div[@class='table-content']/div/div[7]/span[1]"
+    PrimaryRoute_Reboot = "//div[@class='table-content']/div/div[7]/span[1]"
     # 恢复出厂
-    Factory_Reset = "//div[@class='table-content']/div/div[7]/span[2]"
+    PrimaryRoute_Factory_Reset = "//div[@class='table-content']/div/div[7]/span[2]"
 
 
-
+    """修改设备名称弹框"""
+    Box = "//div[@class='modal-dialog edit-name-modal']/div[@class='modal-content']"
+    Box_Title = "//div[@class='modal-dialog edit-name-modal']/div[@class='modal-content']/div/div/div/div/label"
+    Box_DeviceName = "//div[@class='select']/input"
+    # 下拉框是否打开的状态
+    Box_On_or_Off = "//div[@class='select']/div/span"
+    # 下拉框中可选择的名字
+    Box_Optional_Name = "//div[@class='select']/ul/li[{num}]"
+    Box_Error = "//span[@class='error-message']"
+    Box_Cancel = "//div[@class='modal-dialog edit-name-modal']/div[@class='modal-content']/div/div[2]/button[1]"
+    Box_Confirm = "//div[@class='modal-dialog edit-name-modal']/div[@class='modal-content']/div/div[2]/button[2]"
 
     """添加节点 按钮"""
     Add_Node = "//div[@class='mesh-info']/div[1]/button[1]"
