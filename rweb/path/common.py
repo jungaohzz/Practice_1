@@ -8,6 +8,7 @@
 class CommonLocators(object):
 
     """登录页面"""
+    SetupWifi = "//div[@class='form']/div[2]/button[@class='btn']"
     InputPassword = "//input"
     Login = "//div[@class='form-item']/button"
 

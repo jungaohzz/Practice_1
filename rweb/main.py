@@ -31,16 +31,15 @@ from .test_adminPassword import AdminPassword
 from .test_blacklist import Blacklist
 from .test_guestWifi import GuestWifi
 from .test_vpn import VPN
+from .test_devices import Devices
 
 
 def core():
     s = []
     class_tests = [
-        # 建议执行顺序
-        # 最后：管理密码
-        # 倒二：工作方式
-        # 限时？如果被限制住未删掉情况怎么处理
-        RouterManagement
+        # 建议执行顺序（倒序排如下）：
+        # 管理路由器、管理密码、工作方式、限时（？如果被限制住未删掉情况怎么处理）
+        Devices
     ]
 
     for t in class_tests:

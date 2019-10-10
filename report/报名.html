@@ -7128,38 +7128,33 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 1,
+    "testPass": 0,
     "testResult": [
         {
-            "className": "Devices",
-            "methodName": "test_A_devices_elementCheck",
-            "description": "接入设备-设备列表字段检查",
-            "spendTime": "0.0 s",
-            "status": "跳过",
+            "className": "Base",
+            "methodName": "test_baoming",
+            "description": null,
+            "spendTime": "8.42e+02 s",
+            "status": "失败",
             "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "Devices",
-            "methodName": "test_A_devices_wired_elementCheck",
-            "description": "接入设备-有线设备接入-元素检查",
-            "spendTime": "11.2 s",
-            "status": "成功",
-            "log": [
-                "111111",
-                "b4:2e:99:51:8a:fa",
-                "2222",
-                ""
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\WebAuto\\baoming.py\", line 209, in test_baoming\n    self.driver.refresh()\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 831, in refresh\n    self.execute(Command.REFRESH)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.WebDriverException: Message: chrome not reachable\n  (Session info: chrome=77.0.3865.90)\n\n"
             ]
         }
     ],
-    "testName": "路由器UI自动化测试报告",
-    "testAll": 2,
-    "testFail": 0,
-    "beginTime": "2019-10-10 16:27:31",
-    "totalTime": "11s",
-    "testSkip": 1,
+    "testName": "报名",
+    "testAll": 1,
+    "testFail": 1,
+    "beginTime": "2019-10-10 16:50:49",
+    "totalTime": "842s",
+    "testSkip": 0,
     "testError": 0
 };
 

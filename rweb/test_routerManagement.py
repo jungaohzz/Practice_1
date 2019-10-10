@@ -830,7 +830,7 @@ class RouterManagement(Base):
 
 
 
-    #@unittest.skip("跳过")
+    @unittest.skip("跳过")
     def test_M_routerManagement_reboot_ok(self):
         """管理路由器-重启-重启成功检查"""
         """
@@ -893,3 +893,123 @@ class RouterManagement(Base):
             EC.presence_of_element_located((By.XPATH, CommonLocators.Logout))
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Logout).is_displayed()
+
+
+
+
+
+
+    @unittest.skip("跳过")
+    def test_N_routerManagement_factoryReset_elementsCheck(self):
+        """管理路由器-恢复出厂设置-元素检查"""
+        """
+        用例-1772 : 主路由，恢复出厂设置按钮点击弹出恢复出厂设置确认框
+                    点击主路由列表中的“恢复出厂设置”按钮，查看是否弹出恢复出厂设置确认框 ： 是
+        用例-1773 : 主路由，恢复出厂设置确认框显示元素检测
+                    查看恢复出厂设置确认框中是否显示提示信息“恢复出厂设置，路由器将恢复到出厂状态。所有连接将中断并且解除组网关系/trans0206” ： 是
+                    查看是否显示“取消/trans0025”、“恢复出厂设置/trans0205”按钮 ： 是
+        用例-1774 : 主路由，恢复出厂设置确认框取消按钮点击后，确认框消失
+                    点击恢复出厂设置确认框中的取消按钮，查看确认提示框是否消失，路由器不会有任何操作 ： 是
+        """
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.List))
+        ).click()
+
+        # 断言：用例-1772 : 主路由，恢复出厂设置按钮点击弹出恢复出厂设置确认框
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.PrimaryRoute_Factory_Reset))
+        ).click()
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Dialog))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Dialog).is_displayed()
+
+        # 断言：用例-1773 : 主路由，恢复出厂设置确认框显示元素检测
+        # 断言：提示语句是否为：恢复出厂设置，路由器将恢复到出厂状态。所有连接将中断并且解除组网关系
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Dialog_Note))
+        )
+        Dialog_Note = self.driver.find_element_by_xpath(CommonLocators.Dialog_Note).text
+        assert Dialog_Note == "Resetting will cause all devices to be disconnected and the mesh network to be terminated.", Dialog_Note
+        # 断言：是否有按钮：取消
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Cancel))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Cancel).is_displayed()
+        # 断言：是否有按钮：恢复出厂设置
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Confirm))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Confirm).is_displayed()
+
+        # 断言：用例-1774 : 主路由，恢复出厂设置确认框取消按钮点击后，确认框消失
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.Cancel))
+        ).click()
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until_not(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Dialog))
+        )
+        # 断言：假设可以切换到“mesh拓扑图”页则判断为没有进行重启
+        time.sleep(2)
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.Mesh_Topology))
+        ).click()
+
+
+
+
+
+
+    #@unittest.skip("跳过")
+    def test_O_routerManagement_factoryReset_ok(self):
+        """管理路由器-恢复出厂设置-恢复出厂设置成功检查"""
+        """
+        用例-1775 : 主路由，恢复出厂设置确认框“恢复出厂设置”按钮点击后，弹出【等待页面】
+                    主路由，在弹出的重置确认框中，点击重置路由器按钮，看是否弹出60S重置倒计时遮罩 ： 是
+        用例-5097 : web-主路由重置：【等待页面】显示操作检测
+                    查看页面是否有文字提示： 重启中，请等待...《trans0322》 ： 是
+                                            查看页面是否从60s开始倒计时 ： 是
+                                            倒计时过程中，轮询判断 ： 是
+        用例-1779 : 主路由，恢复出厂设置能成功
+                    主路由，恢复出厂设置，看是否可成功 ： 是
+        """
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.List))
+        ).click()
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.PrimaryRoute_Factory_Reset))
+        ).click()
+        # 点击 确定 按钮
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.Confirm))
+        ).click()
+
+        # 断言：用例-1775 : 主路由，恢复出厂设置确认框“恢复出厂设置”按钮点击后，弹出【等待页面】
+        WebDriverWait(self.driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Shade))
+        )
+
+        # 断言：用例-5097 : web-主路由重置：【等待页面】显示操作检测
+        # 断言：查看页面是否有文字提示：重启中，请等待...《trans0322》 ： 是
+        Shade_Note = self.driver.find_element_by_xpath(CommonLocators.Shade_Note).text[:-3]
+        assert Shade_Note == "Successful operation, please wait...", Shade_Note
+        # 断言：查看页面是否从60s开始倒计时 ： 是
+        Shade_StartTime = int(
+            self.driver.find_element_by_xpath(CommonLocators.Shade_Note).text[-3:-1])
+        assert Shade_StartTime == 60, Shade_StartTime
+        # 断言：倒计时过程中，轮询判断 ： 是（这里验证5秒的倒计时轮询即可）
+        i = 1
+        while i <= 5:
+            time.sleep(1)
+            Shade_Time = int(self.driver.find_element_by_xpath(CommonLocators.Shade_Note).text[-3:-1])
+            assert Shade_Time == 60 - i, Shade_Time
+            i += 1
+
+        # 用例-1779 : 主路由，恢复出厂设置能成功
+        # 断言：重启的60s，重置成功后会跳转到“设置路由器”页，查看是否有“设置路由器”按钮即可
+        WebDriverWait(self.driver, const.REBOOT_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.SetupWifi))
+        )
+        SetupWifi_Text = self.driver.find_element_by_xpath(CommonLocators.SetupWifi).text
+        assert SetupWifi_Text == "Setup Wi-Fi", SetupWifi_Text
+
