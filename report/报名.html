@@ -7134,26 +7134,31 @@
             "className": "Base",
             "methodName": "test_baoming",
             "description": null,
-            "spendTime": "8.42e+02 s",
+            "spendTime": "25.7 s",
             "status": "失败",
             "log": [
                 "",
                 "Traceback (most recent call last):\n",
                 "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
                 "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\WebAuto\\baoming.py\", line 209, in test_baoming\n    self.driver.refresh()\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 831, in refresh\n    self.execute(Command.REFRESH)\n",
+                "  File \"D:\\PyCharm\\Practice_1\\WebAuto\\baoming.py\", line 49, in test_baoming\n    EC.element_to_be_clickable((By.XPATH, \"//div[@class='yzwb-box']//button[@type='button']\"))\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py\", line 71, in until\n    value = method(self._driver)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\expected_conditions.py\", line 297, in __call__\n    element = visibility_of_element_located(self.locator)(driver)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\expected_conditions.py\", line 128, in __call__\n    return _element_if_visible(_find_element(driver, self.locator))\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\expected_conditions.py\", line 415, in _find_element\n    raise e\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\expected_conditions.py\", line 411, in _find_element\n    return driver.find_element(*by)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 978, in find_element\n    'value': value})['value']\n",
                 "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
                 "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.WebDriverException: Message: chrome not reachable\n  (Session info: chrome=77.0.3865.90)\n\n"
+                "selenium.common.exceptions.WebDriverException: Message: chrome not reachable\n  (Session info: chrome=77.0.3865.75)\n\n"
             ]
         }
     ],
     "testName": "报名",
     "testAll": 1,
     "testFail": 1,
-    "beginTime": "2019-10-10 16:50:49",
-    "totalTime": "842s",
+    "beginTime": "2019-10-10 22:32:45",
+    "totalTime": "26s",
     "testSkip": 0,
     "testError": 0
 };
