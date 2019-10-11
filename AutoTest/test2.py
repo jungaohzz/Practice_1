@@ -44,16 +44,8 @@ class Baidulogin(unittest.TestCase):
     #     time.sleep(5)
 
     def test_set(self):
-        filepath = r"G:\DJ.mp3"
-        pygame.mixer.init()
-        # 加载音乐
-        pygame.mixer.music.load(filepath)
-        pygame.mixer.music.play(start=0.0)
-        pygame.mixer.music.set_volume(1.0)
-        # 播放时长，没有此设置，音乐不会播放，会一次性加载完
-        time.sleep(300)
-        pygame.mixer.music.stop()
-
+        #self.driver.implicitly_wait(6)  # 截屏该网页
+        self.driver.get_screenshot_as_file("G:\宜宾学院没有满.png")
 
 
 

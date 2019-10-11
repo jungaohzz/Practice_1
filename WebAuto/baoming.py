@@ -201,55 +201,82 @@ class Base(unittest.TestCase):
             WebDriverWait(self.driver, 60).until(
                 EC.element_to_be_clickable((By.XPATH, "//div[@class='ivu-row']/div[3]/div/div/select"))
             )
-            time.sleep(2)
+            time.sleep(1)
             self.driver.find_element_by_xpath("//div[@class='ivu-row']/div[3]/div/div/select").click()
+            time.sleep(1)
             zigong_text = self.driver.find_element_by_xpath("//div[@class='ivu-row']/div[3]/div/div/select/option[7]").text
             yibin_text = self.driver.find_element_by_xpath("//div[@class='ivu-row']/div[3]/div/div/select/option[18]").text
             if yibin_text != "5132(宜宾学院（本考点报名人数已满，请选择其他考点）)":
-                print(yibin_text)
+                self.driver.get_screenshot_as_file("G:\宜宾学院.png")
+                time.sleep(0.5)
                 WebDriverWait(self.driver, 10).until(
                     EC.element_to_be_clickable((By.XPATH, "//div[@class='ivu-row']/div[3]/div/div/select/option[18]"))
                 )
                 time.sleep(0.5)
                 self.driver.find_element_by_xpath("//div[@class='ivu-row']/div[3]/div/div/select/option[18]").click()
 
-                # 播放音乐
-                filepath = r"G:\DJ.mp3"
-                pygame.mixer.init()
-                # 加载音乐
-                pygame.mixer.music.load(filepath)
-                pygame.mixer.music.play(start=0.0)
-                pygame.mixer.music.set_volume(1.0)
-                # 播放时长，没有此设置，音乐不会播放，会一次性加载完
+                # 点击 下一步
+                time.sleep(0.5)
+                WebDriverWait(self.driver, 10).until(
+                    EC.element_to_be_clickable((By.XPATH, "//div[@class='main-wrapper']/div[3]/form/div[2]/div/button[2]"))
+                )
+                time.sleep(0.5)
+                self.driver.find_element_by_xpath("//div[@class='main-wrapper']/div[3]/form/div[2]/div/button[2]").click()
+
+                # 点击 “同意信息属实”
+                WebDriverWait(self.driver, 10).until(
+                    EC.element_to_be_clickable(
+                        (By.XPATH, "//input[@type='checkbox']"))
+                )
+                time.sleep(0.5)
+                self.driver.find_element_by_xpath("//input[@type='checkbox']").click()
+
+                # 点击 “确认报名”
+                WebDriverWait(self.driver, 10).until(
+                    EC.element_to_be_clickable(
+                        (By.XPATH, "//div[@id='app']/div/div[3]/button[2]"))
+                )
+                time.sleep(0.5)
+                self.driver.find_element_by_xpath("//div[@id='app']/div/div[3]/button[2]").click()
+
+
+                # # 播放音乐
+                # filepath = r"G:\DJ.mp3"
+                # pygame.mixer.init()
+                # # 加载音乐
+                # pygame.mixer.music.load(filepath)
+                # pygame.mixer.music.play(start=0.0)
+                # pygame.mixer.music.set_volume(1.0)
+                # # 播放时长，没有此设置，音乐不会播放，会一次性加载完
 
                 messagebox.showinfo("提示", "宜宾学院")
 
-                time.sleep(30)
-                pygame.mixer.music.stop()
+                # time.sleep(30)
+                # pygame.mixer.music.stop()
 
                 time.sleep(600)
 
-            elif zigong_text != "5114(四川轻化工大学(自贡校区) （本考点报名人数已满，请选择其他考点）)":
-                print(zigong_text)
-                WebDriverWait(self.driver, 10).until(
-                    EC.element_to_be_clickable((By.XPATH, "//div[@class='ivu-row']/div[3]/div/div/select/option[18]"))
-                ).click()
-
-                # 播放音乐
-                filepath = r"G:\DJ.mp3"
-                pygame.mixer.init()
-                # 加载音乐
-                pygame.mixer.music.load(filepath)
-                pygame.mixer.music.play(start=0.0)
-                pygame.mixer.music.set_volume(1.0)
-                # 播放时长，没有此设置，音乐不会播放，会一次性加载完
-
-                messagebox.showinfo("提示", "轻化工大学")
-
-                time.sleep(20)
-                pygame.mixer.music.stop()
-
-                time.sleep(5)
+            # elif zigong_text != "5114(四川轻化工大学(自贡校区) （本考点报名人数已满，请选择其他考点）)":
+            #     self.driver.get_screenshot_as_file("G:\轻化工大学没有满.png")
+            #     WebDriverWait(self.driver, 10).until(
+            #         EC.element_to_be_clickable((By.XPATH, "//div[@class='ivu-row']/div[3]/div/div/select/option[18]"))
+            #     ).click()
+            #
+            #     # # 播放音乐
+            #     # filepath = r"G:\DJ.mp3"
+            #     # pygame.mixer.init()
+            #     # # 加载音乐
+            #     # pygame.mixer.music.load(filepath)
+            #     # pygame.mixer.music.play(start=0.0)
+            #     # pygame.mixer.music.set_volume(1.0)
+            #     # # 播放时长，没有此设置，音乐不会播放，会一次性加载完
+            #
+            #     messagebox.showinfo("提示", "轻化工大学")
+            #
+            #     # time.sleep(60)
+            #     # pygame.mixer.music.stop()
+            #
+            #     time.sleep(60)
 
             i += 1
 

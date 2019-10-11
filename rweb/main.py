@@ -39,7 +39,7 @@ def core():
     class_tests = [
         # 建议执行顺序（倒序排如下）：
         # 管理路由器、管理密码、工作方式、限时（？如果被限制住未删掉情况怎么处理）
-        Devices
+        LimitTime
     ]
 
     for t in class_tests:
@@ -52,9 +52,9 @@ def core():
 if __name__ == "__main__":
     t_suites = core()
     result = BeautifulReport(t_suites)
-    log_path = 'report/api/rweb'
+    log_path = 'report/rweb'
     if not os.path.exists(log_path):
         os.makedirs(log_path)
-    result.report(filename="路由器UI自动化测试",
-                  description="路由器UI自动化测试报告",
+    result.report(filename="路由器Web自动化测试",
+                  description="路由器Web自动化测试报告",
                   log_path=log_path)

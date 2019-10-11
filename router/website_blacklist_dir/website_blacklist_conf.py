@@ -1,6 +1,4 @@
-import os
-import sys
-import time
+#所有的配置
 
 #===========================================================================
 """开启TELNET进程参数"""
@@ -62,9 +60,31 @@ interfacewireless = "WIRED"
 get_vpn_list_num = " cat etc/config/vpn  | grep  \"option valid '1'\"  | wc -l"
 get_vpn_list = "cat etc/config/vpn"
 #===========================================================================
-"""获取VPN相关参数"""
-set_sys_time_true = "date -s \"2018-4-9 15:00:00\""
-set_sys_time_false = "date -s \"2018-4-10 15:00:00\""
+"""限时相关配置"""
+#周一
+set_sys_time_mon = "date -s \"2019-10-7 15:00:00\""
+#周二
+set_sys_time_tue ="date -s \"2019-10-8 15:00:00\""
+#周三
+set_sys_time_wed = "date -s \"2019-10-9 15:00:00\""
+#周四
+set_sys_time_thu = "date -s \"2019-10-10 15:00:00\""
+#周五
+set_sys_time_fri ="date -s \"2019-10-11 15:00:00\""
+#周六
+set_sys_time_sat = "date -s \"2019-10-12 15:00:00\""
+#周日
+set_sys_time_sun = "date -s \"2019-10-13 15:00:00\""
+#===========================================================================
+"""网址黑名单限制相关条目"""
+baidu_url1 = "www.baidu.com"
+baidu_url2 = "news.baidu.com"
+baidu_url3 = "jingyan.baidu.com"
+baidu_url4 = "tieba.baidu.com"
+jd_url1 = "www.jd.com"
+jd_url2 = "jiadian.jd.com"
+jd_url3 = "beauty.jd.com"
+jd_url4 = "passport.jd.com"
 #===========================================================================
 
 

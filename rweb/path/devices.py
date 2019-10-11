@@ -26,8 +26,8 @@ class DevicesLocators(object):
     MyWifi_Access_Icon = "//div[@class='table-inner']/div[2]/div/ul/li[1]/div/div[2]/span/span[2]"
 
     # 操作-设置按钮
-    Set = "//div[@class='table-inner']/div[2]/div/ul[last()]/li[@class='column-black-list']/span[1]"
-    AddtoBlacklist = "//div[@class='table-inner']/div[2]/div/ul[last()]/li[@class='column-black-list']/span[2]"
+    Set = "//div[@class='table-inner']/div[2]/div/ul[{num}]/li[@class='column-black-list']/span[1]"
+    AddtoBlacklist = "//div[@class='table-inner']/div[2]/div/ul[1]/li[@class='column-black-list']/span[2]"
 
 
 

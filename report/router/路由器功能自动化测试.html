@@ -7128,38 +7128,319 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 1,
+    "testPass": 20,
     "testResult": [
         {
-            "className": "Devices",
-            "methodName": "test_A_devices_elementCheck",
-            "description": "接入设备-设备列表字段检查",
-            "spendTime": "0.0 s",
-            "status": "跳过",
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_A_limitWebsiteBlacklist_add",
+            "description": "操作步骤：新增网址：www.baidu.com",
+            "spendTime": "5.86 s",
+            "status": "成功",
             "log": [
-                "跳过"
+                ""
             ]
         },
         {
-            "className": "Devices",
-            "methodName": "test_A_devices_wired_elementCheck",
-            "description": "接入设备-有线设备接入-元素检查",
-            "spendTime": "11.2 s",
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_B_limitWebsiteBlacklist_statu_on",
+            "description": "操作步骤：将开关开启",
+            "spendTime": "7.37 s",
             "status": "成功",
             "log": [
-                "111111",
-                "b4:2e:99:51:8a:fa",
-                "2222",
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_C_limitWebsiteBlacklist_1",
+            "description": "【检验】用例-5032:开关开启，设备A添加一个完整的网址黑名单a，设备A不可以访问网址a(设备a不可以访问www.baidu.com)",
+            "spendTime": "34.0 s",
+            "status": "成功",
+            "log": [
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "0",
+                "测试成功",
+                "【成功】限制住了：www.baidu.com",
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_D_limitWebsiteBlacklist_2",
+            "description": "【检验】用例-7216:开关开启，设备A添加一个完整的网址黑名单a，设备A可以访问非网址a的网址（设备a不可以访问www.baidu.com，但是可以访问new.baidu.com,www.jd.com）",
+            "spendTime": "3.97 s",
+            "status": "成功",
+            "log": [
+                "执行http request",
+                "200",
+                "可以访问",
+                "1",
+                "执行http request",
+                "302",
+                "可以访问",
+                "1",
+                "1 1",
+                "测试成功",
+                "【成功】没有限制其它未添加的网站，如：new.baidu.com",
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_E_limitWebsiteBlacklist_3",
+            "description": "【检验】用例-7214:开关开启，设备A添加一个完整的网址黑名单a，设备B可以访问网址a（设备a不可以访问www.baidu.com，设备b不可以访问www.baidu.com）",
+            "spendTime": "14.7 s",
+            "status": "成功",
+            "log": [
+                "执行http request",
+                "200",
+                "可以访问",
+                "1",
+                "1",
+                "测试成功",
+                "1",
+                "【成功】设备A限制的网址a，设备B可以正常访问网址a",
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_F_limitWebsiteBlacklist_delete",
+            "description": "操作步骤：删除网址：www.baidu.com",
+            "spendTime": "6.01 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_G_limitWebsiteBlacklist_4",
+            "description": "【检验】用例-4836:开关开启，设备A删除一个网址黑名单a，设备A可以访问网址a（设备a不可以访问www.baidu.com，删除设备a的网址黑名单www.baidu.com）",
+            "spendTime": "2.94 s",
+            "status": "成功",
+            "log": [
+                "执行http request",
+                "200",
+                "可以访问",
+                "1",
+                "1",
+                "测试成功",
+                "1",
+                "【成功】设备A限制的网址a，但被网址a删除后，可正常访问",
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_H_limitWebsiteBlacklist_add",
+            "description": "操作步骤：新增网址：baidu",
+            "spendTime": "4.67 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_I_limitWebsiteBlacklist_5",
+            "description": "【备注】用例-7215:开关开启，设备A添加一个主域名的网址黑名单，设备A无法访问主域名相关的所有网址（设备a不可以访问主域名baidu，那么设备a就不能访问www.baidu.com,news.baidu.com,tieba.baidu.com,jingyan.baidu.com）",
+            "spendTime": "1.28e+02 s",
+            "status": "成功",
+            "log": [
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "0 0 0 0",
+                "测试成功",
+                "1",
+                "【成功】设备A限制主域名baidu，baidu相关的所有网址均被限制",
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_J_limitWebsiteBlacklist_delete",
+            "description": "操作步骤：删除网址：baidu",
+            "spendTime": "5.66 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_K_limitWebsiteBlacklist_add_four_website",
+            "description": "操作步骤：新增网址：www.baidu.com",
+            "spendTime": "11.4 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_L_limitWebsiteBlacklist_6",
+            "description": "【备注】用例-5240:开关开启，设备A添加多个网址黑名单，设备A不可以访问黑名单网址(设备a不可以访问www.baidu.com)",
+            "spendTime": "1.28e+02 s",
+            "status": "成功",
+            "log": [
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "0 0 0 0",
+                "测试成功",
+                "1",
+                "【成功】设备A限制多个网址，多个网址均被限制",
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_M_limitWebsiteBlacklist_delete",
+            "description": "操作步骤：删除所有网址",
+            "spendTime": "11.4 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_N_limitWebsiteBlacklist_A_add",
+            "description": "操作步骤：有线新增网址：www.baidu.com、无线新增网址：www.jd.com",
+            "spendTime": "8.92 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_O_limitWebsiteBlacklist_7",
+            "description": "【备注】用例-7217:设备A的网址黑名单关闭，设备A可以访问任何网址，设备B的网址黑名单开启，设备B不可以访问网址黑名单中的网址",
+            "spendTime": "27.9 s",
+            "status": "成功",
+            "log": [
+                "执行http request",
+                "200",
+                "可以访问",
+                "1",
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "1 0",
+                "测试成功",
+                "1",
+                "【成功】设备A黑名单开关关闭，不会影响设备B",
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_P_limitWebsiteBlacklist_A_add",
+            "description": "操作步骤：有线新增网址：news.baidu.com、无线新增网址：jiadian.jd.com",
+            "spendTime": "8.96 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_Q_limitWebsiteBlacklist_8",
+            "description": "【备注】用例-4835:开关开启，多个设备添加多个网址黑名单，功能生效",
+            "spendTime": "1.08e+02 s",
+            "status": "成功",
+            "log": [
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "执行http request",
+                "无法访问[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。",
+                "0",
+                "0 0 0 0",
+                "测试成功",
+                "1",
+                "【成功】开关开启，多个设备添加多个网址黑名单，功能生效",
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_R_limitWebsiteBlacklist_delete",
+            "description": "操作步骤：无线删除所有网址，有线只有网址www.baidu.com。并且将开关关闭",
+            "spendTime": "12.9 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_S_limitWebsiteBlacklist_9",
+            "description": "【备注】用例-4838: 开关关闭，设备A添加一个网址黑名单a，设备A可以访问网址a，设备B可以访问网址a",
+            "spendTime": "7.97 s",
+            "status": "成功",
+            "log": [
+                "执行http request",
+                "200",
+                "可以访问",
+                "1",
+                "执行http request",
+                "200",
+                "可以访问",
+                "1",
+                "1 1",
+                "测试成功",
+                "1",
+                "【成功】设备A添加网址a，开关关闭，设备A和设备B均可访问网址a",
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_T_limitWebsiteBlacklist_delete",
+            "description": "操作步骤：将黑名单恢复到初始配置",
+            "spendTime": "9.9 s",
+            "status": "成功",
+            "log": [
                 ""
             ]
         }
     ],
-    "testName": "路由器UI自动化测试报告",
-    "testAll": 2,
+    "testName": "路由器功能自动化测试报告",
+    "testAll": 20,
     "testFail": 0,
-    "beginTime": "2019-10-10 16:27:31",
-    "totalTime": "11s",
-    "testSkip": 1,
+    "beginTime": "2019-10-11 18:02:40",
+    "totalTime": "556s",
+    "testSkip": 0,
     "testError": 0
 };
 
