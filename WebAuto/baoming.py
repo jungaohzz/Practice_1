@@ -23,17 +23,31 @@ class Base(unittest.TestCase):
         self.driver.maximize_window()
 
     def test_baoming(self):
-        # 输入账号并登陆
+        # # 输入账号并登陆（杨蕾的）
+        # WebDriverWait(self.driver, 20).until(
+        #     EC.element_to_be_clickable((By.XPATH, "//div[@class='yz-main']/div/form/div[2]/input"))
+        # ).send_keys("51138119970211857X")
+        # WebDriverWait(self.driver, 20).until(
+        #     EC.element_to_be_clickable((By.XPATH, "//input[@id='password']"))
+        # ).send_keys("23611130622")
+        # WebDriverWait(self.driver, 20).until(
+        #     EC.element_to_be_clickable((By.XPATH, "//div[@class='yz-main']/div/form/div[4]/input"))
+        # ).click()
+
+        # 输入账号并登陆（我的）
         WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "//div[@class='yz-main']/div/form/div[2]/input"))
-        ).send_keys("51138119970211857X")
+        ).send_keys("15775969376")
         WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "//input[@id='password']"))
-        ).send_keys("23611130622")
+        ).send_keys("15775969376")
         WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "//div[@class='yz-main']/div/form/div[4]/input"))
         ).click()
+
+
         time.sleep(2)
+
         # 点击 首页
         WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "//a[@class='home mark']"))
@@ -182,7 +196,7 @@ class Base(unittest.TestCase):
 
         # 定时（20秒）刷新，检验是否还有位置
         i = 1
-        while i <= 120:         # 1h执行180次，设置5h的量共900次
+        while i <= 900:         # 1h执行180次，设置5h的量共900次
 
             WebDriverWait(self.driver, 60).until(
                 EC.element_to_be_clickable((By.XPATH, "//div[@class='ivu-row']/div[1]/div/div/select"))
@@ -207,6 +221,17 @@ class Base(unittest.TestCase):
             zigong_text = self.driver.find_element_by_xpath("//div[@class='ivu-row']/div[3]/div/div/select/option[7]").text
             yibin_text = self.driver.find_element_by_xpath("//div[@class='ivu-row']/div[3]/div/div/select/option[18]").text
             if yibin_text != "5132(宜宾学院（本考点报名人数已满，请选择其他考点）)":
+
+                # 播放音乐
+                filepath = r"G:\DJ.mp3"
+                pygame.mixer.init()
+                # 加载音乐
+                pygame.mixer.music.load(filepath)
+                pygame.mixer.music.play(start=0.0)
+                pygame.mixer.music.set_volume(1.0)
+                # 播放时长，没有此设置，音乐不会播放，会一次性加载完
+
+
                 self.driver.get_screenshot_as_file("G:\宜宾学院.png")
                 time.sleep(0.5)
                 WebDriverWait(self.driver, 10).until(
@@ -215,68 +240,72 @@ class Base(unittest.TestCase):
                 time.sleep(0.5)
                 self.driver.find_element_by_xpath("//div[@class='ivu-row']/div[3]/div/div/select/option[18]").click()
 
-                # 点击 下一步
-                time.sleep(0.5)
-                WebDriverWait(self.driver, 10).until(
-                    EC.element_to_be_clickable((By.XPATH, "//div[@class='main-wrapper']/div[3]/form/div[2]/div/button[2]"))
-                )
-                time.sleep(0.5)
-                self.driver.find_element_by_xpath("//div[@class='main-wrapper']/div[3]/form/div[2]/div/button[2]").click()
+                # # 点击 下一步
+                # time.sleep(0.5)
+                # WebDriverWait(self.driver, 10).until(
+                #     EC.element_to_be_clickable((By.XPATH, "//div[@class='main-wrapper']/div[3]/form/div[2]/div/button[2]"))
+                # )
+                # time.sleep(0.5)
+                # self.driver.find_element_by_xpath("//div[@class='main-wrapper']/div[3]/form/div[2]/div/button[2]").click()
+                #
+                # # 点击 “同意信息属实”
+                # WebDriverWait(self.driver, 10).until(
+                #     EC.element_to_be_clickable(
+                #         (By.XPATH, "//input[@type='checkbox']"))
+                # )
+                # time.sleep(0.5)
+                # self.driver.find_element_by_xpath("//input[@type='checkbox']").click()
 
-                # 点击 “同意信息属实”
-                WebDriverWait(self.driver, 10).until(
-                    EC.element_to_be_clickable(
-                        (By.XPATH, "//input[@type='checkbox']"))
-                )
-                time.sleep(0.5)
-                self.driver.find_element_by_xpath("//input[@type='checkbox']").click()
-
-                # 点击 “确认报名”
-                WebDriverWait(self.driver, 10).until(
-                    EC.element_to_be_clickable(
-                        (By.XPATH, "//div[@id='app']/div/div[3]/button[2]"))
-                )
-                time.sleep(0.5)
-                self.driver.find_element_by_xpath("//div[@id='app']/div/div[3]/button[2]").click()
-
-
-                # # 播放音乐
-                # filepath = r"G:\DJ.mp3"
-                # pygame.mixer.init()
-                # # 加载音乐
-                # pygame.mixer.music.load(filepath)
-                # pygame.mixer.music.play(start=0.0)
-                # pygame.mixer.music.set_volume(1.0)
-                # # 播放时长，没有此设置，音乐不会播放，会一次性加载完
 
                 messagebox.showinfo("提示", "宜宾学院")
-
-                # time.sleep(30)
-                # pygame.mixer.music.stop()
-
+                time.sleep(20)
+                pygame.mixer.music.stop()
                 time.sleep(600)
 
+
+
             # elif zigong_text != "5114(四川轻化工大学(自贡校区) （本考点报名人数已满，请选择其他考点）)":
-            #     self.driver.get_screenshot_as_file("G:\轻化工大学没有满.png")
-            #     WebDriverWait(self.driver, 10).until(
-            #         EC.element_to_be_clickable((By.XPATH, "//div[@class='ivu-row']/div[3]/div/div/select/option[18]"))
-            #     ).click()
             #
-            #     # # 播放音乐
-            #     # filepath = r"G:\DJ.mp3"
-            #     # pygame.mixer.init()
-            #     # # 加载音乐
-            #     # pygame.mixer.music.load(filepath)
-            #     # pygame.mixer.music.play(start=0.0)
-            #     # pygame.mixer.music.set_volume(1.0)
-            #     # # 播放时长，没有此设置，音乐不会播放，会一次性加载完
+            #     # 播放音乐
+            #     filepath = r"G:\DJ.mp3"
+            #     pygame.mixer.init()
+            #     # 加载音乐
+            #     pygame.mixer.music.load(filepath)
+            #     pygame.mixer.music.play(start=0.0)
+            #     pygame.mixer.music.set_volume(1.0)
+            #     # 播放时长，没有此设置，音乐不会播放，会一次性加载完
+            #
+            #
+            #     self.driver.get_screenshot_as_file("G:\轻化工大学.png")
+            #     time.sleep(0.5)
+            #     WebDriverWait(self.driver, 10).until(
+            #         EC.element_to_be_clickable((By.XPATH, "//div[@class='ivu-row']/div[3]/div/div/select/option[7]"))
+            #     )
+            #     time.sleep(0.5)
+            #     self.driver.find_element_by_xpath("//div[@class='ivu-row']/div[3]/div/div/select/option[7]").click()
+            #
+            #     # # 点击 下一步
+            #     # time.sleep(0.5)
+            #     # WebDriverWait(self.driver, 10).until(
+            #     #     EC.element_to_be_clickable((By.XPATH, "//div[@class='main-wrapper']/div[3]/form/div[2]/div/button[2]"))
+            #     # )
+            #     # time.sleep(0.5)
+            #     # self.driver.find_element_by_xpath("//div[@class='main-wrapper']/div[3]/form/div[2]/div/button[2]").click()
+            #     #
+            #     # # 点击 “同意信息属实”
+            #     # WebDriverWait(self.driver, 10).until(
+            #     #     EC.element_to_be_clickable(
+            #     #         (By.XPATH, "//input[@type='checkbox']"))
+            #     # )
+            #     # time.sleep(0.5)
+            #     # self.driver.find_element_by_xpath("//input[@type='checkbox']").click()
             #
             #     messagebox.showinfo("提示", "轻化工大学")
-            #
-            #     # time.sleep(60)
-            #     # pygame.mixer.music.stop()
-            #
-            #     time.sleep(60)
+            #     pygame.mixer.music.stop()
+            #     time.sleep(20)
+            #     time.sleep(600)
+
+
 
             i += 1
 
