@@ -40,8 +40,9 @@ class LimitRate(Base):
         ).click()
         self.driver.refresh()
         # 点击主网-设置
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, DevicesLocators.Set))
+        Set = DevicesLocators.Set.format(num=1)
+        WebDriverWait(self.driver, 15).until(
+            EC.element_to_be_clickable((By.XPATH, Set))
         ).click()
         # 切换到限速页
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -96,6 +97,7 @@ class LimitRate(Base):
         # “启用”勾选框是否默认：勾选
         Statu_Default_class = self.driver.find_element_by_xpath(LimitRateLocators.Statu).get_attribute('class')
         assert Statu_Default_class == "box", Statu_Default_class
+
 
 
 
@@ -229,6 +231,8 @@ class LimitRate(Base):
 
 
 
+
+
     #@unittest.skip("跳过")
     def test_C_limitRate_errorNotSave(self):
         """限速-输入框有错误时点击“保存”无效"""
@@ -332,6 +336,9 @@ class LimitRate(Base):
 
 
 
+
+
+
     #@unittest.skip("跳过")
     def test_D_limitRate_add(self):
         """限速-新增成功"""
@@ -384,6 +391,7 @@ class LimitRate(Base):
 
 
 
+
     #@unittest.skip("跳过")
     def test_E_limitRate_edit_statu_on(self):
         """限速-修改状态：由关变为开"""
@@ -427,6 +435,9 @@ class LimitRate(Base):
 
 
 
+
+
+
     #@unittest.skip("跳过")
     def test_F_limitRate_edit_statu_off(self):
         """限速-配置成功后再次查看是否一致"""
@@ -440,6 +451,7 @@ class LimitRate(Base):
         assert Download_Value == "12500", Download_Value
         Statu_class = self.driver.find_element_by_xpath(LimitRateLocators.Statu).get_attribute('class')
         assert Statu_class == "box checked", Statu_class
+
 
 
 
@@ -471,6 +483,8 @@ class LimitRate(Base):
             EC.element_to_be_clickable((By.XPATH, LimitRateLocators.Statu))
         )
         assert self.driver.find_element_by_xpath(LimitRateLocators.Statu).get_attribute('class') == "box"
+
+
 
 
 
@@ -585,6 +599,10 @@ class LimitRate(Base):
         assert Download_Value == "125000", Download_Value
 
 
+
+
+
+
     #@unittest.skip("跳过")
     def test_I_limitRate_onlyLimitUpload(self):
         """限速-只限制上行，可成功保存"""
@@ -626,6 +644,11 @@ class LimitRate(Base):
         )
         Download_Value = self.driver.find_element_by_xpath(LimitRateLocators.Download).get_attribute("value")
         assert Download_Value == "", Download_Value
+
+
+
+
+
 
     #@unittest.skip("跳过")
     def test_J_limitRate_onlyLimitDownload(self):

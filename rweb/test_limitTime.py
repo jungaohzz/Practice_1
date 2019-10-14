@@ -20,7 +20,7 @@ from rweb.path.limitTime import LimitTimeLocators
 from rweb.path.limitRate import LimitRateLocators
 from rweb.path.websiteBlacklist import WebsiteBlacklistLocators
 
-from router.time_limit import test_time_limit_add_1
+
 
 
 
@@ -40,8 +40,9 @@ class LimitTime(Base):
         ).click()
         self.driver.refresh()
         # 点击主网-设置
+        Set = DevicesLocators.Set.format(num=1)
         WebDriverWait(self.driver, 15).until(
-            EC.element_to_be_clickable((By.XPATH, DevicesLocators.Set))
+            EC.element_to_be_clickable((By.XPATH, Set))
         ).click()
 
 
@@ -235,10 +236,7 @@ class LimitTime(Base):
         assert self.driver.find_element_by_xpath(Statu).get_attribute('class') == "switch switch-animation checked"
 
 
-        # a=test_time_limit_add_1.test_ping()
-        # print(1111111111111111111111)
-        # print(a)
-        # assert a == 1
+
 
 
 
@@ -349,7 +347,7 @@ class LimitTime(Base):
                                按钮：取消、删除
         用例-2035 : 编辑框-默认显示创建时的值
                     分别查看以下项的值是否默认显示创建时配置的值：开始时间、结束时间、限时开关、重复项
-        用例-2036 : 编辑框-点击”取消“，编辑框关闭，不保存修改
+        用例-2036 : 编辑框-点击“取消”，编辑框关闭，不保存修改
                     进入限时列表
                     点击“编辑”按钮进入编辑页面
                     把旧的限时时间A改为限时时间B
@@ -445,7 +443,7 @@ class LimitTime(Base):
         """
         用例-2013 : 点击“编辑”按钮弹出编辑框
         用例-2038 : 编辑框-修改内容，点击“保存”，编辑框关闭，列表显示修改后的值
-                    编辑框修改（时间，开关，重复项）等，点击“确定”后查看是否如下 
+                    编辑框修改（时间，开关，重复项）等，点击“确定”后查看是否如下
                     编辑框关闭、列表更新成新修改的值: 是
         """
         # 点击 编辑 按钮
@@ -933,6 +931,7 @@ class LimitTime(Base):
                     EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
                 )
                 time.sleep(2)
+
 
 
 

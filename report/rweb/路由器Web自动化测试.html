@@ -7128,33 +7128,475 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 0,
+    "testPass": 41,
     "testResult": [
         {
-            "className": "Base",
-            "methodName": "test_baoming",
-            "description": null,
-            "spendTime": "1.1e+03 s",
+            "className": "LimitTime",
+            "methodName": "test_A_limitTime_null",
+            "description": "限时-列表为空检验",
+            "spendTime": "12.7 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_B_limitTime_insertCheck",
+            "description": "限时-新增框元素检查、默认值检查、重复时间为空保存有提示、取消则未新增成功",
+            "spendTime": "12.2 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_C_limitTime_add",
+            "description": "限时-新增",
+            "spendTime": "9.53 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_D_limitTime_timeStyle",
+            "description": "限时-时间显示格式为24小时制",
+            "spendTime": "2.58 s",
+            "status": "成功",
+            "log": [
+                "111111",
+                "23:59",
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_E_limitTime_elementCheck",
+            "description": "限时-列表页面元素检测",
+            "spendTime": "4.67 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_F_limitTime_edit_elementCheck",
+            "description": "限时-编辑-元素检查及默认值",
+            "spendTime": "12.0 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_G_limitTime_editValue",
+            "description": "限时-编辑-修改参数值",
+            "spendTime": "8.02 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_H_limitTime_addWeekdays",
+            "description": "限时-新增-重复时间为周一 ~ 周五，显示为：Weekdays",
+            "spendTime": "14.0 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_I_limitTime_editStatu",
+            "description": "限时-列表中修改状态：由开变为关",
+            "spendTime": "4.2 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_J_limitTime_addEveryday",
+            "description": "限时-新增-重复时间每天，显示为：Everyday",
+            "spendTime": "15.8 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_K_limitTime_add_sixDay",
+            "description": "限时-新增-重复时间为任意6天，显示具体的星期",
+            "spendTime": "20.0 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_L_limitTime_add_otherMondey",
+            "description": "限时-新增-再添加一个星期一，显示2个星期一",
+            "spendTime": "18.2 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_M_limitTime_add_morethanFive",
+            "description": "限时-新增-超过5条记录后不能新增",
+            "spendTime": "3.69 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_N_limitTime_timeSort",
+            "description": "限时-列表按断网时间升序排",
+            "spendTime": "3.04 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_O_limitTime_delete",
+            "description": "限时-删除限时记录",
+            "spendTime": "23.6 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_P_limitTime_add_eachWeek",
+            "description": "限时-新增-重复时间只为其中一天，显示为具体的天数",
+            "spendTime": "42.7 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_A_limitRate_elementCheck",
+            "description": "限速-页面元素检测 及 默认参数",
+            "spendTime": "8.21 s",
             "status": "失败",
             "log": [
                 "",
                 "Traceback (most recent call last):\n",
                 "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
                 "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\WebAuto\\baoming.py\", line 218, in test_baoming\n    self.driver.find_element_by_xpath(\"//div[@class='ivu-row']/div[3]/div/div/select\").click()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_limitRate.py\", line 96, in test_A_limitRate_elementCheck\n    assert Download_DefaultValue == \"\", Download_DefaultValue\n",
+                "AssertionError: 125000\n"
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_B_limitRate_error",
+            "description": "限速-异常情况检查",
+            "spendTime": "5.55 s",
+            "status": "失败",
+            "log": [
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_limitRate.py\", line 139, in test_B_limitRate_error\n    assert Error_Note == \"Positive integers only.\", Error_Note\n",
+                "AssertionError: Already reached the limit\n"
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_C_limitRate_errorNotSave",
+            "description": "限速-输入框有错误时点击“保存”无效",
+            "spendTime": "13.7 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_D_limitRate_add",
+            "description": "限速-新增成功",
+            "spendTime": "9.6 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_E_limitRate_edit_statu_on",
+            "description": "限速-修改状态：由关变为开",
+            "spendTime": "8.86 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_F_limitRate_edit_statu_off",
+            "description": "限速-配置成功后再次查看是否一致",
+            "spendTime": "3.02 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_G_limitRate_edit_statu_off",
+            "description": "限速-修改状态：由开变为关",
+            "spendTime": "7.03 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_H_limitRate_edit_value",
+            "description": "限速-超过125000但为6位数，自动截取为125000",
+            "spendTime": "19.3 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_I_limitRate_onlyLimitUpload",
+            "description": "限速-只限制上行，可成功保存",
+            "spendTime": "7.96 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitRate",
+            "methodName": "test_J_limitRate_onlyLimitDownload",
+            "description": "限速-只限制下行，可成功保存",
+            "spendTime": "7.93 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_A_limitWebsiteBlacklist_listDefault",
+            "description": "网址黑名单-列表默认情况检查",
+            "spendTime": "0.866 s",
+            "status": "失败",
+            "log": [
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 601, in run\n    self.setUp()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_limitWebsiteBlacklist.py\", line 37, in setUp\n    EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))\n",
                 "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
                 "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
                 "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
                 "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <select data-vv-as=\"报考点名称\" name=\"yzwb_bmddm\" class=\"wb-select\" data-vv-id=\"2\" aria-required=\"true\" aria-invalid=\"true\">...</select> is not clickable at point (1118, 415). Other element would receive the click: <div class=\"select-cover\">...</div>\n  (Session info: chrome=77.0.3865.120)\n\n"
+                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.120)\n\n"
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_B_limitWebsiteBlacklist_insertElementCheck",
+            "description": "网址黑名单-新增框元素检查",
+            "spendTime": "13.3 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_C_limitWebsiteBlacklist_required",
+            "description": "网址黑名单-新增网址框-必填项和超过范围检查",
+            "spendTime": "6.22 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_D_limitWebsiteBlacklist_anyCharacter",
+            "description": "网址黑名单-新增网址框-支持输入任意字符",
+            "spendTime": "9.73 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_E_limitWebsiteBlacklist_notStandard",
+            "description": "网址黑名单-新增网址框-不符合规则输入有错误提示",
+            "spendTime": "25.8 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_F_limitWebsiteBlacklist_errorNotSave",
+            "description": "网址黑名单-新增网址框-有错误提示不能保存",
+            "spendTime": "10.6 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_G_limitWebsiteBlacklist_add_Cancel",
+            "description": "网址黑名单-新增-取消不新增",
+            "spendTime": "6.27 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_H_limitWebsiteBlacklist_add_ok",
+            "description": "网址黑名单-新增成功",
+            "spendTime": "6.74 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_I_limitWebsiteBlacklist_add_exist_error",
+            "description": "网址黑名单-新增已存在的网址报错",
+            "spendTime": "6.07 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_J_limitWebsiteBlacklist_elementCheck",
+            "description": "网址黑名单-页面元素检查",
+            "spendTime": "3.14 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_K_limitWebsiteBlacklist_delete",
+            "description": "网址黑名单-删除",
+            "spendTime": "6.87 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_L_limitWebsiteBlacklist_add_number",
+            "description": "网址黑名单-新增-网址为数字，检查排列顺序",
+            "spendTime": "28.0 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_M_limitWebsiteBlacklist_add_letter",
+            "description": "网址黑名单-新增-网址为字母，检查排列顺序",
+            "spendTime": "34.4 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_N_limitWebsiteBlacklist_order_number_letter",
+            "description": "网址黑名单-网址列表-网址字符优先级按（数字>大写字母>小写字母>其他）排序检测",
+            "spendTime": "28.1 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_O_limitWebsiteBlacklist_add_15",
+            "description": "网址黑名单-添加15条记录",
+            "spendTime": "76.2 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_P_limitWebsiteBlacklist_add_morethan15",
+            "description": "网址黑名单-超过15条记录再添加检验",
+            "spendTime": "8.92 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_Q_limitWebsiteBlacklist_statu_on",
+            "description": "网址黑名单-修改状态：由关变为开",
+            "spendTime": "14.8 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_R_limitWebsiteBlacklist_statu_off",
+            "description": "网址黑名单-修改状态：由开变为关",
+            "spendTime": "11.5 s",
+            "status": "成功",
+            "log": [
+                ""
             ]
         }
     ],
-    "testName": "报名",
-    "testAll": 1,
-    "testFail": 1,
-    "beginTime": "2019-10-14 14:44:07",
-    "totalTime": "1097s",
+    "testName": "路由器Web自动化测试报告",
+    "testAll": 44,
+    "testFail": 3,
+    "beginTime": "2019-10-14 14:34:46",
+    "totalTime": "620s",
     "testSkip": 0,
     "testError": 0
 };

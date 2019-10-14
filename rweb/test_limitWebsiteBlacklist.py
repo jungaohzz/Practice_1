@@ -38,8 +38,9 @@ class LimitWebsiteBlacklist(Base):
         ).click()
         self.driver.refresh()
         # 点击主网-设置
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, DevicesLocators.Set))
+        Set = DevicesLocators.Set.format(num=1)
+        WebDriverWait(self.driver, 15).until(
+            EC.element_to_be_clickable((By.XPATH, Set))
         ).click()
         # 切换到网址黑名单页
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -70,6 +71,7 @@ class LimitWebsiteBlacklist(Base):
         )
         Empty_Text = self.driver.find_element_by_xpath(CommonLocators.Empty_List).text
         assert Empty_Text == "Empty", Empty_Text
+        self.driver.refresh()
 
 
 
@@ -104,6 +106,7 @@ class LimitWebsiteBlacklist(Base):
         # 断言：按钮：取消、确定
         assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Cancel).is_displayed()
         assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Save).is_displayed()
+        self.driver.refresh()
 
 
 
@@ -139,6 +142,7 @@ class LimitWebsiteBlacklist(Base):
         ).click()
         Error_Message = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Error_Message).text
         assert Error_Message == "Domain name should be within 30 characters", Error_Message
+        self.driver.refresh()
 
 
 
@@ -200,6 +204,7 @@ class LimitWebsiteBlacklist(Base):
         ).send_keys("123abc%^&测试")
         Website_Value = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Website).get_attribute("value")
         assert Website_Value == "123abc%^&测试", Website_Value
+        self.driver.refresh()
 
 
 
@@ -377,6 +382,8 @@ class LimitWebsiteBlacklist(Base):
         ).click()
         Error_Message = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Error_Message).text
         assert Error_Message == "Invalid domain name", Error_Message
+        self.driver.refresh()
+
 
 
 
@@ -443,6 +450,7 @@ class LimitWebsiteBlacklist(Base):
         ).click()
         Error_Note = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Error_Message).text
         assert Error_Note == "Invalid domain name", Error_Note
+        self.driver.refresh()
 
 
 
@@ -473,6 +481,7 @@ class LimitWebsiteBlacklist(Base):
             EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.List_Null))
         )
         assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.List_Null).is_displayed()
+        self.driver.refresh()
 
 
 
@@ -542,6 +551,7 @@ class LimitWebsiteBlacklist(Base):
         )
         Error_Note = self.driver.find_element_by_xpath(CommonLocators.Error_Toast).text
         assert Error_Note == "Data is existing already", Error_Note
+        self.driver.refresh()
 
 
 
@@ -580,6 +590,7 @@ class LimitWebsiteBlacklist(Base):
 
         # 断言：页面元素包含按钮：新增
         assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Add).is_displayed()
+
 
 
 
@@ -920,8 +931,6 @@ class LimitWebsiteBlacklist(Base):
         )
         Statu_class = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Statu).get_attribute('class')
         assert Statu_class == "switch switch-animation checked", Statu_class
-
-
 
 
 

@@ -16,19 +16,38 @@ from rweb.path.common import CommonLocators
 
 
 class Base(unittest.TestCase):
-    def setUp(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get(const.URL)
-        self.driver.maximize_window()
+    # def setUp(self):
+    #     self.driver = webdriver.Chrome()
+    #     self.driver.get(const.URL)
+    #     self.driver.maximize_window()
+    #
+    #     WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+    #         EC.element_to_be_clickable((By.XPATH, CommonLocators.InputPassword))
+    #     ).send_keys(const.PASSWORD)
+    #
+    #     WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+    #         EC.element_to_be_clickable((By.XPATH, CommonLocators.Login))
+    #     ).click()
+    #     time.sleep(0.5)
+    #
+    # def tearDown(self):
+    #     self.driver.quit()
 
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+    @classmethod
+    def setUpClass(cls):
+        cls.driver = webdriver.Chrome()
+        cls.driver.get(const.URL)
+        cls.driver.maximize_window()
+
+        WebDriverWait(cls.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.InputPassword))
         ).send_keys(const.PASSWORD)
 
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+        WebDriverWait(cls.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Login))
         ).click()
         time.sleep(0.5)
 
-    def tearDown(self):
-        self.driver.quit()
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
