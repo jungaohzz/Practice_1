@@ -35,7 +35,10 @@ class LimitWebsiteBlacklist(Base):
         # 点击 接入设备
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
-        ).click()
+        )
+        time.sleep(1)
+        self.driver.find_element_by_xpath(CommonLocators.Devices).click()
+
         self.driver.refresh()
         # 点击主网-设置
         Set = DevicesLocators.Set.format(num=1)
@@ -628,6 +631,10 @@ class LimitWebsiteBlacklist(Base):
 
 
 
+
+
+
+
     #@unittest.skip("跳过")
     def test_L_limitWebsiteBlacklist_add_number(self):
         """网址黑名单-新增-网址为数字，检查排列顺序"""
@@ -798,14 +805,23 @@ class LimitWebsiteBlacklist(Base):
         # 断言：用例-1971 : 网址列表-网址字符优先级按（数字>大写字母>小写字母>其他）排序检测
         self.driver.refresh()
         List_Website_1 = WebsiteBlacklistLocators.List_Website.format(num="1")
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, List_Website_1))
+        )
         List_Website_1_name = self.driver.find_element_by_xpath(List_Website_1).text
         assert List_Website_1_name == "01", List_Website_1_name
 
         List_Website_2 = WebsiteBlacklistLocators.List_Website.format(num="2")
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, List_Website_2))
+        )
         List_Website_2_name = self.driver.find_element_by_xpath(List_Website_2).text
         assert List_Website_2_name == "a", List_Website_2_name
 
         List_Website_3 = WebsiteBlacklistLocators.List_Website.format(num="3")
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, List_Website_3))
+        )
         List_Website_3_name = self.driver.find_element_by_xpath(List_Website_3).text
         assert List_Website_3_name == "b", List_Website_3_name
 
@@ -841,7 +857,7 @@ class LimitWebsiteBlacklist(Base):
             "abc.1234567890abcd-1.s.3.com-6", "bcd-7", "ccc.com-8", "def-9", "efghi.123.com-10",
             "fsdfsd-11", "g1234-12", "h.hsj-13", "www.abc-14", "www.sogou.com-15",
         ]
-
+        time.sleep(2)
         i = 0
         while i <= 14:
             # 点击黑名单 新增 按钮
@@ -964,6 +980,36 @@ class LimitWebsiteBlacklist(Base):
         Statu_class = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Statu).get_attribute('class')
         assert Statu_class == "switch switch-animation", Statu_class
 
+
+
+
+
+
+    #@unittest.skip("跳过")
+    def test_S_limitWebsiteBlacklist_delete_all(self):
+        """网址黑名单-删除所有，目的：恢复初始状态"""
+        flag = False
+        while flag == False:
+            try:
+                assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.List_Null).is_displayed()
+                flag = True
+            except:
+                Delete = WebsiteBlacklistLocators.Delete.format(num="last()")
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, Delete))
+                ).click()
+                # 断言:toast提示：成功
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+                )
+                time.sleep(2)
+
+        # 断言：用例-1987 : 删除一个网址，删除成功，从列表消失
+        self.driver.refresh()
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.List_Null))
+        )
+        assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.List_Null).is_displayed()
 
 
 

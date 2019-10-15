@@ -37,7 +37,10 @@ class LimitRate(Base):
         # 点击 接入设备
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
-        ).click()
+        )
+        time.sleep(1)
+        self.driver.find_element_by_xpath(CommonLocators.Devices).click()
+
         self.driver.refresh()
         # 点击主网-设置
         Set = DevicesLocators.Set.format(num=1)

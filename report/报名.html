@@ -7134,27 +7134,26 @@
             "className": "Base",
             "methodName": "test_baoming",
             "description": null,
-            "spendTime": "1.1e+03 s",
+            "spendTime": "1.45e+03 s",
             "status": "失败",
             "log": [
                 "",
                 "Traceback (most recent call last):\n",
                 "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
                 "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\WebAuto\\baoming.py\", line 218, in test_baoming\n    self.driver.find_element_by_xpath(\"//div[@class='ivu-row']/div[3]/div/div/select\").click()\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
+                "  File \"D:\\PyCharm\\Practice_1\\WebAuto\\baoming.py\", line 277, in test_baoming\n    self.driver.refresh()\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 831, in refresh\n    self.execute(Command.REFRESH)\n",
                 "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
                 "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <select data-vv-as=\"报考点名称\" name=\"yzwb_bmddm\" class=\"wb-select\" data-vv-id=\"2\" aria-required=\"true\" aria-invalid=\"true\">...</select> is not clickable at point (1118, 415). Other element would receive the click: <div class=\"select-cover\">...</div>\n  (Session info: chrome=77.0.3865.120)\n\n"
+                "selenium.common.exceptions.WebDriverException: Message: chrome not reachable\n  (Session info: chrome=77.0.3865.120)\n\n"
             ]
         }
     ],
     "testName": "报名",
     "testAll": 1,
     "testFail": 1,
-    "beginTime": "2019-10-14 14:44:07",
-    "totalTime": "1097s",
+    "beginTime": "2019-10-15 11:41:51",
+    "totalTime": "1449s",
     "testSkip": 0,
     "testError": 0
 };
