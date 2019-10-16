@@ -2,84 +2,67 @@ import os
 import time
 import telnetlib
 import requests
-import socket
+import http
+import re
 
 # ping网关检查
-class Internet_check:
+class Rate_test:
     @staticmethod
     # 有线联网状态检查
-    def internetwired_connect():
-        # 通过ping检测
-        a = os.system('ping www.huawei.com -S 192.168.127.201  -n 2')
-        print("aaaaaaaaaaa  %s" % a)
-        b = os.system('ping www.cnblogs.com  -S 192.168.127.201  -n 2')
-        print("bbbbbbbbbbb %s" % b)
-        a1 = str(os.popen('ping www.huawei.com -S 192.168.127.201  -n 2').read())
-        b1 = str(os.popen('ping www.cnblogs.com  -S 192.168.127.201  -n 2').read())
-        print("a1a1a1a1a1a1 %s" % a1)
-        print("b1b1b1b1b1b1 %s" % b1)
-        # a和b都返回0时表示都ping通了对应url
-        if a == 0 and b == 0:
-            # 能在ping响应中找到对“平均”两个字符时，表示有ping的响应
-            if a1.find("平均") != -1 and b1.find("平均") != -1:
-                result = 1
-                print("ping 成功")
-            else:
-                print("ping 失败111")
-                result = 0
-        else:
-            print("ping 失败222")
-            result = 0
-        print(result)
+    def internetwired_rate(iperf_cmd):
+        # 获取iperf路径，并且通过dos执行对应iperf语句
+        local_path = os.path.dirname(os.path.abspath(__file__))
+        print(iperf_cmd)
+        cmd = 'cd/d  %s &\
+               %s' % (local_path, iperf_cmd)
+        list1 = str(os.popen("%s" % cmd).read())
+        n = list1.count("\n")
+        list2 = list1.split("\n")
+        list3 = list2[n - 4]
+        result = re.findall(".*MBytes  (.*) Mbits/sec.*", list3)
+        for x in result:
+            print("吞吐量测试结果为： %s" % x)
+            result = x
         return result
-        #  result：0：访问外网失败 1：表示访问外网成功
+        # x为吞吐量值
 
     @staticmethod
     # 5G联网状态检查
-    def internet5g_connect():
-        # 通过ping检测
-        a = os.system('ping www.huawei.com -S 192.168.127.202  -n 2')
-        b = os.system('ping www.cnblogs.com  -S 192.168.127.202  -n 2')
-        a1 = str(os.popen('ping www.huawei.com -S 192.168.127.202  -n 2').read())
-        b1 = str(os.popen('ping www.cnblogs.com  -S 192.168.127.202  -n 2').read())
-        print(a1)
-        print(b1)
-        # a和b都返回0时表示都ping通了对应url
-        if a == 0 and b == 0:
-            # 能在ping响应中找到对“平均”两个字符时，表示有ping的响应
-            if a1.find("平均") != -1 and b1.find("平均") != -1:
-                result = 1
-            else:
-                result = 0
-        else:
-            result = 0
-        print(result)
+    def internet5g_rate(iperf_cmd):
+        # 获取iperf路径，并且通过dos执行对应iperf语句
+        local_path = os.path.dirname(os.path.abspath(__file__))
+        print(iperf_cmd)
+        cmd = 'cd/d  %s &\
+               %s' % (local_path, iperf_cmd)
+        list1 = str(os.popen("%s" % cmd).read())
+        n = list1.count("\n")
+        list2 = list1.split("\n")
+        list3 = list2[n - 4]
+        result = re.findall(".*MBytes  (.*) Mbits/sec.*", list3)
+        for x in result:
+            print("吞吐量测试结果为： %s" % x)
+            result = x
         return result
-        # result：0：访问外网失败 1：表示访问外网成功
+        # x为吞吐量值
 
     @staticmethod
     # 2.4G联网状态检查
-    def internet2g_connect():
-        # 通过ping检测
-        a = os.system('ping www.huawei.com -S 192.168.127.203  -n 2')
-        b = os.system('ping www.cnblogs.com  -S 192.168.127.203  -n 2')
-        a1 = str(os.popen('ping www.huawei.com -S 192.168.127.203  -n 2').read())
-        b1 = str(os.popen('ping www.cnblogs.com  -S 192.168.127.203  -n 2').read())
-        print(a1)
-        print(b1)
-        # a和b都返回0时表示都ping通了对应url
-        if a == 0 and b == 0:
-            # 能在ping响应中找到对“平均”两个字符时，表示有ping的响应
-            if a1.find("平均") != -1 and b1.find("平均") != -1:
-                result = 1
-            else:
-                result = 0
-        else:
-            result = 0
-        print(result)
+    def internet2g_rate(iperf_cmd):
+        # 获取iperf路径，并且通过dos执行对应iperf语句
+        local_path = os.path.dirname(os.path.abspath(__file__))
+        print(iperf_cmd)
+        cmd = 'cd/d  %s &\
+               %s' % (local_path, iperf_cmd)
+        list1 = str(os.popen("%s" % cmd).read())
+        n = list1.count("\n")
+        list2 = list1.split("\n")
+        list3 = list2[n - 4]
+        result = re.findall(".*MBytes  (.*) Mbits/sec.*", list3)
+        for x in result:
+            print("吞吐量测试结果为： %s" % x)
+            result = x
         return result
-        #  result：0：访问外网失败 1：表示访问外网成功
-
+        # x为吞吐量值
 
 class Start_telnet():
     @staticmethod
@@ -114,7 +97,6 @@ class Start_telnet():
             result = 0
         return result
         # result：0：开启telnet路由器失败 1：连接路由器成功
-
 
 class Router_conf():
     @staticmethod

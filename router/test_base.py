@@ -32,6 +32,15 @@ class Base(unittest.TestCase):
         ).click()
         time.sleep(0.5)
 
+        if True:
+            try:
+                WebDriverWait(cls.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, CommonLocators.Cancel))
+                ).click()
+                time.sleep(0.5)
+            except:
+                print("正常")
+
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()

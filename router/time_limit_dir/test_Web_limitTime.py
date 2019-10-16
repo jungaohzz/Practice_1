@@ -1,17 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# @Time  :  2019/7/24 13:43
+# @Time  :  2019/10/16 9:50
 # @Author:  GaoJun
 
 import unittest
 import time
-from selenium import webdriver
-from BeautifulReport import BeautifulReport
-import os
-from unittest import TestLoader
 
-from rweb.test_base import Base
+from .. test_base import Base
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -21,8 +17,8 @@ from rweb import const
 from rweb.path.common import CommonLocators
 from rweb.path.devices import DevicesLocators
 from rweb.path.limitTime import LimitTimeLocators
-from rweb.path.limitRate import LimitRateLocators
-from rweb.path.websiteBlacklist import WebsiteBlacklistLocators
+
+from . time_limit_testcase import Test_time_limit
 
 
 
@@ -44,9 +40,12 @@ class LimitTime(Base):
         ).click()
         self.driver.refresh()
         # 点击主网-设置
-        WebDriverWait(self.driver, 15).until(
-            EC.element_to_be_clickable((By.XPATH, DevicesLocators.Set))
-        ).click()
+        Set = DevicesLocators.Set.format(num=1)
+        WebDriverWait(self.driver, const.MEDIUM_WAIT + 10).until(
+            EC.element_to_be_clickable((By.XPATH, Set))
+        )
+        time.sleep(0.5)
+        self.driver.find_element_by_xpath(Set).click()
 
 
 
@@ -54,42 +53,19 @@ class LimitTime(Base):
 
 
     #@unittest.skip("跳过")
-    def test_C_limitTime_add(self):
-        """限时-新增"""
-        """
-        用例-2028 : 新增框-配置正常，点击“保存”，创建成功，显示在列表中
-                    正常输入时间，选择重复项，点击“新增”，看是否关闭弹框，创建成功，显示在列表中 ： 是
-        用例-2032 : 限时开关开启，可创建成功
-                    限时开关开启，看是否能新增成功 ： 是
-        """
+    def test_A_limitTime_add(self):
+        """操作步骤：新增 星期一"""
+
         # 点击 新增 按钮
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Add))
         ).click()
-
-        # 选择断网时间：14:51
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_CutOffTime_Form))
-        ).click()
-        Hour_14 = LimitTimeLocators.Hour.format(num=14)
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, Hour_14))
-        ).click()
-        Minute_51 = LimitTimeLocators.Minute.format(num=51)
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, Minute_51))
-        ).click()
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Form_Confirm))
-        ).click()
-
         # 选择星期一
         Mondey = LimitTimeLocators.Weeks.format(num=1)
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, Mondey))
         ).click()
-
-        # 点击 新增 按钮
+        # 点击 保存 按钮
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_Add))
         ).click()
@@ -109,172 +85,92 @@ class LimitTime(Base):
         )
         assert self.driver.find_element_by_xpath(Repeat).text == "Monday"
 
-        # 断言：判断开关是否默认开启。
-        # 用例-2032 : 限时开关开启，可创建成功
+
+
+
+
+
+
+    #@unittest.skip("跳过")
+    def test_B_limitTime_1(self):
+        """【检验】用例-4839 : 设备A添加一个开启状态的限时条目，设备A在限时时间段内无法访问外网(周一不能上网)"""
+
+        # 前提条件：有星期一的记录，且开关开启
+        try:
+            Repeat = LimitTimeLocators.Repeat.format(num="last()")
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, Repeat))
+            )
+            Week_Name = self.driver.find_element_by_xpath(Repeat).text
+            if Week_Name != "Monday":
+                print("【备注】该用例无法验证，原因：已添加的显示记录不为：星期一")
+                assert False
+        except:
+            print("【备注】该用例无法验证，原因：限时列表为空")
+            assert False
+
+
+        # 判断开关是否：开启
         Statu = LimitTimeLocators.Statu.format(num="last()")
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, Statu))
         )
-        assert self.driver.find_element_by_xpath(Statu).get_attribute('class') == "switch switch-animation checked"
+        Statu_Class = self.driver.find_element_by_xpath(Statu).get_attribute('class')
+        if Statu_Class != "switch switch-animation checked":
+            print("【备注】该用例无法验证，原因：开关为关闭状态")
+            assert False
 
-
-        # a=test_time_limit_add_1.test_ping()
-        # print(1111111111111111111111)
-        # print(a)
-        # assert a == 1
-
-
-
-
-
-    #@unittest.skip("跳过")
-    def test_F_limitTime_edit_elementCheck(self):
-        """限时-编辑-元素检查及默认值"""
-        """
-        用例-2034 : 编辑框-元素检测
-                    查看元素 ： 开始时间、结束时间、限时开关
-                               重复：每周一；每周二；每周三；每周四；每周五；每周六；每周日
-                               按钮：取消、删除
-        用例-2035 : 编辑框-默认显示创建时的值
-                    分别查看以下项的值是否默认显示创建时配置的值：开始时间、结束时间、限时开关、重复项
-        用例-2036 : 编辑框-点击”取消“，编辑框关闭，不保存修改
-                    进入限时列表
-                    点击“编辑”按钮进入编辑页面
-                    把旧的限时时间A改为限时时间B
-                    点击“取消”按钮，不保存配置 ：返回限时列表
-                                               编辑的限时条目不发生变化仍旧为时间A
-        """
-        # 点击 编辑 按钮
-        Edit = LimitTimeLocators.Edit.format(num="last()")
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, Edit))
-        ).click()
-        time.sleep(1)
-        # 断言：限时开关-元素检查及默认值（开）
-        assert self.driver.find_element_by_xpath("//div[@class='modal-form']/div[1]/label").text == "Time Limit"
-        Insert_Statu_class = self.driver.find_element_by_xpath(LimitTimeLocators.Insert_Statu).get_attribute('class')
-        assert Insert_Statu_class == "switch switch-animation checked", Insert_Statu_class
-
-        # 断言：断网时间-元素检查及默认值（14:51）
-        assert self.driver.find_element_by_xpath("//div[@class='modal-form']/div[2]/label").text == "Cut off time"
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_CutOffTime_Form))
-        ).click()
-        Hour_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[1]/ul/li[15]").get_attribute('class')
-        Minute_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[2]/ul/li[52]").get_attribute('class')
-        assert Hour_class == "selected", Hour_class
-        assert Minute_class == "selected", Minute_class
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Form_Confirm))
-        ).click()
-
-        # 断言：恢复时间-元素检查及默认值（23:59）
-        assert self.driver.find_element_by_xpath("//div[@class='modal-form']/div[3]/label").text == "Recovery time"
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_RecoveryTime_Form))
-        ).click()
-        Hour_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[1]/ul/li[24]").get_attribute('class')
-        Minute_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[2]/ul/li[60]").get_attribute('class')
-        assert Hour_class == "selected", Hour_class
-        assert Minute_class == "selected", Minute_class
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Form_Confirm))
-        ).click()
-
-        # 断言：重复项-元素检查及默认值（默认只选择星期一）
-        assert self.driver.find_element_by_xpath("//div[@class='modal-form']/div[4]/label").text == "Repeat"
-
-        Mondey_class = self.driver.find_element_by_xpath(LimitTimeLocators.Weeks.format(num=1)).get_attribute('class')
-        assert Mondey_class == "box checked"
-        i = 2
-        while i <= 7:
-            Data_class = self.driver.find_element_by_xpath(LimitTimeLocators.Weeks.format(num=i)).get_attribute('class')
-            assert Data_class == "box"
-            i += 1
-
-        # 修改恢复时间：由23:59改为23:00
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_RecoveryTime_Form))
-        ).click()
-        Hour_23 = LimitTimeLocators.Hour.format(num=23)
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, Hour_23))
-        ).click()
-        Minute_0 = LimitTimeLocators.Minute.format(num=0)
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, Minute_0))
-        ).click()
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Form_Confirm))
-        ).click()
-
-        # 断言：用例-2036 : 编辑框-点击”取消“，编辑框关闭，不保存修改
-        # 点击 取消 按钮
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_Cancel))
-        ).click()
-        self.driver.refresh()
-        # 检验恢复时间是否还是：23：59
-        Recovery_Time = LimitTimeLocators.Recovery_Time.format(num="last()")
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.presence_of_element_located((By.XPATH, Recovery_Time))
-        )
-        Recovery_Time_text = self.driver.find_element_by_xpath(Recovery_Time).text
-        assert Recovery_Time_text == "23:59", Recovery_Time_text
-        time.sleep(2)
+        # 前提已完成，开始检验用例
+        Result = Test_time_limit.test_time_limit_1()
+        print(Result)
+        if Result == 1:
+            print("【成功】开关开启，设备A在限时时间段内无法访问外网")
+            assert True
+        else:
+            print("【失败】开关开启，设备A在限时时间段内可以访问外网")
+            assert False
 
 
 
 
 
     #@unittest.skip("跳过")
-    def test_G_limitTime_editValue(self):
-        """限时-编辑-修改参数值"""
-        """
-        用例-2013 : 点击“编辑”按钮弹出编辑框
-        用例-2038 : 编辑框-修改内容，点击“保存”，编辑框关闭，列表显示修改后的值
-                    编辑框修改（时间，开关，重复项）等，点击“确定”后查看是否如下 
-                    编辑框关闭、列表更新成新修改的值: 是
-        """
-        # 点击 编辑 按钮
-        Edit = LimitTimeLocators.Edit.format(num="last()")
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, Edit))
-        ).click()
-        # 取消 星期一，选择 星期二
-        Mondey = LimitTimeLocators.Weeks.format(num=1)
-        Tuesday = LimitTimeLocators.Weeks.format(num=2)
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, Mondey))
-        ).click()
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, Tuesday))
-        ).click()
-        # 点击 新增 按钮
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_Add))
-        ).click()
+    def test_C_limitTime_2(self):
+        """【检验】用例-5238 : 设备A添加一个开启状态的限时条目，设备B在设备A的限时时间段内可以访问外网（设备A在周一不能上网，设备B在周一可以让他上网）"""
 
-        # 断言:是否操作成功：保存
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
-        )
-        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+        # 前提条件：有星期一的记录，且开关开启
+        try:
+            Repeat = LimitTimeLocators.Repeat.format(num="last()")
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, Repeat))
+            )
+            Week_Name = self.driver.find_element_by_xpath(Repeat).text
+            if Week_Name != "Monday":
+                print("【备注】该用例无法验证，原因：已添加的显示记录不为：星期一")
+                assert False
+        except:
+            print("【备注】该用例无法验证，原因：限时列表为空")
+            assert False
 
-        # 断言:判断是否只选中的星期二
-        self.driver.refresh()
-        Repeat = LimitTimeLocators.Repeat.format(num="last()")
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, Repeat))
-        )
-        assert self.driver.find_element_by_xpath(Repeat).text == "Tuesday"
-
-        # 断言：判断开关是否默认开启
+        # 判断开关是否：开启
         Statu = LimitTimeLocators.Statu.format(num="last()")
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, Statu))
         )
-        assert self.driver.find_element_by_xpath(Statu).get_attribute('class') == "switch switch-animation checked"
+        Statu_Class = self.driver.find_element_by_xpath(Statu).get_attribute('class')
+        if Statu_Class != "switch switch-animation checked":
+            print("【备注】该用例无法验证，原因：开关为关闭状态")
+            assert False
+
+        # 前提已完成，开始检验用例
+        Result = Test_time_limit.test_time_limit_2()
+        print(Result)
+        if Result == 1:
+            print("【成功】设备A的限时条目，不会影响设备B的访问")
+            assert True
+        else:
+            print("【失败】设备A的限时条目，会影响设备B的访问")
+            assert False
 
 
 
@@ -282,12 +178,8 @@ class LimitTime(Base):
 
 
     #@unittest.skip("跳过")
-    def test_I_limitTime_editStatu(self):
-        """限时-列表中修改状态：由开变为关"""
-        """
-        用例-2012 : 限时列表开关按钮可正常开启关闭
-                    限时列表，点击开启按钮，看是否可正常开启，关闭 ： 是
-        """
+    def test_D_limitTime_editStatu_off(self):
+        """操作步骤：将开关关闭"""
         # 点击 开关 按钮，由开变为关
         Statu = LimitTimeLocators.Statu.format(num="last()")
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -311,10 +203,156 @@ class LimitTime(Base):
 
 
 
+    #@unittest.skip("跳过")
+    def test_E_limitTime_3(self):
+        """【检验】用例-4840 : 设备A添加一个关闭状态的限时条目，设备A在任何时间段都可以访问外网"""
+
+        # 前提条件：有星期一的记录，且开关关闭
+        try:
+            Repeat = LimitTimeLocators.Repeat.format(num="last()")
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, Repeat))
+            )
+            Week_Name = self.driver.find_element_by_xpath(Repeat).text
+            if Week_Name != "Monday":
+                print("【备注】该用例无法验证，原因：已添加的显示记录不为：星期一")
+                assert False
+        except:
+            print("【备注】该用例无法验证，原因：限时列表为空")
+            assert False
+
+        # 判断开关是否：关闭
+        Statu = LimitTimeLocators.Statu.format(num="last()")
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, Statu))
+        )
+        Statu_Class = self.driver.find_element_by_xpath(Statu).get_attribute('class')
+        if Statu_Class != "switch switch-animation":
+            print("【备注】该用例无法验证，原因：开关为开启状态")
+            assert False
+
+        # 前提已完成，开始检验用例
+        Result = Test_time_limit.test_time_limit_3()
+        print(Result)
+        if Result == 1:
+            print("【成功】开关关闭，设备A在任何时间段都可以访问外网")
+            assert True
+        else:
+            print("【失败】开关关闭，设备A在任何时间段不都可以访问外网")
+            assert False
+
+
+
+
+
+
 
     #@unittest.skip("跳过")
-    def test_O_limitTime_delete(self):
-        """限时-删除限时记录"""
+    def test_F_limitTime_editValue(self):
+        """操作步骤：将星期一修改为星期二，并将开关开启"""
+
+        # 点击 编辑 按钮
+        Edit = LimitTimeLocators.Edit.format(num="last()")
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, Edit))
+        ).click()
+        # 取消 星期一，选择 星期二
+        Mondey = LimitTimeLocators.Weeks.format(num=1)
+        Tuesday = LimitTimeLocators.Weeks.format(num=2)
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, Mondey))
+        ).click()
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, Tuesday))
+        ).click()
+        # 点击 保存 按钮
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_Add))
+        ).click()
+
+        # 断言:是否操作成功：保存
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+
+        # 断言:判断是否只选中的星期二
+        self.driver.refresh()
+        Repeat = LimitTimeLocators.Repeat.format(num="last()")
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, Repeat))
+        )
+        assert self.driver.find_element_by_xpath(Repeat).text == "Tuesday"
+
+        # 开启开关
+        Statu = LimitTimeLocators.Statu.format(num="last()")
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, Statu))
+        )
+        Statu_Class = self.driver.find_element_by_xpath(Statu).get_attribute('class')
+        if Statu_Class != "switch switch-animation checked":
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, Statu))
+            ).click()
+            # 断言:toast提示：关闭成功
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+            )
+            assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+
+
+
+
+
+
+    #@unittest.skip("跳过")
+    def test_G_limitTime_4(self):
+        """【检验】用例-4841 : 修改设备A的限时时段，新限时时段生效，旧限时时段失效(不能上网时间从周一修改为周二)"""
+
+        # 前提条件：有星期二的记录，且开关关闭
+        try:
+            Repeat = LimitTimeLocators.Repeat.format(num="last()")
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, Repeat))
+            )
+            Week_Name = self.driver.find_element_by_xpath(Repeat).text
+            if Week_Name != "Tuesday":
+                print("【备注】该用例无法验证，原因：已添加的显示记录不为：星期二")
+                assert False
+        except:
+            print("【备注】该用例无法验证，原因：限时列表为空")
+            assert False
+
+        # 判断开关是否：开启
+        Statu = LimitTimeLocators.Statu.format(num="last()")
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, Statu))
+        )
+        Statu_Class = self.driver.find_element_by_xpath(Statu).get_attribute('class')
+        if Statu_Class != "switch switch-animation checked":
+            print("【备注】该用例无法验证，原因：开关为关闭状态")
+            assert False
+
+        # 前提已完成，开始检验用例
+        Result = Test_time_limit.test_time_limit_4()
+        print(Result)
+        if Result == 1:
+            print("【成功】修改限时时段后，新限时时段生效，旧限时时段失效")
+            assert True
+        else:
+            print("【失败】修改限时时段后，未做到：新限时时段生效，旧限时时段失效")
+            assert False
+
+
+
+
+
+
+
+
+    #@unittest.skip("跳过")
+    def test_H_limitTime_delete(self):
+        """操作步骤：删除限时记录"""
         flag = False
         while flag == False:
             try:
@@ -334,28 +372,341 @@ class LimitTime(Base):
 
 
 
-def core():
-    s = []
-    class_tests = [
-        # 建议执行顺序（倒序排如下）：
-        # 管理路由器、管理密码、工作方式、限时（？如果被限制住未删掉情况怎么处理）
-        LimitTime
-    ]
-
-    for t in class_tests:
-        suite = TestLoader().loadTestsFromTestCase(t)
-        s.append(suite)
-    t_s = unittest.TestSuite(s)
-    return t_s
 
 
+    #@unittest.skip("跳过")
+    def test_I_limitTime_adds(self):
+        """操作步骤：新增 星期一、星期三、星期五"""
+        Mondey = LimitTimeLocators.Weeks.format(num=1)
+        Wednesday = LimitTimeLocators.Weeks.format(num=3)
+        Friday = LimitTimeLocators.Weeks.format(num=5)
+        Weeks = [Mondey, Wednesday, Friday]
+        i = 1
+        while i <= 3:
+            # 点击 新增 按钮
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Add))
+            ).click()
+            # 选择时间
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, Weeks[i-1]))
+            ).click()
+            # 点击 保存 按钮
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_Add))
+            ).click()
 
-if __name__ == "__main__":
-    t_suites = core()
-    result = BeautifulReport(t_suites)
-    log_path = 'report/router'
-    if not os.path.exists(log_path):
-        os.makedirs(log_path)
-    result.report(filename="路由器功能自动化测试",
-                  description="路由器功能自动化测试报告",
-                  log_path=log_path)
+            # 断言:是否操作成功：保存
+            # 用例-2028 : 新增框-配置正常，点击“保存”，创建成功，显示在列表中
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+            )
+            assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+
+            # 断言:限时列表中重复时间显示每周一
+            self.driver.refresh()
+            Repeat = LimitTimeLocators.Repeat.format(num="last()")
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, Repeat))
+            )
+            if i == 1:
+                assert self.driver.find_element_by_xpath(Repeat).text == "Monday"
+            elif i == 2:
+                assert self.driver.find_element_by_xpath(Repeat).text == "Wednesday"
+            else:
+                assert self.driver.find_element_by_xpath(Repeat).text == "Friday"
+            i += 1
+            time.sleep(1)
+
+
+
+
+
+
+    #@unittest.skip("跳过")
+    def test_J_limitTime_5(self):
+        """【检验】用例-5237 : 设备A添加多个开启状态的限时条目，设备A在限时时间段内无法访问外网 (周一，周三，周五不能上网)"""
+
+        # 前提条件：有周一，周三，周五的限时，且开关都为开启
+        try:
+            Weeks = ["Monday", "Wednesday", "Friday"]
+            i = 1
+            while i <= 3:
+                Repeat = LimitTimeLocators.Repeat.format(num=i)
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, Repeat))
+                )
+                Week_Name = self.driver.find_element_by_xpath(Repeat).text
+                assert Week_Name == Weeks[i - 1]
+                if Week_Name != Weeks[i - 1]:
+                    if i == 1:
+                        print("【备注】该用例无法验证，原因：已添加的显示记录不为：星期一")
+                    elif i == 2:
+                        print("【备注】该用例无法验证，原因：已添加的显示记录不为：星期三")
+                    else:
+                        print("【备注】该用例无法验证，原因：已添加的显示记录不为：星期五")
+                    assert False
+                Statu = LimitTimeLocators.Statu.format(num=i)
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, Statu))
+                )
+                Statu_Class = self.driver.find_element_by_xpath(Statu).get_attribute('class')
+                if Statu_Class != "switch switch-animation checked":
+                    if i == 1:
+                        print("【备注】该用例无法验证，原因：星期一的开关为关闭状态")
+                    elif i == 2:
+                        print("【备注】该用例无法验证，原因：星期三的开关为关闭状态")
+                    else:
+                        print("【备注】该用例无法验证，原因：星期五的开关为关闭状态")
+                    assert False
+                i += 1
+        except:
+            print("【备注】该用例无法验证，原因：不满足条件“周一，周三，周五的限时，且开关都为开启”")
+            assert False
+
+        # 前提已完成，开始检验用例
+        Result = Test_time_limit.test_time_limit_5()
+        print(Result)
+        if Result == 1:
+            print("【成功】开启多个限时条目，设备A在限时时段内无法访问外网")
+            assert True
+        else:
+            print("【失败】开启多个限时条目，设备A在限时时段内能访问外网")
+            assert False
+
+
+
+
+
+
+    #@unittest.skip("跳过")
+    def test_K_limitTime_edits(self):
+        """操作步骤：设备A限时条目为周一、周三，设备B限时条目为周二、周四"""
+        # 设备A：修改限时条目，即只需删除周五的条目即可
+        Delete = LimitTimeLocators.Delete.format(num="last()")
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, Delete))
+        ).click()
+        # 断言:toast提示：成功
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+        )
+        time.sleep(0.5)
+
+        # 设备B：新增限时条目：周二、周四
+        # 进入到“限时”页
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
+        )
+        mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
+        ActionChains(self.driver).move_to_element(mouse).perform()
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
+        ).click()
+        self.driver.refresh()
+        Set = DevicesLocators.Set.format(num=2)
+        WebDriverWait(self.driver, const.MEDIUM_WAIT + 10).until(
+            EC.element_to_be_clickable((By.XPATH, Set))
+        )
+        time.sleep(0.5)
+        self.driver.find_element_by_xpath(Set).click()
+        # 进行新增操作
+        Tuesday = LimitTimeLocators.Weeks.format(num=2)
+        Thursday = LimitTimeLocators.Weeks.format(num=4)
+        Weeks = [Tuesday, Thursday]
+        i = 1
+        while i <= 2:
+            # 点击 新增 按钮
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Add))
+            ).click()
+            # 选择时间
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, Weeks[i - 1]))
+            ).click()
+            # 点击 保存 按钮
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_Add))
+            ).click()
+
+            # 断言:是否操作成功：保存
+            # 用例-2028 : 新增框-配置正常，点击“保存”，创建成功，显示在列表中
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+            )
+            assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
+
+            # 断言:限时列表中重复时间显示每周一
+            self.driver.refresh()
+            Repeat = LimitTimeLocators.Repeat.format(num="last()")
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, Repeat))
+            )
+            if i == 1:
+                assert self.driver.find_element_by_xpath(Repeat).text == "Tuesday"
+            else:
+                assert self.driver.find_element_by_xpath(Repeat).text == "Thursday"
+            i += 1
+            time.sleep(1)
+
+
+
+
+
+
+    #@unittest.skip("跳过")
+    def test_L_limitTime_6(self):
+        """【检验】用例-5239 : 多个设备添加开启状态的限时条目，对应设备在其限时时间段内无法访问外网  (设备A周一周三不能上网，设备B周二周四不能上网)"""
+
+        # 前提条件：设备A限时条目有周一周三，设备B限时条目有周二周四，且开关都为开启
+        # 判断设备A
+        try:
+            Weeks = ["Monday", "Wednesday"]
+            i = 1
+            while i <= 2:
+                Repeat = LimitTimeLocators.Repeat.format(num=i)
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, Repeat))
+                )
+                Week_Name = self.driver.find_element_by_xpath(Repeat).text
+                assert Week_Name == Weeks[i - 1]
+                if Week_Name != Weeks[i - 1]:
+                    if i == 1:
+                        print("【备注】该用例无法验证，原因：已添加的显示记录不为：星期一")
+                    else:
+                        print("【备注】该用例无法验证，原因：已添加的显示记录不为：星期三")
+                    assert False
+                Statu = LimitTimeLocators.Statu.format(num=i)
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, Statu))
+                )
+                Statu_Class = self.driver.find_element_by_xpath(Statu).get_attribute('class')
+                if Statu_Class != "switch switch-animation checked":
+                    if i == 1:
+                        print("【备注】该用例无法验证，原因：星期一的开关为关闭状态")
+                    else:
+                        print("【备注】该用例无法验证，原因：星期三的开关为关闭状态")
+                    assert False
+                i += 1
+        except:
+            print("【备注】该用例无法验证，原因：设备A不满足条件“具有限时条目周一、周三”")
+            assert False
+
+        # 判断设备B
+        # 进入到“限时”页
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
+        )
+        mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
+        ActionChains(self.driver).move_to_element(mouse).perform()
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
+        ).click()
+        self.driver.refresh()
+        Set = DevicesLocators.Set.format(num=2)
+        WebDriverWait(self.driver, const.MEDIUM_WAIT + 10).until(
+            EC.element_to_be_clickable((By.XPATH, Set))
+        )
+        time.sleep(0.5)
+        self.driver.find_element_by_xpath(Set).click()
+        try:
+            Weeks = ["Tuesday", "Thursday"]
+            i = 1
+            while i <= 2:
+                Repeat = LimitTimeLocators.Repeat.format(num=i)
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, Repeat))
+                )
+                Week_Name = self.driver.find_element_by_xpath(Repeat).text
+                assert Week_Name == Weeks[i - 1]
+                if Week_Name != Weeks[i - 1]:
+                    if i == 1:
+                        print("【备注】该用例无法验证，原因：已添加的显示记录不为：星期二")
+                    else:
+                        print("【备注】该用例无法验证，原因：已添加的显示记录不为：星期四")
+                    assert False
+                Statu = LimitTimeLocators.Statu.format(num=i)
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, Statu))
+                )
+                Statu_Class = self.driver.find_element_by_xpath(Statu).get_attribute('class')
+                if Statu_Class != "switch switch-animation checked":
+                    if i == 1:
+                        print("【备注】该用例无法验证，原因：星期二的开关为关闭状态")
+                    else:
+                        print("【备注】该用例无法验证，原因：星期四的开关为关闭状态")
+                    assert False
+                i += 1
+        except:
+            print("【备注】该用例无法验证，原因：设备A不满足条件“具有限时条目周二、周四”")
+            assert False
+
+        # 前提已完成，开始检验用例
+        Result = Test_time_limit.test_time_limit_6()
+        print(Result)
+        if Result == 1:
+            print("【成功】多个设备在其限时时间段内，都无法访问外网")
+            assert True
+        else:
+            print("【失败】多个设备在其限时时间段内，能访问外网")
+            assert False
+
+
+
+
+
+
+    #@unittest.skip("跳过")
+    def test_M_limitTime_delete(self):
+        """操作步骤：删除所有限时记录，回到初始状态"""
+        # 删除设备A
+        flag = False
+        while flag == False:
+            try:
+                assert self.driver.find_element_by_xpath(LimitTimeLocators.List_Null).is_displayed()
+                flag = True
+            except:
+                Delete = LimitTimeLocators.Delete.format(num="last()")
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, Delete))
+                ).click()
+                # 断言:toast提示：成功
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+                )
+                time.sleep(2)
+
+        # 删除设备B
+        # 进入到“限时”页
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
+        )
+        mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
+        ActionChains(self.driver).move_to_element(mouse).perform()
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
+        ).click()
+        self.driver.refresh()
+        Set = DevicesLocators.Set.format(num=2)
+        WebDriverWait(self.driver, const.MEDIUM_WAIT + 10).until(
+            EC.element_to_be_clickable((By.XPATH, Set))
+        )
+        time.sleep(0.5)
+        self.driver.find_element_by_xpath(Set).click()
+        # 进行删除操作
+        flag = False
+        while flag == False:
+            try:
+                assert self.driver.find_element_by_xpath(LimitTimeLocators.List_Null).is_displayed()
+                flag = True
+            except:
+                Delete = LimitTimeLocators.Delete.format(num="last()")
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, Delete))
+                ).click()
+                # 断言:toast提示：成功
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+                )
+                time.sleep(2)
+
