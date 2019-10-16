@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9735d93a-b6d6-46cc-9f5b-a801c6ac523e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/router/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/note.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/router/路由器功能自动化测试.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/test_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/test_base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/time_limit_dir/test_Web_limitTime.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/time_limit_dir/test_Web_limitTime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/time_limit_dir/time_limit.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/time_limit_dir/time_limit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/time_limit_dir/time_limit_conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/time_limit_dir/time_limit_conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/time_limit_dir/time_limit_testcase.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/time_limit_dir/time_limit_testcase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/time_limit_dir/限时测试点.xls" beforeDir="false" afterPath="$PROJECT_DIR$/router/time_limit_dir/限时测试点.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/website_blacklist_dir/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/website_blacklist_dir/test2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/website_blacklist_dir/test_Web_limitWebsiteBlacklist.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/website_blacklist_dir/website_blacklist.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/website_blacklist_dir/website_blacklist_conf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/website_blacklist_dir/website_blacklist_testcase.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/website_blacklist_dir/网址黑名单限制.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rweb/test_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/rweb/test_base.py" afterDir="false" />
-    </list>
+    <list default="true" id="9735d93a-b6d6-46cc-9f5b-a801c6ac523e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
