@@ -7128,82 +7128,25 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 0,
+    "testPass": 1,
     "testResult": [
         {
             "className": "LimitRate",
-            "methodName": "test_A_limitRate_onlyLimitUpload",
-            "description": "操作步骤：只限制上行，并开启开关",
-            "spendTime": "0.0 s",
-            "status": "跳过",
+            "methodName": "test_Q_limitRate_turn_statu_off",
+            "description": "操作步骤：将设备A、B的开关均关闭，回到初始状态",
+            "spendTime": "14.3 s",
+            "status": "成功",
             "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_B_limitRate_add",
-            "description": "【检验】用例-1599:限速：只限制了上行流量，下行流量不受限制（TCP连接）",
-            "spendTime": "25.2 s",
-            "status": "失败",
-            "log": [
-                "iperf -B 192.168.127.201 -c 10.70.100.182 -b 100M -t 3\n",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\rate_limit_dir\\test_Web_limitRate.py\", line 132, in test_B_limitRate_add\n    Result = Test_rate_limit.test_rate_limit_1()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\rate_limit_dir\\rate_limit_testcase.py\", line 13, in test_rate_limit_1\n    rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_rate(iperf_cmd1)     # 上传\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\rate_limit_dir\\rate_limit.py\", line 21, in internetwired_rate\n    list3 = list2[n - 4]\n",
-                "IndexError: list index out of range\n"
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_D_limitRate_add",
-            "description": "操作步骤：只限制了上行流量",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_E_limitRate_edit_statu_on",
-            "description": "限速-修改状态：由关变为开",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_G_limitRate_edit_statu_off",
-            "description": "限速-修改状态：由开变为关",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_J_limitRate_onlyLimitDownload",
-            "description": "限速-只限制下行，可成功保存",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
+                ""
             ]
         }
     ],
     "testName": "路由器功能自动化测试报告",
-    "testAll": 6,
-    "testFail": 1,
-    "beginTime": "2019-10-16 18:07:51",
-    "totalTime": "44s",
-    "testSkip": 5,
+    "testAll": 1,
+    "testFail": 0,
+    "beginTime": "2019-10-17 18:20:23",
+    "totalTime": "23s",
+    "testSkip": 0,
     "testError": 0
 };
 

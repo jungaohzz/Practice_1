@@ -25,8 +25,7 @@ from .websiteblacklist_limit_dir.test_Web_limitWebsiteBlacklist import LimitWebs
 def core():
     s = []
     class_tests = [
-        LimitTime,
-        LimitWebsiteBlacklist
+        LimitRate
     ]
 
     for t in class_tests:

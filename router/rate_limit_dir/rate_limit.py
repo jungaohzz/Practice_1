@@ -10,14 +10,21 @@ class Rate_test:
     @staticmethod
     # 有线联网状态检查
     def internetwired_rate(iperf_cmd):
+        # iperf_cmd = "iperf3 -B 192.168.127.201 -c 10.70.100.182 -b 100M -t 3"
         # 获取iperf路径，并且通过dos执行对应iperf语句
         local_path = os.path.dirname(os.path.abspath(__file__))
         print(iperf_cmd)
         cmd = 'cd/d  %s &\
                %s' % (local_path, iperf_cmd)
         list1 = str(os.popen("%s" % cmd).read())
-        n = list1.count("\n")
-        list2 = list1.split("\n")
+
+        print("<<<<<<<<<<")
+        print("list1 =")
+        print(list1)
+        print(">>>>>>>>>>")
+
+        n = list1.count("\n")           # 统计list1中“\n”的个数
+        list2 = list1.split("\n")       # 将list1中以“\n”进行分隔
         list3 = list2[n - 4]
         result = re.findall(".*MBytes  (.*) Mbits/sec.*", list3)
         for x in result:
