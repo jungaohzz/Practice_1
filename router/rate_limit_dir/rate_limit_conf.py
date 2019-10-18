@@ -11,7 +11,7 @@ data = {"method": "factory.start.telnetd"}
 """登录TELNET相关参数"""
 host = "mywifi.mercku.tech"
 username = "root"
-telnet_password = "123456789"
+telnet_password = "11111111"
 exit = "exit"
 #===========================================================================
 """WIFI测试相关参数"""
@@ -89,19 +89,31 @@ jd_url3 = "beauty.jd.com"
 jd_url4 = "passport.jd.com"
 #===========================================================================
 """限速相关配置"""
-udp_wired_servertoclient = "iperf -u  -B 192.168.127.201 -c 10.70.100.182 -R -b  100M -t 3"
-udp_wired_clienttoserver = "iperf -u  -B 192.168.127.201 -c 10.70.100.182 -b 100M -t 3"
-tcp_wired_servertoclient = "iperf -B 192.168.127.201 -c 10.70.100.182 -R -b 100M -t 3"
-tcp_wired_clienttoserver = "iperf -B 192.168.127.201 -c 10.70.100.182 -b 100M -t 3"
+udp_wired_servertoclient = "iperf3 -u  -B 192.168.127.201 -c 10.70.100.182 -R -b  30M -t 10"
+udp_wired_clienttoserver = "iperf3 -u  -B 192.168.127.201 -c 10.70.100.182 -b 30M -t 10"
+tcp_wired_servertoclient = "iperf3 -B 192.168.127.201 -c 10.70.100.182 -R -b 30M -t 10"
+tcp_wired_clienttoserver = "iperf3 -B 192.168.127.201 -c 10.70.100.182 -b 30M -t 10"
 
-udp_2g_servertoclient = "iperf -u  -B 192.168.127.201 -c 10.70.100.182 -R -b 100M -t 3"
-udp_2g_clienttoserver = "iperf -u  -B 192.168.127.201 -c 10.70.100.182 -b 100M -t 3"
-tcp_2g_servertoclient = "iperf -B 192.168.127.201 -c 10.70.100.182 -R -b 100M -t 3"
-tcp_2g_clienttoserver = "iperf -B 192.168.127.201 -c 10.70.100.182 -b 100M -t 3"
+udp_2g_servertoclient = "iperf3 -u  -B 192.168.127.201 -c 10.70.100.182 -R -b 30M -t 10"
+udp_2g_clienttoserver = "iperf3 -u  -B 192.168.127.201 -c 10.70.100.182 -b 30M -t 10"
+tcp_2g_servertoclient = "iperf3 -B 192.168.127.201 -c 10.70.100.182 -R -b 30M -t 10"
+tcp_2g_clienttoserver = "iperf3 -B 192.168.127.201 -c 10.70.100.182 -b 30M -t 10"
 
-udp_5g_servertoclient = "iperf -u  -B 192.168.127.202 -c 10.70.100.182 -R -b 100M -t 3"
-udp_5g_clienttoserver = "iperf -u  -B 192.168.127.202 -c 10.70.100.182 -b 100M -t 3"
-tcp_5g_servertoclient = "iperf -B 192.168.127.202 -c 10.70.100.182 -R 100M -t 3"
-tcp_5g_clienttoserver = "iperf -B 192.168.127.202 -c 10.70.100.182 -b 100M -t 3"
+udp_5g_servertoclient = "iperf3 -u  -B 192.168.127.202 -c 10.70.100.182 -R -b 30M -t 10"
+udp_5g_clienttoserver = "iperf3 -u  -B 192.168.127.202 -c 10.70.100.182 -b 30M -t 10"
+tcp_5g_servertoclient = "iperf3 -B 192.168.127.202 -c 10.70.100.182 -R 30M -t 10"
+tcp_5g_clienttoserver = "iperf3 -B 192.168.127.202 -c 10.70.100.182 -b 30M -t 10"
+
+rata_upload_1 = 500 #500KB
+rata_download_1 = 500 #500KB
+
+rata_upload_2 = 1000 #1000KB
+rata_download_2 = 1000 #1000KB
+
+rata_upload_3 = 1500 #1500KB
+rata_download_3 = 1500 #1500KB
+
+rata_upload_4 = 2000 #2000KB
+rata_download_4 = 2000 #2000KB
 #===========================================================================
 

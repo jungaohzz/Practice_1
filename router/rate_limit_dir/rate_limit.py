@@ -9,33 +9,30 @@ import re
 class Rate_test:
     @staticmethod
     # 有线联网状态检查
-    def internetwired_rate(iperf_cmd):
-        # iperf_cmd = "iperf3 -B 192.168.127.201 -c 10.70.100.182 -b 100M -t 3"
+    def internetwired_tcprate(iperf_cmd):
         # 获取iperf路径，并且通过dos执行对应iperf语句
         local_path = os.path.dirname(os.path.abspath(__file__))
         print(iperf_cmd)
         cmd = 'cd/d  %s &\
                %s' % (local_path, iperf_cmd)
         list1 = str(os.popen("%s" % cmd).read())
-
-        print("<<<<<<<<<<")
-        print("list1 =")
-        print(list1)
-        print(">>>>>>>>>>")
-
-        n = list1.count("\n")           # 统计list1中“\n”的个数
-        list2 = list1.split("\n")       # 将list1中以“\n”进行分隔
+        n = list1.count("\n")
+        list2 = list1.split("\n")
         list3 = list2[n - 4]
+        print (n)
+        print (list2)
+        print (list3)
         result = re.findall(".*MBytes  (.*) Mbits/sec.*", list3)
         for x in result:
             print("吞吐量测试结果为： %s" % x)
-            result = x
+            b = float(x)
+            result = b
         return result
         # x为吞吐量值
 
     @staticmethod
     # 5G联网状态检查
-    def internet5g_rate(iperf_cmd):
+    def internet5g_tcprate(iperf_cmd):
         # 获取iperf路径，并且通过dos执行对应iperf语句
         local_path = os.path.dirname(os.path.abspath(__file__))
         print(iperf_cmd)
@@ -48,13 +45,14 @@ class Rate_test:
         result = re.findall(".*MBytes  (.*) Mbits/sec.*", list3)
         for x in result:
             print("吞吐量测试结果为： %s" % x)
-            result = x
+            b = float(x)
+            result = b
         return result
         # x为吞吐量值
 
     @staticmethod
     # 2.4G联网状态检查
-    def internet2g_rate(iperf_cmd):
+    def internet2g_tcprate(iperf_cmd):
         # 获取iperf路径，并且通过dos执行对应iperf语句
         local_path = os.path.dirname(os.path.abspath(__file__))
         print(iperf_cmd)
@@ -67,7 +65,87 @@ class Rate_test:
         result = re.findall(".*MBytes  (.*) Mbits/sec.*", list3)
         for x in result:
             print("吞吐量测试结果为： %s" % x)
-            result = x
+            b = float(x)
+            result = b
+        return result
+        # x为吞吐量值
+
+    @staticmethod
+    # 有线联网状态检查
+    def internetwired_udprate(iperf_cmd):
+        # 获取iperf路径，并且通过dos执行对应iperf语句
+        local_path = os.path.dirname(os.path.abspath(__file__))
+        print(iperf_cmd)
+        cmd = 'cd/d  %s &\
+               %s' % (local_path, iperf_cmd)
+        list1 = str(os.popen("%s" % cmd).read())
+        n = list1.count("\n")
+        list2 = list1.split("\n")
+        list3 = list2[n - 4]
+        a = re.findall(".*sec  (.*) MBytes.*", list3)
+        for b in a:
+            print("吞吐量测试结果为： %s" % b)
+            x = float(b)
+        c = re.findall(".* \((.*)\).*", list3)
+        for d in c:
+            print("吞吐量测试结果为： %s" % d)
+            e = float(d.strip('%')) / 100.0
+            print(type(e))
+            y = 1 - e
+        result = x * y
+        return result
+        # x为吞吐量值
+
+    @staticmethod
+    # 5G联网状态检查
+    def internet5g_udprate(iperf_cmd):
+        # 获取iperf路径，并且通过dos执行对应iperf语句
+        local_path = os.path.dirname(os.path.abspath(__file__))
+        print(iperf_cmd)
+        cmd = 'cd/d  %s &\
+               %s' % (local_path, iperf_cmd)
+        list1 = str(os.popen("%s" % cmd).read())
+        n = list1.count("\n")
+        list2 = list1.split("\n")
+        list3 = list2[n - 4]
+        a = re.findall(".*sec  (.*) MBytes.*", list3)
+        for b in a:
+            print("吞吐量测试结果为： %s" % b)
+            x = float(b)
+
+        c = re.findall(".* \((.*)\).*", list3)
+        for d in c:
+            print("吞吐量测试结果为： %s" % d)
+            e = float(d.strip('%')) / 100.0
+            print(type(e))
+            y = 1 - e
+        result = x * y
+        return result
+        # x为吞吐量值
+
+    @staticmethod
+    # 2.4G联网状态检查
+    def internet2g_udpprate(iperf_cmd):
+        # 获取iperf路径，并且通过dos执行对应iperf语句
+        local_path = os.path.dirname(os.path.abspath(__file__))
+        print(iperf_cmd)
+        cmd = 'cd/d  %s &\
+               %s' % (local_path, iperf_cmd)
+        list1 = str(os.popen("%s" % cmd).read())
+        n = list1.count("\n")
+        list2 = list1.split("\n")
+        list3 = list2[n - 4]
+        a = re.findall(".*sec  (.*) MBytes.*", list3)
+        for b in a:
+            print("吞吐量测试结果为： %s" % b)
+            x = float(b)
+        c = re.findall(".* \((.*)\).*", list3)
+        for d in c:
+            print("吞吐量测试结果为： %s" % d)
+            e = float(d.strip('%')) / 100.0
+            print(type(e))
+            y = 1 - e
+        result = x * y
         return result
         # x为吞吐量值
 

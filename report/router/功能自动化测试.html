@@ -7128,25 +7128,52 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 1,
+    "testPass": 2,
     "testResult": [
         {
-            "className": "LimitRate",
-            "methodName": "test_Q_limitRate_turn_statu_off",
-            "description": "操作步骤：将设备A、B的开关均关闭，回到初始状态",
-            "spendTime": "14.3 s",
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_A_get_url",
+            "description": "操作步骤：获取有线的网址黑名单url、5G的网址黑名单url",
+            "spendTime": "11.1 s",
             "status": "成功",
             "log": [
                 ""
             ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_N_limitWebsiteBlacklist_A_add",
+            "description": "操作步骤：有线新增网址：www.baidu.com、无线新增网址：www.jd.com",
+            "spendTime": "17.0 s",
+            "status": "成功",
+            "log": [
+                "@@@@@@@",
+                "http://mywifi.mercku.tech/#/limit/b42e99518afa/url",
+                "想要的网址：",
+                "http://mywifi.mercku.tech/#/limit/b42e99518afa/url",
+                "实际网址",
+                "http://mywifi.mercku.tech/#/limit/08107a18958a/url",
+                "@@@@@@@@@@@",
+                ""
+            ]
+        },
+        {
+            "className": "LimitWebsiteBlacklist",
+            "methodName": "test_O_limitWebsiteBlacklist_7",
+            "description": "【检验】用例-7217:设备A的网址黑名单关闭，设备A可以访问任何网址，设备B的网址黑名单开启，设备B不可以访问网址黑名单中的网址",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
         }
     ],
     "testName": "路由器功能自动化测试报告",
-    "testAll": 1,
+    "testAll": 3,
     "testFail": 0,
-    "beginTime": "2019-10-17 18:20:23",
-    "totalTime": "23s",
-    "testSkip": 0,
+    "beginTime": "2019-10-18 17:26:32",
+    "totalTime": "37s",
+    "testSkip": 1,
     "testError": 0
 };
 
