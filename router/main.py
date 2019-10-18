@@ -10,7 +10,7 @@ import unittest
 import os
 from unittest import TestLoader
 
-#from .time_limit_dir.test_Web_limitTime import LimitTime
+from .time_limit_dir.test_Web_limitTime import LimitTime
 from .rate_limit_dir.test_Web_limitRate import LimitRate
 from .websiteblacklist_limit_dir.test_Web_limitWebsiteBlacklist import LimitWebsiteBlacklist
 
@@ -25,7 +25,7 @@ from .websiteblacklist_limit_dir.test_Web_limitWebsiteBlacklist import LimitWebs
 def core():
     s = []
     class_tests = [
-        LimitWebsiteBlacklist
+        LimitTime
     ]
 
     for t in class_tests:

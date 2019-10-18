@@ -5,14 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report/router/功能自动化测试.html" beforeDir="false" afterPath="$PROJECT_DIR$/report/router/功能自动化测试.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/rate_limit_dir/iperf- server/cygwin1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/rate_limit_dir/iperf- server/iperf.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/rate_limit_dir/iperf- server/test.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/rate_limit_dir/rate_limit.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/rate_limit_dir/rate_limit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/rate_limit_dir/rate_limit_conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/rate_limit_dir/rate_limit_conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/test_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/time_limit_dir/test_Web_limitTime.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/time_limit_dir/test_Web_limitTime.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/websiteblacklist_limit_dir/test_Web_limitWebsiteBlacklist.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/websiteblacklist_limit_dir/test_Web_limitWebsiteBlacklist.py" afterDir="false" />
     </list>
@@ -36,24 +29,36 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/main.py">
+        <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="37" selection-start-line="37" selection-end-line="45" selection-end-column="36" />
+            <state relative-caret-position="320">
+              <caret line="449" column="41" selection-start-line="449" selection-start-column="41" selection-end-line="449" selection-end-column="41" />
               <folding>
-                <element signature="e#92#135#0" expanded="true" />
+                <element signature="e#91#106#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/router/websiteblacklist_limit_dir/test_Web_limitWebsiteBlacklist.py">
+        <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2289">
-              <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+            <state relative-caret-position="230">
+              <caret line="55" column="27" lean-forward="true" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
               <folding>
-                <element signature="e#91#106#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit_conf.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="107" selection-start-line="107" selection-end-line="107" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,7 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Insert_RecoveryTime_Ok</find>
       <find>Insert_CutOffTime_Ok</find>
       <find>Add</find>
       <find>Hour</find>
@@ -101,10 +105,12 @@
       <find>const.SLOW_WAIT</find>
       <find>979</find>
       <find>@unittest.skip(&quot;跳过&quot;)</find>
+      <find>switch_to_wired_5g_24g</find>
     </findStrings>
     <replaceStrings>
       <replace>const.SLOW_WAIT</replace>
       <replace>const.MEDIUM_WAIT</replace>
+      <replace>switch_to_limitWebsiteBlacklistPage_wired_5g_24g</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -155,15 +161,15 @@
         <option value="$PROJECT_DIR$/router/note.py" />
         <option value="$PROJECT_DIR$/router/test_base.py" />
         <option value="$PROJECT_DIR$/router/base.py" />
-        <option value="$PROJECT_DIR$/router/time_limit_dir/test_Web_limitTime.py" />
         <option value="$PROJECT_DIR$/router/rate_limit_dir/rate_limit_conf.py" />
         <option value="$PROJECT_DIR$/router/rate_limit_dir/rate_limit.py" />
-        <option value="$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py" />
         <option value="$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py" />
         <option value="$PROJECT_DIR$/router/time_limit_dir/time_limit.py" />
         <option value="$PROJECT_DIR$/router/time_limit_dir/time_limit_testcase.py" />
         <option value="$PROJECT_DIR$/router/main.py" />
+        <option value="$PROJECT_DIR$/router/time_limit_dir/test_Web_limitTime.py" />
         <option value="$PROJECT_DIR$/router/websiteblacklist_limit_dir/test_Web_limitWebsiteBlacklist.py" />
+        <option value="$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py" />
       </list>
     </option>
   </component>
@@ -191,11 +197,6 @@
             <path>
               <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
-              <item name="AutoTest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
               <item name="router" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -208,187 +209,12 @@
               <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
               <item name="router" type="462c0819:PsiDirectoryNode" />
-              <item name="time_limit_dir" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
               <item name="websiteblacklist_limit_dir" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
               <item name="WebAuto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="BeautifulReport" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="selenium" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="selenium" type="462c0819:PsiDirectoryNode" />
-              <item name="webdriver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="selenium" type="462c0819:PsiDirectoryNode" />
-              <item name="webdriver" type="462c0819:PsiDirectoryNode" />
-              <item name="remote" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="unittest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python365" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python365" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python365" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python365" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="BeautifulReport" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python365" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="selenium" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python365" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="selenium" type="462c0819:PsiDirectoryNode" />
-              <item name="webdriver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python365" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="selenium" type="462c0819:PsiDirectoryNode" />
-              <item name="webdriver" type="462c0819:PsiDirectoryNode" />
-              <item name="remote" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python365" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="unittest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="BeautifulReport" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="selenium" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="selenium" type="462c0819:PsiDirectoryNode" />
-              <item name="webdriver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (xx) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="selenium" type="462c0819:PsiDirectoryNode" />
-              <item name="webdriver" type="462c0819:PsiDirectoryNode" />
-              <item name="remote" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -587,6 +413,8 @@
       <workItem from="1570431921060" duration="13593000" />
       <workItem from="1570706047735" duration="7667000" />
       <workItem from="1570966000622" duration="3472000" />
+      <workItem from="1571405930003" duration="78000" />
+      <workItem from="1571408738826" duration="4828000" />
     </task>
     <servers />
   </component>
@@ -623,13 +451,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147037000" />
+    <option name="totallyTimeSpent" value="151943000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19178082" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22541603" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -643,7 +471,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3295082" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.2618658" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.27657267" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20655738" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -656,16 +484,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AutoTest/test1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/a.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -811,13 +629,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/router/website_blacklist_dir/website_blacklist.py" />
     <entry file="file://$PROJECT_DIR$/router/website_blacklist_dir/website_blacklist_testcase.py" />
-    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-579063310/nt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="546" column="4" selection-start-line="546" selection-start-column="4" selection-end-line="546" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-579063310/nt.py" />
     <entry file="file://$PROJECT_DIR$/router/website_blacklist_dir/test_Web_limitWebsiteBlacklist.py" />
     <entry file="file://$PROJECT_DIR$/router/time_limit_dir/time_limit_conf.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -846,13 +658,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-579063310/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="4699" column="8" selection-start-line="4699" selection-start-column="8" selection-end-line="4699" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-579063310/builtins.py" />
     <entry file="file://D:/Python365/Lib/re.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -904,27 +710,10 @@
     <entry file="file://$PROJECT_DIR$/rweb/path/limitTime.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/websiteblacklist_limit_dir/website_blacklist_conf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router/note.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit_conf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="106" column="19" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -934,26 +723,6 @@
           <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="68" column="29" lean-forward="true" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2163">
-          <caret line="115" column="10" selection-start-line="115" selection-start-column="10" selection-end-line="115" selection-end-column="10" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -978,13 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/time_limit_dir/test_Web_limitTime.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Python365/Lib/site-packages/selenium/webdriver/remote/webdriver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1002,10 +764,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/router/websiteblacklist_limit_dir/website_blacklist_testcase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/time_limit_dir/test_Web_limitTime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="89" column="21" lean-forward="true" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
+          <folding>
+            <element signature="e#91#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/router/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="37" selection-start-line="37" selection-end-line="45" selection-end-column="36" />
+        <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="e#92#135#0" expanded="true" />
           </folding>
@@ -1014,10 +795,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/router/websiteblacklist_limit_dir/test_Web_limitWebsiteBlacklist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2289">
-          <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
+        <state relative-caret-position="224">
+          <caret line="152" column="25" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
           <folding>
             <element signature="e#91#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/websiteblacklist_limit_dir/website_blacklist_conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="449" column="41" selection-start-line="449" selection-start-column="41" selection-end-line="449" selection-end-column="41" />
+          <folding>
+            <element signature="e#91#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit_conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="55" column="27" lean-forward="true" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

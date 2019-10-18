@@ -49,67 +49,80 @@ class LimitTime(Base):
 
 
 
-    def Switch_to_wired_limitTimePage(self):
-        flag = False        # 目的：判断是否切换到有线的限时页。False为没有切换到该页，True为切换到该页
-        while flag == False:
-            try:
-                time.sleep(2)
-                assert self.driver.find_element_by_xpath(LimitTimeLocators.Page_TimeLimit).is_displayed()
-                flag = True
-            except:
-                # 鼠标移动到切换“我的WiFi”按钮上
-                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-                    EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
-                )
-                mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
-                ActionChains(self.driver).move_to_element(mouse).perform()
-                # 点击 接入设备
-                WebDriverWait(self.driver, const.MEDIUM_WAIT + 10).until(
-                    EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
-                )
-                time.sleep(1)
-                self.driver.find_element_by_xpath(CommonLocators.Devices).click()
 
-                self.driver.refresh()
-                # 点击主网-设置
+
+    # 以下定义2个变量：有线和5G的限时的url变量。目的：用于判断当前页是在有线的限时页，还是5G的限时页
+    url_wired_limitTimePage = ""
+    url_5g_limitTimePage = ""
+
+    def switch_to_limitTimePage_wired_5g_24g(self, Type, Current_Url):  # 切换到 有线/5G/2.4G 的限时页
+        self.driver.refresh()
+        time.sleep(1)
+        # 根据不同类型（有线/5G），定义变量：目的url
+        if Type == "Wired":
+            Purpose_Url = LimitTime.url_wired_limitTimePage
+        elif Type == "5G":
+            Purpose_Url = LimitTime.url_5g_limitTimePage
+        # 判断当前的url是否是目的url
+        while Purpose_Url != Current_Url:
+            # 鼠标移动到切换“我的WiFi”按钮上
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
+            )
+            mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
+            ActionChains(self.driver).move_to_element(mouse).perform()
+            # 点击 接入设备
+            WebDriverWait(self.driver, const.MEDIUM_WAIT + 10).until(
+                EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
+            )
+            time.sleep(1)
+            self.driver.find_element_by_xpath(CommonLocators.Devices).click()
+            self.driver.refresh()
+            # 点击主网-设置
+            if Type == "Wired":
                 Set = DevicesLocators.Set.format(num=1)
-                WebDriverWait(self.driver, const.MEDIUM_WAIT+5).until(
-                    EC.element_to_be_clickable((By.XPATH, Set))
-                ).click()
-
-
-
-
-
-
-
-    def Switch_to_5g_limitTimePage(self):
-        flag = False        # 目的：判断是否切换到无线的限时页。False为没有切换到该页，True为切换到该页
-        while flag == False:
-            try:
-                time.sleep(2)
-                assert self.driver.find_element_by_xpath(LimitTimeLocators.Page_TimeLimit).is_displayed()
-                flag = True
-            except:
-                # 鼠标移动到切换“我的WiFi”按钮上
-                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-                    EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
-                )
-                mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
-                ActionChains(self.driver).move_to_element(mouse).perform()
-                # 点击 接入设备
-                WebDriverWait(self.driver, const.MEDIUM_WAIT + 10).until(
-                    EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
-                )
-                time.sleep(1)
-                self.driver.find_element_by_xpath(CommonLocators.Devices).click()
-
-                self.driver.refresh()
-                # 点击主网-设置
+            elif Type == "5G":
                 Set = DevicesLocators.Set.format(num=2)
-                WebDriverWait(self.driver, const.MEDIUM_WAIT+5).until(
-                    EC.element_to_be_clickable((By.XPATH, Set))
-                ).click()
+            elif Type == "2.4G":
+                Set = DevicesLocators.Set.format(num=3)
+            WebDriverWait(self.driver, const.MEDIUM_WAIT + 5).until(
+                EC.element_to_be_clickable((By.XPATH, Set))
+            ).click()
+            Current_Url = self.driver.current_url
+
+
+
+
+
+    # @unittest.skip("跳过")
+    def test_A_get_url(self):
+        """操作步骤：获取有线的限时url、5G的限时url"""
+        i = 1
+        while i <= 2:
+            # 鼠标移动到切换“我的WiFi”按钮上
+            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
+            )
+            mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
+            ActionChains(self.driver).move_to_element(mouse).perform()
+            # 点击 接入设备
+            WebDriverWait(self.driver, const.MEDIUM_WAIT + 10).until(
+                EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
+            )
+            time.sleep(1)
+            self.driver.find_element_by_xpath(CommonLocators.Devices).click()
+            self.driver.refresh()
+            # 点击主网-设置
+            Set = DevicesLocators.Set.format(num=i)
+            WebDriverWait(self.driver, const.MEDIUM_WAIT + 5).until(
+                EC.element_to_be_clickable((By.XPATH, Set))
+            ).click()
+            if i == 1:
+                LimitTime.url_wired_limitTimePage = self.driver.current_url  # 获取有线的限时url
+            else:
+                LimitTime.url_5g_limitTimePage = self.driver.current_url  # 获取5G的限时url
+            i += 1
+
 
 
 
@@ -119,9 +132,9 @@ class LimitTime(Base):
 
 
     #@unittest.skip("跳过")
-    def test_A_limitTime_add(self):
+    def test_B_limitTime_add(self):
         """操作步骤：新增 星期一"""
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 点击 新增 按钮
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Add))
@@ -157,10 +170,10 @@ class LimitTime(Base):
 
 
 
-    #@unittest.skip("跳过")
-    def test_B_limitTime_1(self):
+    @unittest.skip("跳过")
+    def test_C_limitTime_1(self):
         """【检验】用例-4839 : 设备A添加一个开启状态的限时条目，设备A在限时时间段内无法访问外网(周一不能上网)"""
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：有星期一的记录，且开关开启
         try:
             Repeat = LimitTimeLocators.Repeat.format(num="last()")
@@ -200,10 +213,10 @@ class LimitTime(Base):
 
 
 
-    #@unittest.skip("跳过")
-    def test_C_limitTime_2(self):
+    @unittest.skip("跳过")
+    def test_D_limitTime_2(self):
         """【检验】用例-5238 : 设备A添加一个开启状态的限时条目，设备B在设备A的限时时间段内可以访问外网（设备A在周一不能上网，设备B在周一可以让他上网）"""
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：有星期一的记录，且开关开启
         try:
             Repeat = LimitTimeLocators.Repeat.format(num="last()")
@@ -244,9 +257,9 @@ class LimitTime(Base):
 
 
     #@unittest.skip("跳过")
-    def test_D_limitTime_editStatu_off(self):
+    def test_E_limitTime_editStatu_off(self):
         """操作步骤：将开关关闭"""
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 点击 开关 按钮，由开变为关
         Statu = LimitTimeLocators.Statu.format(num="last()")
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -270,10 +283,10 @@ class LimitTime(Base):
 
 
 
-    #@unittest.skip("跳过")
-    def test_E_limitTime_3(self):
+    @unittest.skip("跳过")
+    def test_F_limitTime_3(self):
         """【检验】用例-4840 : 设备A添加一个关闭状态的限时条目，设备A在任何时间段都可以访问外网"""
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：有星期一的记录，且开关关闭
         try:
             Repeat = LimitTimeLocators.Repeat.format(num="last()")
@@ -315,9 +328,9 @@ class LimitTime(Base):
 
 
     #@unittest.skip("跳过")
-    def test_F_limitTime_editValue(self):
+    def test_G_limitTime_editValue(self):
         """操作步骤：将星期一修改为星期二，并将开关开启"""
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 点击 编辑 按钮
         Edit = LimitTimeLocators.Edit.format(num="last()")
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -372,10 +385,10 @@ class LimitTime(Base):
 
 
 
-    #@unittest.skip("跳过")
-    def test_G_limitTime_4(self):
+    @unittest.skip("跳过")
+    def test_H_limitTime_4(self):
         """【检验】用例-4841 : 修改设备A的限时时段，新限时时段生效，旧限时时段失效(不能上网时间从周一修改为周二)"""
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：有星期二的记录，且开关关闭
         try:
             Repeat = LimitTimeLocators.Repeat.format(num="last()")
@@ -418,9 +431,9 @@ class LimitTime(Base):
 
 
     #@unittest.skip("跳过")
-    def test_H_limitTime_delete(self):
+    def test_I_limitTime_delete(self):
         """操作步骤：删除限时记录"""
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         flag = False
         while flag == False:
             try:
@@ -443,9 +456,9 @@ class LimitTime(Base):
 
 
     #@unittest.skip("跳过")
-    def test_I_limitTime_adds(self):
+    def test_J_limitTime_adds(self):
         """操作步骤：新增 星期一、星期三、星期五"""
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         Mondey = LimitTimeLocators.Weeks.format(num=1)
         Wednesday = LimitTimeLocators.Weeks.format(num=3)
         Friday = LimitTimeLocators.Weeks.format(num=5)
@@ -492,10 +505,10 @@ class LimitTime(Base):
 
 
 
-    #@unittest.skip("跳过")
-    def test_J_limitTime_5(self):
+    @unittest.skip("跳过")
+    def test_K_limitTime_5(self):
         """【检验】用例-5237 : 设备A添加多个开启状态的限时条目，设备A在限时时间段内无法访问外网 (周一，周三，周五不能上网)"""
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：有周一，周三，周五的限时，且开关都为开启
         try:
             Weeks = ["Monday", "Wednesday", "Friday"]
@@ -549,10 +562,10 @@ class LimitTime(Base):
 
 
     #@unittest.skip("跳过")
-    def test_K_limitTime_edits(self):
+    def test_L_limitTime_edits(self):
         """操作步骤：设备A限时条目为周一、周三，设备B限时条目为周二、周四"""
         # 设备A：修改限时条目，即只需删除周五的条目即可
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         Delete = LimitTimeLocators.Delete.format(num="last()")
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, Delete))
@@ -564,7 +577,7 @@ class LimitTime(Base):
         time.sleep(0.5)
 
         # 设备B：新增限时条目：周二、周四
-        self.Switch_to_5g_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
         # 进行新增操作
         Tuesday = LimitTimeLocators.Weeks.format(num=2)
         Thursday = LimitTimeLocators.Weeks.format(num=4)
@@ -609,13 +622,13 @@ class LimitTime(Base):
 
 
 
-    #@unittest.skip("跳过")
-    def test_L_limitTime_6(self):
+    @unittest.skip("跳过")
+    def test_M_limitTime_6(self):
         """【检验】用例-5239 : 多个设备添加开启状态的限时条目，对应设备在其限时时间段内无法访问外网  (设备A周一周三不能上网，设备B周二周四不能上网)"""
 
         # 前提条件：设备A限时条目有周一周三，设备B限时条目有周二周四，且开关都为开启
         # 判断设备B
-        self.Switch_to_5g_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
         try:
             Weeks = ["Tuesday", "Thursday"]
             i = 1
@@ -649,7 +662,7 @@ class LimitTime(Base):
             assert False
 
         # 判断设备A
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         try:
             Weeks = ["Monday", "Wednesday"]
             i = 1
@@ -699,10 +712,10 @@ class LimitTime(Base):
 
 
     #@unittest.skip("跳过")
-    def test_M_limitTime_delete(self):
+    def test_N_limitTime_delete(self):
         """操作步骤：删除所有限时记录，回到初始状态"""
         # 删除设备A
-        self.Switch_to_wired_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         flag = False
         while flag == False:
             try:
@@ -720,7 +733,7 @@ class LimitTime(Base):
                 time.sleep(2)
 
         # 删除设备B
-        self.Switch_to_5g_limitTimePage()
+        self.switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
         # 进行删除操作
         flag = False
         while flag == False:

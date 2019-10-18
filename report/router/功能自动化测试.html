@@ -7128,52 +7128,155 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 2,
+    "testPass": 8,
     "testResult": [
         {
-            "className": "LimitWebsiteBlacklist",
+            "className": "LimitTime",
             "methodName": "test_A_get_url",
-            "description": "操作步骤：获取有线的网址黑名单url、5G的网址黑名单url",
-            "spendTime": "11.1 s",
+            "description": "操作步骤：获取有线的限时url、5G的限时url",
+            "spendTime": "5.42 s",
             "status": "成功",
             "log": [
                 ""
             ]
         },
         {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_N_limitWebsiteBlacklist_A_add",
-            "description": "操作步骤：有线新增网址：www.baidu.com、无线新增网址：www.jd.com",
-            "spendTime": "17.0 s",
+            "className": "LimitTime",
+            "methodName": "test_B_limitTime_add",
+            "description": "操作步骤：新增 星期一",
+            "spendTime": "6.87 s",
             "status": "成功",
             "log": [
-                "@@@@@@@",
-                "http://mywifi.mercku.tech/#/limit/b42e99518afa/url",
-                "想要的网址：",
-                "http://mywifi.mercku.tech/#/limit/b42e99518afa/url",
-                "实际网址",
-                "http://mywifi.mercku.tech/#/limit/08107a18958a/url",
-                "@@@@@@@@@@@",
                 ""
             ]
         },
         {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_O_limitWebsiteBlacklist_7",
-            "description": "【检验】用例-7217:设备A的网址黑名单关闭，设备A可以访问任何网址，设备B的网址黑名单开启，设备B不可以访问网址黑名单中的网址",
+            "className": "LimitTime",
+            "methodName": "test_C_limitTime_1",
+            "description": "【检验】用例-4839 : 设备A添加一个开启状态的限时条目，设备A在限时时间段内无法访问外网(周一不能上网)",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
                 "跳过"
             ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_D_limitTime_2",
+            "description": "【检验】用例-5238 : 设备A添加一个开启状态的限时条目，设备B在设备A的限时时间段内可以访问外网（设备A在周一不能上网，设备B在周一可以让他上网）",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_E_limitTime_editStatu_off",
+            "description": "操作步骤：将开关关闭",
+            "spendTime": "2.53 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_F_limitTime_3",
+            "description": "【检验】用例-4840 : 设备A添加一个关闭状态的限时条目，设备A在任何时间段都可以访问外网",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_G_limitTime_editValue",
+            "description": "操作步骤：将星期一修改为星期二，并将开关开启",
+            "spendTime": "4.33 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_H_limitTime_4",
+            "description": "【检验】用例-4841 : 修改设备A的限时时段，新限时时段生效，旧限时时段失效(不能上网时间从周一修改为周二)",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_I_limitTime_delete",
+            "description": "操作步骤：删除限时记录",
+            "spendTime": "4.48 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_J_limitTime_adds",
+            "description": "操作步骤：新增 星期一、星期三、星期五",
+            "spendTime": "10.8 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_K_limitTime_5",
+            "description": "【检验】用例-5237 : 设备A添加多个开启状态的限时条目，设备A在限时时间段内无法访问外网 (周一，周三，周五不能上网)",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_L_limitTime_edits",
+            "description": "操作步骤：设备A限时条目为周一、周三，设备B限时条目为周二、周四",
+            "spendTime": "13.6 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_M_limitTime_6",
+            "description": "【检验】用例-5239 : 多个设备添加开启状态的限时条目，对应设备在其限时时间段内无法访问外网  (设备A周一周三不能上网，设备B周二周四不能上网)",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "LimitTime",
+            "methodName": "test_N_limitTime_delete",
+            "description": "操作步骤：删除所有限时记录，回到初始状态",
+            "spendTime": "19.1 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
         }
     ],
     "testName": "路由器功能自动化测试报告",
-    "testAll": 3,
+    "testAll": 14,
     "testFail": 0,
-    "beginTime": "2019-10-18 17:26:32",
-    "totalTime": "37s",
-    "testSkip": 1,
+    "beginTime": "2019-10-18 23:19:25",
+    "totalTime": "74s",
+    "testSkip": 6,
     "testError": 0
 };
 
