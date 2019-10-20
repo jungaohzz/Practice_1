@@ -235,9 +235,12 @@ class LimitRate(Base):
 
         # 前提已完成，开始检验用例
         Result = Test_rate_limit.test_rate_limit_1()
-        print("<<<<")
-        print(Result)
-        print(">>>>")
+        if Result == 1:
+            print("【成功】")
+            assert True
+        else:
+            print("【失败】")
+            assert False
 
         """
         备注：
@@ -245,7 +248,7 @@ class LimitRate(Base):
         2、在配置中：tcp_wired_servertoclient = "iperf -B 192.168.127.201 -c 10.70.100.182 -R -b 100M -t 3"，即如何将10.70.100.182设置为：iperf -s
         3、未断言
         """
-        self.driver.refresh()
+
 
 
 
@@ -342,9 +345,12 @@ class LimitRate(Base):
 
         # 前提已完成，开始检验用例
         Result = Test_rate_limit.test_rate_limit_2()
-        print("<<<<")
-        print(Result)
-        print(">>>>")
+        if Result == 1:
+            print("【成功】")
+            assert True
+        else:
+            print("【失败】")
+            assert False
         """
         备注：
         1、是否是将下行设置成100兆，需要修改前提判断？
@@ -448,16 +454,18 @@ class LimitRate(Base):
 
         # 前提已完成，开始检验用例
         Result = Test_rate_limit.test_rate_limit_3()
-        print("<<<<")
-        print(Result)
-        print(">>>>")
+        if Result == 1:
+            print("【成功】")
+            assert True
+        else:
+            print("【失败】")
+            assert False
         """
         备注：
         1、是否是将上下行设置成400、800？
         2、在配置中：tcp_wired_servertoclient = "iperf -B 192.168.127.201 -c 10.70.100.182 -R -b 100M -t 3"，即如何将10.70.100.182设置为：iperf -s
         3、未断言
         """
-        self.driver.refresh()
 
 
 
@@ -497,9 +505,12 @@ class LimitRate(Base):
 
         # 前提已完成，开始检验用例
         Result = Test_rate_limit.test_rate_limit_4()
-        print("<<<<")
-        print(Result)
-        print(">>>>")
+        if Result == 1:
+            print("【成功】")
+            assert True
+        else:
+            print("【失败】")
+            assert False
         """
         备注：
         1、是否是将上下行设置成400、800？
@@ -507,7 +518,7 @@ class LimitRate(Base):
         3、为什么一直在执行命令：“iperf -B 192.168.127.201 -c 10.70.100.182 -R -b 100M -t 3”却不主动暂停？所以该用例一直执行却不执行完毕
         3、未断言
         """
-        self.driver.refresh()
+
 
 
 
@@ -585,9 +596,12 @@ class LimitRate(Base):
 
         # 前提已完成，开始检验用例
         Result = Test_rate_limit.test_rate_limit_5()
-        print("<<<<")
-        print(Result)
-        print(">>>>")
+        if Result == 1:
+            print("【成功】")
+            assert True
+        else:
+            print("【失败】")
+            assert False
         """
         备注：
         1、是否是将上下行设置成400、800？
@@ -595,7 +609,7 @@ class LimitRate(Base):
         3、为什么一直在执行命令：“iperf -B 192.168.127.201 -c 10.70.100.182 -R -b 100M -t 3”却不主动暂停？所以该用例一直执行却不执行完毕
         3、未断言
         """
-        self.driver.refresh()
+
 
 
 
@@ -673,9 +687,12 @@ class LimitRate(Base):
 
         # 前提已完成，开始检验用例
         Result = Test_rate_limit.test_rate_limit_6()
-        print("<<<<")
-        print(Result)
-        print(">>>>")
+        if Result == 1:
+            print("【成功】")
+            assert True
+        else:
+            print("【失败】")
+            assert False
         """
         备注：
         1、是否是将上下行设置成400、800？
@@ -683,7 +700,7 @@ class LimitRate(Base):
         3、为什么一直在执行命令：“iperf -B 192.168.127.201 -c 10.70.100.182 -R -b 100M -t 3”却不主动暂停？所以该用例一直执行却不执行完毕
         3、未断言
         """
-        self.driver.refresh()
+
 
 
 
@@ -764,7 +781,7 @@ class LimitRate(Base):
             EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-        self.driver.refresh()
+
 
 
 
@@ -835,9 +852,12 @@ class LimitRate(Base):
 
         # 前提已完成，开始检验用例
         Result = Test_rate_limit.test_rate_limit_7()
-        print("<<<<")
-        print(Result)
-        print(">>>>")
+        if Result == 1:
+            print("【成功】")
+            assert True
+        else:
+            print("【失败】")
+            assert False
         """
         备注：
         1、是否是将上下行设置成400、800？
@@ -845,7 +865,7 @@ class LimitRate(Base):
         3、为什么一直在执行命令：“iperf -B 192.168.127.201 -c 10.70.100.182 -R -b 100M -t 3”却不主动暂停？所以该用例一直执行却不执行完毕
         3、未断言
         """
-        self.driver.refresh()
+
 
 
 
@@ -905,8 +925,7 @@ class LimitRate(Base):
             Statu_class = self.driver.find_element_by_xpath(LimitRateLocators.Statu).get_attribute('class')
             assert Statu_class == "box checked", Statu_class
 
-        self.driver.refresh()
-        time.sleep(2)
+
 
 
 
@@ -945,9 +964,12 @@ class LimitRate(Base):
 
         # 前提已完成，开始检验用例
         Result = Test_rate_limit.test_rate_limit_8()
-        print("<<<<")
-        print(Result)
-        print(">>>>")
+        if Result == 1:
+            print("【成功】")
+            assert True
+        else:
+            print("【失败】")
+            assert False
         """
         备注：
         1、是否是将上下行设置成400、800？
@@ -955,7 +977,7 @@ class LimitRate(Base):
         3、为什么一直在执行命令：“iperf -B 192.168.127.201 -c 10.70.100.182 -R -b 100M -t 3”却不主动暂停？所以该用例一直执行却不执行完毕
         3、未断言
         """
-        self.driver.refresh()
+
 
 
 
@@ -1006,7 +1028,7 @@ class LimitRate(Base):
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-        self.driver.refresh()
+
 
 
 
@@ -1047,9 +1069,12 @@ class LimitRate(Base):
 
         # 前提已完成，开始检验用例
         Result = Test_rate_limit.test_rate_limit_9()
-        print("<<<<")
-        print(Result)
-        print(">>>>")
+        if Result == 1:
+            print("【成功】")
+            assert True
+        else:
+            print("【失败】")
+            assert False
         """
         备注：
         1、是否是将上下行设置成400、800？
@@ -1057,7 +1082,7 @@ class LimitRate(Base):
         3、为什么一直在执行命令：“iperf -B 192.168.127.201 -c 10.70.100.182 -R -b 100M -t 3”却不主动暂停？所以该用例一直执行却不执行完毕
         3、未断言
         """
-        self.driver.refresh()
+
 
 
 

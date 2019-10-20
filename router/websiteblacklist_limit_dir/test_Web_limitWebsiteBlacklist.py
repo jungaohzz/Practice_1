@@ -54,6 +54,7 @@ class LimitWebsiteBlacklist(Base):
     # 以下定义2个变量：有线和5G的网址黑名单的url变量。目的：用于判断当前页是在有线的网址黑名单还是5G的网址黑名单
     url_wired_limitWebsiteBlacklistPage = ""
     url_5g_limitWebsiteBlacklistPage = ""
+    url_24g_limitWebsiteBlacklistPage = ""
 
     def switch_to_limitWebsiteBlacklistPage_wired_5g_24g(self, Type, Current_Url):      #切换到 有线/5G/2.4G 的网址黑名单页
         self.driver.refresh()
@@ -63,6 +64,8 @@ class LimitWebsiteBlacklist(Base):
             Purpose_Url = LimitWebsiteBlacklist.url_wired_limitWebsiteBlacklistPage
         elif Type == "5G":
             Purpose_Url = LimitWebsiteBlacklist.url_5g_limitWebsiteBlacklistPage
+        else:
+            Purpose_Url = LimitWebsiteBlacklist.url_24g_limitWebsiteBlacklistPage
         # 判断当前的url是否是目的url
         while Purpose_Url != Current_Url:
             # 鼠标移动到切换“我的WiFi”按钮上
@@ -83,7 +86,7 @@ class LimitWebsiteBlacklist(Base):
                 Set = DevicesLocators.Set.format(num=1)
             elif Type == "5G":
                 Set = DevicesLocators.Set.format(num=2)
-            elif Type == "2.4G":
+            else:
                 Set = DevicesLocators.Set.format(num=3)
             WebDriverWait(self.driver, const.MEDIUM_WAIT + 5).until(
                 EC.element_to_be_clickable((By.XPATH, Set))
@@ -141,7 +144,7 @@ class LimitWebsiteBlacklist(Base):
 
     #@unittest.skip("跳过")
     def test_B_limitWebsiteBlacklist_add(self):
-        """操作步骤：新增网址：www.baidu.com"""
+        """操作步骤：新增网址：www.baidu.com，并开启开关"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
         # 点击黑名单 新增 按钮
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -161,25 +164,7 @@ class LimitWebsiteBlacklist(Base):
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
-        # 断言：用例-1980 : 新增网址框-输入正确网址，点击“保存”，关闭弹框，新增成功，显示在列表
-        # 断言：用例-1969 : 网址列表-网址为大写字母，保存成功后，配置都存为小写字母
-        self.driver.refresh()
-        List_Website = WebsiteBlacklistLocators.List_Website.format(num="last()")
-        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, List_Website))
-        )
-        assert self.driver.find_element_by_xpath(List_Website).text == baidu_url1
-
-
-
-
-
-
-
-    #@unittest.skip("跳过")
-    def test_C_limitWebsiteBlacklist_statu_on(self):
-        """操作步骤：将开关开启"""
-        self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
+        # 开启开关
         # 状态理应为关闭，如果为关闭状态才进行if的启用操作
         Statu_class = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Statu).get_attribute('class')
         if Statu_class == "switch switch-animation":
@@ -196,6 +181,12 @@ class LimitWebsiteBlacklist(Base):
 
         self.driver.refresh()
         time.sleep(2)   #用于状态按钮切换
+        # 断言：新增的网址黑名单是否是：www.baidu.com
+        List_Website = WebsiteBlacklistLocators.List_Website.format(num="last()")
+        WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, List_Website))
+        )
+        assert self.driver.find_element_by_xpath(List_Website).text == baidu_url1
         # 断言：判断开关是否开启
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Statu))
@@ -209,7 +200,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     @unittest.skip("跳过")
-    def test_D_limitWebsiteBlacklist_1(self):
+    def test_C_limitWebsiteBlacklist_1(self):
         """【检验】用例-5032:开关开启，设备A添加一个完整的网址黑名单a，设备A不可以访问网址a(设备a不可以访问www.baidu.com)"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：开关开启
@@ -237,7 +228,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     @unittest.skip("跳过")
-    def test_E_limitWebsiteBlacklist_2(self):
+    def test_D_limitWebsiteBlacklist_2(self):
         """【检验】用例-7216:开关开启，设备A添加一个完整的网址黑名单a，设备A可以访问非网址a的网址（设备a不可以访问www.baidu.com，但是可以访问new.baidu.com,www.jd.com）"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：开关开启
@@ -265,7 +256,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     @unittest.skip("跳过")
-    def test_F_limitWebsiteBlacklist_3(self):
+    def test_E_limitWebsiteBlacklist_3(self):
         """【检验】用例-7214:开关开启，设备A添加一个完整的网址黑名单a，设备B可以访问网址a（设备a不可以访问www.baidu.com，设备b不可以访问www.baidu.com）"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：开关开启
@@ -295,7 +286,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     #@unittest.skip("跳过")
-    def test_G_limitWebsiteBlacklist_delete(self):
+    def test_F_limitWebsiteBlacklist_delete(self):
         """操作步骤：删除网址：www.baidu.com"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
         flag = False
@@ -314,7 +305,6 @@ class LimitWebsiteBlacklist(Base):
                 )
                 time.sleep(2)
 
-        # 断言：用例-1987 : 删除一个网址，删除成功，从列表消失
         self.driver.refresh()
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.List_Null))
@@ -328,7 +318,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     @unittest.skip("跳过")
-    def test_H_limitWebsiteBlacklist_4(self):
+    def test_G_limitWebsiteBlacklist_4(self):
         """【检验】用例-4836:开关开启，设备A删除一个网址黑名单a，设备A可以访问网址a（设备a不可以访问www.baidu.com，删除设备a的网址黑名单www.baidu.com）"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件1：www.baidu.com被删除（判断列表为空即可）
@@ -366,7 +356,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     #@unittest.skip("跳过")
-    def test_I_limitWebsiteBlacklist_add(self):
+    def test_H_limitWebsiteBlacklist_add(self):
         """操作步骤：新增网址：baidu"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
         # 点击黑名单 新增 按钮
@@ -387,8 +377,6 @@ class LimitWebsiteBlacklist(Base):
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
-        # 断言：用例-1980 : 新增网址框-输入正确网址，点击“保存”，关闭弹框，新增成功，显示在列表
-        # 断言：用例-1969 : 网址列表-网址为大写字母，保存成功后，配置都存为小写字母
         self.driver.refresh()
         List_Website = WebsiteBlacklistLocators.List_Website.format(num="last()")
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -401,7 +389,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     @unittest.skip("跳过")
-    def test_J_limitWebsiteBlacklist_5(self):
+    def test_I_limitWebsiteBlacklist_5(self):
         """【检验】用例-7215:开关开启，设备A添加一个主域名的网址黑名单，设备A无法访问主域名相关的所有网址（设备a不可以访问主域名baidu，那么设备a就不能访问www.baidu.com,news.baidu.com,tieba.baidu.com,jingyan.baidu.com）"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件1：网址为：baidu
@@ -440,7 +428,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     #@unittest.skip("跳过")
-    def test_K_limitWebsiteBlacklist_delete(self):
+    def test_J_limitWebsiteBlacklist_delete(self):
         """操作步骤：删除网址：baidu"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
         flag = False
@@ -470,7 +458,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     #@unittest.skip("跳过")
-    def test_L_limitWebsiteBlacklist_add_four_website(self):
+    def test_H_limitWebsiteBlacklist_add_four_website(self):
         """操作步骤：新增网址：www.baidu.com"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
         Website = [baidu_url1, baidu_url2, jd_url1, jd_url2]
@@ -503,7 +491,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     @unittest.skip("跳过")
-    def test_M_limitWebsiteBlacklist_6(self):
+    def test_L_limitWebsiteBlacklist_6(self):
         """【检验】用例-5240:开关开启，设备A添加多个网址黑名单，设备A不可以访问黑名单网址(设备a不可以访问www.baidu.com)"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件1：存在4个网址为：www.baidu.com、news.baidu.com、www.jd.com、jiadian.jd.com
@@ -520,7 +508,7 @@ class LimitWebsiteBlacklist(Base):
         Website_3_Text = self.driver.find_element_by_xpath(List_Website_3).text
         Website_4_Text = self.driver.find_element_by_xpath(List_Website_4).text
         if Website_1_Text != jd_url2 and Website_2_Text != baidu_url2 and Website_3_Text != baidu_url1 and Website_4_Text != jd_url1:
-            print("【备注】该用例无法验证，原因：存在的网址不为4个网址：www.baidu.com、news.baidu.com、www.jd.com、jiadian.jd.com")
+            print("【备注】该用例无法验证，原因：存在的网址不是：www.baidu.com、news.baidu.com、www.jd.com、jiadian.jd.com")
             assert False
 
         # 前提条件2：开关开启
@@ -548,7 +536,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     #@unittest.skip("跳过")
-    def test_N_limitWebsiteBlacklist_delete(self):
+    def test_M_limitWebsiteBlacklist_delete(self):
         """操作步骤：删除所有网址"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
         flag = False
@@ -579,7 +567,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     #@unittest.skip("跳过")
-    def test_O_limitWebsiteBlacklist_A_add(self):
+    def test_N_limitWebsiteBlacklist_A_add(self):
         """操作步骤：有线新增网址：www.baidu.com、无线新增网址：www.jd.com"""
 
         # 有线新增网址：www.baidu.com
@@ -620,7 +608,6 @@ class LimitWebsiteBlacklist(Base):
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-
 
         # 无线新增网址：www.jd.com
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("5G", self.driver.current_url)
@@ -664,7 +651,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     @unittest.skip("跳过")
-    def test_P_limitWebsiteBlacklist_7(self):
+    def test_O_limitWebsiteBlacklist_7(self):
         """【检验】用例-7217:设备A的网址黑名单关闭，设备A可以访问任何网址，设备B的网址黑名单开启，设备B不可以访问网址黑名单中的网址"""
 
         # 前提条件：有线网址为：www.baidu.com、无线网址为：www.jd.com，并且开关均开启
@@ -737,7 +724,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     #@unittest.skip("跳过")
-    def test_Q_limitWebsiteBlacklist_A_add(self):
+    def test_P_limitWebsiteBlacklist_A_add(self):
         """操作步骤：有线新增网址：news.baidu.com、无线新增网址：jiadian.jd.com"""
 
         # 有线新增网址：news.baidu.com
@@ -821,7 +808,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     @unittest.skip("跳过")
-    def test_R_limitWebsiteBlacklist_8(self):
+    def test_Q_limitWebsiteBlacklist_8(self):
         """【检验】用例-4835:开关开启，多个设备添加多个网址黑名单，功能生效"""
 
         # 前提条件：有线网址为：www.baidu.com、news.baidu.com； 无线网址为：jiadian.jd.com、www.jd.com。并且开关均开启
@@ -883,7 +870,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     #@unittest.skip("跳过")
-    def test_S_limitWebsiteBlacklist_delete(self):
+    def test_R_limitWebsiteBlacklist_delete(self):
         """操作步骤：无线删除所有网址，有线只有网址www.baidu.com。并且将开关关闭"""
 
         # 有线：只保留网址www.baidu.com
@@ -941,7 +928,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     @unittest.skip("跳过")
-    def test_T_limitWebsiteBlacklist_9(self):
+    def test_S_limitWebsiteBlacklist_9(self):
         """【检验】用例-4838: 开关关闭，设备A添加一个网址黑名单a，设备A可以访问网址a，设备B可以访问网址a"""
 
         # 前提条件：有线网址为：www.baidu.com； 无线没有网址。并且使有线黑名单开关关闭
@@ -991,7 +978,7 @@ class LimitWebsiteBlacklist(Base):
 
 
     #@unittest.skip("跳过")
-    def test_U_limitWebsiteBlacklist_delete(self):
+    def test_T_limitWebsiteBlacklist_delete(self):
         """操作步骤：将黑名单恢复到初始配置"""
         # 有线
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)

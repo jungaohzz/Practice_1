@@ -7128,26 +7128,42 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 8,
+    "testPass": 0,
     "testResult": [
         {
             "className": "LimitTime",
             "methodName": "test_A_get_url",
             "description": "操作步骤：获取有线的限时url、5G的限时url",
-            "spendTime": "5.42 s",
-            "status": "成功",
+            "spendTime": "20.1 s",
+            "status": "失败",
             "log": [
-                ""
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 126, in test_A_get_url\n    EC.element_to_be_clickable((By.XPATH, Set))\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py\", line 80, in until\n    raise TimeoutException(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.TimeoutException: Message: \n\n"
             ]
         },
         {
             "className": "LimitTime",
             "methodName": "test_B_limitTime_add",
             "description": "操作步骤：新增 星期一",
-            "spendTime": "6.87 s",
-            "status": "成功",
+            "spendTime": "1.5 s",
+            "status": "失败",
             "log": [
-                ""
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 145, in test_B_limitTime_add\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
             ]
         },
         {
@@ -7174,10 +7190,20 @@
             "className": "LimitTime",
             "methodName": "test_E_limitTime_editStatu_off",
             "description": "操作步骤：将开关关闭",
-            "spendTime": "2.53 s",
-            "status": "成功",
+            "spendTime": "1.38 s",
+            "status": "失败",
             "log": [
-                ""
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 269, in test_E_limitTime_editStatu_off\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
             ]
         },
         {
@@ -7194,10 +7220,20 @@
             "className": "LimitTime",
             "methodName": "test_G_limitTime_editValue",
             "description": "操作步骤：将星期一修改为星期二，并将开关开启",
-            "spendTime": "4.33 s",
-            "status": "成功",
+            "spendTime": "1.36 s",
+            "status": "失败",
             "log": [
-                ""
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 340, in test_G_limitTime_editValue\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
             ]
         },
         {
@@ -7214,20 +7250,40 @@
             "className": "LimitTime",
             "methodName": "test_I_limitTime_delete",
             "description": "操作步骤：删除限时记录",
-            "spendTime": "4.48 s",
-            "status": "成功",
+            "spendTime": "1.38 s",
+            "status": "失败",
             "log": [
-                ""
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 443, in test_I_limitTime_delete\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
             ]
         },
         {
             "className": "LimitTime",
             "methodName": "test_J_limitTime_adds",
             "description": "操作步骤：新增 星期一、星期三、星期五",
-            "spendTime": "10.8 s",
-            "status": "成功",
+            "spendTime": "1.37 s",
+            "status": "失败",
             "log": [
-                ""
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 468, in test_J_limitTime_adds\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
             ]
         },
         {
@@ -7244,10 +7300,20 @@
             "className": "LimitTime",
             "methodName": "test_L_limitTime_edits",
             "description": "操作步骤：设备A限时条目为周一、周三，设备B限时条目为周二、周四",
-            "spendTime": "13.6 s",
-            "status": "成功",
+            "spendTime": "1.42 s",
+            "status": "失败",
             "log": [
-                ""
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 574, in test_L_limitTime_edits\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
             ]
         },
         {
@@ -7264,18 +7330,28 @@
             "className": "LimitTime",
             "methodName": "test_N_limitTime_delete",
             "description": "操作步骤：删除所有限时记录，回到初始状态",
-            "spendTime": "19.1 s",
-            "status": "成功",
+            "spendTime": "1.37 s",
+            "status": "失败",
             "log": [
-                ""
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 723, in test_N_limitTime_delete\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
             ]
         }
     ],
     "testName": "路由器功能自动化测试报告",
     "testAll": 14,
-    "testFail": 0,
-    "beginTime": "2019-10-18 23:19:25",
-    "totalTime": "74s",
+    "testFail": 8,
+    "beginTime": "2019-10-21 00:10:49",
+    "totalTime": "37s",
     "testSkip": 6,
     "testError": 0
 };

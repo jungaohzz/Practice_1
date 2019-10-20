@@ -78,6 +78,7 @@ class LimitTime(Base):
             time.sleep(1)
             self.driver.find_element_by_xpath(CommonLocators.Devices).click()
             self.driver.refresh()
+
             # 点击主网-设置
             if Type == "Wired":
                 Set = DevicesLocators.Set.format(num=1)
@@ -150,7 +151,6 @@ class LimitTime(Base):
         ).click()
 
         # 断言:是否操作成功：保存
-        # 用例-2028 : 新增框-配置正常，点击“保存”，创建成功，显示在列表中
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
         )
@@ -479,7 +479,6 @@ class LimitTime(Base):
             ).click()
 
             # 断言:是否操作成功：保存
-            # 用例-2028 : 新增框-配置正常，点击“保存”，创建成功，显示在列表中
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
@@ -598,7 +597,6 @@ class LimitTime(Base):
             ).click()
 
             # 断言:是否操作成功：保存
-            # 用例-2028 : 新增框-配置正常，点击“保存”，创建成功，显示在列表中
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
