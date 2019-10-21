@@ -170,7 +170,7 @@ class LimitTime(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_C_limitTime_1(self):
         """【检验】用例-4839 : 设备A添加一个开启状态的限时条目，设备A在限时时间段内无法访问外网(周一不能上网)"""
         self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
@@ -213,7 +213,7 @@ class LimitTime(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_D_limitTime_2(self):
         """【检验】用例-5238 : 设备A添加一个开启状态的限时条目，设备B在设备A的限时时间段内可以访问外网（设备A在周一不能上网，设备B在周一可以让他上网）"""
         self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
@@ -283,7 +283,7 @@ class LimitTime(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_F_limitTime_3(self):
         """【检验】用例-4840 : 设备A添加一个关闭状态的限时条目，设备A在任何时间段都可以访问外网"""
         self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
@@ -385,7 +385,7 @@ class LimitTime(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_H_limitTime_4(self):
         """【检验】用例-4841 : 修改设备A的限时时段，新限时时段生效，旧限时时段失效(不能上网时间从周一修改为周二)"""
         self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
@@ -504,7 +504,7 @@ class LimitTime(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_K_limitTime_5(self):
         """【检验】用例-5237 : 设备A添加多个开启状态的限时条目，设备A在限时时间段内无法访问外网 (周一，周三，周五不能上网)"""
         self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
@@ -620,7 +620,7 @@ class LimitTime(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_M_limitTime_6(self):
         """【检验】用例-5239 : 多个设备添加开启状态的限时条目，对应设备在其限时时间段内无法访问外网  (设备A周一周三不能上网，设备B周二周四不能上网)"""
 

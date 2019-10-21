@@ -61,6 +61,7 @@ class LimitRate(Base):
     # 以下定义2个变量：有线和5G的限速页url变量。目的：用于判断当前页是在有线的限速页，还是5G的限速页
     url_wired_limitRatePage = ""
     url_5g_limitRatePage = ""
+    url_24g_limitRatePage = ""
 
     def switch_to_limitTimePage_wired_5g_24g(self, Type, Current_Url):  # 切换到 有线/5G/2.4G 的限速页
         self.driver.refresh()
@@ -70,6 +71,8 @@ class LimitRate(Base):
             Purpose_Url = LimitRate.url_wired_limitRatePage
         elif Type == "5G":
             Purpose_Url = LimitRate.url_5g_limitRatePage
+        else:
+            Purpose_Url = LimitRate.url_24g_limitRatePage
         # 判断当前的url是否是目的url
         while Purpose_Url != Current_Url:
             # 鼠标移动到切换“我的WiFi”按钮上
@@ -147,7 +150,7 @@ class LimitRate(Base):
     #@unittest.skip("跳过")
     def test_B_limitRate_onlyLimitUpload(self):
         """操作步骤：只限制上行，并开启开关"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 上行：500
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitRateLocators.Upload))
@@ -203,10 +206,10 @@ class LimitRate(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_C_limitRate_1(self):
         """【检验】用例-1599:限速：只限制了上行流量，下行流量不受限制（TCP连接）"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：上行：500，下行：空，且开关均为开启
         # 断言:判断上下行是否设置正确
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -258,7 +261,7 @@ class LimitRate(Base):
     #@unittest.skip("跳过")
     def test_D_limitRate_onlyLimitDownload(self):
         """操作步骤：只限制下行，并开启开关"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 上行：清空
         # 模拟鼠标双击
         inputBox = self.driver.find_element_by_xpath(LimitRateLocators.Upload)
@@ -313,10 +316,10 @@ class LimitRate(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_E_limitRate_2(self):
         """【检验】用例-1600:限速：只限制了下行流量，上行流量不受限制（TCP连接）"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：上行：空，下行：500，且开关均为开启
         # 断言:判断上下行是否设置正确
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -369,7 +372,7 @@ class LimitRate(Base):
     #@unittest.skip("跳过")
     def test_F_limitRate_limitAll(self):
         """操作步骤：同时限制上下行"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 上行：500
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitRateLocators.Upload))
@@ -422,10 +425,10 @@ class LimitRate(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_G_limitRate_3(self):
         """【检验】用例-1601:开启限速功能后，新创建的TCP连接的上行和下行速度被限制"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：上行：400，下行：800，且开关均为开启
         # 断言:判断上下行是否设置正确
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -473,10 +476,10 @@ class LimitRate(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_H_limitRate_4(self):
         """【检验】用例-1603:开启限速功能后，新创建的UDP连接的上行和下行速度被限制"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：上行：400，下行：800，且开关均为开启
         # 断言:判断上下行是否设置正确
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -530,7 +533,7 @@ class LimitRate(Base):
     #@unittest.skip("跳过")
     def test_I_limitRate_edit_statu_off(self):
         """操作步骤：将限速开关关闭"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 状态理应为启用，如果为启用状态才进行if的关闭操作
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, LimitRateLocators.Statu))
@@ -564,10 +567,10 @@ class LimitRate(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_J_limitRate_5(self):
         """【检验】用例-979:关闭限速后，上行和下行速度不被限制"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：上行：400，下行：800，但开关为关闭
         # 断言:判断上下行是否设置正确
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -621,7 +624,7 @@ class LimitRate(Base):
     #@unittest.skip("跳过")
     def test_K_limitRate_edit_statu_on(self):
         """操作步骤：将设备A的限速开关开启"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 状态理应为关闭，如果为关闭状态才进行if的启用操作
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, LimitRateLocators.Statu))
@@ -655,10 +658,10 @@ class LimitRate(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_L_limitRate_6(self):
         """【检验】用例-981：对单个设备限速后，不影响其他设备 (对设备A限速成功后，设备B不会被限速)"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：设备A上行400，下行800，且开关为开启
         # 断言:判断上下行是否设置正确
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -712,7 +715,7 @@ class LimitRate(Base):
     def test_M_limitRate_edits(self):
         """操作步骤：将设备A限速、设备B均限速"""
         # 设备A（有线）
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 上下行的值（400、800）与开关状态（开启）理应都是配置好的，但还是要检验一遍
         flag = False    #用于标记是否需要修改，False为不需要修改，True为需要修改
         # 上行：400
@@ -753,7 +756,7 @@ class LimitRate(Base):
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
         # 设备B（即无线5G）
-        switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
         # 新增限速
         # 上行：400
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -791,13 +794,13 @@ class LimitRate(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_N_limitRate_7(self):
         """【检验】用例-1611：多个设备同时限速可成功（设备A、B都设置了限速，保存成功后A、B都能限速成功）"""
 
         # 前提条件：设备A和设备B的参数值均一致：上行400，下行800，开关开启
         # 判断设备B
-        switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
         # 断言:判断上下行是否设置正确
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, LimitRateLocators.Upload))
@@ -824,7 +827,7 @@ class LimitRate(Base):
             assert False
 
         # 判断设备A
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 断言:判断上下行是否设置正确
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, LimitRateLocators.Upload))
@@ -879,7 +882,7 @@ class LimitRate(Base):
         """操作步骤：将设备B限速"""
         # 上下行的值（400、800）与开关状态（开启）理应都是配置好的，但还是要检验一遍
         # 进入到设备B的限速页
-        switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
         # 检查值是否正确，不正确则修改
         flag = False        #用于标记是否需要修改，False为不需要修改，True为需要修改
         # 上行：400
@@ -932,10 +935,10 @@ class LimitRate(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_P_limitRate_8(self):
         """【检验】用例-1612:无线接入，限速功能可生效"""
-        switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
         # 前提条件：设备B中：上行400，下行800，开关开启
         # 断言:判断上下行是否设置正确
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -988,7 +991,7 @@ class LimitRate(Base):
     #@unittest.skip("跳过")
     def test_Q_limitRate_edits_wired(self):
         """操作步骤：将设备A限速"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 上下行的值（400、800）与开关状态（开启）理应都是配置好的，但还是要检验一遍
         # 检查值是否正确，不正确则修改
         flag = False    #用于标记是否需要修改，False为不需要修改，True需要修改
@@ -1037,10 +1040,10 @@ class LimitRate(Base):
 
 
 
-    @unittest.skip("跳过")
+   # @unittest.skip("跳过")
     def test_R_limitRate_9(self):
         """【检验】用例-1613:有线接入，限速功能可生效"""
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 前提条件：设备A中：上行400，下行800，开关开启
         # 断言:判断上下行是否设置正确
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -1094,7 +1097,7 @@ class LimitRate(Base):
     def test_S_limitRate_turn_statu_off(self):
         """操作步骤：将设备A、B的开关均关闭，回到初始状态"""
         # 设备A
-        switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 开关状态理应为启用，如果为启用状态才进行if的关闭操作
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, LimitRateLocators.Statu))
@@ -1122,7 +1125,7 @@ class LimitRate(Base):
             assert Statu_class == "box", Statu_class
 
         # 设备B
-        switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
+        self.switch_to_limitTimePage_wired_5g_24g("5G", self.driver.current_url)
         # 开关状态理应为启用，如果为启用状态才进行if的关闭操作
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, LimitRateLocators.Statu))

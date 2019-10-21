@@ -30,8 +30,8 @@ class Test_rate_limit():
         rate_download_conf = rate_limit_conf.rata_download_1
         iperf_cmd1 = rate_limit_conf.tcp_wired_clienttoserver
         iperf_cmd2 = rate_limit_conf.tcp_wired_servertoclient
-        rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_rate(iperf_cmd1)
-        rate_download_tcp_2 = rate_limit.Rate_test.internetwired_rate(iperf_cmd2)
+        rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_tcprate(iperf_cmd1)
+        rate_download_tcp_2 = rate_limit.Rate_test.internetwired_tcprate(iperf_cmd2)
         rate_upload = rate_upload_tcp_1*1000/8
         rate_download = rate_download_tcp_2*1000/8
         print (rate_upload)
@@ -49,8 +49,8 @@ class Test_rate_limit():
         rate_download_conf = rate_limit_conf.rata_download_1
         iperf_cmd1 = rate_limit_conf.tcp_wired_clienttoserver
         iperf_cmd2 = rate_limit_conf.tcp_wired_servertoclient
-        rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_rate(iperf_cmd1)
-        rate_download_tcp_2 = rate_limit.Rate_test.internetwired_rate(iperf_cmd2)
+        rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_tcprate(iperf_cmd1)
+        rate_download_tcp_2 = rate_limit.Rate_test.internetwired_tcprate(iperf_cmd2)
         rate_upload = rate_upload_tcp_1*1000/8
         rate_download = rate_download_tcp_2*1000/8
         print (rate_upload)
@@ -86,10 +86,10 @@ class Test_rate_limit():
         iperf_cmd2 = rate_limit_conf.tcp_wired_servertoclient
         iperf_cmd3 = rate_limit_conf.udp_wired_clienttoserver
         iperf_cmd4 = rate_limit_conf.udp_wired_servertoclient
-        rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_rate(iperf_cmd1)
-        rate_download_tcp_2 = rate_limit.Rate_test.internetwired_rate(iperf_cmd2)
-        rate_upload_udp_3 = rate_limit.Rate_test.internetwired_rate(iperf_cmd3)
-        rate_download_udp_4 = rate_limit.Rate_test.internetwired_rate(iperf_cmd4)
+        rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_tcprate(iperf_cmd1)
+        rate_download_tcp_2 = rate_limit.Rate_test.internetwired_tcprate(iperf_cmd2)
+        rate_upload_udp_3 = rate_limit.Rate_test.internetwired_udprate(iperf_cmd3)
+        rate_download_udp_4 = rate_limit.Rate_test.internetwired_udprate(iperf_cmd4)
         rate_upload_tcp = rate_upload_tcp_1*1000/8
         rate_download_tcp = rate_download_tcp_2*1000/8
         rate_upload_udp = rate_upload_udp_3*1000/8
@@ -107,10 +107,10 @@ class Test_rate_limit():
         iperf_cmd2 = rate_limit_conf.tcp_5g_servertoclient
         iperf_cmd3 = rate_limit_conf.udp_5g_clienttoserver
         iperf_cmd4 = rate_limit_conf.udp_5g_servertoclient
-        rate_upload_tcp_1 = rate_limit.Rate_test.internet5g_rate(iperf_cmd1)
-        rate_download_tcp_2 = rate_limit.Rate_test.internet5g_rate(iperf_cmd2)
-        rate_upload_udp_3 = rate_limit.Rate_test.internet5g_rate(iperf_cmd3)
-        rate_download_udp_4 = rate_limit.Rate_test.internet5g_rate(iperf_cmd4)
+        rate_upload_tcp_1 = rate_limit.Rate_test.internet5g_tcprate(iperf_cmd1)
+        rate_download_tcp_2 = rate_limit.Rate_test.internet5g_tcprate(iperf_cmd2)
+        rate_upload_udp_3 = rate_limit.Rate_test.internet5g_udprate(iperf_cmd3)
+        rate_download_udp_4 = rate_limit.Rate_test.internet5g_udprate(iperf_cmd4)
         rate_upload_tcp = rate_upload_tcp_1*1000/8
         rate_download_tcp = rate_download_tcp_2*1000/8
         rate_upload_udp = rate_upload_udp_3*1000/8
@@ -133,13 +133,13 @@ class Test_rate_limit():
         iperf_cmd7 = rate_limit_conf.udp_5g_clienttoserver
         iperf_cmd8 = rate_limit_conf.udp_5g_servertoclient
         #设备A上行限制为500KB,下行限制为1000KB
-        rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_rate(iperf_cmd1)
-        rate_download_tcp_2 = rate_limit.Rate_test.internetwired_rate(iperf_cmd2)
+        rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_tcprate(iperf_cmd1)
+        rate_download_tcp_2 = rate_limit.Rate_test.internetwired_tcprate(iperf_cmd2)
         time.sleep(10)
         #设备B上行限制为1500KB,下行限制为2000KB
 
-        rate_upload_tcp_3 = rate_limit.Rate_test.internet5g_rate(iperf_cmd5)
-        rate_download_tcp_4 = rate_limit.Rate_test.internet5g_rate(iperf_cmd6)
+        rate_upload_tcp_3 = rate_limit.Rate_test.internet5g_tcprate(iperf_cmd5)
+        rate_download_tcp_4 = rate_limit.Rate_test.internet5g_tcprate(iperf_cmd6)
 
         rate_upload_tcp_1 = rate_upload_tcp_1*1000/8
         rate_download_tcp_2 = rate_download_tcp_2*1000/8
@@ -159,8 +159,8 @@ class Test_rate_limit():
         rate_download_conf = rate_limit_conf.rata_download_1
         iperf_cmd1 = rate_limit_conf.tcp_wired_clienttoserver
         iperf_cmd2 = rate_limit_conf.tcp_wired_servertoclient
-        rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_rate(iperf_cmd1)
-        rate_download_tcp_2 = rate_limit.Rate_test.internetwired_rate(iperf_cmd2)
+        rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_tcprate(iperf_cmd1)
+        rate_download_tcp_2 = rate_limit.Rate_test.internetwired_tcprate(iperf_cmd2)
         rate_upload = rate_upload_tcp_1*1000/8
         rate_download = rate_download_tcp_2*1000/8
         if 400 < rate_download < 600 and 800 < rate_upload < 1200:
@@ -176,8 +176,8 @@ class Test_rate_limit():
         rate_download_conf = rate_limit_conf.rata_download_1
         iperf_cmd1 = rate_limit_conf.tcp_wired_clienttoserver
         iperf_cmd2 = rate_limit_conf.tcp_wired_servertoclient
-        rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_rate(iperf_cmd1)
-        rate_download_tcp_2 = rate_limit.Rate_test.internetwired_rate(iperf_cmd2)
+        rate_upload_tcp_1 = rate_limit.Rate_test.internetwired_tcprate(iperf_cmd1)
+        rate_download_tcp_2 = rate_limit.Rate_test.internetwired_tcprate(iperf_cmd2)
         rate_upload = rate_upload_tcp_1*1000/8
         rate_download = rate_download_tcp_2*1000/8
         if 400 < rate_download < 600 and 800 < rate_upload < 1200:

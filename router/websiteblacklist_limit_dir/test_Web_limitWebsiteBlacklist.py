@@ -199,7 +199,7 @@ class LimitWebsiteBlacklist(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_C_limitWebsiteBlacklist_1(self):
         """【检验】用例-5032:开关开启，设备A添加一个完整的网址黑名单a，设备A不可以访问网址a(设备a不可以访问www.baidu.com)"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
@@ -227,7 +227,7 @@ class LimitWebsiteBlacklist(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_D_limitWebsiteBlacklist_2(self):
         """【检验】用例-7216:开关开启，设备A添加一个完整的网址黑名单a，设备A可以访问非网址a的网址（设备a不可以访问www.baidu.com，但是可以访问new.baidu.com,www.jd.com）"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
@@ -239,6 +239,9 @@ class LimitWebsiteBlacklist(Base):
         if Statu_class != "switch switch-animation checked":
             print("【备注】该用例无法验证，原因：开关未开启")
             assert False
+
+
+        time.sleep(10)
 
         # 前提检验完成，开始检验用例
         Result = Test_website_blacklist.test_website_blacklist_2()
@@ -255,7 +258,7 @@ class LimitWebsiteBlacklist(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_E_limitWebsiteBlacklist_3(self):
         """【检验】用例-7214:开关开启，设备A添加一个完整的网址黑名单a，设备B可以访问网址a（设备a不可以访问www.baidu.com，设备b不可以访问www.baidu.com）"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
@@ -317,7 +320,7 @@ class LimitWebsiteBlacklist(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_G_limitWebsiteBlacklist_4(self):
         """【检验】用例-4836:开关开启，设备A删除一个网址黑名单a，设备A可以访问网址a（设备a不可以访问www.baidu.com，删除设备a的网址黑名单www.baidu.com）"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
@@ -388,7 +391,7 @@ class LimitWebsiteBlacklist(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_I_limitWebsiteBlacklist_5(self):
         """【检验】用例-7215:开关开启，设备A添加一个主域名的网址黑名单，设备A无法访问主域名相关的所有网址（设备a不可以访问主域名baidu，那么设备a就不能访问www.baidu.com,news.baidu.com,tieba.baidu.com,jingyan.baidu.com）"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
@@ -490,7 +493,7 @@ class LimitWebsiteBlacklist(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_L_limitWebsiteBlacklist_6(self):
         """【检验】用例-5240:开关开启，设备A添加多个网址黑名单，设备A不可以访问黑名单网址(设备a不可以访问www.baidu.com)"""
         self.switch_to_limitWebsiteBlacklistPage_wired_5g_24g("Wired", self.driver.current_url)
@@ -650,7 +653,7 @@ class LimitWebsiteBlacklist(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_O_limitWebsiteBlacklist_7(self):
         """【检验】用例-7217:设备A的网址黑名单关闭，设备A可以访问任何网址，设备B的网址黑名单开启，设备B不可以访问网址黑名单中的网址"""
 
@@ -807,7 +810,7 @@ class LimitWebsiteBlacklist(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_Q_limitWebsiteBlacklist_8(self):
         """【检验】用例-4835:开关开启，多个设备添加多个网址黑名单，功能生效"""
 
@@ -927,7 +930,7 @@ class LimitWebsiteBlacklist(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_S_limitWebsiteBlacklist_9(self):
         """【检验】用例-4838: 开关关闭，设备A添加一个网址黑名单a，设备A可以访问网址a，设备B可以访问网址a"""
 

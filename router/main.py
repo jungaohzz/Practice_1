@@ -13,6 +13,7 @@ from unittest import TestLoader
 from .time_limit_dir.test_Web_limitTime import LimitTime
 from .rate_limit_dir.test_Web_limitRate import LimitRate
 from .websiteblacklist_limit_dir.test_Web_limitWebsiteBlacklist import LimitWebsiteBlacklist
+from .wifi_set_dir.test_Web_wifiSettings import WifiSettings
 
 
 
@@ -25,7 +26,7 @@ from .websiteblacklist_limit_dir.test_Web_limitWebsiteBlacklist import LimitWebs
 def core():
     s = []
     class_tests = [
-        LimitTime
+        WifiSettings
     ]
 
     for t in class_tests:

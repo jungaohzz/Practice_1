@@ -7128,48 +7128,12 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 0,
+    "testPass": 1,
     "testResult": [
         {
-            "className": "LimitTime",
-            "methodName": "test_A_get_url",
-            "description": "操作步骤：获取有线的限时url、5G的限时url",
-            "spendTime": "20.1 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 126, in test_A_get_url\n    EC.element_to_be_clickable((By.XPATH, Set))\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py\", line 80, in until\n    raise TimeoutException(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.TimeoutException: Message: \n\n"
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_B_limitTime_add",
-            "description": "操作步骤：新增 星期一",
-            "spendTime": "1.5 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 145, in test_B_limitTime_add\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_C_limitTime_1",
-            "description": "【检验】用例-4839 : 设备A添加一个开启状态的限时条目，设备A在限时时间段内无法访问外网(周一不能上网)",
+            "className": "WifiSettings",
+            "methodName": "test_10_wifiSetting_hideSSID_off",
+            "description": "操作步骤：修改隐藏SSID开关：由开->关",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7177,9 +7141,9 @@
             ]
         },
         {
-            "className": "LimitTime",
-            "methodName": "test_D_limitTime_2",
-            "description": "【检验】用例-5238 : 设备A添加一个开启状态的限时条目，设备B在设备A的限时时间段内可以访问外网（设备A在周一不能上网，设备B在周一可以让他上网）",
+            "className": "WifiSettings",
+            "methodName": "test_11_test_wifi_7",
+            "description": "【检验】用例-3378 :隐藏SSID关闭状态，5G设备可以扫描到5G SSID，并可以正常连接",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7187,29 +7151,9 @@
             ]
         },
         {
-            "className": "LimitTime",
-            "methodName": "test_E_limitTime_editStatu_off",
-            "description": "操作步骤：将开关关闭",
-            "spendTime": "1.38 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 269, in test_E_limitTime_editStatu_off\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_F_limitTime_3",
-            "description": "【检验】用例-4840 : 设备A添加一个关闭状态的限时条目，设备A在任何时间段都可以访问外网",
+            "className": "WifiSettings",
+            "methodName": "test_12_test_wifi_8",
+            "description": "【检验】用例-4973 :隐藏SSID关闭状态，2.4G设备可以扫描到2.4G SSID，并可以正常连接",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7217,29 +7161,9 @@
             ]
         },
         {
-            "className": "LimitTime",
-            "methodName": "test_G_limitTime_editValue",
-            "description": "操作步骤：将星期一修改为星期二，并将开关开启",
-            "spendTime": "1.36 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 340, in test_G_limitTime_editValue\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_H_limitTime_4",
-            "description": "【检验】用例-4841 : 修改设备A的限时时段，新限时时段生效，旧限时时段失效(不能上网时间从周一修改为周二)",
+            "className": "WifiSettings",
+            "methodName": "test_13_wifiSetting_hideSSID_on",
+            "description": "操作步骤：修改隐藏SSID开关：由关->开",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7247,49 +7171,9 @@
             ]
         },
         {
-            "className": "LimitTime",
-            "methodName": "test_I_limitTime_delete",
-            "description": "操作步骤：删除限时记录",
-            "spendTime": "1.38 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 443, in test_I_limitTime_delete\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_J_limitTime_adds",
-            "description": "操作步骤：新增 星期一、星期三、星期五",
-            "spendTime": "1.37 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 468, in test_J_limitTime_adds\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_K_limitTime_5",
-            "description": "【检验】用例-5237 : 设备A添加多个开启状态的限时条目，设备A在限时时间段内无法访问外网 (周一，周三，周五不能上网)",
+            "className": "WifiSettings",
+            "methodName": "test_14_test_wifi_9",
+            "description": "【检验】用例-3377 :隐藏SSID开启状态，5G设备无法扫描到5G SSID",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7297,29 +7181,9 @@
             ]
         },
         {
-            "className": "LimitTime",
-            "methodName": "test_L_limitTime_edits",
-            "description": "操作步骤：设备A限时条目为周一、周三，设备B限时条目为周二、周四",
-            "spendTime": "1.42 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 574, in test_L_limitTime_edits\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
-            ]
-        },
-        {
-            "className": "LimitTime",
-            "methodName": "test_M_limitTime_6",
-            "description": "【检验】用例-5239 : 多个设备添加开启状态的限时条目，对应设备在其限时时间段内无法访问外网  (设备A周一周三不能上网，设备B周二周四不能上网)",
+            "className": "WifiSettings",
+            "methodName": "test_15_test_wifi_10",
+            "description": "【检验】用例-4971 :隐藏SSID开启状态，2.4G设备无法扫描到2.4G SSID",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7327,32 +7191,257 @@
             ]
         },
         {
-            "className": "LimitTime",
-            "methodName": "test_N_limitTime_delete",
-            "description": "操作步骤：删除所有限时记录，回到初始状态",
-            "spendTime": "1.37 s",
+            "className": "WifiSettings",
+            "methodName": "test_16_test_wifi_11",
+            "description": "【检验】用例-1513 :隐藏SSID开启，5G设备可通过手动添加SSID和密码连接到路由器",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_17_test_wifi_12",
+            "description": "【检验】用例-4970 :隐藏SSID开启，2.4G设备可通过手动添加SSID和密码连接到路由器",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_18_wifiSetting_hideSSID_off",
+            "description": "操作步骤：修改隐藏SSID开关：由开->关",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_19_test_wifi_13",
+            "description": "【检验】用例-4973 :隐藏SSID关闭状态，2.4G设备可以扫描到2.4G SSID，并可以正常连接",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_1_get_url",
+            "description": "操作步骤：获取主WiFi的WiFi设置页url",
+            "spendTime": "7.92 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_20_test_wifi_14",
+            "description": "【检验】用例-4975 :隐藏SSID关闭，2.4G设备可通过手动添加SSID和密码连接到路由器",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_21_wifiSetting_ssid20bit_password24bit",
+            "description": "操作步骤：设置SSID为20个字节，密码为24个字节，且“隐藏SSID”开关为关，“双频合一”开关为开",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_22_test_wifi_15",
+            "description": "【检验】用例-4967 :SSID为20个字节，密码为24个字节，5G设备能成功连接",
+            "spendTime": "0.000998 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_23_test_wifi_16",
+            "description": "【检验】用例-4969 :SSID为20个字节，密码为24个字节，2.4G设备能成功连接",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_24_wifiSetting_ssid20bit_password24bit",
+            "description": "操作步骤：设置SSID为1个字节，密码为8个字节，且“隐藏SSID”开关为关，“双频合一”开关为开",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_25_test_wifi_17",
+            "description": "【检验】用例-4999 :SSID为1个字节，密码为8个字节，5G设备能成功连接",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_26_test_wifi_18",
+            "description": "【检验】用例-5000 :SSID为1个字节，密码为8个字节，2.4G设备能成功连接",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_27_wifiSetting_onlyChange_ssid",
+            "description": "操作步骤：只修改SSID",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_28_test_wifi_19",
+            "description": "【检验】用例-5017 :: 版本: 1 :: 修改SSID后，新SSID生效，旧SSID失效",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_29_wifiSetting_onlyChange_ssid",
+            "description": "操作步骤：只修改password",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_2_wifiSetting_SmartConnect_on",
+            "description": "操作步骤：设置SSID名，且将“双频合一”状态开启",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_30_test_wifi_20",
+            "description": "【检验】用例-5018 :: 版本: 1 :: 修改密码后，新密码生效，旧密码失效",
+            "spendTime": "2.01e+02 s",
             "status": "失败",
             "log": [
-                "",
+                "['无线系统信息摘要\\n', '(时间: 2019/10/21 20:09:27 中国标准时间)\\n', '\\n', '\\n', '======================================================================= \\n', '============================== 显示驱动程序 =========================== \\n', '=======================================================================\\n', '\\n', '\\n', '接口名称: WLAN5G\\n', '\\n', '    驱动程序                  : Realtek 8812AU Wireless LAN 802.11ac USB NIC\\n', '    供应商                    : Realtek Semiconductor Corp.\\n', '    提供程序                  : Realtek Semiconductor Corp.\\n', '    日期                      : 2019/5/28\\n', '    版本                      : 1030.38.328.2019\\n', '    INF 文件                  : oem28.inf\\n', '    类型                      : 本机 WLAN 驱动程序\\n', '    支持的无线电类型          : 802.11ac 802.11n 802.11a\\n', '    支持 FIPS 140-2 模式: 是\\n', '    支持 802.11w 管理帧保护 : 是\\n', '    支持的承载网络  : 否\\n', '    基础结构模式中支持的身份验证和密码:\\n', '                                开放式             无\\n', '                                WPA2 - 个人       CCMP\\n', '                                开放式             WEP-40bit\\n', '                                开放式             WEP-104 位\\n', '                                开放式             WEP\\n', '                                WPA - 企业        TKIP\\n', '                                WPA - 个人        TKIP\\n', '                                WPA2 - 企业       TKIP\\n', '                                WPA2 - 个人       TKIP\\n', '                                WPA - 企业        CCMP\\n', '                                WPA - 个人        CCMP\\n', '                                WPA2 - 企业       CCMP\\n', '                                供应商定义的          TKIP\\n', '                                供应商定义的          CCMP\\n', '                                供应商定义的          供应商定义的\\n', '                                供应商定义的          供应商定义的\\n', '                                WPA2 - 企业       供应商定义的\\n', '                                WPA2 - 企业       供应商定义的\\n', '                                供应商定义的          供应商定义的\\n', '                                供应商定义的          供应商定义的\\n', '    支持的无线显示器: 否 (图形驱动程序: 是，WLAN 驱动程序: 否)\\n', '\\n', '\\n', '======================================================================= \\n', '============================= 显示接口 ================================ \\n', '=======================================================================\\n', '\\n', '\\n', '系统上有 1 个接口: \\n', '\\n', '    名称                   : WLAN5G\\n', '    描述                   : Realtek 8812AU Wireless LAN 802.11ac USB NIC #2\\n', '    GUID                   : c162ac3a-7785-40c4-b248-83bce3ea4820\\n', '    物理地址               : 08:10:7b:51:d0:4f\\n', '    状态                   : 已断开连接\\n', '    无线电状态           : 硬件 开\\n', '                             软件 开\\n', '\\n', '    承载网络状态  : 不可用\\n', '\\n', '\\n', '======================================================================= \\n', '=========================== 显示承载网络 ======================= \\n', '=======================================================================\\n', '\\n', '\\n', '承载网络设置 \\n', '----------------------- \\n', '    模式                   : 已启用\\n', '    设置              : <未配置>\\n', '\\n', '承载网络状态   \\n', '--------------------- \\n', '    状态                 : 不可用\\n', '\\n', '\\n', '======================================================================= \\n', '============================= 显示设置 ================================ \\n', '=======================================================================\\n', '\\n', '\\n', '无线局域网配置\\n', '--------------------- \\n', '    显示可见网络列表中的阻止网络: 否\\n', '\\n', '    在配置 GP 的网络上仅使用 GP 配置文件: 否\\n', '\\n', '    在 WLAN 服务中允许承载网络模式: 是\\n', '\\n', '    允许共享用户凭据用于网络身份验证: 是\\n', '\\n', '    阻止时间段: 未配置。\\n', '\\n', '    在接口“WLAN5G”上已启用自动配置逻辑\\n', 'MAC 随机化在接口 WLAN5G 上不可用\\n', '\\n', '\\n', '======================================================================= \\n', '============================== 显示筛选器 ============================= \\n', '=======================================================================\\n', '\\n', '\\n', '系统上的允许列表(组策略) \\n', '--------------------------------------- \\n', '    <无>\\n', '\\n', '系统上的允许列表(用户) \\n', '------------------------------- \\n', '    <无>\\n', '\\n', '系统上的阻止列表(组策略) \\n', '--------------------------------------- \\n', '    <无>\\n', '\\n', '系统上的阻止列表(用户) \\n', '------------------------------- \\n', '    <无>\\n', '\\n', '\\n', '======================================================================= \\n', '=========================== 显示 CREATEALLUSER ======================== \\n', '=======================================================================\\n', '\\n', '\\n', '允许所有人创建所有用户配置文件。\\n', '\\n', '\\n', '======================================================================= \\n', '============================= 显示配置文件 ============================ \\n', '=======================================================================\\n', '\\n', '\\n', '接口 WLAN5G 上的配置文件: \\n', '\\n', '\\n', '组策略配置文件(只读)\\n', '---------------------------------\\n', '    <无>\\n', '\\n', '用户配置文件\\n', '-------------\\n', '    <无>\\n', '\\n', '\\n', '======================================================================= \\n', '========================== 显示配置文件名称=* ======================= \\n', '=======================================================================\\n', '\\n', '在计算机上找不到配置文件“*”。\\n', '\\n', '======================================================================= \\n', '======================= 显示网络模式 MODE=BSSID ====================== \\n', '=======================================================================\\n', '\\n', ' \\n', '接口名称 : WLAN5G \\n', '当前有 27 个网络可见。 \\n', '\\n', 'SSID 1 : ZAHY5G\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : 20:6b:e7:d7:2a:90\\n', '         信号               : 43%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 44 \\n', '         基本速率(Mbps)     : 6 12 24\\n', '         其他速率(Mbps)     : 9 18 36 48 54\\n', '\\n', 'SSID 2 : ChinaNet-hGK6-5G\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : 18:52:07:67:19:3f\\n', '         信号               : 48%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 149 \\n', '         基本速率(Mbps)     : 6 12 24\\n', '         其他速率(Mbps)     : 9 18 36 48 54\\n', '\\n', 'SSID 3 : CDJY-2\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : bc:54:fc:ca:69:09\\n', '         信号               : 68%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 149 \\n', '         基本速率(Mbps)     : 6 12 24\\n', '         其他速率(Mbps)     : 9 18 36 48 54\\n', '\\n', 'SSID 4 : MERCKU-0147\\n', '    Network type            : 结构\\n', '    身份验证                : 开放式\\n', '    加密                    : 无 \\n', '    BSSID 1               : 00:e0:4c:81:96:c1\\n', '         信号               : 72%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 5 : 360WiFi-AABBCCDD-5G\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : 70:af:6a:90:50:45\\n', '         信号               : 76%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 153 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 6 : MERCKU-1724\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:02:7b:3c\\n', '         信号               : 84%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:28:6b\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 7 : Mercku Guestdddddd\\n', '    Network type            : 结构\\n', '    身份验证                : 开放式\\n', '    加密                    : 无 \\n', '    BSSID 1               : f8:27:2e:02:7b:3d\\n', '         信号               : 84%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 12 24\\n', '         其他速率(Mbps)     : 9 18 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:28:6c\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 12 24\\n', '         其他速率(Mbps)     : 9 18 36 48 54\\n', '\\n', 'SSID 8 : 000\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:17:1f\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 9 : Patrick\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:11:73\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:00:00:77\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 10 : MERCKU-1445\\n', '    Network type            : 结构\\n', '    身份验证                : 开放式\\n', '    加密                    : 无 \\n', '    BSSID 1               : f8:27:2e:01:99:1f\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 11 : MERCKU-1609\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:74:1c\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:25:b9\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 12 : Linksys_5GHz\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : 58:ef:68:0d:95:05\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 161 \\n', '         基本速率(Mbps)     : 6 12 24\\n', '         其他速率(Mbps)     : 9 18 36 48 54\\n', '\\n', 'SSID 13 : MERCKU-Office\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:b2:0e\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 153 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:0f:27\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 153 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 14 : MERCKU-0009\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:00:00:47\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 15 : MERCKU-1426kkk浣犲ソ\\n', '    Network type            : 结构\\n', '    身份验证                : WPA - 个人\\n', '    加密                    : TKIP \\n', '    BSSID 1               : f8:27:2e:01:21:6f\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11a\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:73:68\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11a\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 16 : hzzzzzzzzzll-5G\\n', '    Network type            : 结构\\n', '    身份验证                : WPA - 个人\\n', '    加密                    : TKIP \\n', '    BSSID 1               : f8:27:2e:01:54:b9\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11a\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:19:cb\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11a\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 17 : MERCKU-1414FL\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:36:37\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:21:27\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 18 : MERCKU-1070\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:19:17\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:50:cc\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 19 : MERCKU-1175\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:1b:8d\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 20 : XIAOAIAAA\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:a8:c0\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:5f:90\\n', '         信号               : 88%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 21 : FLFLFL00000\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:18:63\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 22 : tenda\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : b8:3a:08:e5:d0:a4\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 23 : MERCKU-0776\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:12:33\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 24 : 1265\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:1d:a9\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 25 : MERCKU-AutoTest\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:0e:eb\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 26 : 1111\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:02:25:b0\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 27 : MERCKU-0540\\n', '    Network type            : 结构\\n', '    身份验证                : 开放式\\n', '    加密                    : 无 \\n', '    BSSID 1               : f8:27:2e:01:0c:ab\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 40 \\n', '         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', '\\n', '======================================================================= \\n', '======================= 显示接口功能 =================== \\n', '=======================================================================\\n', '\\n', '\\n', '无线系统功能 \\n', '---------------------------- \\n', '    连接到 802.11 无线电的天线数(值不可用)\\n', '\\n', '    设备运行时可以同时占用的最大通道数(值不可用)\\n', '\\n', '    共存支持                        : 未知\\n', '\\n', '\\n', '无线设备功能 \\n', '---------------------------- \\n', '\\n', '接口名称: WLAN5G\\n', '\\n', '    WDI 版本(Windows)                       : 0.1.1.6\\n', '\\n', '    WDI 版本(IHV)                           : 0.1.1.8\\n', '\\n', '    固件版本                            : rtwlanu\\n', '\\n', '    站                                     : 支持\\n', '\\n', '    软 AP                                     : 不支持\\n', '\\n', '    网络监视模式                        : 不支持\\n', '\\n', '    Wi-Fi Direct 设备                         : 支持\\n', '\\n', '    Wi-Fi Direct GO                         : 支持\\n', '\\n', '    Wi-Fi Direct 客户端                         : 支持\\n', '\\n', '    受保护管理帧                 : 支持\\n', '    DOT11k 邻居报告                      : 支持\\n', '    ANQP 服务信息发现          : 支持\\n', '    动作帧                                : 支持\\n', '    分集天线                           : 不支持\\n', '\\n', '    IBSS                                        : 不支持\\n', '\\n', '    混杂模式                             : 不支持\\n', '\\n', '    P2P 设备发现                        : 支持\\n', '    P2P 服务名称发现                  : 不支持\\n', '\\n', '    P2P 服务信息发现                  : 不支持\\n', '\\n', '    P2P 背景发现                    : 不支持\\n', '\\n', '    5 GHz 的 P2P GO                             : 不支持\\n', '\\n', '    ASP 2.0 服务名称发现              : 不支持\\n', '\\n', '    ASP 2.0 服务信息发现       : 不支持\\n', '\\n', '    支持 IP 对接                          : 不支持\\n', '\\n', '    FIPS                                        : 支持\\n', '    即时连接                             : 不支持\\n', '\\n', '    Dx 待机 NLO                              : 不支持\\n', '\\n', '    扩展通道交换机公告        : 不支持\\n', '\\n', '    功能级别重置                        : 支持\\n', '    平台级别重置                        : 支持\\n', '    总线级别重置                             : 不支持\\n', '\\n', '    MAC 随机化                           : 不支持\\n', '\\n', '    快速转换                             : 支持\\n', '    MU-MIMO                                     : 不支持\\n', '\\n', '    Miracast 接收器                               : 支持\\n', '    BSS 转换(802.11v)                    : 支持\\n', '    已配置 IHV 扩展模块         : 不支持\\n', '\\n', '    Tx 空间流数目                : 2\\n', '\\n', '    Rx 空间流数目                : 2\\n', '\\n', '    支持的并发通道数     : 1\\n', '\\n', '    P2P GO 端口计数                          : 1\\n', '\\n', '    P2P 客户端端口计数                      : 1\\n', '\\n', '    P2P 移动 AP 客户端数上限                   : 2\\n', '\\n', '    支持的 ANQP 服务播发数上限   : 0\\n', '\\n', '    共存支持                        : 未知\\n', '\\n', '\\n']\n[' 25 : MERCKU-AutoTest\\n    Network type            : 结构\\n    身份验证                : WPA2 - 个人\\n    加密                    : CCMP \\n    BSSID 1               : f8:27:2e:01:0e:eb\\n         信号               : 100%\\n         无线电类型         : 802.11ac\\n         频道               : 40 \\n         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\\n']\ndddddddddddddddddddddddddddd\n有对应SSID\n 25 : MERCKU-AutoTest\n    Network type            : 结构\n    身份验证                : WPA2 - 个人\n    加密                    : CCMP \n    BSSID 1               : f8:27:2e:01:0e:eb\n         信号               : 100%\n         无线电类型         : 802.11ac\n         频道               : 40 \n         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\n\n 25 : MERCKU-AutoTest\n    Network type            : 结构\n    身份验证                : WPA2 - 个人\n    加密                    : CCMP \n    BSSID 1               : f8:27:2e:01:0e:eb\n         信号               : 100%\n         无线电类型         : 802.11ac\n         频道               : 40 \n         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\n\n['无线系统信息摘要\\n', '(时间: 2019/10/21 20:09:46 中国标准时间)\\n', '\\n', '\\n', '======================================================================= \\n', '============================== 显示驱动程序 =========================== \\n', '=======================================================================\\n', '\\n', '\\n', '接口名称: WLAN2G\\n', '\\n', '    驱动程序                  : Realtek 8812AU Wireless LAN 802.11ac USB NIC\\n', '    供应商                    : Realtek Semiconductor Corp.\\n', '    提供程序                  : Realtek Semiconductor Corp.\\n', '    日期                      : 2019/5/28\\n', '    版本                      : 1030.38.328.2019\\n', '    INF 文件                  : oem28.inf\\n', '    类型                      : 本机 WLAN 驱动程序\\n', '    支持的无线电类型          : 802.11n 802.11g 802.11b\\n', '    支持 FIPS 140-2 模式: 是\\n', '    支持 802.11w 管理帧保护 : 是\\n', '    支持的承载网络  : 否\\n', '    基础结构模式中支持的身份验证和密码:\\n', '                                开放式             无\\n', '                                WPA2 - 个人       CCMP\\n', '                                开放式             WEP-40bit\\n', '                                开放式             WEP-104 位\\n', '                                开放式             WEP\\n', '                                WPA - 企业        TKIP\\n', '                                WPA - 个人        TKIP\\n', '                                WPA2 - 企业       TKIP\\n', '                                WPA2 - 个人       TKIP\\n', '                                WPA - 企业        CCMP\\n', '                                WPA - 个人        CCMP\\n', '                                WPA2 - 企业       CCMP\\n', '                                供应商定义的          TKIP\\n', '                                供应商定义的          CCMP\\n', '                                供应商定义的          供应商定义的\\n', '                                供应商定义的          供应商定义的\\n', '                                WPA2 - 企业       供应商定义的\\n', '                                WPA2 - 企业       供应商定义的\\n', '                                供应商定义的          供应商定义的\\n', '                                供应商定义的          供应商定义的\\n', '    支持的无线显示器: 是 (图形驱动程序: 是，WLAN 驱动程序: 是)\\n', '\\n', '\\n', '======================================================================= \\n', '============================= 显示接口 ================================ \\n', '=======================================================================\\n', '\\n', '\\n', '系统上有 1 个接口: \\n', '\\n', '    名称                   : WLAN2G\\n', '    描述                   : Realtek 8812AU Wireless LAN 802.11ac USB NIC\\n', '    GUID                   : 9906942e-4f2a-47a0-ab73-643dcb77abc9\\n', '    物理地址               : 08:10:7a:18:95:8a\\n', '    状态                   : 已断开连接\\n', '    无线电状态           : 硬件 开\\n', '                             软件 开\\n', '\\n', '    承载网络状态  : 不可用\\n', '\\n', '\\n', '======================================================================= \\n', '=========================== 显示承载网络 ======================= \\n', '=======================================================================\\n', '\\n', '\\n', '承载网络设置 \\n', '----------------------- \\n', '    模式                   : 已启用\\n', '    设置              : <未配置>\\n', '\\n', '承载网络状态   \\n', '--------------------- \\n', '    状态                 : 不可用\\n', '\\n', '\\n', '======================================================================= \\n', '============================= 显示设置 ================================ \\n', '=======================================================================\\n', '\\n', '\\n', '无线局域网配置\\n', '--------------------- \\n', '    显示可见网络列表中的阻止网络: 否\\n', '\\n', '    在配置 GP 的网络上仅使用 GP 配置文件: 否\\n', '\\n', '    在 WLAN 服务中允许承载网络模式: 是\\n', '\\n', '    允许共享用户凭据用于网络身份验证: 是\\n', '\\n', '    阻止时间段: 未配置。\\n', '\\n', '    在接口“WLAN2G”上已启用自动配置逻辑\\n', 'MAC 随机化在接口 WLAN2G 上不可用\\n', '\\n', '\\n', '======================================================================= \\n', '============================== 显示筛选器 ============================= \\n', '=======================================================================\\n', '\\n', '\\n', '系统上的允许列表(组策略) \\n', '--------------------------------------- \\n', '    <无>\\n', '\\n', '系统上的允许列表(用户) \\n', '------------------------------- \\n', '    <无>\\n', '\\n', '系统上的阻止列表(组策略) \\n', '--------------------------------------- \\n', '    <无>\\n', '\\n', '系统上的阻止列表(用户) \\n', '------------------------------- \\n', '    <无>\\n', '\\n', '\\n', '======================================================================= \\n', '=========================== 显示 CREATEALLUSER ======================== \\n', '=======================================================================\\n', '\\n', '\\n', '允许所有人创建所有用户配置文件。\\n', '\\n', '\\n', '======================================================================= \\n', '============================= 显示配置文件 ============================ \\n', '=======================================================================\\n', '\\n', '\\n', '接口 WLAN2G 上的配置文件: \\n', '\\n', '\\n', '组策略配置文件(只读)\\n', '---------------------------------\\n', '    <无>\\n', '\\n', '用户配置文件\\n', '-------------\\n', '    所有用户配置文件 : wpa2-aes\\n', '\\n', '\\n', '======================================================================= \\n', '========================== 显示配置文件名称=* ======================= \\n', '=======================================================================\\n', '\\n', '\\n', '接口 WLAN2G 上的配置文件 wpa2-aes: \\n', '======================================================================= \\n', '\\n', '已应用: 所有用户配置文件\\n', '\\n', '配置文件信息\\n', '------------------- \\n', '    版本                   : 1\\n', '    类型                   : 无线局域网\\n', '    名称                   : wpa2-aes\\n', '    控制选项               : \\n', '        连接模式           : 自动连接\\n', '        网络广播           : 只在网络广播时连接\\n', '        AutoSwitch         : 请勿切换到其他网络\\n', '        MAC 随机化: 禁用\\n', '\\n', '连接设置\\n', '--------------------- \\n', '    SSID 数目              : 1\\n', '    SSID 名称              :“MERCKU-LEIGE-CHANGE”\\n', '    网络类型               : 结构\\n', '    无线电类型             : [ 任何无线电类型 ]\\n', '    供应商扩展名           : 不存在\\n', '\\n', '安全设置\\n', '----------------- \\n', '    身份验证         : WPA2 - 个人\\n', '    密码                 : CCMP\\n', '    身份验证         : WPA2 - 个人\\n', '    密码                 : GCMP\\n', '    安全密钥               : 存在\\n', '\\n', '费用设置 \\n', '------------- \\n', '    费用                : 无限制\\n', '    阻塞                : 否\\n', '    接近数据限制        : 否\\n', '    过量数据限制        : 否\\n', '    漫游                : 否\\n', '    费用来源            : 默认\\n', '\\n', '\\n', '======================================================================= \\n', '======================= 显示网络模式 MODE=BSSID ====================== \\n', '=======================================================================\\n', '\\n', ' \\n', '接口名称 : WLAN2G \\n', '当前有 35 个网络可见。 \\n', '\\n', 'SSID 1 : ChinaNet-hGK6\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : 18:52:07:67:19:40\\n', '         信号               : 47%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 5 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 2 : \\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : e4:0e:ee:77:c4:bd\\n', '         信号               : 47%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 6 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 3 : FLFLFL00000\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:36:8a\\n', '         信号               : 56%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:18:60\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 9 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 4 : winshare2018\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : 44:1a:fa:25:19:10\\n', '         信号               : 60%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 6 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 5 : Mercku Guest\\n', '    Network type            : 结构\\n', '    身份验证                : 开放式\\n', '    加密                    : 无 \\n', '    BSSID 1               : 06:03:7f:12:ee:ee\\n', '         信号               : 60%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 1 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : 06:03:7f:12:71:71\\n', '         信号               : 84%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 6 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 6 : xinxingdanbao-2\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : 78:54:2e:a6:04:c2\\n', '         信号               : 62%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 6 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 7 : XIAOAIAAA\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:5f:8e\\n', '         信号               : 62%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:a8:bd\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 8 : CDJY-1\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : bc:54:fc:ca:69:07\\n', '         信号               : 64%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 1 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 9 : MERCKU-2345\\n', '    Network type            : 结构\\n', '    身份验证                : 开放式\\n', '    加密                    : 无 \\n', '    BSSID 1               : 00:03:7f:12:ee:ee\\n', '         信号               : 64%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 1 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 10 : 1111\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:02:25:ae\\n', '         信号               : 70%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 11 : MERCKU-1070\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:50:ca\\n', '         信号               : 70%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:19:14\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 12 : 1265\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:1d:a6\\n', '         信号               : 72%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 13 : 360WiFi-AABBCCDD\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : 70:af:6a:90:50:43\\n', '         信号               : 72%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 2 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 14 : MERCKU-1609\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:74:1a\\n', '         信号               : 74%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:25:b6\\n', '         信号               : 84%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 15 : MERCKU-sta_2g\\n', '    Network type            : 结构\\n', '    身份验证                : 开放式\\n', '    加密                    : 无 \\n', '    BSSID 1               : 00:03:7f:12:ed:ed\\n', '         信号               : 76%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 6 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 16 : MERCKU-1031\\n', '    Network type            : 结构\\n', '    身份验证                : 开放式\\n', '    加密                    : 无 \\n', '    BSSID 1               : 00:03:7f:12:e9:e9\\n', '         信号               : 84%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 6 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 17 : MERCKU-1445\\n', '    Network type            : 结构\\n', '    身份验证                : 开放式\\n', '    加密                    : 无 \\n', '    BSSID 1               : f8:27:2e:01:99:1d\\n', '         信号               : 88%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 18 : Linksys\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : 58:ef:68:0d:95:04\\n', '         信号               : 88%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 1 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 19 : \\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : 0a:03:7f:12:71:71\\n', '         信号               : 88%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 6 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 20 : Mercku Guestdddddd\\n', '    Network type            : 结构\\n', '    身份验证                : 开放式\\n', '    加密                    : 无 \\n', '    BSSID 1               : f8:27:2e:01:28:6d\\n', '         信号               : 92%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 21 : andy\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : 00:03:7f:12:71:71\\n', '         信号               : 92%\\n', '         无线电类型         : 802.11ac\\n', '         频道               : 6 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 22 : MERCKU-1175\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:1b:8a\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 23 : MERCKU-AutoTest\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:0e:e8\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 24 : hzzzzzzzzzll\\n', '    Network type            : 结构\\n', '    身份验证                : WPA - 个人\\n', '    加密                    : TKIP \\n', '    BSSID 1               : f8:27:2e:01:54:b7\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11g\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:19:c8\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11g\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 25 : MERCKU-1414FL\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:21:24\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:36:35\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 26 : MERCKU-Office\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:0f:24\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 5 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:b2:0b\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 5 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 27 : tenda\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : b8:3a:08:e5:d0:a1\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 6 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 28 : Patrick\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:00:00:74\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:11:70\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 29 : MERCKU-1426kkk浣犲ソ\\n', '    Network type            : 结构\\n', '    身份验证                : WPA - 个人\\n', '    加密                    : TKIP \\n', '    BSSID 1               : f8:27:2e:01:21:6c\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11g\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '    BSSID 2               : f8:27:2e:01:73:66\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11g\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 30 : MERCKU-0009\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:00:00:44\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 31 : 000\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:17:1c\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 32 : MERCKU-0540\\n', '    Network type            : 结构\\n', '    身份验证                : 开放式\\n', '    加密                    : 无 \\n', '    BSSID 1               : f8:27:2e:01:0c:a8\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 33 : MERCKU-0776\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:12:30\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 34 : RTL8186-default\\n', '    Network type            : 结构\\n', '    身份验证                : 开放式\\n', '    加密                    : 无 \\n', '    BSSID 1               : 00:e0:4c:81:86:86\\n', '         信号               : 58%\\n', '         无线电类型         : 802.11g\\n', '         频道               : 1 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', 'SSID 35 : MERCKU-1724\\n', '    Network type            : 结构\\n', '    身份验证                : WPA2 - 个人\\n', '    加密                    : CCMP \\n', '    BSSID 1               : f8:27:2e:01:28:68\\n', '         信号               : 100%\\n', '         无线电类型         : 802.11n\\n', '         频道               : 11 \\n', '         基本速率(Mbps)     : 1 2 5.5 11\\n', '         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\\n', '\\n', '\\n', '======================================================================= \\n', '======================= 显示接口功能 =================== \\n', '=======================================================================\\n', '\\n', '\\n', '无线系统功能 \\n', '---------------------------- \\n', '    连接到 802.11 无线电的天线数(值不可用)\\n', '\\n', '    设备运行时可以同时占用的最大通道数(值不可用)\\n', '\\n', '    共存支持                        : 未知\\n', '\\n', '\\n', '无线设备功能 \\n', '---------------------------- \\n', '\\n', '接口名称: WLAN2G\\n', '\\n', '    WDI 版本(Windows)                       : 0.1.1.6\\n', '\\n', '    WDI 版本(IHV)                           : 0.1.1.8\\n', '\\n', '    固件版本                            : rtwlanu\\n', '\\n', '    站                                     : 支持\\n', '\\n', '    软 AP                                     : 不支持\\n', '\\n', '    网络监视模式                        : 不支持\\n', '\\n', '    Wi-Fi Direct 设备                         : 支持\\n', '\\n', '    Wi-Fi Direct GO                         : 支持\\n', '\\n', '    Wi-Fi Direct 客户端                         : 支持\\n', '\\n', '    受保护管理帧                 : 支持\\n', '    DOT11k 邻居报告                      : 支持\\n', '    ANQP 服务信息发现          : 支持\\n', '    动作帧                                : 支持\\n', '    分集天线                           : 不支持\\n', '\\n', '    IBSS                                        : 不支持\\n', '\\n', '    混杂模式                             : 不支持\\n', '\\n', '    P2P 设备发现                        : 支持\\n', '    P2P 服务名称发现                  : 不支持\\n', '\\n', '    P2P 服务信息发现                  : 不支持\\n', '\\n', '    P2P 背景发现                    : 不支持\\n', '\\n', '    5 GHz 的 P2P GO                             : 不支持\\n', '\\n', '    ASP 2.0 服务名称发现              : 不支持\\n', '\\n', '    ASP 2.0 服务信息发现       : 不支持\\n', '\\n', '    支持 IP 对接                          : 不支持\\n', '\\n', '    FIPS                                        : 支持\\n', '    即时连接                             : 不支持\\n', '\\n', '    Dx 待机 NLO                              : 不支持\\n', '\\n', '    扩展通道交换机公告        : 不支持\\n', '\\n', '    功能级别重置                        : 支持\\n', '    平台级别重置                        : 支持\\n', '    总线级别重置                             : 不支持\\n', '\\n', '    MAC 随机化                           : 不支持\\n', '\\n', '    快速转换                             : 支持\\n', '    MU-MIMO                                     : 不支持\\n', '\\n', '    Miracast 接收器                               : 支持\\n', '    BSS 转换(802.11v)                    : 支持\\n', '    已配置 IHV 扩展模块         : 不支持\\n', '\\n', '    Tx 空间流数目                : 2\\n', '\\n', '    Rx 空间流数目                : 2\\n', '\\n', '    支持的并发通道数     : 1\\n', '\\n', '    P2P GO 端口计数                          : 1\\n', '\\n', '    P2P 客户端端口计数                      : 1\\n', '\\n', '    P2P 移动 AP 客户端数上限                   : 2\\n', '\\n', '    支持的 ANQP 服务播发数上限   : 0\\n', '\\n', '    共存支持                        : 未知\\n', '\\n', '\\n']\n有对应SSID\n 23 : MERCKU-AutoTest\n    Network type            : 结构\n    身份验证                : WPA2 - 个人\n    加密                    : CCMP \n    BSSID 1               : f8:27:2e:01:0e:e8\n         信号               : 100%\n         无线电类型         : 802.11n\n         频道               : 11 \n         基本速率(Mbps)     : 1 2 5.5 11\n         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\n\n-1-1-1-1-1-1-1-1-1-1-1-1--1\n 25 : MERCKU-AutoTest\n    Network type            : 结构\n    身份验证                : WPA2 - 个人\n    加密                    : CCMP \n    BSSID 1               : f8:27:2e:01:0e:eb\n         信号               : 100%\n         无线电类型         : 802.11ac\n         频道               : 40 \n         基本速率(Mbps)     : 6 9 12 18 24 36 48 54\n\n000000000000\n 23 : MERCKU-AutoTest\n    Network type            : 结构\n    身份验证                : WPA2 - 个人\n    加密                    : CCMP \n    BSSID 1               : f8:27:2e:01:0e:e8\n         信号               : 100%\n         无线电类型         : 802.11n\n         频道               : 11 \n         基本速率(Mbps)     : 1 2 5.5 11\n         其他速率(Mbps)     : 6 9 12 18 24 36 48 54\n\n11111111111\n22222222222\n333333333333\neeeeeeeeeeeee\naaaaaaaaaaaaaaaaanetsh wlan add profile filename=\".\\router\\wifi_set_dir\\wifi_conf\\wpa2-aes.xml\" interface=\"WLAN2G\"\n@#@#@#\n0\n连接状态：1，1，1，1\n【失败】\n",
                 "Traceback (most recent call last):\n",
                 "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
                 "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 723, in test_N_limitTime_delete\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 71, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi).find_element_by_xpath(CommonLocators.Devices).click()\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.75)\n\n"
+                "  File \"D:\\PyCharm\\Practice_1\\router\\wifi_set_dir\\test_Web_wifiSettings.py\", line 1448, in test_30_test_wifi_20\n    assert False\n",
+                "AssertionError\n"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_3_test_wifi_1",
+            "description": "【检验】用例-3384:“双频合一”开启状态，扫描到的SSID中，5G和2.4G SSID一样",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_4_test_wifi_2",
+            "description": "【检验】用例-3510 :“双频合一”开启状态，2T2R设备能成功连接2.4G SSID，协商速率300M",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_5_test_wifi_3",
+            "description": "【检验】用例-3509 :“双频合一”开启状态，2T2R设备能成功连接5G SSID,协商速率正确867M",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_6_wifiSetting_SmartConnect_off",
+            "description": "操作步骤：将“双频合一”状态关闭",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_7_test_wifi_4",
+            "description": "【检验】用例-2734 :“双频合一”关闭状态，扫描到的SSID中，2.4G SSID为XXXX,5G SSID为XXXX-5G",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_8_test_wifi_5",
+            "description": "【检验】用例-3075 :“双频合一”关闭状态，2T2R设备能成功连接2.4G，协商速率300M",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "WifiSettings",
+            "methodName": "test_9_test_wifi_6",
+            "description": "【检验】用例-3076 :“双频合一”关闭状态，2T2R设备能成功连接5G，协商速率867M",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
             ]
         }
     ],
     "testName": "路由器功能自动化测试报告",
-    "testAll": 14,
-    "testFail": 8,
-    "beginTime": "2019-10-21 00:10:49",
-    "totalTime": "37s",
-    "testSkip": 6,
+    "testAll": 30,
+    "testFail": 1,
+    "beginTime": "2019-10-21 20:08:52",
+    "totalTime": "217s",
+    "testSkip": 28,
     "testError": 0
 };
 
