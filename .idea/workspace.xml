@@ -1,34 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/router/wifi_set_dir/wifi_set_testcase.py" line="463" />
+    <bookmark url="file://$PROJECT_DIR$/router/wifi_set_dir/wifi_set_testcase.py" line="469" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9735d93a-b6d6-46cc-9f5b-a801c6ac523e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/router/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/test_Web_wifiSettings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_conf/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_conf/open-auto.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_conf/open.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_conf/wpa-aes-auto.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_conf/wpa-aes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_conf/wpa-tkip-auto.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_conf/wpa-tkip.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_conf/wpa2-aes-auto.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_conf/wpa2-aes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_set.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_set_conf.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_set_testcase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Practice_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Practice_1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report/router/功能自动化测试.html" beforeDir="false" afterPath="$PROJECT_DIR$/report/router/功能自动化测试.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/note.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/note.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/rate_limit_dir/iperf.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/time_limit_dir/test_Web_limitTime.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/time_limit_dir/test_Web_limitTime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/websiteblacklist_limit_dir/test_Web_limitWebsiteBlacklist.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/websiteblacklist_limit_dir/test_Web_limitWebsiteBlacklist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/wifi_set_dir/test_Web_wifiSettings.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/wifi_set_dir/test_Web_wifiSettings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/wifi_set_dir/wifi_set.py" beforeDir="false" afterPath="$PROJECT_DIR$/router/wifi_set_dir/wifi_set.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,10 +35,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/test_Web_wifiSettings.py">
+        <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="1441" column="33" selection-start-line="1441" selection-start-column="27" selection-end-line="1441" selection-end-column="39" />
+            <state relative-caret-position="632">
+              <caret line="697" column="24" lean-forward="true" selection-start-line="697" selection-start-column="24" selection-end-line="697" selection-end-column="24" />
               <folding>
                 <element signature="e#91#106#0" expanded="true" />
               </folding>
@@ -62,31 +47,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rweb/path/wifiSettings.py">
+        <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/test_Web_wifiSettings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="17" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="17" />
+            <state relative-caret-position="401">
+              <caret line="1439" column="37" selection-start-line="1439" selection-start-column="37" selection-end-line="1439" selection-end-column="37" />
+              <folding>
+                <element signature="e#91#106#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/wifi_set_testcase.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="479" column="23" lean-forward="true" selection-start-line="479" selection-start-column="23" selection-end-line="479" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/wifi_set_testcase.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="559" column="65" lean-forward="true" selection-start-line="559" selection-start-column="65" selection-end-line="559" selection-end-column="65" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/wifi_set.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="147">
-              <caret line="298" column="8" selection-start-line="298" selection-start-column="8" selection-end-line="298" selection-end-column="8" />
+              <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -95,10 +83,63 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/wifi_set_conf.py">
+        <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit_conf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="31" column="22" selection-start-line="31" selection-end-line="32" />
+            <state relative-caret-position="63">
+              <caret line="33" column="45" lean-forward="true" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+              <folding>
+                <element signature="e#92#107#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="97" column="22" lean-forward="true" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/note.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="90" column="23" selection-start-line="90" selection-end-line="91" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,7 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Insert_CutOffTime_Ok</find>
       <find>Add</find>
       <find>Hour</find>
       <find>2013</find>
@@ -145,11 +185,13 @@
       <find>979</find>
       <find>@unittest.skip(&quot;跳过&quot;)</find>
       <find>switch_to_wired_5g_24g</find>
+      <find>switch_to_wifiSetPage</find>
     </findStrings>
     <replaceStrings>
       <replace>const.SLOW_WAIT</replace>
       <replace>const.MEDIUM_WAIT</replace>
       <replace>switch_to_limitWebsiteBlacklistPage_wired_5g_24g</replace>
+      <replace>switch_to_guestWifiSetPage</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -158,7 +200,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/rweb/path/wifiSettings.py" />
         <option value="$PROJECT_DIR$/rweb/path/limitRate.py" />
         <option value="$PROJECT_DIR$/rweb/path/portForwarding.py" />
         <option value="$PROJECT_DIR$/rweb/path/systemLog.py" />
@@ -191,23 +232,24 @@
         <option value="$PROJECT_DIR$/router/website_blacklist_dir/test_Web_limitWebsiteBlacklist.py" />
         <option value="$PROJECT_DIR$/rweb/test_base.py" />
         <option value="$PROJECT_DIR$/router/time_limit_dir/time_limit_conf.py" />
-        <option value="$PROJECT_DIR$/router/note.py" />
         <option value="$PROJECT_DIR$/router/test_base.py" />
         <option value="$PROJECT_DIR$/router/base.py" />
         <option value="$PROJECT_DIR$/router/rate_limit_dir/rate_limit_conf.py" />
         <option value="$PROJECT_DIR$/router/rate_limit_dir/rate_limit.py" />
         <option value="$PROJECT_DIR$/router/time_limit_dir/time_limit.py" />
         <option value="$PROJECT_DIR$/router/time_limit_dir/time_limit_testcase.py" />
-        <option value="$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py" />
-        <option value="$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py" />
         <option value="$PROJECT_DIR$/router/time_limit_dir/test_Web_limitTime.py" />
-        <option value="$PROJECT_DIR$/router/main.py" />
         <option value="$PROJECT_DIR$/router/websiteblacklist_limit_dir/test_Web_limitWebsiteBlacklist.py" />
         <option value="$PROJECT_DIR$/router/wifi_set_dir/wifi_conf/test1.py" />
         <option value="$PROJECT_DIR$/router/wifi_set_dir/test1.py" />
         <option value="$PROJECT_DIR$/router/wifi_set_dir/wifi_set_conf.py" />
-        <option value="$PROJECT_DIR$/router/wifi_set_dir/test_Web_wifiSettings.py" />
         <option value="$PROJECT_DIR$/router/wifi_set_dir/wifi_set_testcase.py" />
+        <option value="$PROJECT_DIR$/router/main.py" />
+        <option value="$PROJECT_DIR$/router/wifi_set_dir/test_Web_wifiSettings.py" />
+        <option value="$PROJECT_DIR$/router/guestwifi_set_dir/test_Web_wifiSettings.py" />
+        <option value="$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py" />
+        <option value="$PROJECT_DIR$/router/note.py" />
+        <option value="$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py" />
         <option value="$PROJECT_DIR$/router/wifi_set_dir/wifi_set.py" />
       </list>
     </option>
@@ -244,6 +286,12 @@
               <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
               <item name="router" type="462c0819:PsiDirectoryNode" />
               <item name="rate_limit_dir" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Practice_1" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+              <item name="websiteblacklist_limit_dir" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Practice_1" type="b2602c69:ProjectViewProjectNode" />
@@ -491,8 +539,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19178082" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19178082" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -506,7 +555,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3295082" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.2618658" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2559653" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.18438178" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -519,61 +568,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/rweb/test_language.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-          <folding>
-            <element signature="e#92#122#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/report/rweb/路由器Web自动化测试.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/report/报名.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2961" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_limitTime.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="932" column="29" lean-forward="true" selection-start-line="915" selection-start-column="4" selection-end-line="932" selection-end-column="29" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/path/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="111" column="10" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_limitRate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/test_limitWebsiteBlacklist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -586,9 +580,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/router/website_blacklist_dir/website_blacklist_conf.py" />
     <entry file="file://$PROJECT_DIR$/report/router/路由器功能自动化测试.html" />
-    <entry file="file://$PROJECT_DIR$/report/router/功能自动化测试.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/path/devices.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
@@ -662,16 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
-          <folding>
-            <element signature="e#92#107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/note.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -688,13 +669,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rweb/path/limitTime.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/note.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/router/time_limit_dir/time_limit.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -749,40 +723,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2499">
-          <caret line="119" column="13" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit_conf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="91" column="74" selection-start-line="91" selection-start-column="71" selection-end-line="91" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rweb/test_wifiSettings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
           <caret line="115" column="26" lean-forward="true" selection-start-line="115" selection-start-column="26" selection-end-line="115" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -793,23 +737,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/test1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-start-column="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="38" selection-start-line="38" selection-end-line="46" selection-end-column="36" />
-          <folding>
-            <element signature="e#92#135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/test1.py" />
     <entry file="file://$PROJECT_DIR$/router/websiteblacklist_limit_dir/test_Web_limitWebsiteBlacklist.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -830,54 +758,163 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py">
+    <entry file="file://$PROJECT_DIR$/rweb/path/wifiSettings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="228" column="24" lean-forward="true" selection-start-line="227" selection-start-column="12" selection-end-line="228" selection-end-column="24" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="294">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/wifi_set_conf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
+        <state relative-caret-position="651">
           <caret line="31" column="22" selection-start-line="31" selection-end-line="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/test_Web_wifiSettings.py">
+    <entry file="file://$PROJECT_DIR$/report/router/功能自动化测试.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="1441" column="33" selection-start-line="1441" selection-start-column="27" selection-end-line="1441" selection-end-column="39" />
-          <folding>
-            <element signature="e#91#106#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="462">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rweb/path/wifiSettings.py">
+    <entry file="file://$PROJECT_DIR$/rweb/path/common.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="17" />
+        <state relative-caret-position="452">
+          <caret line="47" column="14" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/wifi_set.py">
+    <entry file="file://$PROJECT_DIR$/rweb/test_guestWifi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="298" column="8" selection-start-line="298" selection-start-column="8" selection-end-line="298" selection-end-column="8" />
+        <state relative-caret-position="252">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/guestwifi_set_dir/test_Web_guestwifi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="58" column="45" selection-start-line="58" selection-start-column="45" selection-end-line="58" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/guestwifi_set_dir/guestwifi_set.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/router/guestwifi_set_dir/guestwifi_set_conf.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/guestwifi_set_dir/guestwifi_set_testcase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#92#135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="90" column="23" selection-start-line="90" selection-end-line="91" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+          <folding>
+            <element signature="e#92#107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit_testcase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="97" column="22" lean-forward="true" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/note.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/rate_limit_conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="33" column="45" lean-forward="true" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/rate_limit_dir/test_Web_limitRate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="697" column="24" lean-forward="true" selection-start-line="697" selection-start-column="24" selection-end-line="697" selection-end-column="24" />
+          <folding>
+            <element signature="e#91#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/test_Web_wifiSettings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="1439" column="37" selection-start-line="1439" selection-start-column="37" selection-end-line="1439" selection-end-column="37" />
+          <folding>
+            <element signature="e#91#106#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/wifi_set_testcase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="559" column="65" lean-forward="true" selection-start-line="559" selection-start-column="65" selection-end-line="559" selection-end-column="65" />
+        <state relative-caret-position="242">
+          <caret line="479" column="23" lean-forward="true" selection-start-line="479" selection-start-column="23" selection-end-line="479" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/wifi_set_dir/wifi_set.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

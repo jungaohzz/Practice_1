@@ -25,7 +25,7 @@ class Test_rate_limit():
         return result
 
     @staticmethod
-    #用例-1600:限速：只限制了下行流量，上行流量不受限制（TCP连接），下行限制速度为：500KB
+    # 用例-1600:限速：只限制了下行流量，上行流量不受限制（TCP连接），下行限制速度为：500KB
     def test_rate_limit_2():
         rate_download_conf = rate_limit_conf.rata_download_1
         iperf_cmd1 = rate_limit_conf.tcp_wired_clienttoserver
@@ -43,7 +43,7 @@ class Test_rate_limit():
         return result
 
     @staticmethod
-    #用例-1601:开启限速功能后，新创建的TCP连接的上行和下行速度被限制，上行限制速度为：1000KB，下行限制速度为：500KB
+    # 用例-1601:开启限速功能后，新创建的TCP连接的上行和下行速度被限制，上行限制速度为：1000KB，下行限制速度为：500KB
     def test_rate_limit_3():
         rate_upload_conf = rate_limit_conf.rata_upload_2
         rate_download_conf = rate_limit_conf.rata_download_1
@@ -94,7 +94,7 @@ class Test_rate_limit():
         rate_download_tcp = rate_download_tcp_2*1000/8
         rate_upload_udp = rate_upload_udp_3*1000/8
         rate_download_udp = rate_download_udp_4*1000/8
-        if 20000 < rate_upload_tcp and 2000 < rate_download_tcp and 2000 < rate_upload_udp and 2000 < rate_download_udp:
+        if 2000 < rate_upload_tcp and 2000 < rate_download_tcp and 2000 < rate_upload_udp and 2000 < rate_download_udp:
             result = 1
         else:
             result = 0
@@ -153,7 +153,7 @@ class Test_rate_limit():
         return result
 
     @staticmethod
-    #用例-1612:无线接入，限速功能可生效 设备A上行限制为500KB,下行限制为1000KB
+    #用例-1612:无线接入，限速功能可生效 设备A上行限制为1000KB,下行限制为500KB
     def test_rate_limit_8():
         rate_upload_conf = rate_limit_conf.rata_upload_2
         rate_download_conf = rate_limit_conf.rata_download_1
@@ -170,7 +170,7 @@ class Test_rate_limit():
         return result
 
     @staticmethod
-    #用例-1613:有线接入，限速功能可生效，设备A上行限制为500KB,下行限制为1000KB
+    #用例-1613:有线接入，限速功能可生效，设备A上行限制为1000KB,下行限制为500KB
     def test_rate_limit_9():
         rate_upload_conf = rate_limit_conf.rata_upload_2
         rate_download_conf = rate_limit_conf.rata_download_1

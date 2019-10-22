@@ -26,7 +26,7 @@ from .wifi_set_dir.test_Web_wifiSettings import WifiSettings
 def core():
     s = []
     class_tests = [
-        WifiSettings
+        LimitRate
     ]
 
     for t in class_tests:

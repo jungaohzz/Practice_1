@@ -2,7 +2,7 @@ import os
 import time
 import telnetlib
 import requests
-from . import wifi_set_conf
+from . import guestwifi_set_conf
 
 
 # ping网关检查
@@ -10,8 +10,8 @@ class Wifi_scan:
     @staticmethod
     # 是否能扫描到某个SSID
     def wlan0_status(wlan0_ssid):
-        internet_interface_5g = wifi_set_conf.interface5g
-        internet_interface_2g = wifi_set_conf.interface2g
+        internet_interface_5g = guestwifi_set_conf.interface5g
+        internet_interface_2g = guestwifi_set_conf.interface2g
         os.system('netsh interface set interface "%s" disabled' % internet_interface_2g)
         os.system('netsh interface set interface "%s" enabled' % internet_interface_5g)
         time.sleep(5)
@@ -28,8 +28,8 @@ class Wifi_scan:
     @staticmethod
     # 是否能扫描到某个SSID
     def wlan1_status(wlan1_ssid):
-        internet_interface_5g = wifi_set_conf.interface5g
-        internet_interface_2g = wifi_set_conf.interface2g
+        internet_interface_5g = guestwifi_set_conf.interface5g
+        internet_interface_2g = guestwifi_set_conf.interface2g
         os.system('netsh interface set interface "%s" disabled' % internet_interface_5g)
         os.system('netsh interface set interface "%s" enabled' % internet_interface_2g)
         time.sleep(5)
@@ -46,8 +46,8 @@ class Wifi_scan:
     @staticmethod
     # 某个SSID对应的BSSID列表
     def wlan0_ssid_scan(wlan0_ssid):
-        internet_interface_5g = wifi_set_conf.interface5g
-        internet_interface_2g = wifi_set_conf.interface2g
+        internet_interface_5g = guestwifi_set_conf.interface5g
+        internet_interface_2g = guestwifi_set_conf.interface2g
         os.system('netsh interface set interface "%s" enabled' % internet_interface_2g)
         os.system('netsh interface set interface "%s" enabled' % internet_interface_5g)
         time.sleep(10)
@@ -75,8 +75,8 @@ class Wifi_scan:
     @staticmethod
     # 某个SSID对应的BSSID列表
     def wlan1_ssid_scan(wlan1_ssid):
-        internet_interface_5g = wifi_set_conf.interface5g
-        internet_interface_2g = wifi_set_conf.interface2g
+        internet_interface_5g = guestwifi_set_conf.interface5g
+        internet_interface_2g = guestwifi_set_conf.interface2g
         os.system('netsh interface set interface "%s" enabled' % internet_interface_2g)
         os.system('netsh interface set interface "%s" enabled' % internet_interface_5g)
         time.sleep(10)
@@ -99,35 +99,14 @@ class Wifi_scan:
         return result
 
 class Wifi_con:
-
-    @staticmethod
-    # 检测wifi的连接状态
-    def wlan_con_status():
-        a = os.popen('netsh wlan  show interfaces').readlines()
-        time.sleep(5)
-        b = list(filter(lambda x: '状态                   :' in x, a))
-        c = "".join(b)
-        print(c)
-        if c.find("已连接") != -1:
-            result = 1
-            print("连接成功")
-        elif c.find("已断开") != -1:
-            result = 0
-            print("连接失败")
-        else:
-            result = -1
-            print("连接异常")
-        #result = 0 表示连接成功，result = 0表示连接失败
-        return result
-
     @staticmethod
     # 无线连接检测
     def wifi_5g_open_connect(wlan0_ssid):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        open_conf = wifi_set_conf.open_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        open_conf = guestwifi_set_conf.open_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -137,25 +116,22 @@ class Wifi_con:
         os.system('netsh wlan set profileparameter name=%s SSIDname=%s' % (open_conf, wlan0_ssid))
         os.system('netsh interface set interface "%s" disabled' % interface5g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (open_conf, wlan0_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (open_conf, wlan0_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     def wifi_5g_open_auto_connect(wlan0_ssid):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        open_auto_conf = wifi_set_conf.open_auto_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        open_auto_conf = guestwifi_set_conf.open_auto_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -166,25 +142,23 @@ class Wifi_con:
         os.system('netsh wlan set profileparameter name=%s SSIDname=%s' % (open_auto_conf, wlan0_ssid))
         os.system('netsh interface set interface "%s" disabled' % interface5g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (open_auto_conf, wlan0_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (open_auto_conf, wlan0_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
+
     @staticmethod
     # 无线连接检测
     def wifi_5g_wpa_tkip_connect(wlan0_ssid, wlan0_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa_tkip_conf = wifi_set_conf.wpa_tkip_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa_tkip_conf = guestwifi_set_conf.wpa_tkip_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -195,26 +169,23 @@ class Wifi_con:
         os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wpa_tkip_conf, wlan0_password))
         os.system('netsh interface set interface "%s" disabled' % interface5g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_conf, wlan0_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_conf, wlan0_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     # 无线连接检测
     def wifi_5g_wpa_tkip_auto_connect(wlan0_ssid, wlan0_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa_tkip_auto_conf = wifi_set_conf.wpa_tkip_auto_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa_tkip_auto_conf = guestwifi_set_conf.wpa_tkip_auto_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -224,26 +195,26 @@ class Wifi_con:
             'netsh wlan add profile filename="%s%s.xml" interface="%s"' % (conf_path, wpa_tkip_auto_conf, interface5g))
         os.system('netsh wlan set profileparameter name=%s SSIDname=%s' % (wpa_tkip_auto_conf, wlan0_ssid))
         os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wpa_tkip_auto_conf, wlan0_password))
+
         os.system('netsh interface set interface "%s" disabled' % interface5g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_auto_conf, wlan0_ssid))
+        os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_auto_conf, wlan0_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
+
     @staticmethod
     # 无线连接检测
     def wifi_5g_wpa_aes_connect(wlan0_ssid,wlan0_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa_aes_conf = wifi_set_conf.wpa_aes_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa_aes_conf = guestwifi_set_conf.wpa_aes_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -255,27 +226,24 @@ class Wifi_con:
 
         os.system('netsh interface set interface "%s" disabled' % interface5g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
-        status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_aes_conf, wlan0_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_aes_conf, wlan0_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     # 无线连接检测
     def wifi_5g_wpa_aes_auto_connect(wlan0_ssid, wlan0_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa_aes_auto_conf = wifi_set_conf.wpa_aes_auto_conf
-        wlan_password = wifi_set_conf.wlan_password
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa_aes_auto_conf = guestwifi_set_conf.wpa_aes_auto_conf
+        wlan_password = guestwifi_set_conf.wlan_password
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -288,27 +256,24 @@ class Wifi_con:
 
         os.system('netsh interface set interface "%s" disabled' % interface5g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_aes_auto_conf, wlan0_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_aes_auto_conf, wlan0_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     # 无线连接检测
     def wifi_5g_wpa_tkip_connect(wlan0_ssid, wlan0_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa_tkip_conf = wifi_set_conf.wpa_tkip_conf
-        wlan_password = wifi_set_conf.wlan_password
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa_tkip_conf = guestwifi_set_conf.wpa_tkip_conf
+        wlan_password = guestwifi_set_conf.wlan_password
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -319,26 +284,24 @@ class Wifi_con:
         os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wpa_tkip_conf, wlan0_password))
         os.system('netsh interface set interface "%s" disabled' % interface5g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_conf, wlan0_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_conf, wlan0_ssid))
+        time.sleep(10)
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     # 无线连接检测
     def wifi_5g_wpa2_aes_connect(wlan0_ssid, wlan0_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa2_aes_conf = wifi_set_conf.wpa2_aes_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa2_aes_conf = guestwifi_set_conf.wpa2_aes_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(20)
@@ -350,27 +313,25 @@ class Wifi_con:
         os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wpa2_aes_conf, wlan0_password))
         os.system('netsh interface set interface "%s" disabled' % interface5g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa2_aes_conf, wlan0_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa2_aes_conf, wlan0_ssid))
+        time.sleep(10)
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     # 无线连接检测
     def wifi_5g_wpa2_aes_auto_connect(wlan0_ssid, wlan0_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa2_aes_auto_conf = wifi_set_conf.wpa2_aes_auto_conf
-        wlan_password = wifi_set_conf.wlan_password
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa2_aes_auto_conf = guestwifi_set_conf.wpa2_aes_auto_conf
+        wlan_password = guestwifi_set_conf.wlan_password
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -382,26 +343,25 @@ class Wifi_con:
         os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wpa2_aes_auto_conf, wlan0_password))
         os.system('netsh interface set interface "%s" disabled' % interface5g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa2_aes_auto_conf, wlan0_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa2_aes_auto_conf, wlan0_ssid))
+        time.sleep(10)
+
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     # 无线连接检测
     def wifi_2g_open_connect(wlan1_ssid):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        open_conf = wifi_set_conf.open_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        open_conf = guestwifi_set_conf.open_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -411,25 +371,22 @@ class Wifi_con:
         os.system('netsh wlan set profileparameter name=%s SSIDname=%s' % (open_conf, wlan1_ssid))
         os.system('netsh interface set interface "%s" disabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface2g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (open_conf, wlan1_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (open_conf, wlan1_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     def wifi_2g_open_auto_connect(wlan1_ssid):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        open_auto_conf = wifi_set_conf.open_auto_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        open_auto_conf = guestwifi_set_conf.open_auto_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -440,26 +397,23 @@ class Wifi_con:
         os.system('netsh wlan set profileparameter name=%s SSIDname=%s' % (open_auto_conf, wlan1_ssid))
         os.system('netsh interface set interface "%s" disabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface2g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (open_auto_conf, wlan1_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (open_auto_conf, wlan1_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     # 无线连接检测
     def wifi_2g_wpa_tkip_connect(wlan1_ssid, wlan1_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa_tkip_conf = wifi_set_conf.wpa_tkip_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa_tkip_conf = guestwifi_set_conf.wpa_tkip_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -471,26 +425,23 @@ class Wifi_con:
 
         os.system('netsh interface set interface "%s" disabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface2g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_conf, wlan1_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_conf, wlan1_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     # 无线连接检测
     def wifi_2g_wpa_tkip_auto_connect(wlan1_ssid, wlan1_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa_tkip_auto_conf = wifi_set_conf.wpa_tkip_auto_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa_tkip_auto_conf = guestwifi_set_conf.wpa_tkip_auto_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -503,26 +454,23 @@ class Wifi_con:
 
         os.system('netsh interface set interface "%s" disabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface2g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_auto_conf, wlan1_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_auto_conf, wlan1_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     # 无线连接检测
     def wifi_2g_wpa_aes_connect(wlan1_ssid, wlan1_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa_aes_conf = wifi_set_conf.wpa_aes_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa_aes_conf = guestwifi_set_conf.wpa_aes_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -531,29 +479,27 @@ class Wifi_con:
         os.system('netsh wlan add profile filename="%s%s.xml" interface="%s"' % (conf_path, wpa_aes_conf, interface2g))
         os.system('netsh wlan set profileparameter name=%s SSIDname=%s' % (wpa_aes_conf, wlan1_ssid))
         os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wpa_aes_conf, wlan1_password))
+
         os.system('netsh interface set interface "%s" disabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface2g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_aes_conf, wlan1_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_aes_conf, wlan1_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     # 无线连接检测
     def wifi_2g_wpa_aes_auto_connect(wlan1_ssid, wlan1_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa_aes_auto_conf = wifi_set_conf.wpa_aes_auto_conf
-        wlan_password = wifi_set_conf.wlan_password
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa_aes_auto_conf = guestwifi_set_conf.wpa_aes_auto_conf
+        wlan_password = guestwifi_set_conf.wlan_password
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -563,28 +509,26 @@ class Wifi_con:
             'netsh wlan add profile filename="%s%s.xml" interface="%s"' % (conf_path, wpa_aes_auto_conf, interface2g))
         os.system('netsh wlan set profileparameter name=%s SSIDname=%s' % (wpa_aes_auto_conf, wlan1_ssid))
         os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wpa_aes_auto_conf, wlan1_password))
+
         os.system('netsh interface set interface "%s" disabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface2g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_aes_auto_conf, wlan1_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_aes_auto_conf, wlan1_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     # 无线连接检测
     def wifi_2g_wpa_tkip_connect(wlan1_ssid, wlan1_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa_tkip_conf = wifi_set_conf.wpa_tkip_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa_tkip_conf = guestwifi_set_conf.wpa_tkip_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -595,25 +539,23 @@ class Wifi_con:
         os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wpa_tkip_conf, wlan1_password))
         os.system('netsh interface set interface "%s" disabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface2g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_conf, wlan1_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_conf, wlan1_ssid))
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
+
     @staticmethod
     # 无线连接检测
     def wifi_2g_wpa2_aes_connect(wlan1_ssid, wlan1_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa2_aes_conf = wifi_set_conf.wpa2_aes_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa2_aes_conf = guestwifi_set_conf.wpa2_aes_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -626,26 +568,26 @@ class Wifi_con:
         os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wpa2_aes_conf, wlan1_password))
         os.system('netsh interface set interface "%s" disabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface2g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa2_aes_conf, wlan1_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa2_aes_conf, wlan1_ssid))
+        time.sleep(10)
+        print("@#@#@#")
+        print(con_status)
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
 
     @staticmethod
     # 无线连接检测
     def wifi_2g_wpa2_aes_auto_connect(wlan1_ssid, wlan1_password):
         # 连接WIFI过程
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
-        conf_path = wifi_set_conf.conf_path
-        wpa2_aes_auto_conf = wifi_set_conf.wpa2_aes_auto_conf
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
+        conf_path = guestwifi_set_conf.conf_path
+        wpa2_aes_auto_conf = guestwifi_set_conf.wpa2_aes_auto_conf
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -657,17 +599,17 @@ class Wifi_con:
         os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wpa2_aes_auto_conf, wlan1_password))
         os.system('netsh interface set interface "%s" disabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface2g)
-        con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa2_aes_auto_conf, wlan1_ssid))
         time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
+        con_status = os.system('netsh wlan connect name=%s ssid=%s' % (wpa2_aes_auto_conf, wlan1_ssid))
+        time.sleep(10)
+
+        if con_status == 0:
             result = 1
-        elif con_status == 0:
-            result = 0
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
+            result = 0
+        # result = 1 表示连接成功，0 表示连接失败
         return result
+
 
     @staticmethod
     def wifi_connectstatus(configure_path, wlan_configure, internet_interface, wlan_password, wlan_ssid):
@@ -679,6 +621,7 @@ class Wifi_con:
             os.system('netsh wlan set profileparameter name=%s SSIDname=%s' % (wlan_configure, wlan_ssid))
             os.system('netsh interface set interface "%s" disabled' % internet_interface)
             os.system('netsh interface set interface "%s" enabled' % internet_interface)
+            time.sleep(10)
             connect_status = os.system('netsh wlan connect name=%s ssid=%s' % (wlan_configure, wlan_ssid))
         else:
             os.system('netsh wlan delete profile *')
@@ -688,17 +631,17 @@ class Wifi_con:
             os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wlan_configure, wlan_password))
             os.system('netsh interface set interface "%s" disabled' % internet_interface)
             os.system('netsh interface set interface "%s" enabled' % internet_interface)
+            time.sleep(10)
             connect_status = os.system('netsh wlan connect name=%s ssid=%s' % (wlan_configure, wlan_ssid))
-        time.sleep(10)
-        con_status = Wifi_con.wlan_con_status()
-        if con_status == 1:
-            result = 1
-        elif con_status == 0:
-            result = 0
+        time.sleep(5)
+        if connect_status == 0:
+            wificon_status = 1
+            print("wifi_connect=" + "%s" % (connect_status))
         else:
-            result = -1
-        # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
-        return result
+            wificon_status = 0
+            os.system('netsh wlan delete profile *')
+        return wificon_status
+
 
 class Internet_check:
     @staticmethod
@@ -754,8 +697,8 @@ class Linkrate_check:
     @staticmethod
     # 无线协商速率检测
     def wifi_5g_linkrate():
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)
@@ -771,8 +714,8 @@ class Linkrate_check:
 
     @staticmethod
     def wifi_2g_linkrate():
-        interface2g = wifi_set_conf.interface2g
-        interface5g = wifi_set_conf.interface5g
+        interface2g = guestwifi_set_conf.interface2g
+        interface5g = guestwifi_set_conf.interface5g
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         time.sleep(10)

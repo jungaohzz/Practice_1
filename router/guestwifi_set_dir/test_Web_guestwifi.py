@@ -21,44 +21,29 @@ from rweb.path.dmzHost import DmzHostLocators
 from rweb.path.dhcp import DhcpLocators
 from rweb.path.wifiSettings import WifiSettingsLocators
 from rweb.path.routerManagement import RouterManagementLocators
-from .wifi_set_testcase import Test_wifi
-from .wifi_set_conf import *
+from .guestwifi_set_testcase import Test_wifi
+from .guestwifi_set_conf import *
 
 """WiFi设置"""
 
-class WifiSettings(Base):
-    # def setUp(self):
-    #     super(WifiSettings, self).setUp()
-    #     # 鼠标模拟移动到：设置
-    #     WebDriverWait(self.driver, 10).until(
-    #         EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
-    #     )
-    #     mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_Set)
-    #     ActionChains(self.driver).move_to_element(mouse).perform()
-    #     # 点击 WiFi设置
-    #     WebDriverWait(self.driver, 10).until(
-    #         EC.element_to_be_clickable((By.XPATH, CommonLocators.WiFi_Settings))
-    #     ).click()
-    #     time.sleep(2)
-
-
+class GuestWifi(Base):
     # 定义WiFi设置页的url
-    url_wifiSettingsPage = ""
+    url_guestWifiSettingsPage = ""
 
-    def switch_to_guestWifiSetPage(self, Current_Url):  # 切换到 wifi设置页
+    def switch_to_guestWifiSetPage(self, Current_Url):  # 切换到 guest Wifi设置页
         self.driver.refresh()
         time.sleep(1)
         # 判断当前的url是否是目的url
-        while WifiSettings.url_wifiSettingsPage != Current_Url:
+        while GuestWifi.url_guestWifiSettingsPage != Current_Url:
             # 鼠标模拟移动到：设置
             WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
             )
             mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_Set)
             ActionChains(self.driver).move_to_element(mouse).perform()
-            # 点击 WiFi设置
+            # 点击 访客WiFi
             WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, CommonLocators.WiFi_Settings))
+                EC.element_to_be_clickable((By.XPATH, CommonLocators.Guest_WiFi))
             ).click()
             Current_Url = self.driver.current_url
             time.sleep(1)
@@ -67,9 +52,9 @@ class WifiSettings(Base):
 
 
 
-    #@unittest.skip("跳过")
+    @unittest.skip("跳过")
     def test_A_get_url(self):
-        """操作步骤：获取主WiFi的WiFi设置页url"""
+        """操作步骤：获取访客WiFi的WiFi设置页url"""
         # 鼠标模拟移动到：设置
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
@@ -81,7 +66,7 @@ class WifiSettings(Base):
             EC.element_to_be_clickable((By.XPATH, CommonLocators.WiFi_Settings))
         ).click()
         time.sleep(2)
-        WifiSettings.url_wifiSettingsPage = self.driver.current_url
+        GuestWifi.url_guestWifiSettingsPage = self.driver.current_url
         time.sleep(5)
 
 
@@ -1396,7 +1381,7 @@ class WifiSettings(Base):
 
 
 
-    #@unittest.skip("跳过")
+    @unittest.skip("跳过")
     def test_d_test_wifi_20(self):
         """【检验】用例-5018 :: 版本: 1 :: 修改密码后，新密码生效，旧密码失效"""
         self.switch_to_guestWifiSetPage(self.driver.current_url)
