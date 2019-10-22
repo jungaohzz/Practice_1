@@ -33,14 +33,14 @@ class Base(unittest.TestCase):
         time.sleep(0.5)
 
         #作用：登录后关闭升级框
-        # if True:
-        #     try:
-        #         WebDriverWait(cls.driver, const.MEDIUM_WAIT).until(
-        #             EC.element_to_be_clickable((By.XPATH, CommonLocators.Cancel))
-        #         ).click()
-        #         time.sleep(0.5)
-        #     except:
-        #         print("正常")
+        if True:
+            try:
+                WebDriverWait(cls.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, CommonLocators.Cancel))
+                ).click()
+                time.sleep(0.5)
+            except:
+                print("正常")
 
     @classmethod
     def tearDownClass(cls):

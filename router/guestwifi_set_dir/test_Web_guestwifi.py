@@ -56,6 +56,7 @@ class GuestWifi(Base):
     def test_A_get_url(self):
         """操作步骤：获取访客WiFi的WiFi设置页url"""
         # 鼠标模拟移动到：设置
+        time.sleep(2)
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
         )
@@ -1154,7 +1155,7 @@ class GuestWifi(Base):
         self.switch_to_guestWifiSetPage(self.driver.current_url)
 
         # 先将SSID和password改回原始的（即SSID=MERCKU-AutoTest，PASSWORD=11111111）
-        self.test_2_wifiSetting_SmartConnect_on()
+        self.test_B_wifiSetting_SmartConnect_on()
 
         # 再修改SSID
         # 无线名称框
@@ -1295,7 +1296,7 @@ class GuestWifi(Base):
         self.switch_to_guestWifiSetPage(self.driver.current_url)
 
         # 先将SSID和password改回原始的（即SSID=MERCKU-AutoTest，PASSWORD=11111111）
-        self.test_2_wifiSetting_SmartConnect_on()
+        self.test_B_wifiSetting_SmartConnect_on()
 
         # 再修改password
         # 密码框

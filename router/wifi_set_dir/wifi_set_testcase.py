@@ -557,7 +557,7 @@ class Test_wifi():
 
 
     @staticmethod
-    #  用例-5687 :: 版本: 1 :: 加密方式为WPA2，5G和2.4G设备可以通过WPA2认证方式连接到WIFI
+    #  用例-5687 : 加密方式为WPA2，5G和2.4G设备可以通过WPA2认证方式连接到WIFI
     def test_wifi_24():
         wlan_ssid = wifi_set_conf.ssid_2g
         wlan_password = wifi_set_conf.wlan_password
@@ -571,7 +571,7 @@ class Test_wifi():
         return result
 
     @staticmethod
-    # 用例-5688 :: 版本: 1 :: 加密方式为WPA2，5G和2.4G设备不可以通过WPA认证方式连接到WIFI
+    # 用例-5688 : 加密方式为WPA2，5G和2.4G设备不可以通过WPA认证方式连接到WIFI
     def test_wifi_25():
         wlan_ssid = wifi_set_conf.ssid_2g
         wlan_password = wifi_set_conf.wlan_password
@@ -587,7 +587,7 @@ class Test_wifi():
         return result
 
     @staticmethod
-    # 用例-5689 :: 版本: 1 :: 加密方式为WPA/WPA2-PSK，5G和2.4G设备可以通过WPA认证方式连接到该WIFI
+    # 用例-5689 : 加密方式为WPA/WPA2-PSK，5G和2.4G设备可以通过WPA认证方式连接到该WIFI
     def test_wifi_26():
         wlan_ssid = wifi_set_conf.ssid_2g
         wlan_password = wifi_set_conf.wlan_password
@@ -603,7 +603,7 @@ class Test_wifi():
         return result
 
     @staticmethod
-    # 用例-5690 :: 版本: 1 :: 加密方式为WPA/WPA2-PSK，5G和2.4G设备可以通过WPA2认证方式连接到该WIFI
+    # 用例-5690 : 加密方式为WPA/WPA2-PSK，5G和2.4G设备可以通过WPA2认证方式连接到该WIFI
     def test_wifi_27():
         wlan_ssid = wifi_set_conf.ssid_2g
         wlan_password = wifi_set_conf.wlan_password

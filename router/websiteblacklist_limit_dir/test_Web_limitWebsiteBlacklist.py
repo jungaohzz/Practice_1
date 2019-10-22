@@ -110,6 +110,7 @@ class LimitWebsiteBlacklist(Base):
         i = 1
         while i <= 2:
             # 鼠标移动到切换“我的WiFi”按钮上
+            time.sleep(2)
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
             )

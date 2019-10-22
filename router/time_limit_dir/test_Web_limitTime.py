@@ -101,13 +101,14 @@ class LimitTime(Base):
         i = 1
         while i <= 2:
             # 鼠标移动到切换“我的WiFi”按钮上
-            WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+            time.sleep(2)
+            WebDriverWait(self.driver, const.SLOW_WAIT).until(
                 EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
             )
             mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
             ActionChains(self.driver).move_to_element(mouse).perform()
             # 点击 接入设备
-            WebDriverWait(self.driver, const.MEDIUM_WAIT + 10).until(
+            WebDriverWait(self.driver, const.MEDIUM_WAIT + 15).until(
                 EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
             )
             time.sleep(1)
