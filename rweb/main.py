@@ -39,7 +39,8 @@ def core():
     class_tests = [
         # 建议执行顺序（倒序排如下）：
         # 管理路由器、管理密码、工作方式、限时（？如果被限制住未删掉情况怎么处理）
-        LimitRate, LimitWebsiteBlacklist
+        StaticDHCPLease
+        #LimitTime, LimitRate,LimitWebsiteBlacklist
     ]
 
 

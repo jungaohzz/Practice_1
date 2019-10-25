@@ -7128,315 +7128,51 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 27,
+    "testPass": 1,
     "testResult": [
         {
-            "className": "LimitRate",
-            "methodName": "test_A_limitRate_elementCheck",
-            "description": "限速-页面元素检测 及 默认参数",
-            "spendTime": "4.14 s",
+            "className": "StaticDHCPLease",
+            "methodName": "test_A_staticDHCPLease_add",
+            "description": "Mac与IP绑定-新增绑定",
+            "spendTime": "8.5 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_B_deletes",
+            "description": "Mac与IP绑定-批量删除",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_B_staticDHCPLease_adds",
+            "description": "Mac与IP绑定-再新增19条绑定记录",
+            "spendTime": "68.2 s",
             "status": "失败",
             "log": [
                 "",
                 "Traceback (most recent call last):\n",
                 "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
                 "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_limitRate.py\", line 99, in test_A_limitRate_elementCheck\n    assert Download_DefaultValue == \"\", Download_DefaultValue\n",
-                "AssertionError: 125000\n"
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_B_limitRate_error",
-            "description": "限速-异常情况检查",
-            "spendTime": "6.78 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_limitRate.py\", line 142, in test_B_limitRate_error\n    assert Error_Note == \"Positive integers only.\", Error_Note\n",
-                "AssertionError: Already reached the limit\n"
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_C_limitRate_errorNotSave",
-            "description": "限速-输入框有错误时点击“保存”无效",
-            "spendTime": "15.0 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_D_limitRate_add",
-            "description": "限速-新增成功",
-            "spendTime": "10.2 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_E_limitRate_edit_statu_on",
-            "description": "限速-修改状态：由关变为开",
-            "spendTime": "10.1 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_F_limitRate_edit_statu_off",
-            "description": "限速-配置成功后再次查看是否一致",
-            "spendTime": "4.26 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_G_limitRate_edit_statu_off",
-            "description": "限速-修改状态：由开变为关",
-            "spendTime": "8.34 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_H_limitRate_edit_value",
-            "description": "限速-超过125000但为6位数，自动截取为125000",
-            "spendTime": "20.3 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_I_limitRate_onlyLimitUpload",
-            "description": "限速-只限制上行，可成功保存",
-            "spendTime": "9.21 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitRate",
-            "methodName": "test_J_limitRate_onlyLimitDownload",
-            "description": "限速-只限制下行，可成功保存",
-            "spendTime": "8.99 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_A_limitWebsiteBlacklist_listDefault",
-            "description": "网址黑名单-列表默认情况检查",
-            "spendTime": "5.25 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_B_limitWebsiteBlacklist_insertElementCheck",
-            "description": "网址黑名单-新增框元素检查",
-            "spendTime": "6.09 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_C_limitWebsiteBlacklist_required",
-            "description": "网址黑名单-新增网址框-必填项和超过范围检查",
-            "spendTime": "7.67 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_D_limitWebsiteBlacklist_anyCharacter",
-            "description": "网址黑名单-新增网址框-支持输入任意字符",
-            "spendTime": "10.9 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_E_limitWebsiteBlacklist_notStandard",
-            "description": "网址黑名单-新增网址框-不符合规则输入有错误提示",
-            "spendTime": "27.1 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_F_limitWebsiteBlacklist_errorNotSave",
-            "description": "网址黑名单-新增网址框-有错误提示不能保存",
-            "spendTime": "11.9 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_G_limitWebsiteBlacklist_add_Cancel",
-            "description": "网址黑名单-新增-取消不新增",
-            "spendTime": "7.43 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_H_limitWebsiteBlacklist_add_ok",
-            "description": "网址黑名单-新增成功",
-            "spendTime": "7.88 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_I_limitWebsiteBlacklist_add_exist_error",
-            "description": "网址黑名单-新增已存在的网址报错",
-            "spendTime": "7.3 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_J_limitWebsiteBlacklist_elementCheck",
-            "description": "网址黑名单-页面元素检查",
-            "spendTime": "4.27 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_K_limitWebsiteBlacklist_delete",
-            "description": "网址黑名单-删除",
-            "spendTime": "12.3 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_L_limitWebsiteBlacklist_add_number",
-            "description": "网址黑名单-新增-网址为数字，检查排列顺序",
-            "spendTime": "29.8 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_M_limitWebsiteBlacklist_add_letter",
-            "description": "网址黑名单-新增-网址为字母，检查排列顺序",
-            "spendTime": "35.9 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_N_limitWebsiteBlacklist_order_number_letter",
-            "description": "网址黑名单-网址列表-网址字符优先级按（数字>大写字母>小写字母>其他）排序检测",
-            "spendTime": "29.6 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_O_limitWebsiteBlacklist_add_15",
-            "description": "网址黑名单-添加15条记录",
-            "spendTime": "81.2 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_P_limitWebsiteBlacklist_add_morethan15",
-            "description": "网址黑名单-超过15条记录再添加检验",
-            "spendTime": "10.7 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_Q_limitWebsiteBlacklist_statu_on",
-            "description": "网址黑名单-修改状态：由关变为开",
-            "spendTime": "14.4 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_R_limitWebsiteBlacklist_statu_off",
-            "description": "网址黑名单-修改状态：由开变为关",
-            "spendTime": "15.4 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "LimitWebsiteBlacklist",
-            "methodName": "test_S_limitWebsiteBlacklist_delete_all",
-            "description": "网址黑名单-删除所有，目的：恢复初始状态",
-            "spendTime": "57.8 s",
-            "status": "成功",
-            "log": [
-                ""
+                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_staticDhcpLease.py\", line 132, in test_B_staticDHCPLease_adds\n    EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py\", line 80, in until\n    raise TimeoutException(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.TimeoutException: Message: \n\n"
             ]
         }
     ],
     "testName": "路由器Web自动化测试报告",
-    "testAll": 29,
-    "testFail": 2,
-    "beginTime": "2019-10-15 14:29:41",
-    "totalTime": "510s",
-    "testSkip": 0,
+    "testAll": 3,
+    "testFail": 1,
+    "beginTime": "2019-10-24 11:13:48",
+    "totalTime": "95s",
+    "testSkip": 1,
     "testError": 0
 };
 
