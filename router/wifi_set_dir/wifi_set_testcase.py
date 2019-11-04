@@ -9,7 +9,7 @@ class Test_wifi():
     @staticmethod
     # 用例-3384:“双频合一”开启状态，扫描到的SSID中，5G和2.4G SSID一样
     def test_wifi_1():
-        time.sleep(30)
+        #time.sleep(30)
         wlan_ssid = wifi_set_conf.ssid_2g
         mac_5g = wifi_set_conf.mac_5g
         mac_2g = wifi_set_conf.mac_2g
@@ -74,7 +74,7 @@ class Test_wifi():
     @staticmethod
     # 用例-2734 :“双频合一”关闭状态，扫描到的SSID中，2.4G SSID为XXXX,5G SSID为XXXX-5G
     def test_wifi_4():
-        time.sleep(30)
+        #time.sleep(30)
         wlan1_ssid = wifi_set_conf.ssid_2g
         wlan0_ssid = wifi_set_conf.ssid_5g
         mac_5g = wifi_set_conf.mac_5g
@@ -534,6 +534,9 @@ class Test_wifi():
         con_status_2g_tkip = wifi_set.Wifi_con.wifi_2g_wpa_tkip_connect(wlan_ssid, wlan_password)
         con_status_5g_aes = wifi_set.Wifi_con.wifi_5g_wpa_aes_connect(wlan_ssid, wlan_password)
         con_status_5g_tkip = wifi_set.Wifi_con.wifi_5g_wpa_tkip_connect(wlan_ssid, wlan_password)
+        print("!!!!!!!!!!!")
+        print("%s, %s, %s, %s" % (con_status_2g_aes,con_status_2g_tkip,con_status_5g_aes,con_status_5g_tkip))
+        print("+++++++++++")
         if con_status_2g_aes == 1 and con_status_2g_tkip == 1 and con_status_5g_aes == 1  and con_status_5g_tkip == 1:
             result = 1
         else:
@@ -595,6 +598,9 @@ class Test_wifi():
         con_status_2g_tkip = wifi_set.Wifi_con.wifi_2g_wpa_tkip_connect(wlan_ssid, wlan_password)
         con_status_5g_aes = wifi_set.Wifi_con.wifi_5g_wpa_aes_connect(wlan_ssid, wlan_password)
         con_status_5g_tkip = wifi_set.Wifi_con.wifi_5g_wpa_tkip_connect(wlan_ssid, wlan_password)
+        print("@@@@@@@@@")
+        print("%s, %s, %s, %s" % (con_status_2g_aes, con_status_2g_tkip, con_status_5g_aes, con_status_5g_tkip))
+        print("========")
         if con_status_2g_aes == 1 and con_status_2g_tkip == 1 and con_status_5g_aes == 1 and con_status_5g_tkip == 1:
             result = 1
         else:

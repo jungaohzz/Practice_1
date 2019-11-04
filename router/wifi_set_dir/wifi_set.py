@@ -142,10 +142,13 @@ class Wifi_con:
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -171,12 +174,16 @@ class Wifi_con:
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
+
     @staticmethod
     # 无线连接检测
     def wifi_5g_wpa_tkip_connect(wlan0_ssid, wlan0_password):
@@ -196,14 +203,17 @@ class Wifi_con:
         os.system('netsh interface set interface "%s" disabled' % interface5g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_conf, wlan0_ssid))
-        time.sleep(10)
+        time.sleep(20)
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -226,16 +236,20 @@ class Wifi_con:
         os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wpa_tkip_auto_conf, wlan0_password))
         os.system('netsh interface set interface "%s" disabled' % interface5g)
         con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_auto_conf, wlan0_ssid))
-        time.sleep(10)
+        time.sleep(20)
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
+
     @staticmethod
     # 无线连接检测
     def wifi_5g_wpa_aes_connect(wlan0_ssid,wlan0_password):
@@ -260,10 +274,13 @@ class Wifi_con:
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -293,10 +310,13 @@ class Wifi_con:
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -320,14 +340,17 @@ class Wifi_con:
         os.system('netsh interface set interface "%s" disabled' % interface5g)
         os.system('netsh interface set interface "%s" enabled' % interface5g)
         con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_conf, wlan0_ssid))
-        time.sleep(10)
+        time.sleep(20)
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -355,10 +378,13 @@ class Wifi_con:
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -387,10 +413,13 @@ class Wifi_con:
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -416,10 +445,13 @@ class Wifi_con:
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -445,10 +477,13 @@ class Wifi_con:
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -468,18 +503,20 @@ class Wifi_con:
         os.system('netsh wlan add profile filename="%s%s.xml" interface="%s"' % (conf_path, wpa_tkip_conf, interface2g))
         os.system('netsh wlan set profileparameter name=%s SSIDname=%s' % (wpa_tkip_conf, wlan1_ssid))
         os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wpa_tkip_conf, wlan1_password))
-
         os.system('netsh interface set interface "%s" disabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_conf, wlan1_ssid))
-        time.sleep(10)
+        time.sleep(20)
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -504,14 +541,17 @@ class Wifi_con:
         os.system('netsh interface set interface "%s" disabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_auto_conf, wlan1_ssid))
-        time.sleep(10)
+        time.sleep(20)
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -538,10 +578,13 @@ class Wifi_con:
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -570,10 +613,13 @@ class Wifi_con:
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -596,16 +642,20 @@ class Wifi_con:
         os.system('netsh interface set interface "%s" disabled' % interface2g)
         os.system('netsh interface set interface "%s" enabled' % interface2g)
         con = os.system('netsh wlan connect name=%s ssid=%s' % (wpa_tkip_conf, wlan1_ssid))
-        time.sleep(10)
+        time.sleep(20)
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
+
     @staticmethod
     # 无线连接检测
     def wifi_2g_wpa2_aes_connect(wlan1_ssid, wlan1_password):
@@ -631,10 +681,13 @@ class Wifi_con:
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -662,10 +715,13 @@ class Wifi_con:
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 
@@ -679,7 +735,7 @@ class Wifi_con:
             os.system('netsh wlan set profileparameter name=%s SSIDname=%s' % (wlan_configure, wlan_ssid))
             os.system('netsh interface set interface "%s" disabled' % internet_interface)
             os.system('netsh interface set interface "%s" enabled' % internet_interface)
-            connect_status = os.system('netsh wlan connect name=%s ssid=%s' % (wlan_configure, wlan_ssid))
+            con = os.system('netsh wlan connect name=%s ssid=%s' % (wlan_configure, wlan_ssid))
         else:
             os.system('netsh wlan delete profile *')
             os.system('netsh wlan add profile filename="%s%s.xml" interface="%s"' % (
@@ -688,15 +744,18 @@ class Wifi_con:
             os.system('netsh wlan set profileparameter name=%s keyMaterial=%s' % (wlan_configure, wlan_password))
             os.system('netsh interface set interface "%s" disabled' % internet_interface)
             os.system('netsh interface set interface "%s" enabled' % internet_interface)
-            connect_status = os.system('netsh wlan connect name=%s ssid=%s' % (wlan_configure, wlan_ssid))
+            con = os.system('netsh wlan connect name=%s ssid=%s' % (wlan_configure, wlan_ssid))
         time.sleep(10)
         con_status = Wifi_con.wlan_con_status()
         if con_status == 1:
             result = 1
+            print ("连接成功")
         elif con_status == 0:
             result = 0
+            print ("连接失败")
         else:
             result = -1
+            print ("表示网卡异常")
         # result = 1 表示连接成功，0 表示连接失败, -1表示网卡异常
         return result
 

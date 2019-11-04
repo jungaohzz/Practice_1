@@ -14,6 +14,9 @@ from .time_limit_dir.test_Web_limitTime import LimitTime
 from .rate_limit_dir.test_Web_limitRate import LimitRate
 from .websiteblacklist_limit_dir.test_Web_limitWebsiteBlacklist import LimitWebsiteBlacklist
 from .wifi_set_dir.test_Web_wifiSettings import WifiSettings
+from .guest_wifi__dir.test_Web_guestWifiSettings import GuestWifiSettings
+from .device_blacklist_dir.test_Web_blacklist import DeviceBlacklist
+from .static_dhcp_lease_dir.test_Web_staticDhcpLease import StaticDHCPLease
 
 
 
@@ -26,7 +29,7 @@ from .wifi_set_dir.test_Web_wifiSettings import WifiSettings
 def core():
     s = []
     class_tests = [
-        LimitTime
+        StaticDHCPLease
     ]
 
     for t in class_tests:

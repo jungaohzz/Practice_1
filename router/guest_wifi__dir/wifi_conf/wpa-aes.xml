@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+	<name>wpa-aes</name>
+	<SSIDConfig>
+		<SSID>
+			<hex>5445535431</hex>
+			<name>wpa-aes</name>
+		</SSID>
+	</SSIDConfig>
+	<connectionType>ESS</connectionType>
+	<connectionMode>auto</connectionMode>
+	<MSM>
+		<security>
+			<authEncryption>
+				<authentication>WPAPSK</authentication>
+				<encryption>AES</encryption>
+				<useOneX>false</useOneX>
+			</authEncryption>
+			<sharedKey>
+				<keyType>passPhrase</keyType>
+				<protected>true</protected>
+				<keyMaterial>01000000D08C9DDF0115D1118C7A00C04FC297EB01000000DB5FE71A4ACDA24686CDD21135E511A80000000002000000000010660000000100002000000012A6B00CE6917B2ABA97CDC47941E173F7A52CB57F072E8EE377C229E0B3A63F000000000E8000000002000020000000CE81CACF44AC09A975E934DF994B9DF4B8247A25B34C7875C1BC69792164A7781000000058ECC8CA26EE49B2376368A4EEC9B26B40000000AB1D1AC18100B604AECE8991B1E8F046277FFDE06A6F133933CC9D4E1011F1B6D2B5BFB29E41020B0283572A227E0350198C9473083EB43857D8F382A2A82445</keyMaterial>
+			</sharedKey>
+		</security>
+	</MSM>
+	<MacRandomization xmlns="http://www.microsoft.com/networking/WLAN/profile/v3">
+		<enableRandomization>false</enableRandomization>
+	</MacRandomization>
+</WLANProfile>

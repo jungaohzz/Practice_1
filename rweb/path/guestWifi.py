@@ -19,11 +19,13 @@ class GuestWifiLocators(object):
     Name = "//div[@class='form']/div[2]/div[2]/div/div/div/input"
     # 加密方式
     Encryption = "//div[@class='form']/div[2]/div[3]/div/div/input"
-    Encryption_WPA_WPA2_PSK = "//div[@class='form']/div[2]/div[3]/div/div/ul/li[2]"
+    Encryption_Alls = "//div[@class='form']/div[2]/div[3]/div/div/ul/li[{num}]"
     # 无线密码
     Password = "//div[@class='form']/div[2]/div[4]/div/div/div[1]/input"
-    # 双频合一
+    # 双频合一(加密方式不为Open时)
     Smart_Connect = "//div[@class='form']/div[2]/div[5]/div/div"
+    # 双频合一(加密方式为Open时)
+    Smart_Connect_whaleOpen = "//div[@class='form']/div[2]/div[4]/div/div"
 
     Save = "//button[@class='btn btn-middle']"
     Save_Ok = "//div[@class='dialog-buttons']/button[2]"

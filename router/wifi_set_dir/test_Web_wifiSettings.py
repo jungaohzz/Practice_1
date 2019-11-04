@@ -27,27 +27,13 @@ from .wifi_set_conf import *
 """WiFi设置"""
 
 class WifiSettings(Base):
-    # def setUp(self):
-    #     super(WifiSettings, self).setUp()
-    #     # 鼠标模拟移动到：设置
-    #     WebDriverWait(self.driver, 10).until(
-    #         EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
-    #     )
-    #     mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_Set)
-    #     ActionChains(self.driver).move_to_element(mouse).perform()
-    #     # 点击 WiFi设置
-    #     WebDriverWait(self.driver, 10).until(
-    #         EC.element_to_be_clickable((By.XPATH, CommonLocators.WiFi_Settings))
-    #     ).click()
-    #     time.sleep(2)
-
 
     # 定义WiFi设置页的url
     url_wifiSettingsPage = ""
 
     def switch_to_wifiSetsPage(self, Current_Url):  # 切换到 wifi设置页
         self.driver.refresh()
-        time.sleep(1)
+        time.sleep(2)
         # 判断当前的url是否是目的url
         while WifiSettings.url_wifiSettingsPage != Current_Url:
             # 鼠标模拟移动到：设置
@@ -83,58 +69,65 @@ class WifiSettings(Base):
         ).click()
         time.sleep(2)
         WifiSettings.url_wifiSettingsPage = self.driver.current_url
-        time.sleep(5)
+        time.sleep(1)
 
 
 
 
 
 
-    #@unittest.skip("跳过")
+
+
+    # @unittest.skip("跳过")
     def test_B_wifiSetting_SmartConnect_on(self):
         """操作步骤：设置SSID名，且将“双频合一”状态开启"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
 
+        flag = False    # 标记是否需要保存重启，False为不需要，True为需要
+
         # 获取SSID
+        time.sleep(2)
         WebDriverWait(self.driver, 60).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Wifi_Name))
         )
         Wifi_Name_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.Wifi_Name).get_attribute("value")
-        # 获取密码
-        WebDriverWait(self.driver, 60).until(
-            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
-        )
-        WiFi_Password_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value")
-        # 获取双频合一开关状态
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
-        )
-        Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class')
-        # 判断
-        while Wifi_Name_Text != ssid_2g or WiFi_Password_Text != wlan_password or Smart_Connect_class !="switch switch-animation checked":
+        if Wifi_Name_Text != ssid_2g:
             WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Wifi_Name))
             ).clear()
             self.driver.find_element_by_xpath(WifiSettingsLocators.Wifi_Name).send_keys(ssid_2g)
-            # 密码框
+            flag = True
+
+
+        # 获取密码
+        time.sleep(1)
+        WebDriverWait(self.driver, 60).until(
+            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
+        )
+        WiFi_Password_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value")
+        if WiFi_Password_Text != wlan_password:
             WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.WiFi_Password))
             ).clear()
             self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).send_keys(wlan_password)
-            # “双频合一”开关
-            WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Smart_Connect))
-            )
-            Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class')
-            # 默认状态：打开，所以如果状态为：关闭，才进行if的打开操作
-            if Smart_Connect_class != "switch switch-animation checked":
-                # 点击按钮：双频合一，即由关 -> 开
-                WebDriverWait(self.driver, 10).until(
-                    EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
-                ).click()
-                time.sleep(2)  # 用于开关切换
+            flag = True
 
-            # 保存
+        # 获取双频合一开关状态
+        time.sleep(1)
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
+        )
+        Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class')
+        if Smart_Connect_class != "switch switch-animation checked":
+            WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
+            ).click()
+            time.sleep(2)  # 用于开关切换
+            flag = True
+
+        # 判断是否需要保存
+        time.sleep(1)
+        if flag == True:
             WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Save))
             ).click()
@@ -142,16 +135,14 @@ class WifiSettings(Base):
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Save_Ok))
             ).click()
             time.sleep(5)
-
             # 因为修改密码后没有成功的toast提示，所以不能用成功的toast提示判断是否完成reboot
             # 又因为reboot完成后，页面处于：我的WiFi-管理路由器，故可借判断管理路由器页的“mesh拓扑图”元素是否加载出来，来判断是否完成reboot
             WebDriverWait(self.driver, 60).until(
                 EC.presence_of_element_located((By.XPATH, RouterManagementLocators.Mesh_Topology))
             )
-            time.sleep(10)
-            # 断言：判断开关状态是否为：打开
-            # 再次进入 WiFi设置 页
-            self.switch_to_wifiSetsPage(self.driver.current_url)
+            time.sleep(5)
+
+
 
 
 
@@ -244,9 +235,14 @@ class WifiSettings(Base):
 
 
 
+    #=======================================================================================================================================
 
 
-    #@unittest.skip("跳过")
+
+
+
+
+    # @unittest.skip("跳过")
     def test_F_wifiSetting_SmartConnect_off(self):
         """操作步骤：将“双频合一”状态关闭"""
         WebDriverWait(self.driver, 10).until(
@@ -303,7 +299,7 @@ class WifiSettings(Base):
 
 
 
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_G_test_wifi_4(self):
         """【检验】用例-2734 :“双频合一”关闭状态，扫描到的SSID中，2.4G SSID为XXXX,5G SSID为XXXX-5G"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
@@ -443,6 +439,9 @@ class WifiSettings(Base):
 
 
 
+
+    # ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    # 该用例未通过测试
     # @unittest.skip("跳过")
     def test_K_test_wifi_7(self):
         """【检验】用例-3378 :隐藏SSID关闭状态，5G设备可以扫描到5G SSID，并可以正常连接"""
@@ -707,7 +706,8 @@ class WifiSettings(Base):
 
 
 
-
+    # ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    # 该用例未通过测试
     # @unittest.skip("跳过")
     def test_S_test_wifi_13(self):
         """【检验】用例-4973 :隐藏SSID关闭状态，2.4G设备可以扫描到2.4G SSID，并可以正常连接"""
@@ -758,8 +758,6 @@ class WifiSettings(Base):
         else:
             print("【失败】")
             assert False
-
-
 
 
 
@@ -1167,10 +1165,10 @@ class WifiSettings(Base):
 
 
 
-    # @unittest.skip("跳过")
+
+    #@unittest.skip("跳过")
     def test_a_wifiSetting_onlyChange_ssid(self):
         """操作步骤：只修改SSID"""
-        self.switch_to_wifiSetsPage(self.driver.current_url)
 
         # 先将SSID和password改回原始的（即SSID=MERCKU-AutoTest，PASSWORD=11111111）
         self.test_B_wifiSetting_SmartConnect_on()
@@ -1221,34 +1219,6 @@ class WifiSettings(Base):
             EC.presence_of_element_located((By.XPATH, RouterManagementLocators.Mesh_Topology))
         )
         time.sleep(5)
-        # 断言：判断开关状态是否为：打开
-        # 再次进入 WiFi设置 页
-        self.switch_to_wifiSetsPage(self.driver.current_url)
-
-        # 判断无线名称
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Wifi_Name))
-        )
-        Wifi_Name_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.Wifi_Name).get_attribute("value")
-        assert Wifi_Name_Text == ssid_2g_change, Wifi_Name_Text
-        # 判断密码
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
-        )
-        WiFi_Password_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value")
-        assert WiFi_Password_Text == wlan_password, WiFi_Password_Text
-        # 判断隐藏SSID开关
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Hide_SSID))
-        )
-        Hide_SSID_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Hide_SSID).get_attribute('class')
-        assert Hide_SSID_class == "switch switch-animation", Hide_SSID_class
-        # 判断双频合一开关
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
-        )
-        Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class')
-        assert Smart_Connect_class == "switch switch-animation checked", Smart_Connect_class
 
 
 
@@ -1256,9 +1226,12 @@ class WifiSettings(Base):
 
 
 
-    # @unittest.skip("跳过")
+
+    # ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    # 该用例未通过测试
+    #@unittest.skip("跳过")
     def test_b_test_wifi_19(self):
-        """【检验】用例-5017 :: 版本: 1 :: 修改SSID后，新SSID生效，旧SSID失效"""
+        """【检验】用例-5017 : 修改SSID后，新SSID生效，旧SSID失效"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
         # 前提条件：SSID为已修改后的SSID
         # 判断无线名称
@@ -1303,6 +1276,9 @@ class WifiSettings(Base):
         else:
             print("【失败】")
             assert False
+
+
+
 
 
 
@@ -1400,6 +1376,7 @@ class WifiSettings(Base):
 
 
 
+
     # @unittest.skip("跳过")
     def test_d_test_wifi_20(self):
         """【检验】用例-5018 :: 版本: 1 :: 修改密码后，新密码生效，旧密码失效"""
@@ -1456,8 +1433,7 @@ class WifiSettings(Base):
 
 
 
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_e_wifiSetting_set_Open(self):
         """操作步骤：恢复默认SSID，并设置加密方式为 Open"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
@@ -1503,29 +1479,7 @@ class WifiSettings(Base):
         WebDriverWait(self.driver, 60).until(
             EC.presence_of_element_located((By.XPATH, RouterManagementLocators.Mesh_Topology))
         )
-        time.sleep(10)
-        # 断言：判断开关状态是否为：打开
-        # 再次进入 WiFi设置 页
-        self.switch_to_wifiSetsPage(self.driver.current_url)
-
-        # 判断无线名称
-        WebDriverWait(self.driver, 60).until(
-            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Wifi_Name))
-        )
-        Wifi_Name_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.Wifi_Name).get_attribute("value")
-        assert Wifi_Name_Text == ssid_2g, Wifi_Name_Text
-        # 判断加密方式
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH,WifiSettingsLocators.Encryption_Button))
-        )
-        Encryption_Value = self.driver.find_element_by_xpath(WifiSettingsLocators.Encryption_Button).get_attribute('value')
-        assert Encryption_Value == "Open", Encryption_Value
-        # 判断双频合一开关
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect_whileOpen))
-        )
-        Smart_Connect_whileOpen_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect_whileOpen).get_attribute('class')
-        assert Smart_Connect_whileOpen_class == "switch switch-animation checked", Smart_Connect_whileOpen_class
+        time.sleep(5)
 
 
 
@@ -1533,7 +1487,9 @@ class WifiSettings(Base):
 
 
 
-    #@unittest.skip("跳过")
+
+
+    # @unittest.skip("跳过")
     def test_f_test_wifi_21(self):
         """用例-5684 :加密方式为open，5G和2.4G设备可以不需要密码连接到WIFI"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
@@ -1556,19 +1512,18 @@ class WifiSettings(Base):
             assert False
         # 判断隐藏SSID开关
         WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Hide_SSID))
+            EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Hide_SSID_whileOpen))
         )
-        Hide_SSID_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Hide_SSID).get_attribute('class')
-        if Hide_SSID_class != "switch switch-animation":
+        Hide_SSID_whileOpen_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Hide_SSID_whileOpen).get_attribute('class')
+        if Hide_SSID_whileOpen_class != "switch switch-animation":
             print("【备注】该用例无法验证，原因：“隐藏SSID”开关不为关")
             assert False
         # 判断双频合一开关
         WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
+            EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect_whileOpen))
         )
-        Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class')
-        assert Smart_Connect_class == "switch switch-animation checked", Smart_Connect_class
-        if Smart_Connect_class != "switch switch-animation checked":
+        Smart_Connect_whileOpen_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect_whileOpen).get_attribute('class')
+        if Smart_Connect_whileOpen_class != "switch switch-animation checked":
             print("【备注】该用例无法验证，原因：“双频合一”开关不为开")
             assert False
 
@@ -1592,7 +1547,7 @@ class WifiSettings(Base):
 
 
 
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_g_wifiSetting_set_WPA(self):
         """操作步骤：恢复默认SSID和password，并设置加密方式为 WPA-PSK"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
@@ -1618,14 +1573,14 @@ class WifiSettings(Base):
         self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).send_keys(wlan_password)
         # “双频合一”开关
         WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Smart_Connect_whileOpen))
+            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Smart_Connect))
         )
-        Smart_Connect_whileOpen_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect_whileOpen).get_attribute('class')
+        Smart_Connec_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class')
         # 默认状态：打开，所以如果状态为：关闭，才进行if的打开操作
-        if Smart_Connect_whileOpen_class != "switch switch-animation checked":
+        if Smart_Connec_class != "switch switch-animation checked":
             # 点击按钮：双频合一，即由关 -> 开
             WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect_whileOpen))
+                EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
             ).click()
             time.sleep(2)  # 用于开关切换
 
@@ -1649,31 +1604,6 @@ class WifiSettings(Base):
         self.switch_to_wifiSetsPage(self.driver.current_url)
 
 
-        # #以下判断可删除！！！！！！！
-        # # 判断无线名称
-        # WebDriverWait(self.driver, 60).until(
-        #     EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Wifi_Name))
-        # )
-        # Wifi_Name_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.Wifi_Name).get_attribute("value")
-        # assert Wifi_Name_Text == ssid_2g, Wifi_Name_Text
-        # # 判断加密方式
-        # WebDriverWait(self.driver, 10).until(
-        #     EC.presence_of_element_located((By.XPATH,WifiSettingsLocators.Encryption_Button))
-        # )
-        # Encryption_Value = self.driver.find_element_by_xpath(WifiSettingsLocators.Encryption_Button).get_attribute('value')
-        # assert Encryption_Value == "WPA-PSK", Encryption_Value
-        # # 判断密码
-        # WebDriverWait(self.driver, 10).until(
-        #     EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
-        # )
-        # WiFi_Password_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value")
-        # assert WiFi_Password_Text == wlan_password, WiFi_Password_Text
-        # # 判断双频合一开关
-        # WebDriverWait(self.driver, 10).until(
-        #     EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect_whileOpen))
-        # )
-        # Smart_Connect_whileOpen_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect_whileOpen).get_attribute('class')
-        # assert Smart_Connect_whileOpen_class == "switch switch-animation checked", Smart_Connect_whileOpen_class
 
 
 
@@ -1681,7 +1611,18 @@ class WifiSettings(Base):
 
 
 
-    #@unittest.skip("跳过")
+
+
+
+
+
+
+
+
+
+    #！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    # 该用例未通过测试，返回的值是0101！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    # @unittest.skip("跳过")
     def test_h_test_wifi_22(self):
         """用例-5685 :加密方式为WPA，5G和2.4G设备可以通过WPA认证方式连接到WIFI"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
@@ -1706,7 +1647,7 @@ class WifiSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
         )
-        WiFi_Password_Value = int(self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value"))
+        WiFi_Password_Value = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value")
         if WiFi_Password_Value != wlan_password:
             print("【备注】该用例无法验证，原因：密码不为初始密码")
             assert False
@@ -1747,7 +1688,8 @@ class WifiSettings(Base):
 
 
 
-    @unittest.skip("跳过")
+
+    # @unittest.skip("跳过")
     def test_i_test_wifi_23(self):
         """用例-5686 :加密方式为WPA，5G和2.4G设备不可以通过WPA2认证方式连接到WIFI"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
@@ -1772,7 +1714,7 @@ class WifiSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
         )
-        WiFi_Password_Value = int(self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value"))
+        WiFi_Password_Value = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value")
         if WiFi_Password_Value != wlan_password:
             print("【备注】该用例无法验证，原因：密码不为初始密码")
             assert False
@@ -1810,17 +1752,9 @@ class WifiSettings(Base):
 
 
 
-    # =========================================================================================================================================================================
 
 
-
-
-
-
-
-
-
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_j_wifiSetting_set_WPA2(self):
         """操作步骤：恢复默认SSID和password，并设置加密方式为 WPA2-PSK"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
@@ -1846,15 +1780,14 @@ class WifiSettings(Base):
         self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).send_keys(wlan_password)
         # “双频合一”开关
         WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Smart_Connect_whileOpen))
+            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Smart_Connect))
         )
-        Smart_Connect_whileOpen_class = self.driver.find_element_by_xpath(
-            WifiSettingsLocators.Smart_Connect_whileOpen).get_attribute('class')
+        Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class')
         # 默认状态：打开，所以如果状态为：关闭，才进行if的打开操作
-        if Smart_Connect_whileOpen_class != "switch switch-animation checked":
+        if Smart_Connect_class != "switch switch-animation checked":
             # 点击按钮：双频合一，即由关 -> 开
             WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect_whileOpen))
+                EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
             ).click()
             time.sleep(2)  # 用于开关切换
 
@@ -1872,7 +1805,7 @@ class WifiSettings(Base):
         WebDriverWait(self.driver, 60).until(
             EC.presence_of_element_located((By.XPATH, RouterManagementLocators.Mesh_Topology))
         )
-        time.sleep(5)
+        time.sleep(1)
 
 
 
@@ -1882,17 +1815,24 @@ class WifiSettings(Base):
 
 
 
-
-    @unittest.skip("跳过")
+    # ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    # 该用例未通过测试（失败）
+    # @unittest.skip("跳过")
     def test_k_test_wifi_24(self):
         """用例-5687 : 加密方式为WPA2，5G和2.4G设备可以通过WPA2认证方式连接到WIFI"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
         # 前提条件：无线名称为默认SSID，加密方式为 WPA2
         # 判断无线名称
+        time.sleep(3)
         WebDriverWait(self.driver, 60).until(
-            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Wifi_Name))
+            EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Wifi_Name))
         )
         Wifi_Name_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.Wifi_Name).get_attribute("value")
+        print("Wifi_Name=")
+        print(Wifi_Name_Text)
+        print("ssid_2g=")
+        print(ssid_2g)
+        print("==========")
         if Wifi_Name_Text != ssid_2g:
             print("【备注】该用例无法验证，原因：SSID名不为初始SSID")
             assert False
@@ -1909,8 +1849,9 @@ class WifiSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
         )
-        WiFi_Password_Value = int(
-            self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value"))
+        WiFi_Password_Value = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value")
+        print(WiFi_Password_Value)
+        print(wlan_password)
         if WiFi_Password_Value != wlan_password:
             print("【备注】该用例无法验证，原因：密码不为初始密码")
             assert False
@@ -1949,7 +1890,7 @@ class WifiSettings(Base):
 
 
 
-    @unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_l_test_wifi_25(self):
         """用例-5688 : 加密方式为WPA2，5G和2.4G设备不可以通过WPA认证方式连接到WIFI"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
@@ -1975,8 +1916,7 @@ class WifiSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
         )
-        WiFi_Password_Value = int(
-            self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value"))
+        WiFi_Password_Value = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value")
         if WiFi_Password_Value != wlan_password:
             print("【备注】该用例无法验证，原因：密码不为初始密码")
             assert False
@@ -2010,11 +1950,14 @@ class WifiSettings(Base):
 
 
 
-    #==========================
 
 
 
-    @unittest.skip("跳过")
+
+
+
+
+    # @unittest.skip("跳过")
     def test_m_wifiSetting_set_WPA_WPA2(self):
         """操作步骤：恢复默认SSID和password，并设置加密方式为 WPA/WPA2-PSK"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
@@ -2040,15 +1983,14 @@ class WifiSettings(Base):
         self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).send_keys(wlan_password)
         # “双频合一”开关
         WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Smart_Connect_whileOpen))
+            EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Smart_Connect))
         )
-        Smart_Connect_whileOpen_class = self.driver.find_element_by_xpath(
-            WifiSettingsLocators.Smart_Connect_whileOpen).get_attribute('class')
+        Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class')
         # 默认状态：打开，所以如果状态为：关闭，才进行if的打开操作
-        if Smart_Connect_whileOpen_class != "switch switch-animation checked":
+        if Smart_Connect_class != "switch switch-animation checked":
             # 点击按钮：双频合一，即由关 -> 开
             WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect_whileOpen))
+                EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
             ).click()
             time.sleep(2)  # 用于开关切换
 
@@ -2076,7 +2018,9 @@ class WifiSettings(Base):
 
 
 
-    @unittest.skip("跳过")
+    # #！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    # # 该用例未通过测试，返回的值是0000！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    #@unittest.skip("跳过")
     def test_n_test_wifi_26(self):
         """用例-5689 : 加密方式为WPA/WPA2-PSK，5G和2.4G设备可以通过WPA认证方式连接到该WIFI"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
@@ -2095,8 +2039,7 @@ class WifiSettings(Base):
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Encryption_Button))
         )
         Encryption_Value = self.driver.find_element_by_xpath(
-            WifiSettingsLocators.Encryption_Button).get_attribute(
-            'value')
+            WifiSettingsLocators.Encryption_Button).get_attribute('value')
         if Encryption_Value != "WPA/WPA2-PSK":
             print("【备注】该用例无法验证，原因：加密方式不为 WPA/WPA2-PSK")
             assert False
@@ -2104,8 +2047,7 @@ class WifiSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
         )
-        WiFi_Password_Value = int(
-            self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value"))
+        WiFi_Password_Value = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value")
         if WiFi_Password_Value != wlan_password:
             print("【备注】该用例无法验证，原因：密码不为初始密码")
             assert False
@@ -2147,7 +2089,7 @@ class WifiSettings(Base):
 
 
 
-    @unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_o_test_wifi_27(self):
         """用例-5690 : 加密方式为WPA/WPA2-PSK，5G和2.4G设备可以通过WPA2认证方式连接到该WIFI"""
         self.switch_to_wifiSetsPage(self.driver.current_url)
@@ -2175,8 +2117,7 @@ class WifiSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
         )
-        WiFi_Password_Value = int(
-            self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value"))
+        WiFi_Password_Value = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value")
         if WiFi_Password_Value != wlan_password:
             print("【备注】该用例无法验证，原因：密码不为初始密码")
             assert False
@@ -2184,8 +2125,7 @@ class WifiSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Hide_SSID))
         )
-        Hide_SSID_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Hide_SSID).get_attribute(
-            'class')
+        Hide_SSID_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Hide_SSID).get_attribute('class')
         if Hide_SSID_class != "switch switch-animation":
             print("【备注】该用例无法验证，原因：“隐藏SSID”开关不为关")
             assert False

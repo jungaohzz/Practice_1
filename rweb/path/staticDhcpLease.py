@@ -7,6 +7,8 @@
 """Mac与IP绑定"""
 class StaticDHCPLeaseLocators(object):
     """Mac与IP绑定 首页 - 列表"""
+    # 重启生效
+    Restart = "//div[@class='page']/div[2]/p/span"
     Add = "//button[@class='btn btn-small'][1]"
     # 批量删除
     Deletes = "//button[@class='btn btn-small'][2]"

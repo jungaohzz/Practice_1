@@ -7128,51 +7128,97 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 0,
+    "testPass": 2,
     "testResult": [
         {
-            "className": "LimitTime",
-            "methodName": "test_A_get_url",
-            "description": "操作步骤：获取有线的限时url、5G的限时url",
-            "spendTime": "11.5 s",
-            "status": "失败",
+            "className": "StaticDHCPLease",
+            "methodName": "test_A_staticDHCPLease_default",
+            "description": "操作步骤：将主WiFi配置为默认值",
+            "spendTime": "0.0 s",
+            "status": "跳过",
             "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 105, in test_A_get_url\n    EC.presence_of_element_located((By.XPATH, List_1_type))\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py\", line 80, in until\n    raise TimeoutException(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.TimeoutException: Message: \n\n"
+                "跳过"
             ]
         },
         {
-            "className": "LimitTime",
-            "methodName": "test_B_limitTime_add",
-            "description": "操作步骤：新增 星期一",
-            "spendTime": "56.8 s",
-            "status": "失败",
+            "className": "StaticDHCPLease",
+            "methodName": "test_B_get_url",
+            "description": "操作步骤：获取设备黑名单页的url",
+            "spendTime": "3.88 s",
+            "status": "成功",
             "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 158, in test_B_limitTime_add\n    self.switch_to_limitTimePage_wired_5g_24g(\"Wired\", self.driver.current_url)\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\time_limit_dir\\test_Web_limitTime.py\", line 82, in switch_to_limitTimePage_wired_5g_24g\n    self.driver.find_element_by_xpath(CommonLocators.Devices).click()\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.ElementNotInteractableException: Message: element not interactable\n  (Session info: chrome=77.0.3865.120)\n\n"
+                ""
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_C_init",
+            "description": "操作步骤：先执行Mac与IP绑定相关前置条件",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_D_staticDHCPLease_add_wired1",
+            "description": "操作步骤：配置有线网卡WIRED1的一条MAC/IP绑定规则",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_E_staticDhcpLease_1",
+            "description": "\n        【检验】用例-2830 : 配置一条MAC/IP绑定规则（IP未分配），该MAC对应主机发送一个DISCOVER报文，其中可选字段请求IP地址为空，该主机只能获取到绑定的IP地址\n        【检验】用例-3985 : 配置一条MAC/IP绑定规则，主路由器下的有线设备会重新获取到绑定的IP地址\n        ",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_F_staticDHCPLease_add_wired1",
+            "description": "操作步骤：配置有线网卡WIRED1的一条MAC/IP绑定规则",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_G_staticDhcpLease_2_1",
+            "description": "【检验】有线网卡WIRED1的静态IP和static_ip1成功生效",
+            "spendTime": "7.42 s",
+            "status": "成功",
+            "log": [
+                "<class 'str'>",
+                "【成功】",
+                ""
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_H_staticDhcpLease_2_2",
+            "description": "【检验】有线网卡WIRED1的静态IP和static_ip1成功生效",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
             ]
         }
     ],
     "testName": "路由器功能自动化测试报告",
-    "testAll": 2,
-    "testFail": 2,
-    "beginTime": "2019-10-25 14:07:48",
-    "totalTime": "81s",
-    "testSkip": 0,
+    "testAll": 8,
+    "testFail": 0,
+    "beginTime": "2019-10-31 15:43:51",
+    "totalTime": "23s",
+    "testSkip": 6,
     "testError": 0
 };
 
