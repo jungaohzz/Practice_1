@@ -9,9 +9,9 @@ from BeautifulReport import BeautifulReport
 import unittest
 import os
 from unittest import TestLoader
+from .test_language import Language
 from .test_routerManagement import RouterManagement
 from .test_timeZone import TimeZone
-from .test_language import Language
 from .test_limitTime import LimitTime
 from .test_limitRate import LimitRate
 from .test_limitWebsiteBlacklist import LimitWebsiteBlacklist
@@ -39,8 +39,10 @@ def core():
     class_tests = [
         # 建议执行顺序（倒序排如下）：
         # 管理路由器、管理密码、工作方式、限时（？如果被限制住未删掉情况怎么处理）
-        StaticDHCPLease
         #LimitTime, LimitRate,LimitWebsiteBlacklist
+        GuestWifi,
+        VPN,
+        RouterManagement
     ]
 
 

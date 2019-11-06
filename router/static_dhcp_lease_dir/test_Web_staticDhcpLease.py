@@ -98,7 +98,7 @@ class StaticDHCPLease(Base):
                 (By.XPATH, StaticDHCPLeaseLocators.Save))
         ).click()
         # 断言:toast提示：保存成功
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 60).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
@@ -108,7 +108,7 @@ class StaticDHCPLease(Base):
             EC.element_to_be_clickable((By.XPATH, StaticDHCPLeaseLocators.Restart))
         ).click()
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, CommonLocators.Confirm))
+            EC.element_to_be_clickable((By.XPATH, CommonLocators.Save))
         ).click()
         time.sleep(10)
         # 重启成功判断：遮罩消失即可
@@ -120,7 +120,9 @@ class StaticDHCPLease(Base):
 
 
 
-    # @unittest.skip("跳过")
+
+
+
     def deleteAlls(self):
         """操作步骤：删除列表所有记录"""
         flag = False
@@ -143,6 +145,9 @@ class StaticDHCPLease(Base):
                 WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                     EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
                 )
+
+
+
 
 
 
@@ -382,16 +387,18 @@ class StaticDHCPLease(Base):
 
 
 
+    """
+        验证：用例1-X系列
+        配置有线网卡WIRED1的静态IP为static_ip1，能成功获取到对应ip地址
+    """
     @unittest.skip("跳过")
     def test_D_staticDHCPLease_add_wired1(self):
-        """操作步骤：配置有线网卡WIRED1的一条MAC/IP绑定规则"""
+        """操作步骤：配置WIRED1-static_ip1"""
         if StaticDHCPLease.Precondition == False:
             print("【失败】主WiFi默认设置或Mac与IP绑定相关前置条件配置失败")
             assert False
 
-        self.add("Wired1", common_conf.wired1_mac, common_conf.static_ip1)
-
-
+        self.add("WIRED1", common_conf.wired1_mac, common_conf.static_ip1)
 
 
 
@@ -440,20 +447,22 @@ class StaticDHCPLease(Base):
 
 
 
-
-
-
+    """
+        验证：用例2-X系列
+        先配置有线网卡WIRED1的静态IP为static_ip1
+        执行test_static_dhcp_lease_2_1
+        test_static_dhcp_lease_2_1测试结果为1时，再将static_ip1绑定到WLAN5G1
+        生效后执行test_static_dhcp_lease_2_2，然后使得WLAN5G1连接到WiFi并且拿到的ip为static_ip1，并且WIRED1拿到的ip不为static_ip1
+    """
     @unittest.skip("跳过")
     def test_F_staticDHCPLease_add_wired1(self):
-        """操作步骤：配置有线网卡WIRED1的一条MAC/IP绑定规则"""
+        """操作步骤：配置WIRED1-static_ip1"""
         if StaticDHCPLease.Precondition == False:
             print("【失败】主WiFi默认设置或Mac与IP绑定相关前置条件配置失败")
             assert False
 
-        self.add("Wired1", common_conf.wired1_mac, common_conf.static_ip1)
-
-
-
+        self.deleteAlls()
+        self.add("WIRED1", common_conf.wired1_mac, common_conf.static_ip1)
 
 
 
@@ -461,7 +470,7 @@ class StaticDHCPLease(Base):
 
     @unittest.skip("跳过")
     def test_G_staticDhcpLease_2_1(self):
-        """【检验】有线网卡WIRED1的静态IP和static_ip1成功生效"""
+        """【检验】用例-2836: 配置一条MAC / IP绑定规则，其他主机发送一个Request报文，其中可选字段请求IP地址为绑定的IP地址，该主机获取到路由器分配的其他IP"""
         self.switch_to_staticDHCPLeasePage(self.driver.current_url)
         # 前提条件：在列表中有记录，有线网卡wired1对应IP为static_ip1
         # 获取Mac地址，是否为wired1
@@ -501,37 +510,348 @@ class StaticDHCPLease(Base):
 
 
     @unittest.skip("跳过")
-    def test_H_staticDhcpLease_2_2(self):
-        """【检验】有线网卡WIRED1的静态IP和static_ip1成功生效"""
-        # if StaticDHCPLease.Wired1_Effect == False:
+    def test_H_staticDHCPLease_add_wlan5G1(self):
+        """操作步骤：配置WLAN5G1-static_ip1"""
+        if StaticDHCPLease.Precondition == False:
+            print("【失败】主WiFi默认设置或Mac与IP绑定相关前置条件配置失败")
+            assert False
 
-        # self.switch_to_staticDHCPLeasePage(self.driver.current_url)
-        # # 前提条件：在列表中有记录，有线网卡wired1对应IP为static_ip1
-        # # 获取Mac地址，是否为wired1
-        # WebDriverWait(self.driver, 10).until(
-        #     EC.presence_of_element_located((By.XPATH, StaticDHCPLeaseLocators.List_MacAddr))
-        # )
-        # # 期望设置成的Mac地址
-        # Expect_Mac = common_conf.wired1_mac.lower().split('-')
-        # # 实际列表中设置的Mac地址
-        # Actual_Mac = self.driver.find_element_by_xpath(StaticDHCPLeaseLocators.List_MacAddr).text.split(':')
-        #
-        # # 获取IP地址,是否为static_ip1
-        # WebDriverWait(self.driver, 10).until(
-        #     EC.presence_of_element_located((By.XPATH, StaticDHCPLeaseLocators.List_IpAddr))
-        # )
-        # Actual_IP = self.driver.find_element_by_xpath(StaticDHCPLeaseLocators.List_IpAddr).text
-        # # 断言：wired1跟static_ip1是否为期望的值
-        # if Expect_Mac != Actual_Mac or Actual_IP != common_conf.static_ip1:
-        #     print("【备注】该用例无法验证，原因：有线网卡WIRED1前端配置的Mac和IP与期望不匹配")
-        #     assert False
-        #
-        # # 前提检验完成，开始检验用例
-        # time.sleep(5)
-        # Result = Test_static_dhcp_lease.test_static_dhcp_lease_2_2()
-        # if Result == 1:
-        #     print("【成功】")
-        #     assert True
-        # else:
-        #     print("【失败】")
-        #     assert False
+        # 清空绑定列表
+        self.deleteAlls()
+        # 新增记录：将static_ip1绑定到WLAN5G1
+        self.add("WLAN5G1", common_conf.wlan5g_mac, common_conf.static_ip1)
+
+
+
+
+
+
+    # 未通过测试！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    # 未通过测试！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    # 原因：if static_ip1 == wlan5g1_ip and static_ip1 != wired1_ip的判断错误，实际是成功了的。
+    # static_ip1，wlan5g1_ip，wired1_ip的值分别是：192.168.127.160，192.168.127.100192.168.127.160，192.168.127.100192.168.127.160，为什么输出2个IP？？？
+    @unittest.skip("跳过")
+    def test_I_staticDhcpLease_2_2(self):
+        """
+        【检验】用例-7372 : 配置一条MAC/IP绑定规则（IP已分配），原分配到该IP的主机发送一个request报文，原主机不能再分配到该IP
+        【检验】用例-3987 : 配置一条MAC/IP绑定规则，主路由器下的5G设备会重新获取到绑定的IP地址
+        """
+        self.switch_to_staticDHCPLeasePage(self.driver.current_url)
+
+        # 前提条件：有线网卡Wired1配置的静态IP成功生效
+        if StaticDHCPLease.Wired1_Effect == False:
+            print("Wired1配置static_ip1未生效")
+            assert False
+
+        # 前提检验完成，开始检验用例
+        time.sleep(5)
+        Result = Test_static_dhcp_lease.test_static_dhcp_lease_2_2()
+        if Result == 1:
+            print("【成功】")
+            assert True
+        else:
+            print("【失败】")
+            assert False
+
+
+
+
+
+
+
+
+
+    """
+        验证：用例3-X系列
+        先配置有线网卡WIRED1的静态IP为static_ip1
+        保存生效，执行test_static_dhcp_lease_3_1
+        test_static_dhcp_lease_3_1测试结果为1时，修改WIRED1的静态IP为static_ip2
+        保存生效后再执行test_static_dhcp_lease_3_2
+    """
+    @unittest.skip("跳过")
+    def test_J_staticDHCPLease_add_wired1(self):
+        """操作步骤：配置WIRED1-static_ip1"""
+        if StaticDHCPLease.Precondition == False:
+            print("【失败】主WiFi默认设置或Mac与IP绑定相关前置条件配置失败")
+            assert False
+        self.deleteAlls()
+        self.add("WIRED1", common_conf.wired1_mac, common_conf.static_ip1)
+
+
+
+
+
+    @unittest.skip("跳过")
+    def test_K_staticDhcpLease_3_1(self):
+        """【检验】用例-2833 : 配置一条MAC/IP绑定规则，该MAC对应主机发送一个Request报文，其中可选字段请求IP地址不为绑定的IP地址，该主机只能获取到绑定的IP地址"""
+        self.switch_to_staticDHCPLeasePage(self.driver.current_url)
+        # 前提条件：在列表中有记录，有线网卡wired1对应IP为static_ip1
+        # 获取Mac地址，是否为wired1
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, StaticDHCPLeaseLocators.List_MacAddr))
+        )
+        # 期望设置成的Mac地址
+        Expect_Mac = common_conf.wired1_mac.lower().split('-')
+        # 实际列表中设置的Mac地址
+        Actual_Mac = self.driver.find_element_by_xpath(StaticDHCPLeaseLocators.List_MacAddr).text.split(':')
+
+        # 获取IP地址,是否为static_ip1
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, StaticDHCPLeaseLocators.List_IpAddr))
+        )
+        Actual_IP = self.driver.find_element_by_xpath(StaticDHCPLeaseLocators.List_IpAddr).text
+        # 断言：wired1跟static_ip1是否为期望的值
+        if Expect_Mac != Actual_Mac or Actual_IP != common_conf.static_ip1:
+            print("【备注】该用例无法验证，原因：有线网卡WIRED1前端配置的Mac和IP与期望不匹配")
+            assert False
+
+        # 前提检验完成，开始检验用例
+        time.sleep(5)
+        Result = Test_static_dhcp_lease.test_static_dhcp_lease_3_1()
+        if Result == 1:
+            print("【成功】")
+            StaticDHCPLease.Wired1_Effect = True
+            assert True
+        else:
+            print("【失败】")
+            StaticDHCPLease.Wired1_Effect = False
+            assert False
+
+
+
+
+
+
+    @unittest.skip("跳过")
+    def test_L_staticDHCPLease_add_wired1(self):
+        """操作步骤：配置WIRED1-static_ip2"""
+        if StaticDHCPLease.Precondition == False:
+            print("【失败】主WiFi默认设置或Mac与IP绑定相关前置条件配置失败")
+            assert False
+
+        # 清空绑定列表
+        self.deleteAlls()
+        # 新增记录：将static_ip1绑定到WLAN5G1
+        self.add("WIRED1", common_conf.wired1_mac, common_conf.static_ip2)
+
+
+
+
+
+
+    @unittest.skip("跳过")
+    def test_M_staticDhcpLease_3_2(self):
+        """【检验】用例-4009 : 修改一条MAC/IP绑定规则，新规则生效，老规则失效"""
+        self.switch_to_staticDHCPLeasePage(self.driver.current_url)
+
+        # 前提条件：有线网卡Wired1配置的静态IP成功生效
+        if StaticDHCPLease.Wired1_Effect == False:
+            print("Wired1配置static_ip1未生效")
+            assert False
+
+        # 前提检验完成，开始检验用例
+        time.sleep(5)
+        Result = Test_static_dhcp_lease.test_static_dhcp_lease_3_2()
+        if Result == 1:
+            print("【成功】")
+            assert True
+        else:
+            print("【失败】")
+            assert False
+
+
+
+
+
+
+
+
+
+    """
+        验证：用例4-X系列   
+        配置有线网卡WIRED1的静态IP为static_ip1
+        保存生效后，执行test_static_dhcp_lease_4
+        test_static_dhcp_lease_4测试结果为1时，然后不做任何修改
+        保存生效后，再执行test_static_dhcp_lease_4，测试结果为1表示通过
+    """
+    @unittest.skip("跳过")
+    def test_N_staticDHCPLease_add_wired1(self):
+        """操作步骤：配置WIRED1-static_ip1"""
+        if StaticDHCPLease.Precondition == False:
+            print("【失败】主WiFi默认设置或Mac与IP绑定相关前置条件配置失败")
+            assert False
+        self.deleteAlls()
+        self.add("WIRED1", common_conf.wired1_mac, common_conf.static_ip1)
+
+
+
+
+
+
+    @unittest.skip("跳过")
+    def test_O_staticDhcpLease_4(self):
+        """【检验】用例-2834 : 配置一条MAC/IP绑定规则，该MAC对应主机发送一个Request报文，其中可选字段请求IP地址绑定的IP地址，该主机只能获取到绑定的IP地址"""
+        self.switch_to_staticDHCPLeasePage(self.driver.current_url)
+        # 前提条件：在列表中有记录，有线网卡wired1对应IP为static_ip1
+        # 获取Mac地址，是否为wired1
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, StaticDHCPLeaseLocators.List_MacAddr))
+        )
+        # 期望设置成的Mac地址
+        Expect_Mac = common_conf.wired1_mac.lower().split('-')
+        # 实际列表中设置的Mac地址
+        Actual_Mac = self.driver.find_element_by_xpath(StaticDHCPLeaseLocators.List_MacAddr).text.split(':')
+
+        # 获取IP地址,是否为static_ip1
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, StaticDHCPLeaseLocators.List_IpAddr))
+        )
+        Actual_IP = self.driver.find_element_by_xpath(StaticDHCPLeaseLocators.List_IpAddr).text
+        # 断言：wired1跟static_ip1是否为期望的值
+        if Expect_Mac != Actual_Mac or Actual_IP != common_conf.static_ip1:
+            print("【备注】该用例无法验证，原因：有线网卡WIRED1前端配置的Mac和IP与期望不匹配")
+            assert False
+
+        # 前提检验完成，开始检验用例
+        time.sleep(5)
+        Result = Test_static_dhcp_lease.test_static_dhcp_lease_4()
+        if Result == 1:
+            print("【成功】")
+            StaticDHCPLease.Wired1_Effect = True
+            assert True
+        else:
+            print("【失败】")
+            StaticDHCPLease.Wired1_Effect = False
+            assert False
+
+
+
+
+    @unittest.skip("跳过")
+    def test_P_staticDhcpLease_4(self):
+        """【检验】用例-2834 : 配置一条MAC/IP绑定规则，该MAC对应主机发送一个Request报文，其中可选字段请求IP地址绑定的IP地址，该主机只能获取到绑定的IP地址"""
+        self.switch_to_staticDHCPLeasePage(self.driver.current_url)
+
+        # 前提条件：有线网卡Wired1配置的静态IP成功生效
+        if StaticDHCPLease.Wired1_Effect == False:
+            print("Wired1配置static_ip1未生效")
+            assert False
+
+        # 前提检验完成，开始检验用例
+        time.sleep(5)
+        Result = Test_static_dhcp_lease.test_static_dhcp_lease_4()
+        if Result == 1:
+            print("【成功】")
+            assert True
+        else:
+            print("【失败】")
+            assert False
+
+
+
+
+
+
+
+    # """
+    #     验证：用例5-X系列
+    #     先配置无线网卡WLAN5G1的静态IP为static_ip1
+    #     保存生效后，执行test_static_dhcp_lease_5_1
+    #     test_static_dhcp_lease_5_1测试结果为1时，删除所绑定的MAC/IP绑定规则
+    #     保存生效后再执行test_static_dhcp_lease_5_2
+    #     注：这部分用例在路由器端未实现，没有找到验证该功能的方式！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    #     注：这部分用例在路由器端未实现，没有找到验证该功能的方式！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    #     注：这部分用例在路由器端未实现，没有找到验证该功能的方式！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    # """
+    # #@unittest.skip("跳过")
+    # def test_Q_staticDHCPLease_add_wlan5G1(self):
+    #     """操作步骤：配置WLAN5G1-static_ip1"""
+    #     if StaticDHCPLease.Precondition == False:
+    #         print("【失败】主WiFi默认设置或Mac与IP绑定相关前置条件配置失败")
+    #         assert False
+    #     self.deleteAlls()
+    #     self.add("WLAN5G1", common_conf.wlan5g_mac, common_conf.static_ip1)
+    #
+    #
+    # #@unittest.skip("跳过")
+    # def test_R_staticDhcpLease_5_1(self):
+    #     """检验配置的WLAN5G1-static_ip1是否生效"""
+    #     self.switch_to_staticDHCPLeasePage(self.driver.current_url)
+    #     # 前提条件：在列表中有记录，有线网卡WLAN5G1对应IP为static_ip1
+    #     # 获取Mac地址，是否为WLAN5G1
+    #     WebDriverWait(self.driver, 10).until(
+    #         EC.presence_of_element_located((By.XPATH, StaticDHCPLeaseLocators.List_MacAddr))
+    #     )
+    #     # 期望设置成的Mac地址
+    #     Expect_Mac = common_conf.wlan5g_mac.lower().split('-')
+    #     # 实际列表中设置的Mac地址
+    #     Actual_Mac = self.driver.find_element_by_xpath(StaticDHCPLeaseLocators.List_MacAddr).text.split(':')
+    #
+    #     # 获取IP地址,是否为static_ip1
+    #     WebDriverWait(self.driver, 10).until(
+    #         EC.presence_of_element_located((By.XPATH, StaticDHCPLeaseLocators.List_IpAddr))
+    #     )
+    #     Actual_IP = self.driver.find_element_by_xpath(StaticDHCPLeaseLocators.List_IpAddr).text
+    #     # 断言：WLAN5G1跟static_ip1是否为期望的值
+    #     print("%s,%s,%s,%s"%(Expect_Mac,Actual_Mac,Actual_IP,common_conf.static_ip1))
+    #     if Expect_Mac != Actual_Mac or Actual_IP != common_conf.static_ip1:
+    #         print("【备注】该用例无法验证，原因：无线网卡WLAN5G1前端配置的Mac和IP与期望不匹配")
+    #         assert False
+    #
+    #     # 前提检验完成，开始检验用例
+    #     time.sleep(5)
+    #     Result = Test_static_dhcp_lease.test_static_dhcp_lease_5_1()
+    #     if Result == 1:
+    #         print("【成功】")
+    #         StaticDHCPLease.Wired1_Effect = True
+    #         assert True
+    #     else:
+    #         print("【失败】")
+    #         StaticDHCPLease.Wired1_Effect = False
+    #         assert False
+    #
+    #
+    # #@unittest.skip("跳过")
+    # def test_S_staticDHCPLease_deleteAll(self):
+    #     """操作步骤：删除所有绑定记录"""
+    #     if StaticDHCPLease.Precondition == False:
+    #         print("【失败】主WiFi默认设置或Mac与IP绑定相关前置条件配置失败")
+    #         assert False
+    #
+    #     # 清空绑定列表
+    #     self.deleteAlls()
+    #
+    #     # 重启生效
+    #     WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+    #         EC.element_to_be_clickable((By.XPATH, StaticDHCPLeaseLocators.Restart))
+    #     ).click()
+    #     WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+    #         EC.element_to_be_clickable((By.XPATH, CommonLocators.Save))
+    #     ).click()
+    #     time.sleep(10)
+    #     # 重启成功判断：遮罩消失即可
+    #     WebDriverWait(self.driver, const.REBOOT_WAIT).until_not(
+    #         EC.element_to_be_clickable((By.XPATH, CommonLocators.Shade))
+    #     )
+    #     time.sleep(1)
+    #
+    #
+    # #@unittest.skip("跳过")
+    # def test_T_staticDhcpLease_5_2(self):
+    #     """【检验】用例-2838 : 删除一条MAC/IP绑定规则，该规则失效"""
+    #     self.switch_to_staticDHCPLeasePage(self.driver.current_url)
+    #
+    #     # 前提条件：有线网卡Wired1配置的静态IP成功生效
+    #     if StaticDHCPLease.Wired1_Effect == False:
+    #         print("Wired1配置static_ip1未生效")
+    #         assert False
+    #
+    #     # 前提检验完成，开始检验用例
+    #     time.sleep(5)
+    #     Result = Test_static_dhcp_lease.test_static_dhcp_lease_5_2()
+    #     if Result == 1:
+    #         print("【成功】")
+    #         assert True
+    #     else:
+    #         print("【失败】")
+    #         assert False

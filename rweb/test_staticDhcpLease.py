@@ -95,7 +95,7 @@ class StaticDHCPLease(Base):
 
 
 
-    #@unittest.skip("跳过")
+    @unittest.skip("跳过")
     def test_B_staticDHCPLease_adds(self):
         """Mac与IP绑定-再新增19条绑定记录"""
         i = 2
@@ -140,7 +140,7 @@ class StaticDHCPLease(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_C_deletes(self):
         """Mac与IP绑定-批量删除"""
         # 需要再新增1条记录检验

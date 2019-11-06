@@ -111,3 +111,5 @@ class CommonLocators(object):
     Dialog_Note = "//div[@class='dialog-container mask-layer']/div[@class='dialog-content']/div[1]"
     Cancel = "//div[@class='dialog-container mask-layer']/div/div[2]/button[1]"
     Confirm = "//div[@class='dialog-container mask-layer']/div/div[2]/button[2]"
+
+    Save = "//button[@class='btn']"

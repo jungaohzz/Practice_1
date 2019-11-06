@@ -7128,7 +7128,7 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 2,
+    "testPass": 3,
     "testResult": [
         {
             "className": "StaticDHCPLease",
@@ -7144,7 +7144,7 @@
             "className": "StaticDHCPLease",
             "methodName": "test_B_get_url",
             "description": "操作步骤：获取设备黑名单页的url",
-            "spendTime": "3.88 s",
+            "spendTime": "4.06 s",
             "status": "成功",
             "log": [
                 ""
@@ -7163,7 +7163,7 @@
         {
             "className": "StaticDHCPLease",
             "methodName": "test_D_staticDHCPLease_add_wired1",
-            "description": "操作步骤：配置有线网卡WIRED1的一条MAC/IP绑定规则",
+            "description": "操作步骤：配置WIRED1-static_ip1",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7183,7 +7183,7 @@
         {
             "className": "StaticDHCPLease",
             "methodName": "test_F_staticDHCPLease_add_wired1",
-            "description": "操作步骤：配置有线网卡WIRED1的一条MAC/IP绑定规则",
+            "description": "操作步骤：配置WIRED1-static_ip1",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7193,32 +7193,181 @@
         {
             "className": "StaticDHCPLease",
             "methodName": "test_G_staticDhcpLease_2_1",
-            "description": "【检验】有线网卡WIRED1的静态IP和static_ip1成功生效",
-            "spendTime": "7.42 s",
-            "status": "成功",
-            "log": [
-                "<class 'str'>",
-                "【成功】",
-                ""
-            ]
-        },
-        {
-            "className": "StaticDHCPLease",
-            "methodName": "test_H_staticDhcpLease_2_2",
-            "description": "【检验】有线网卡WIRED1的静态IP和static_ip1成功生效",
+            "description": "【检验】用例-2836: 配置一条MAC / IP绑定规则，其他主机发送一个Request报文，其中可选字段请求IP地址为绑定的IP地址，该主机获取到路由器分配的其他IP",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
                 "跳过"
             ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_H_staticDHCPLease_add_wlan5G1",
+            "description": "操作步骤：配置WLAN5G1-static_ip1",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_I_staticDhcpLease_2_2",
+            "description": "\n        【检验】用例-7372 : 配置一条MAC/IP绑定规则（IP已分配），原分配到该IP的主机发送一个request报文，原主机不能再分配到该IP\n        【检验】用例-3987 : 配置一条MAC/IP绑定规则，主路由器下的5G设备会重新获取到绑定的IP地址\n        ",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_J_staticDHCPLease_add_wired1",
+            "description": "操作步骤：配置WIRED1-static_ip1",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_K_staticDhcpLease_3_1",
+            "description": "【检验】用例-2833 : 配置一条MAC/IP绑定规则，该MAC对应主机发送一个Request报文，其中可选字段请求IP地址不为绑定的IP地址，该主机只能获取到绑定的IP地址",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_L_staticDHCPLease_add_wired1",
+            "description": "操作步骤：配置WIRED1-static_ip2",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_M_staticDhcpLease_3_2",
+            "description": "【检验】用例-4009 : 修改一条MAC/IP绑定规则，新规则生效，老规则失效",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_N_staticDHCPLease_add_wired1",
+            "description": "操作步骤：配置WIRED1-static_ip1",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_O_staticDhcpLease_4",
+            "description": "【检验】用例-2834 : 配置一条MAC/IP绑定规则，该MAC对应主机发送一个Request报文，其中可选字段请求IP地址绑定的IP地址，该主机只能获取到绑定的IP地址",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_P_staticDhcpLease_4",
+            "description": "【检验】用例-2834 : 配置一条MAC/IP绑定规则，该MAC对应主机发送一个Request报文，其中可选字段请求IP地址绑定的IP地址，该主机只能获取到绑定的IP地址",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_Q_staticDHCPLease_add_wlan5G1",
+            "description": "操作步骤：配置WLAN5G1-static_ip1",
+            "spendTime": "0.594 s",
+            "status": "失败",
+            "log": [
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\static_dhcp_lease_dir\\test_Web_staticDhcpLease.py\", line 131, in deleteAlls\n    assert self.driver.find_element_by_xpath(StaticDHCPLeaseLocators.List_Null).is_displayed()\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 394, in find_element_by_xpath\n    return self.find_element(by=By.XPATH, value=xpath)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 978, in find_element\n    'value': value})['value']\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//div[@class='empty']/p\"}\n  (Session info: chrome=78.0.3904.70)\n\n",
+                "\nDuring handling of the above exception, another exception occurred:\n\n",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\static_dhcp_lease_dir\\test_Web_staticDhcpLease.py\", line 769, in test_Q_staticDHCPLease_add_wlan5G1\n    self.deleteAlls()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\static_dhcp_lease_dir\\test_Web_staticDhcpLease.py\", line 136, in deleteAlls\n    EC.element_to_be_clickable((By.XPATH, StaticDHCPLeaseLocators.All_check))\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <div class=\"box\"></div> is not clickable at point (251, 264). Other element would receive the click: <div data-v-d5f2eac8=\"\" class=\"loading-container\">...</div>\n  (Session info: chrome=78.0.3904.70)\n\n"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_R_staticDhcpLease_5_1",
+            "description": "检验配置的WLAN5G1-static_ip1是否生效",
+            "spendTime": "12.8 s",
+            "status": "失败",
+            "log": [
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\PyCharm\\Practice_1\\router\\static_dhcp_lease_dir\\test_Web_staticDhcpLease.py\", line 782, in test_R_staticDhcpLease_5_1\n    EC.presence_of_element_located((By.XPATH, StaticDHCPLeaseLocators.List_MacAddr))\n",
+                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py\", line 80, in until\n    raise TimeoutException(message, screen, stacktrace)\n",
+                "selenium.common.exceptions.TimeoutException: Message: \n\n"
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_S_staticDHCPLease_deleteAll",
+            "description": "操作步骤：删除所有绑定记录",
+            "spendTime": "33.7 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "StaticDHCPLease",
+            "methodName": "test_T_staticDhcpLease_5_2",
+            "description": "【检验】用例-2838 : 删除一条MAC/IP绑定规则，该规则失效",
+            "spendTime": "31.1 s",
+            "status": "成功",
+            "log": [
+                "<class 'list'>",
+                "['\\n', '系统上有 1 个接口: \\n', '\\n', '    名称                   : WLAN5G1\\n', '    描述                   : Realtek 8812AU Wireless LAN 802.11ac USB NIC #3\\n', '    GUID                   : d569b5a2-7c06-4f18-93f9-82ffedcc0e0a\\n', '    物理地址               : 08:10:7a:18:95:8a\\n', '    状态                   : 已连接\\n', '    SSID                   : MERCKU-AutoTest\\n', '    BSSID                  : f8:27:2e:01:0e:eb\\n', '    网络类型               : 结构\\n', '    无线电类型             : 802.11ac\\n', '    身份验证               : WPA2 - 个人\\n', '    密码                   : CCMP\\n', '    连接模式               : 配置文件\\n', '    信道                   : 40\\n', '    接收速率(Mbps)         : 866.7\\n', '    传输速率 (Mbps)        : 866.7\\n', '    信号                   : 100%\\n', '    配置文件               : wpa2-aes \\n', '\\n', '    承载网络状态  : 不可用\\n', '\\n']",
+                "2",
+                " WLAN5G1\\n', '    描述                   : Realtek 8812AU Wireless LAN 802.11ac USB NIC #3\\n', '    GUID                   : d569b5a2-7c06-4f18-93f9-82ffedcc0e0a\\n', '    物理地址               : 08:10:7a:18:95:8a\\n', '    状态                   : 已连接\\n', '    SSID                   : MERCKU-AutoTest\\n', '    BSSID                  : f8:27:2e:01:0e:eb\\n', '    网络类型               : 结构\\n', '    无线电类型             : 802.11ac\\n', '    身份验证               : WPA2 - 个人\\n', '    密码                   : CCMP\\n', '    连接模式               : 配置文件\\n', '    信道                   : 40\\n', '    接收速率(Mbps)         : 866.7\\n', '    传输速率 (Mbps)        : 866.7\\n', '    信号                   : 100%\\n', '    配置文件               : wpa2-aes \\n', '\\n', '    承载网络状态  : 不可用\\n', '\\n']",
+                "连接成功",
+                "连接成功",
+                "【成功】",
+                ""
+            ]
         }
     ],
     "testName": "路由器功能自动化测试报告",
-    "testAll": 8,
-    "testFail": 0,
-    "beginTime": "2019-10-31 15:43:51",
-    "totalTime": "23s",
-    "testSkip": 6,
+    "testAll": 20,
+    "testFail": 2,
+    "beginTime": "2019-11-05 19:01:03",
+    "totalTime": "100s",
+    "testSkip": 15,
     "testError": 0
 };
 

@@ -58,25 +58,28 @@ class Test_static_dhcp_lease():
         return result
     @staticmethod
     def test_static_dhcp_lease_2_2():
-        pre_result = Test_static_dhcp_lease.test_static_dhcp_lease_2_1()
-        if pre_result == 1:
-            wlan0_ssid = common_conf.ssid_2g
-            wlan0_password = common_conf.wlan_password
-            wlan5g_con_status = common_fun.Wifi_con.wifi_5g_wpa2_aes_connect(wlan0_ssid, wlan0_password)
-            if wlan5g_con_status == 1:
-                wired1_mac = common_conf.wired1_mac
-                wlan5g_mac = common_conf.wired1_mac
-                static_ip1 = common_conf.static_ip1
-                wlan5g1_ip = common_fun.Static_dhcp_lease.read_networkcard_ip(wlan5g_mac)
-                wired1_ip = common_fun.Static_dhcp_lease.read_networkcard_ip(wired1_mac)
-                if static_ip1 == wlan5g1_ip and static_ip1 != wired1_ip:
-                    result = 1
-                else:
-                    result = 0
+        wlan0_ssid = common_conf.ssid_2g
+        wlan0_password = common_conf.wlan_password
+        wlan5g_con_status = common_fun.Wifi_con.wifi_5g_wpa2_aes_connect(wlan0_ssid, wlan0_password)
+        print("11111111111111")
+        if wlan5g_con_status == 1:
+            print("22222222222")
+            wired1_mac = common_conf.wired1_mac
+            wlan5g_mac = common_conf.wired1_mac
+            static_ip1 = common_conf.static_ip1
+            wlan5g1_ip = common_fun.Static_dhcp_lease.read_networkcard_ip(wlan5g_mac)
+            wired1_ip = common_fun.Static_dhcp_lease.read_networkcard_ip(wired1_mac)
+            print("================")
+            print("%s,%s,%s,%s,"%(static_ip1,wlan5g1_ip,static_ip1,wired1_ip))
+            print("================")
+            if static_ip1 == wlan5g1_ip and static_ip1 != wired1_ip:
+                result = 1
             else:
                 result = 0
         else:
             result = 0
+            print("333333333333")
+
         return result
 
 
@@ -117,33 +120,10 @@ class Test_static_dhcp_lease():
             result = 0
         return result
 
-    @staticmethod
-    #  用例-2838 : 删除一条MAC/IP绑定规则，该规则失效
-    #  先配置无线网卡WLAN5G1的静态IP为static_ip1，保存生效后，执行test_static_dhcp_lease_5_1，再执行
-    def test_static_dhcp_lease_5_1():
-        wlan0_ssid = common_conf.ssid_2g
-        wlan0_password = common_conf.wlan_password
-        wlan5g_con_status = common_fun.Wifi_con.wifi_5g_wpa2_aes_connect(wlan0_ssid, wlan0_password)
-        if wlan5g_con_status == 1:
-            result = 1
-        else:
-            result = 0
-        return result
-    @staticmethod
-    def test_static_dhcp_lease_5_2():
-        wlan0_ssid = common_conf.ssid_2g
-        wlan0_password = common_conf.wlan_password
-        wlan5g_con_status = common_fun.Wifi_con.wifi_5g_wpa2_aes_connect(wlan0_ssid, wlan0_password)
-        if wlan5g_con_status == 1:
-            result = 1
-        else:
-            result = 0
-        return result
-
     # @staticmethod
     # #  用例-2838 : 删除一条MAC/IP绑定规则，该规则失效
-    # #  先配置有线网卡WLAN2G1的静态IP为static_ip1，保存生效后，执行test_static_dhcp_lease_6_1，然后禁用WLAN2G1网卡，配置网卡WLAN5G1静态IP为static_ip1，然后删除WLAN2G1的静态规则，WLAN2G是否能获取到新的IP
-    # def test_static_dhcp_lease_6_1():
+    # #  先配置无线网卡WLAN5G1的静态IP为static_ip1，保存生效后，执行test_static_dhcp_lease_5_1，删除所绑定的MAC/IP绑定规则，保存生效后再执行test_static_dhcp_lease_5_2
+    # def test_static_dhcp_lease_5_1():
     #     wlan0_ssid = common_conf.ssid_2g
     #     wlan0_password = common_conf.wlan_password
     #     wlan5g_con_status = common_fun.Wifi_con.wifi_5g_wpa2_aes_connect(wlan0_ssid, wlan0_password)
@@ -152,12 +132,15 @@ class Test_static_dhcp_lease():
     #     else:
     #         result = 0
     #     return result
-    #
-    #     wired1_mac = common_conf.wired1_mac
-    #     static_ip1 = common_conf.static_ip1
-    #     wired1_ip = common_fun.Static_dhcp_lease.read_networkcard_ip(wired1_mac)
-    #     if static_ip1 == wired1_ip:
+    # @staticmethod
+    # def test_static_dhcp_lease_5_2():
+    #     wlan0_ssid = common_conf.ssid_2g
+    #     wlan0_password = common_conf.wlan_password
+    #     wlan5g_con_status = common_fun.Wifi_con.wifi_5g_wpa2_aes_connect(wlan0_ssid, wlan0_password)
+    #     if wlan5g_con_status == 1:
     #         result = 1
     #     else:
     #         result = 0
     #     return result
+
+

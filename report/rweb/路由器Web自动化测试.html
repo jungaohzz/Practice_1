@@ -7128,22 +7128,85 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 1,
+    "testPass": 8,
     "testResult": [
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_A_staticDHCPLease_add",
-            "description": "Mac与IP绑定-新增绑定",
-            "spendTime": "8.5 s",
+            "className": "GuestWifi",
+            "methodName": "test_A_guestWifi_on",
+            "description": "访客WiFi-启用",
+            "spendTime": "33.7 s",
             "status": "成功",
             "log": [
                 ""
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_B_deletes",
-            "description": "Mac与IP绑定-批量删除",
+            "className": "GuestWifi",
+            "methodName": "test_B_guestWifi_off",
+            "description": "访客WiFi-关闭",
+            "spendTime": "12.4 s",
+            "status": "成功",
+            "log": [
+                "1111111",
+                "22222",
+                "switch switch-animation",
+                ""
+            ]
+        },
+        {
+            "className": "VPN",
+            "methodName": "test_A_vpn_pptp",
+            "description": "VPN-新增PPTP",
+            "spendTime": "12.4 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "VPN",
+            "methodName": "test_B_vpn_l2tp",
+            "description": "VPN-新增L2TP",
+            "spendTime": "10.1 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "VPN",
+            "methodName": "test_C_vpn_on",
+            "description": "VPN-打开VPN",
+            "spendTime": "38.0 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "VPN",
+            "methodName": "test_D_vpn_off",
+            "description": "VPN-关闭VPN",
+            "spendTime": "22.8 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "VPN",
+            "methodName": "test_E_vpn_deleteAll",
+            "description": "VPN-删除所有VPN",
+            "spendTime": "9.46 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_A_routerManagement_elementsCheck",
+            "description": "管理路由器-元素检测",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7151,28 +7214,152 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_B_staticDHCPLease_adds",
-            "description": "Mac与IP绑定-再新增19条绑定记录",
-            "spendTime": "68.2 s",
-            "status": "失败",
+            "className": "RouterManagement",
+            "methodName": "test_B_routerManagement_page",
+            "description": "管理路由器-默认页及页面切换",
+            "spendTime": "0.0 s",
+            "status": "跳过",
             "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\rweb\\test_staticDhcpLease.py\", line 132, in test_B_staticDHCPLease_adds\n    EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py\", line 80, in until\n    raise TimeoutException(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.TimeoutException: Message: \n\n"
+                "跳过"
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_C_routerManagement_increaseMeshCoverage_default_note",
+            "description": "管理路由器-Mesh穿墙-默认状态及提示",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_D_routerManagement_confirmBox",
+            "description": "管理路由器-Mesh穿墙/完整拓扑-确认框元素检查及取消按钮",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_E_routerManagement_increaseMeshCoverage_on",
+            "description": "管理路由器-Mesh穿墙-开启成功",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_F_routerManagement_increaseMeshCoverage_off",
+            "description": "管理路由器-Mesh穿墙-关闭成功",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_G_routerManagement_completeGraph_default_note",
+            "description": "管理路由器-完整拓扑-默认状态及提示",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_H_routerManagement_editDeviceName_elementsCheck",
+            "description": "管理路由器-修改设备名称-元素检查",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_I_routerManagement_editDeviceName_edit",
+            "description": "管理路由器-修改设备名称-编辑",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_J_routerManagement_editDeviceName_errorNotSave",
+            "description": "管理路由器-修改设备名称-有异常提示时不能保存",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_K_routerManagement_editDeviceName_save_ok",
+            "description": "管理路由器-修改设备名称-保存成功",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_L_routerManagement_reboot_elementsCheck",
+            "description": "管理路由器-重启-元素检查",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_M_routerManagement_reboot_ok",
+            "description": "管理路由器-重启-重启成功检查",
+            "spendTime": "63.9 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_N_routerManagement_factoryReset_elementsCheck",
+            "description": "管理路由器-恢复出厂设置-元素检查",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "RouterManagement",
+            "methodName": "test_O_routerManagement_factoryReset_ok",
+            "description": "管理路由器-恢复出厂设置-恢复出厂设置成功检查",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
             ]
         }
     ],
     "testName": "路由器Web自动化测试报告",
-    "testAll": 3,
-    "testFail": 1,
-    "beginTime": "2019-10-24 11:13:48",
-    "totalTime": "95s",
-    "testSkip": 1,
+    "testAll": 22,
+    "testFail": 0,
+    "beginTime": "2019-11-06 19:49:19",
+    "totalTime": "236s",
+    "testSkip": 14,
     "testError": 0
 };
 

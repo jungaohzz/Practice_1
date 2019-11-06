@@ -20,6 +20,10 @@
 
 4、guestWiFiset最后修改完后，需要将Precondition修改为False
 
+5、staticDhcpLease中：未通过测试
+   test_C_init
+   test_I_staticDhcpLease_2_2
+
 
 
 

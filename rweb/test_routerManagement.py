@@ -830,7 +830,7 @@ class RouterManagement(Base):
 
 
 
-    @unittest.skip("跳过")
+    #@unittest.skip("跳过")
     def test_M_routerManagement_reboot_ok(self):
         """管理路由器-重启-重启成功检查"""
         """
@@ -960,7 +960,7 @@ class RouterManagement(Base):
 
 
 
-    #@unittest.skip("跳过")
+    @unittest.skip("跳过")
     def test_O_routerManagement_factoryReset_ok(self):
         """管理路由器-恢复出厂设置-恢复出厂设置成功检查"""
         """
@@ -1007,7 +1007,7 @@ class RouterManagement(Base):
 
         # 用例-1779 : 主路由，恢复出厂设置能成功
         # 断言：重启的60s，重置成功后会跳转到“设置路由器”页，查看是否有“设置路由器”按钮即可
-        WebDriverWait(self.driver, const.REBOOT_WAIT).until(
+        WebDriverWait(self.driver, const.REBOOT_WAIT+10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.SetupWifi))
         )
         SetupWifi_Text = self.driver.find_element_by_xpath(CommonLocators.SetupWifi).text

@@ -1385,5 +1385,9 @@ class Static_dhcp_lease:
         str0 = "".join(list(filter(lambda x: '%s' % interface_mac in x, list1)))
         print(type(str0))
         list2 = re.findall(".*IPv4 地址 . . . . . . . . . . . . : (.*)\(首选\).*", str0)
+        print (list2)
+        print ("xxxxxxxxxxxxxx")
         interface_ip = "".join(list2)
+        print (interface_ip)
+        print ("%s ip地址为%s"%(interface_mac,interface_ip))
         return interface_ip

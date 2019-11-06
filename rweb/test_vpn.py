@@ -50,7 +50,7 @@ class VPN(Base):
         """VPN-新增PPTP"""
         # 点击 新增 按钮
         WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.CLASS_NAME, VpnLocators.Add))
+            EC.element_to_be_clickable((By.XPATH, VpnLocators.Add))
         ).click()
         # 输入 名称
         WebDriverWait(self.driver, 10).until(
@@ -133,7 +133,7 @@ class VPN(Base):
         """VPN-新增L2TP"""
         # 点击 新增 按钮
         WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.CLASS_NAME, VpnLocators.Add))
+            EC.element_to_be_clickable((By.XPATH, VpnLocators.Add))
         ).click()
         # 输入 名称
         WebDriverWait(self.driver, 10).until(
@@ -261,3 +261,28 @@ class VPN(Base):
         )
         Statu_class = self.driver.find_element_by_xpath(VpnLocators.Statu).get_attribute('class')
         assert Statu_class == "switch switch-animation", Statu_class
+
+
+    #@unittest.skip("跳过")
+    def test_E_vpn_deleteAll(self):
+        """VPN-删除所有VPN"""
+        time.sleep(2)
+
+        flag = False
+        while flag == False:
+            try:
+                assert self.driver.find_element_by_xpath("//p[@class='empty-text']").is_displayed()
+                flag = True
+            except:
+                Delete = VpnLocators.Delete.format(num="last()")
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, Delete))
+                ).click()
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.element_to_be_clickable((By.XPATH, VpnLocators.Delete_Ok))
+                ).click()
+                # 断言:toast提示：成功
+                WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
+                    EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
+                )
+                time.sleep(2)
