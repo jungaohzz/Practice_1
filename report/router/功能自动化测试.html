@@ -7128,7 +7128,7 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 3,
+    "testPass": 1,
     "testResult": [
         {
             "className": "StaticDHCPLease",
@@ -7144,7 +7144,7 @@
             "className": "StaticDHCPLease",
             "methodName": "test_B_get_url",
             "description": "操作步骤：获取设备黑名单页的url",
-            "spendTime": "4.06 s",
+            "spendTime": "3.9 s",
             "status": "成功",
             "log": [
                 ""
@@ -7289,84 +7289,13 @@
             "log": [
                 "跳过"
             ]
-        },
-        {
-            "className": "StaticDHCPLease",
-            "methodName": "test_Q_staticDHCPLease_add_wlan5G1",
-            "description": "操作步骤：配置WLAN5G1-static_ip1",
-            "spendTime": "0.594 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\static_dhcp_lease_dir\\test_Web_staticDhcpLease.py\", line 131, in deleteAlls\n    assert self.driver.find_element_by_xpath(StaticDHCPLeaseLocators.List_Null).is_displayed()\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 394, in find_element_by_xpath\n    return self.find_element(by=By.XPATH, value=xpath)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 978, in find_element\n    'value': value})['value']\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//div[@class='empty']/p\"}\n  (Session info: chrome=78.0.3904.70)\n\n",
-                "\nDuring handling of the above exception, another exception occurred:\n\n",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\static_dhcp_lease_dir\\test_Web_staticDhcpLease.py\", line 769, in test_Q_staticDHCPLease_add_wlan5G1\n    self.deleteAlls()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\static_dhcp_lease_dir\\test_Web_staticDhcpLease.py\", line 136, in deleteAlls\n    EC.element_to_be_clickable((By.XPATH, StaticDHCPLeaseLocators.All_check))\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 80, in click\n    self._execute(Command.CLICK_ELEMENT)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webelement.py\", line 633, in _execute\n    return self._parent.execute(command, params)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <div class=\"box\"></div> is not clickable at point (251, 264). Other element would receive the click: <div data-v-d5f2eac8=\"\" class=\"loading-container\">...</div>\n  (Session info: chrome=78.0.3904.70)\n\n"
-            ]
-        },
-        {
-            "className": "StaticDHCPLease",
-            "methodName": "test_R_staticDhcpLease_5_1",
-            "description": "检验配置的WLAN5G1-static_ip1是否生效",
-            "spendTime": "12.8 s",
-            "status": "失败",
-            "log": [
-                "",
-                "Traceback (most recent call last):\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
-                "  File \"D:\\Python365\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
-                "  File \"D:\\PyCharm\\Practice_1\\router\\static_dhcp_lease_dir\\test_Web_staticDhcpLease.py\", line 782, in test_R_staticDhcpLease_5_1\n    EC.presence_of_element_located((By.XPATH, StaticDHCPLeaseLocators.List_MacAddr))\n",
-                "  File \"D:\\Python365\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py\", line 80, in until\n    raise TimeoutException(message, screen, stacktrace)\n",
-                "selenium.common.exceptions.TimeoutException: Message: \n\n"
-            ]
-        },
-        {
-            "className": "StaticDHCPLease",
-            "methodName": "test_S_staticDHCPLease_deleteAll",
-            "description": "操作步骤：删除所有绑定记录",
-            "spendTime": "33.7 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "StaticDHCPLease",
-            "methodName": "test_T_staticDhcpLease_5_2",
-            "description": "【检验】用例-2838 : 删除一条MAC/IP绑定规则，该规则失效",
-            "spendTime": "31.1 s",
-            "status": "成功",
-            "log": [
-                "<class 'list'>",
-                "['\\n', '系统上有 1 个接口: \\n', '\\n', '    名称                   : WLAN5G1\\n', '    描述                   : Realtek 8812AU Wireless LAN 802.11ac USB NIC #3\\n', '    GUID                   : d569b5a2-7c06-4f18-93f9-82ffedcc0e0a\\n', '    物理地址               : 08:10:7a:18:95:8a\\n', '    状态                   : 已连接\\n', '    SSID                   : MERCKU-AutoTest\\n', '    BSSID                  : f8:27:2e:01:0e:eb\\n', '    网络类型               : 结构\\n', '    无线电类型             : 802.11ac\\n', '    身份验证               : WPA2 - 个人\\n', '    密码                   : CCMP\\n', '    连接模式               : 配置文件\\n', '    信道                   : 40\\n', '    接收速率(Mbps)         : 866.7\\n', '    传输速率 (Mbps)        : 866.7\\n', '    信号                   : 100%\\n', '    配置文件               : wpa2-aes \\n', '\\n', '    承载网络状态  : 不可用\\n', '\\n']",
-                "2",
-                " WLAN5G1\\n', '    描述                   : Realtek 8812AU Wireless LAN 802.11ac USB NIC #3\\n', '    GUID                   : d569b5a2-7c06-4f18-93f9-82ffedcc0e0a\\n', '    物理地址               : 08:10:7a:18:95:8a\\n', '    状态                   : 已连接\\n', '    SSID                   : MERCKU-AutoTest\\n', '    BSSID                  : f8:27:2e:01:0e:eb\\n', '    网络类型               : 结构\\n', '    无线电类型             : 802.11ac\\n', '    身份验证               : WPA2 - 个人\\n', '    密码                   : CCMP\\n', '    连接模式               : 配置文件\\n', '    信道                   : 40\\n', '    接收速率(Mbps)         : 866.7\\n', '    传输速率 (Mbps)        : 866.7\\n', '    信号                   : 100%\\n', '    配置文件               : wpa2-aes \\n', '\\n', '    承载网络状态  : 不可用\\n', '\\n']",
-                "连接成功",
-                "连接成功",
-                "【成功】",
-                ""
-            ]
         }
     ],
     "testName": "路由器功能自动化测试报告",
-    "testAll": 20,
-    "testFail": 2,
-    "beginTime": "2019-11-05 19:01:03",
-    "totalTime": "100s",
+    "testAll": 16,
+    "testFail": 0,
+    "beginTime": "2019-11-06 20:27:53",
+    "totalTime": "15s",
     "testSkip": 15,
     "testError": 0
 };

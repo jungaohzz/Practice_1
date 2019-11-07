@@ -25,6 +25,7 @@ from rweb.path.networkMode import NetworkModeLocators
 from rweb.path.networkDiagnosis import NetworkDiagnosisLocators
 from rweb.path.systemLog import SystemLogLocators
 from rweb.path.vpn import VpnLocators
+import random
 
 
 """VPN"""
