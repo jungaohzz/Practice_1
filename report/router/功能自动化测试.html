@@ -7128,32 +7128,22 @@
 </script>
 <script type="text/javascript">
     var resultData = {
-    "testPass": 1,
+    "testPass": 3,
     "testResult": [
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_A_staticDHCPLease_default",
-            "description": "操作步骤：将主WiFi配置为默认值",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "StaticDHCPLease",
-            "methodName": "test_B_get_url",
-            "description": "操作步骤：获取设备黑名单页的url",
-            "spendTime": "3.9 s",
+            "className": "PortForwarding",
+            "methodName": "test_A_get_url",
+            "description": "操作步骤：获取端口转发页url",
+            "spendTime": "6.21 s",
             "status": "成功",
             "log": [
                 ""
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_C_init",
-            "description": "操作步骤：先执行Mac与IP绑定相关前置条件",
+            "className": "PortForwarding",
+            "methodName": "test_B_set_accessWay_StaticIP",
+            "description": "操作步骤：设置WAN口为静态IP接入，并配置一条端口转发规则",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7161,9 +7151,9 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_D_staticDHCPLease_add_wired1",
-            "description": "操作步骤：配置WIRED1-static_ip1",
+            "className": "PortForwarding",
+            "methodName": "test_C_2",
+            "description": "【检验】用例-3997:WAN口接入为静态IP接入时，配置一条端口转发规则，该规则生效",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7171,9 +7161,9 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_E_staticDhcpLease_1",
-            "description": "\n        【检验】用例-2830 : 配置一条MAC/IP绑定规则（IP未分配），该MAC对应主机发送一个DISCOVER报文，其中可选字段请求IP地址为空，该主机只能获取到绑定的IP地址\n        【检验】用例-3985 : 配置一条MAC/IP绑定规则，主路由器下的有线设备会重新获取到绑定的IP地址\n        ",
+            "className": "PortForwarding",
+            "methodName": "test_D_set_accessWay_PPPoE",
+            "description": "操作步骤：设置WAN口为PPPoE接入，并配置一条端口转发规则",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7181,9 +7171,9 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_F_staticDHCPLease_add_wired1",
-            "description": "操作步骤：配置WIRED1-static_ip1",
+            "className": "PortForwarding",
+            "methodName": "test_E_3",
+            "description": "【检验】用例-3996 : WAN口接入为PPPOE接入时，配置一条端口转发规则，该规则生效",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7191,9 +7181,9 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_G_staticDhcpLease_2_1",
-            "description": "【检验】用例-2836: 配置一条MAC / IP绑定规则，其他主机发送一个Request报文，其中可选字段请求IP地址为绑定的IP地址，该主机获取到路由器分配的其他IP",
+            "className": "PortForwarding",
+            "methodName": "test_F_set_accessWay_DHCP",
+            "description": "操作步骤：设置WAN口为DHCP接入，并配置一条端口转发规则",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7201,9 +7191,9 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_H_staticDHCPLease_add_wlan5G1",
-            "description": "操作步骤：配置WLAN5G1-static_ip1",
+            "className": "PortForwarding",
+            "methodName": "test_G_1",
+            "description": "【检验】用例-3995:WAN口接入为DHCP接入时，配置一条端口转发规则，该规则生效",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7211,9 +7201,9 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_I_staticDhcpLease_2_2",
-            "description": "\n        【检验】用例-7372 : 配置一条MAC/IP绑定规则（IP已分配），原分配到该IP的主机发送一个request报文，原主机不能再分配到该IP\n        【检验】用例-3987 : 配置一条MAC/IP绑定规则，主路由器下的5G设备会重新获取到绑定的IP地址\n        ",
+            "className": "PortForwarding",
+            "methodName": "test_H_add",
+            "description": "操作步骤：设置一条单对单TCP&UDP协议端口转发规则",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7221,9 +7211,9 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_J_staticDHCPLease_add_wired1",
-            "description": "操作步骤：配置WIRED1-static_ip1",
+            "className": "PortForwarding",
+            "methodName": "test_I_4",
+            "description": "【检验】用例-2774 : 设置一条单对单TCP&UDP协议端口转发规则，外网访问WAN口的TCP连接匹配到该规则，该数据包只被转发到规则中的主机",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7231,9 +7221,9 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_K_staticDhcpLease_3_1",
-            "description": "【检验】用例-2833 : 配置一条MAC/IP绑定规则，该MAC对应主机发送一个Request报文，其中可选字段请求IP地址不为绑定的IP地址，该主机只能获取到绑定的IP地址",
+            "className": "PortForwarding",
+            "methodName": "test_J_5",
+            "description": "【检验】用例-2312 : 设置一条单对单TCP&UDP协议端口转发规则，外网访问WAN口的UDP连接匹配到该规则，该数据包只被转发到规则中的主机",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7241,9 +7231,9 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_L_staticDHCPLease_add_wired1",
-            "description": "操作步骤：配置WIRED1-static_ip2",
+            "className": "PortForwarding",
+            "methodName": "test_K_add",
+            "description": "操作步骤：设置一条多个端口对多个端口的TCP&UDP端口转发规则",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7251,9 +7241,9 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_M_staticDhcpLease_3_2",
-            "description": "【检验】用例-4009 : 修改一条MAC/IP绑定规则，新规则生效，老规则失效",
+            "className": "PortForwarding",
+            "methodName": "test_L_6",
+            "description": "【检验】用例-3405 : 设置一条多个端口对多个端口的TCP&UDP端口转发规则，外网访问WAN口的连接匹配到该规则，该数据包只被转发到规则中的主机",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7261,9 +7251,9 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_N_staticDHCPLease_add_wired1",
-            "description": "操作步骤：配置WIRED1-static_ip1",
+            "className": "PortForwarding",
+            "methodName": "test_M_add",
+            "description": "操作步骤：设置一条单对单TCP协议端口转发规则",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7271,9 +7261,9 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_O_staticDhcpLease_4",
-            "description": "【检验】用例-2834 : 配置一条MAC/IP绑定规则，该MAC对应主机发送一个Request报文，其中可选字段请求IP地址绑定的IP地址，该主机只能获取到绑定的IP地址",
+            "className": "PortForwarding",
+            "methodName": "test_N_7",
+            "description": "【检验】用例-2310 : 设置一条单对单TCP协议端口转发规则，外网访问WAN口的连接匹配到该规则，该数据包只被转发到规则中的主机",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
@@ -7281,22 +7271,63 @@
             ]
         },
         {
-            "className": "StaticDHCPLease",
-            "methodName": "test_P_staticDhcpLease_4",
-            "description": "【检验】用例-2834 : 配置一条MAC/IP绑定规则，该MAC对应主机发送一个Request报文，其中可选字段请求IP地址绑定的IP地址，该主机只能获取到绑定的IP地址",
+            "className": "PortForwarding",
+            "methodName": "test_O_9",
+            "description": "【检验】用例-2678 : 设置一条单对单TCP协议端口转发规则，外网访问WAN口的连接没有完全匹配到规则，该数据包不被转发到规则中的主机",
             "spendTime": "0.0 s",
             "status": "跳过",
             "log": [
                 "跳过"
+            ]
+        },
+        {
+            "className": "PortForwarding",
+            "methodName": "test_P_11",
+            "description": "【检验】用例-3383 : 设置一条单对单TCP协议端口转发规则，内网访问WAN口的连接匹配到该规则，该数据包只被转发到规则中的主机",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "PortForwarding",
+            "methodName": "test_Q_13",
+            "description": "【检验】用例-3391 : 设置一条单对单TCP协议端口转发规则，内网访问WAN口的连接没有完全匹配到该规则，该数据包不被转发到规则中的主机",
+            "spendTime": "0.0 s",
+            "status": "跳过",
+            "log": [
+                "跳过"
+            ]
+        },
+        {
+            "className": "PortForwarding",
+            "methodName": "test_R_off",
+            "description": "操作步骤：将单对单TCP协议端口转发规则的状态关闭",
+            "spendTime": "5.08 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "PortForwarding",
+            "methodName": "test_S_18",
+            "description": "【检验】用例-3395 : 关闭一条单端口对单端口的TCP协议端口转发规则，外网访问WAN口的连接匹配到该规则，该数据包不被转发到规则中的主机",
+            "spendTime": "2.21 s",
+            "status": "成功",
+            "log": [
+                "【成功】",
+                ""
             ]
         }
     ],
     "testName": "路由器功能自动化测试报告",
-    "testAll": 16,
+    "testAll": 19,
     "testFail": 0,
-    "beginTime": "2019-11-06 20:27:53",
-    "totalTime": "15s",
-    "testSkip": 15,
+    "beginTime": "2019-11-11 17:07:24",
+    "totalTime": "25s",
+    "testSkip": 16,
     "testError": 0
 };
 

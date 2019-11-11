@@ -9,7 +9,10 @@ class PortForwardingLocators(object):
     """端口转发 首页 - 列表"""
     Add = "//button[@class='btn btn-small']"
     # 批量删除
-    Deletes = "//button[@class='btn m-btn btn-small']"
+    Check_ALL = "//div[@class='table']/div[2]/div[1]/div/div/label/div"
+    Deletes = "//button[@class='btn  btn-small']"
+
+    List_Null = "//div[@class='empty']"
 
     List_Name = "//div[@class='table-body']/div/div[1]/span[2]"
     List_OutNetIp = "//div[@class='table-body']/div[1]/div[2]/p[1]"
@@ -28,7 +31,7 @@ class PortForwardingLocators(object):
     ProtocolType_TcpUdp = "//div[@class='radio-wrap']/div/div[1]/div[1]"
     ProtocolType_TCP = "//div[@class='radio-wrap']/div/div[2]/div[1]"
     ProtocolType_UDP = "//div[@class='radio-wrap']/div/div[3]/div[1]"
-    Name= "//div[@class='form']/div[2]/div/div/div/input"
+    Name = "//div[@class='form']/div[2]/div/div/div/input"
     OutNetIp = "//div[@class='form']/div[3]/div/div/div/input"
     OutNetPort_start = "//div[@class='form']/div[4]/div/div[1]/div/div/div/input"
     OutNetPort_end = "//div[@class='form']/div[4]/div/div[2]/div/div/div/input"

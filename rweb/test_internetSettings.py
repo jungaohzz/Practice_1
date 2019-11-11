@@ -230,9 +230,9 @@ class InternetSettings(Base):
             )
 
             # 断言：判断主页那根线是否是通的
-            time.sleep(5)
+            time.sleep(7)
             self.driver.refresh()
-            time.sleep(5)
+            time.sleep(3)
             assert self.driver.find_element_by_xpath(InternetSettingsLocators.Line).get_attribute('class') == "line"
 
             # 断言：判断是否修改为：静态IP
@@ -287,7 +287,9 @@ class InternetSettings(Base):
             )
 
             # 断言：判断主页那根线是否是通的
-            time.sleep(10)
+            time.sleep(7)
+            self.driver.refresh()
+            time.sleep(3)
             assert self.driver.find_element_by_xpath(InternetSettingsLocators.Line).get_attribute('class') == "line"
 
             # 断言：判断是否修改为：动态IP

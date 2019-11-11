@@ -34,38 +34,22 @@ from .test_vpn import VPN
 from .test_devices import Devices
 
 
-# def core():
-#     s = []
-#     class_tests =     [
-#         # 建议执行顺序（倒序排如下）：
-#         # 管理路由器、管理密码、工作方式、限时（？如果被限制住未删掉情况怎么处理）
-#         # LimitTime, LimitRate,LimitWebsiteBlacklist
-#         GuestWifi, VPN, RouterManagement
-#     ]
-#     for t in class_tests:
-#         suite = TestLoader().loadTestsFromTestCase(t)
-#         s.append(suite)
-#     t_s = unittest.TestSuite(s)
-#     return t_s
-
-
 def core():
-    # 运行1次200s
-    # 运行100次5.5h
-    # 则运行1天24h，需要运行440次
-    # 假如按照运行5天算，则需要运行2200次
     s = []
-    test = [GuestWifi, VPN, RouterManagement]
-    class_tests = []
-    i = 1
-    while i <= 2200:
-        class_tests.append(test)
-
+    class_tests =     [
+        # 建议执行顺序（倒序排如下）：
+        # 管理路由器、管理密码、工作方式、限时（？如果被限制住未删掉情况怎么处理）
+        # LimitTime, LimitRate,LimitWebsiteBlacklist
+        GuestWifi, VPN, RouterManagement
+    ]
     for t in class_tests:
         suite = TestLoader().loadTestsFromTestCase(t)
         s.append(suite)
     t_s = unittest.TestSuite(s)
     return t_s
+
+
+
 
 
 if __name__ == "__main__":

@@ -6,7 +6,8 @@
 
 """MAC地址克隆"""
 class CloneMacAddressLocators(object):
-    Custom_Mac_Button = "//div[@class='radio selected']"
+    Default_Mac_Button = "//div[@class='form']/div[1]/div"
+    Custom_Mac_Button = "//div[@class='form']/div[2]/div[1]"
     Custom_Mac = "//div[@class='input-wrapper']/input"
     Save = "//button[@class='btn primary']"
     Save_Ok = "//button[@class='btn']"

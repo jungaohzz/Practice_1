@@ -18,6 +18,7 @@ from rweb.path.staticDhcpLease import StaticDHCPLeaseLocators
 from rweb.path.dmzHost import DmzHostLocators
 from rweb.path.dhcp import DhcpLocators
 from rweb.path.cloneMacAddress import CloneMacAddressLocators
+from rweb import const
 
 """MAC地址克隆"""
 

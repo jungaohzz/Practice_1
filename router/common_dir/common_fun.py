@@ -1122,14 +1122,14 @@ class Router_conf():
         time.sleep(1)
         text = tn.read_very_eager()
         text_string = text.decode()
+        return text_string
         tn.read_until(b"#", timeout=10)
         tn.write(exit.encode('ascii') + b'\n')
-        return text_string
         # 终止连接
 
     @staticmethod
     # 获取初始的长度
-    def GetstartIndex(content, startStr):
+    def getstartIndex(content, startStr):
         startIndex = content.index(startStr)
         if startIndex >= 0:
             startIndex += len(startStr)
