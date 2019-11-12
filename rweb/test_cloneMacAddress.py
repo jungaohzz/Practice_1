@@ -22,6 +22,7 @@ from rweb import const
 
 """MAC地址克隆"""
 
+
 class CloneMacAddress(Base):
     def setUp(self):
         super(CloneMacAddress, self).setUp()
@@ -37,7 +38,6 @@ class CloneMacAddress(Base):
         ).click()
         time.sleep(2)
 
-
     # @unittest.skip("跳过")
     def test_A_custom_mac(self):
         """MAC地址克隆-自定义Mac地址"""
@@ -46,7 +46,7 @@ class CloneMacAddress(Base):
             EC.element_to_be_clickable((By.XPATH, CloneMacAddressLocators.Custom_Mac_Button))
         ).click()
 
-        #输入自定义的Mac地址：f8:27:2e:01:1a:e1
+        # 输入自定义的Mac地址：f8:27:2e:01:1a:e1
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CloneMacAddressLocators.Custom_Mac))
         ).clear()

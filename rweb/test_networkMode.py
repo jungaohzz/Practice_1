@@ -24,6 +24,7 @@ from rweb.path.networkMode import NetworkModeLocators
 
 """工作方式"""
 
+
 class NetworkMode(Base):
     def setUp(self):
         super(NetworkMode, self).setUp()
@@ -39,8 +40,7 @@ class NetworkMode(Base):
         ).click()
         time.sleep(2)
 
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_set_bridge_mode(self):
         """工作方式-切换到桥模式"""
         # 点击 桥模式
@@ -79,23 +79,24 @@ class NetworkMode(Base):
         )
         print(1111111111)
         print(self.driver.find_element_by_xpath(CommonLocators.Devices).get_attribute('class'))
-        assert self.driver.find_element_by_xpath(CommonLocators.Devices).get_attribute('class') == "nav-child__text disabled"
+        assert self.driver.find_element_by_xpath(CommonLocators.Devices).get_attribute(
+            'class') == "nav-child__text disabled"
 
         # 断言：黑名单 不可用
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Blacklist))
         )
-        assert self.driver.find_element_by_xpath(CommonLocators.Blacklist).get_attribute('class') == "nav-child__text disabled"
+        assert self.driver.find_element_by_xpath(CommonLocators.Blacklist).get_attribute(
+            'class') == "nav-child__text disabled"
 
         # 断言：端口转发 不可用
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.PortForwarding))
         )
-        assert self.driver.find_element_by_xpath(CommonLocators.PortForwarding).get_attribute('class') == "nav-child__text disabled"
+        assert self.driver.find_element_by_xpath(CommonLocators.PortForwarding).get_attribute(
+            'class') == "nav-child__text disabled"
 
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_B_set_router_mode(self):
         """工作方式-切换到路由器模式"""
         # 点击 路由器模式
@@ -147,4 +148,5 @@ class NetworkMode(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.PortForwarding))
         )
-        assert self.driver.find_element_by_xpath(CommonLocators.PortForwarding).get_attribute('class') == "nav-child__text"
+        assert self.driver.find_element_by_xpath(CommonLocators.PortForwarding).get_attribute(
+            'class') == "nav-child__text"

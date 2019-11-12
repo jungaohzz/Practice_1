@@ -5,7 +5,7 @@
 # @Author:  GaoJun
 
 import unittest
-from .. base import Base
+from ..base import Base
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -25,11 +25,11 @@ from rweb.path.blacklist import BlacklistLocators
 from selenium.common.exceptions import NoSuchElementException
 from rweb.path.wifiSettings import WifiSettingsLocators
 from rweb.path.guestWifi import GuestWifiLocators
-from ..common_dir import common_conf,common_fun
+from ..common_dir import common_conf, common_fun
 from .device_black_testcase import Test_wifi_device_black, Test_guestwifi_device_black
 
-
 """黑名单"""
+
 
 class DeviceBlacklist(Base):
     # 定义配置设备黑名单相关前置条件的变量
@@ -38,15 +38,15 @@ class DeviceBlacklist(Base):
     # 定义设备黑名单页的url
     url_deviceBlacklistPage = ""
 
-    def switch_to_deviceBlacklistPage(self, Current_Url):  # 切换到 设备黑名单 页
-        if DeviceBlacklist.Precondition == False:
+    def switch_to_deviceBlacklistPage(self, current_url):  # 切换到 设备黑名单 页
+        if not DeviceBlacklist.Precondition:
             print("【失败】设备黑名单测试的相关前置条件配置失败")
             assert False
 
         self.driver.refresh()
         time.sleep(2)
         # 判断当前的url是否是目的url
-        while DeviceBlacklist.url_deviceBlacklistPage != Current_Url:
+        while DeviceBlacklist.url_deviceBlacklistPage != current_url:
             # 鼠标模拟移动到：设置
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_Set))
@@ -58,15 +58,10 @@ class DeviceBlacklist(Base):
                 EC.element_to_be_clickable((By.XPATH, CommonLocators.Blacklist))
             ).click()
             time.sleep(1)
-            Current_Url = self.driver.current_url
-
-
-
-
-
+            current_url = self.driver.current_url
 
     # 拉黑设备操作
-    def add_to_blacklist(self, Device_Mac):
+    def add_to_blacklist(self, device_mac):
         # 点击 新增 按钮
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, BlacklistLocators.Add))
@@ -74,12 +69,12 @@ class DeviceBlacklist(Base):
         time.sleep(1)
         i = 1
         while i <= 2:
-            Form_Devices_Mac = BlacklistLocators.Form_Devices_Mac.format(num=i)
-            Form_Devices_Mac = self.driver.find_element_by_xpath(Form_Devices_Mac).text[4:]
-            if Form_Devices_Mac == Device_Mac:
-                Form_Devices_Check = BlacklistLocators.Form_Devices_Check.format(num=i)
+            form_devices_mac = BlacklistLocators.Form_Devices_Mac.format(num=i)
+            form_devices_mac = self.driver.find_element_by_xpath(form_devices_mac).text[4:]
+            if form_devices_mac == device_mac:
+                form_devices_check = BlacklistLocators.Form_Devices_Check.format(num=i)
                 WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-                    EC.element_to_be_clickable((By.XPATH, Form_Devices_Check))
+                    EC.element_to_be_clickable((By.XPATH, form_devices_check))
                 ).click()
                 break
             i += 1
@@ -94,19 +89,13 @@ class DeviceBlacklist(Base):
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
         time.sleep(1)
 
-
-
-
-
-
-
     # 删除列表中所有设备操作
     def delete_allDevices(self):
         try:
             # 查看是否有 空列表 存在，如果不存在则表示列表不为空
             time.sleep(2)
-            Empty_List_Text = self.driver.find_element_by_xpath(BlacklistLocators.Empty_List).text
-            assert Empty_List_Text == "Empty", Empty_List_Text
+            empty_list_text = self.driver.find_element_by_xpath(BlacklistLocators.Empty_List).text
+            assert empty_list_text == "Empty", empty_list_text
         except:
             # 点击 全选 按钮
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -123,12 +112,6 @@ class DeviceBlacklist(Base):
             )
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
             time.sleep(1)
-
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_A_wifiSettings_default(self):
@@ -154,8 +137,8 @@ class DeviceBlacklist(Base):
         WebDriverWait(self.driver, const.REBOOT_WAIT).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Wifi_Name))
         )
-        Wifi_Name_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.Wifi_Name).get_attribute("value")
-        if Wifi_Name_Text != common_conf.ssid_2g:
+        wifi_name_text = self.driver.find_element_by_xpath(WifiSettingsLocators.Wifi_Name).get_attribute("value")
+        if wifi_name_text != common_conf.ssid_2g:
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Wifi_Name))
             ).clear()
@@ -165,15 +148,16 @@ class DeviceBlacklist(Base):
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Encryption_Button))
         )
-        Encryption_Value = self.driver.find_element_by_xpath(WifiSettingsLocators.Encryption_Button).get_attribute('value')
-        if Encryption_Value != "WPA/WPA2-PSK":
+        encryption_value = self.driver.find_element_by_xpath(WifiSettingsLocators.Encryption_Button).get_attribute(
+            'value')
+        if encryption_value != "WPA/WPA2-PSK":
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Encryption_Button))
             ).click()
             time.sleep(1)
-            WPA2 = WifiSettingsLocators.Encryption_Options.format(num=2)
+            wpa2 = WifiSettingsLocators.Encryption_Options.format(num=2)
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-                EC.element_to_be_clickable((By.XPATH, WPA2))
+                EC.element_to_be_clickable((By.XPATH, wpa2))
             ).click()
             time.sleep(1)
             flag = True
@@ -182,8 +166,9 @@ class DeviceBlacklist(Base):
         WebDriverWait(self.driver, const.REBOOT_WAIT).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
         )
-        WiFi_Password_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value")
-        if WiFi_Password_Text != common_conf.wlan_password:
+        wifi_password_text = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute(
+            "value")
+        if wifi_password_text != common_conf.wlan_password:
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.WiFi_Password))
             ).clear()
@@ -193,8 +178,8 @@ class DeviceBlacklist(Base):
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Hide_SSID))
         )
-        Hide_SSID_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Hide_SSID).get_attribute('class')
-        if Hide_SSID_class != "switch switch-animation":
+        hide_ssid_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Hide_SSID).get_attribute('class')
+        if hide_ssid_class != "switch switch-animation":
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Hide_SSID))
             ).click()
@@ -205,7 +190,8 @@ class DeviceBlacklist(Base):
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
         )
-        Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class')
+        Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute(
+            'class')
         if Smart_Connect_class != "switch switch-animation checked":
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
@@ -229,8 +215,6 @@ class DeviceBlacklist(Base):
                 EC.presence_of_element_located((By.XPATH, RouterManagementLocators.Mesh_Topology))
             )
             time.sleep(5)
-
-
 
             # 断言：检查是否所有项均设置为默认状态
 
@@ -258,13 +242,15 @@ class DeviceBlacklist(Base):
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Encryption_Button))
             )
-            Encryption_Value = self.driver.find_element_by_xpath(WifiSettingsLocators.Encryption_Button).get_attribute('value')
+            encryption_value = self.driver.find_element_by_xpath(WifiSettingsLocators.Encryption_Button).get_attribute(
+                'value')
             # 获取密码
             time.sleep(1)
             WebDriverWait(self.driver, const.REBOOT_WAIT).until(
                 EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
             )
-            WiFi_Password_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value")
+            WiFi_Password_Text = self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute(
+                "value")
             # 获取“隐藏SSID”开关状态
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Hide_SSID))
@@ -275,11 +261,11 @@ class DeviceBlacklist(Base):
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
             )
-            Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class')
-
+            Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute(
+                'class')
 
             # 判断是否设置成功
-            if Wifi_Name_Text != common_conf.ssid_2g and Encryption_Value != "WPA/WPA2-PSK" and WiFi_Password_Text != common_conf.wlan_password and \
+            if Wifi_Name_Text != common_conf.ssid_2g and encryption_value != "WPA/WPA2-PSK" and WiFi_Password_Text != common_conf.wlan_password and \
                     Hide_SSID_class != "switch switch-animation" and Smart_Connect_class != "switch switch-animation checked":
                 print("【失败】主WiFi设置为默认值操作失败")
                 DeviceBlacklist.Precondition = False
@@ -288,11 +274,6 @@ class DeviceBlacklist(Base):
                 print("【成功】主WiFi设置为默认值操作成功")
                 DeviceBlacklist.Precondition = True
                 assert True
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_B_guestWifiSettings_defaule(self):
@@ -315,7 +296,6 @@ class DeviceBlacklist(Base):
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Guest_WiFi))
         ).click()
         time.sleep(2)
-
 
         # 【设置默认参数】
         time.sleep(2)
@@ -373,7 +353,6 @@ class DeviceBlacklist(Base):
             EC.element_to_be_clickable((By.XPATH, GuestWifiLocators.Save_Ok))
         ).click()
 
-
         # 断言：保存成功后会访客WiFi的首页，则查看是否有“设置”按钮即可
         WebDriverWait(self.driver, const.REBOOT_WAIT).until(
             EC.presence_of_element_located((By.XPATH, GuestWifiLocators.Settings))
@@ -386,7 +365,6 @@ class DeviceBlacklist(Base):
         Statu_class = self.driver.find_element_by_xpath(GuestWifiLocators.Satatu).get_attribute('class')
         assert Statu_class == "switch switch-animation checked", Statu_class
         time.sleep(1)
-
 
         # 断言：判断是否设置为了默认值
 
@@ -419,9 +397,8 @@ class DeviceBlacklist(Base):
         )
         WiFi_Password_Text = self.driver.find_element_by_xpath(GuestWifiLocators.Password).get_attribute("value")
 
-
         if Statu_class == "switch switch-animation" and Wifi_Name_Text != common_conf.guest_ssid_2g and \
-            Smart_Connect_class != "switch switch-animation checked" and WiFi_Password_Text != common_conf.guest_wlan_password:
+                Smart_Connect_class != "switch switch-animation checked" and WiFi_Password_Text != common_conf.guest_wlan_password:
             print("【失败】访客WiFi设置为默认值操作失败")
             DeviceBlacklist.Precondition = False
             assert False
@@ -430,12 +407,7 @@ class DeviceBlacklist(Base):
             DeviceBlacklist.Precondition = True
             assert True
 
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_C_get_url(self):
         """操作步骤：获取设备黑名单页的url"""
         # 鼠标模拟移动到：设置
@@ -453,30 +425,23 @@ class DeviceBlacklist(Base):
         DeviceBlacklist.url_deviceBlacklistPage = self.driver.current_url
         time.sleep(1)
 
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_D_init(self):
         """操作步骤：主WiFi-先执行配置WiFi set相关前置条件"""
         if DeviceBlacklist.Precondition == False:
             print("【失败】主WiFi或访客WiFi设置为默认值操作失败")
             assert False
 
-        DeviceBlacklist.Precondition = True     #设置为True的目的是使下面那条代码能正常运行，然后再恢复会False
+        DeviceBlacklist.Precondition = True  # 设置为True的目的是使下面那条代码能正常运行，然后再恢复会False
         self.switch_to_deviceBlacklistPage(self.driver.current_url)
-        DeviceBlacklist.Precondition = False    #此处一定要将Precondition设置为 False
+        DeviceBlacklist.Precondition = False  # 此处一定要将Precondition设置为 False
 
-
-        flag = False    #用于标记是否配置成功，False为不成功，True为成功
+        flag = False  # 用于标记是否配置成功，False为不成功，True为成功
         i = 1
-        while i <= 2 and flag == False:     # 如果第1次失败，则尝试第2次配置
-            print("这是第%s次init"%i)
-            Result = Test_wifi_device_black.test_wifi_device_black_init()
-            if Result == 1:
+        while i <= 2 and flag == False:  # 如果第1次失败，则尝试第2次配置
+            print("这是第%s次init" % i)
+            result = Test_wifi_device_black.test_wifi_device_black_init()
+            if result == 1:
                 print("【成功】主WiFi-设备黑名单测试的相关前置条件配置成功")
                 flag = True
                 DeviceBlacklist.Precondition = True
@@ -485,20 +450,13 @@ class DeviceBlacklist(Base):
             else:
                 flag = False
 
-            if i == 2 and flag == False:    # 如果配置2此都没有成功，则报错
+            if i == 2 and flag == False:  # 如果配置2此都没有成功，则报错
                 print("【失败】主WiFi-设备黑名单测试的相关前置条件配置失败")
                 DeviceBlacklist.Precondition = False
                 assert False
             i += 1
 
-
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_E_deviceBlacklist_5G(self):
         """操作步骤：拉黑一个主WiFi下的5G设备"""
         self.switch_to_deviceBlacklistPage(self.driver.current_url)
@@ -513,13 +471,7 @@ class DeviceBlacklist(Base):
         Device_Mac_Value = self.driver.find_element_by_xpath(Device_Mac).text
         assert Device_Mac_Value == common_conf.wlan5g_mac, Device_Mac_Value
 
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_F_test_deviceBlacklist_1(self):
         """【检验】用例-7724 : 拉黑一个主WiFi下的5G设备，该设备会被立即踢下线，其他2G设备不会被提下线"""
         self.switch_to_deviceBlacklistPage(self.driver.current_url)
@@ -535,20 +487,13 @@ class DeviceBlacklist(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(20)
-        Result = Test_wifi_device_black.test_device_black_1()
-        if Result == 1:
+        result = Test_wifi_device_black.test_device_black_1()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
-
 
     # @unittest.skip("跳过")
     def test_G_test_deviceBlacklist_5(self):
@@ -565,19 +510,13 @@ class DeviceBlacklist(Base):
             assert False
 
         # 前提检验完成，开始检验用例
-        Result = Test_wifi_device_black.test_device_black_5()
-        if Result == 1:
+        result = Test_wifi_device_black.test_device_black_5()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
 
     # @unittest.skip("跳过")
     def test_H_test_deviceBlacklist_7(self):
@@ -594,30 +533,20 @@ class DeviceBlacklist(Base):
             assert False
 
         # 前提检验完成，开始检验用例
-        Result = Test_wifi_device_black.test_device_black_7()
-        if Result == 1:
+        result = Test_wifi_device_black.test_device_black_7()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
 
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_I_deviceBlacklist_deleteAlls(self):
         """操作步骤：删除设备黑名单中所有设备"""
         self.switch_to_deviceBlacklistPage(self.driver.current_url)
         # 删除所有设备
         self.delete_allDevices()
-
-
-
-
-
 
     # @unittest.skip("跳过")
     def test_J_test_deviceBlacklist_10(self):
@@ -634,19 +563,13 @@ class DeviceBlacklist(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(20)
-        Result = Test_wifi_device_black.test_device_black_10()
-        if Result == 1:
+        result = Test_wifi_device_black.test_device_black_10()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
 
     # @unittest.skip("跳过")
     def test_K_test_deviceBlacklist_12(self):
@@ -663,20 +586,13 @@ class DeviceBlacklist(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(20)
-        Result = Test_wifi_device_black.test_device_black_12()
-        if Result == 1:
+        result = Test_wifi_device_black.test_device_black_12()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
-
 
     # @unittest.skip("跳过")
     def test_L_deviceBlacklist_settings(self):
@@ -702,14 +618,6 @@ class DeviceBlacklist(Base):
         Device_Mac_Value = self.driver.find_element_by_xpath(Device_Mac).text
         assert Device_Mac_Value == common_conf.wlan2g_mac, Device_Mac_Value
 
-
-
-
-
-
-
-
-
     # @unittest.skip("跳过")
     def test_M_test_deviceBlacklist_3(self):
         """【检验】用例-7726 : 拉黑一个主WiFi下的2G设备，该设备会被立即踢下线，其他5G设备不会被提下线"""
@@ -726,19 +634,13 @@ class DeviceBlacklist(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(20)
-        Result = Test_wifi_device_black.test_device_black_3()
-        if Result == 1:
+        result = Test_wifi_device_black.test_device_black_3()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
 
     # @unittest.skip("跳过")
     def test_N_test_deviceBlacklist_6(self):
@@ -755,18 +657,13 @@ class DeviceBlacklist(Base):
             assert False
 
         # 前提检验完成，开始检验用例
-        Result = Test_wifi_device_black.test_device_black_6()
-        if Result == 1:
+        result = Test_wifi_device_black.test_device_black_6()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
 
     # @unittest.skip("跳过")
     def test_O_test_deviceBlacklist_8(self):
@@ -783,20 +680,13 @@ class DeviceBlacklist(Base):
             assert False
 
         # 前提检验完成，开始检验用例
-        Result = Test_wifi_device_black.test_device_black_8()
-        if Result == 1:
+        result = Test_wifi_device_black.test_device_black_8()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
-
 
     # @unittest.skip("跳过")
     def test_P_deviceBlacklist_default(self):
@@ -805,12 +695,6 @@ class DeviceBlacklist(Base):
 
         # 删除所有设备
         self.delete_allDevices()
-
-
-
-
-
-
 
     # @unittest.skip("跳过")
     def test_Q_test_deviceBlacklist_11(self):
@@ -827,20 +711,13 @@ class DeviceBlacklist(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(20)
-        Result = Test_wifi_device_black.test_device_black_11()
-        if Result == 1:
+        result = Test_wifi_device_black.test_device_black_11()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
-
 
     # @unittest.skip("跳过")
     def test_R_test_deviceBlacklist_13(self):
@@ -857,18 +734,13 @@ class DeviceBlacklist(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(20)
-        Result = Test_wifi_device_black.test_device_black_13()
-        if Result == 1:
+        result = Test_wifi_device_black.test_device_black_13()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
 
     # 为实现！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     # 为实现！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
@@ -899,19 +771,7 @@ class DeviceBlacklist(Base):
         Device_Mac_Value = self.driver.find_element_by_xpath(Device_Mac).text
         assert Device_Mac_Value == common_conf.wired2_mac, Device_Mac_Value
 
-
-
-
-
-
-
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_T_init(self):
         """操作步骤：访客WiFi-先执行配置WiFi set相关前置条件"""
         if DeviceBlacklist.Precondition == False:
@@ -926,8 +786,8 @@ class DeviceBlacklist(Base):
         i = 1
         while i <= 2 and flag == False:  # 如果第1次失败，则尝试第2次配置
             print("这是第%s次init" % i)
-            Result = Test_guestwifi_device_black.test_guestwifi_device_black_init()
-            if Result == 1:
+            result = Test_guestwifi_device_black.test_guestwifi_device_black_init()
+            if result == 1:
                 print("【成功】访客WiFi-设备黑名单测试的相关前置条件配置成功")
                 flag = True
                 DeviceBlacklist.Precondition = True
@@ -942,13 +802,7 @@ class DeviceBlacklist(Base):
                 assert False
             i += 1
 
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_U_deviceBlacklist_5G(self):
         """操作步骤：拉黑一个主WiFi下的5G设备"""
         self.switch_to_deviceBlacklistPage(self.driver.current_url)
@@ -963,13 +817,7 @@ class DeviceBlacklist(Base):
         Device_Mac_Value = self.driver.find_element_by_xpath(Device_Mac).text
         assert Device_Mac_Value == common_conf.wlan5g_mac, Device_Mac_Value
 
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_V_test_deviceBlacklist_15(self):
         """【检验】用例-7728 : 拉黑一个访客WiFi下的5G设备，该设备会被立即踢下线，其他2G设备不会被提下线"""
         self.switch_to_deviceBlacklistPage(self.driver.current_url)
@@ -985,21 +833,15 @@ class DeviceBlacklist(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(20)
-        Result = Test_guestwifi_device_black.test_device_black_15()
-        if Result == 1:
+        result = Test_guestwifi_device_black.test_device_black_15()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
 
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_W_deviceBlacklist_default(self):
         """操作步骤：删除设备黑名单中所有设备"""
         self.switch_to_deviceBlacklistPage(self.driver.current_url)
@@ -1007,13 +849,7 @@ class DeviceBlacklist(Base):
         # 删除所有设备
         self.delete_allDevices()
 
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_X_deviceBlacklist_settings(self):
         """操作步骤：访客WiFi-恢复默认状态，并拉黑2G设备"""
         self.switch_to_deviceBlacklistPage(self.driver.current_url)
@@ -1037,14 +873,6 @@ class DeviceBlacklist(Base):
         Device_Mac_Value = self.driver.find_element_by_xpath(Device_Mac).text
         assert Device_Mac_Value == common_conf.wlan2g_mac, Device_Mac_Value
 
-
-
-
-
-
-
-
-
     # @unittest.skip("跳过")
     def test_Y_test_deviceBlacklist_17(self):
         """【检验】用例-7730 : 拉黑一个访客WiFi下的2G设备，该设备会被立即踢下线，其他5G设备不会被提下线"""
@@ -1061,21 +889,15 @@ class DeviceBlacklist(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(20)
-        Result = Test_guestwifi_device_black.test_device_black_17()
-        if Result == 1:
+        result = Test_guestwifi_device_black.test_device_black_17()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
 
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_Z_deviceBlacklist_default(self):
         """操作步骤：删除设备黑名单中所有设备"""
         self.switch_to_deviceBlacklistPage(self.driver.current_url)

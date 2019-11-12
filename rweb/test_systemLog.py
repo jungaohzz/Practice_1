@@ -24,8 +24,8 @@ from rweb.path.networkMode import NetworkModeLocators
 from rweb.path.networkDiagnosis import NetworkDiagnosisLocators
 from rweb.path.systemLog import SystemLogLocators
 
-
 """路由器日志"""
+
 
 class SystemLog(Base):
     def setUp(self):
@@ -42,8 +42,7 @@ class SystemLog(Base):
         ).click()
         time.sleep(2)
 
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_systemLog_on(self):
         """路由器日志-开启"""
         # 默认状态：关闭
@@ -56,7 +55,7 @@ class SystemLog(Base):
             WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, SystemLogLocators.Statu))
             ).click()
-            time.sleep(2)   #用于切换开关
+            time.sleep(2)  # 用于切换开关
 
         # 到这里，无论是否执行if，开关状态都是：开启
 
@@ -66,9 +65,7 @@ class SystemLog(Base):
         )
         assert self.driver.find_element_by_xpath(SystemLogLocators.SystemLog_Text).text != ""
 
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_B_systemLog_off(self):
         """路由器日志-关闭"""
         # 如果状态为：打开，才进行if的关闭操作
@@ -80,7 +77,7 @@ class SystemLog(Base):
             WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, SystemLogLocators.Statu))
             ).click()
-            time.sleep(2)   #用于切换开关
+            time.sleep(2)  # 用于切换开关
 
         # 到这里，无论是否执行if，开关状态都是：关闭
 

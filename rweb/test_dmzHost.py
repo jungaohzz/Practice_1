@@ -19,6 +19,7 @@ from rweb.path.dmzHost import DmzHostLocators
 
 """DMZ主机"""
 
+
 class DmzHost(Base):
     def setUp(self):
         super(DmzHost, self).setUp()
@@ -71,7 +72,7 @@ class DmzHost(Base):
         )
         assert self.driver.find_element_by_xpath(DmzHostLocators.DmzHostIp).get_attribute("value") == "192.168.127.200"
 
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_B_dmz_on(self):
         """DMZ-开启"""
         # 判断：如果已关闭，才进行开启操作
@@ -97,7 +98,7 @@ class DmzHost(Base):
         )
         assert self.driver.find_element_by_xpath(DmzHostLocators.Statu).get_attribute('class') == "box checked"
 
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_C_dmz_off(self):
         """DMZ-关闭"""
         # 判断：如果已开启，才进行关闭操作
@@ -122,4 +123,3 @@ class DmzHost(Base):
             EC.presence_of_element_located((By.XPATH, DmzHostLocators.Statu))
         )
         assert self.driver.find_element_by_xpath(DmzHostLocators.Statu).get_attribute('class') == "box"
-

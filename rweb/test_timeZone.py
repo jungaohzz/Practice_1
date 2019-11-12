@@ -17,6 +17,7 @@ import time
 from rweb.path.common import CommonLocators
 from rweb.path.timeZone import TimeZoneLocators
 
+
 class TimeZone(Base):
 
     def setUp(self):
@@ -33,10 +34,7 @@ class TimeZone(Base):
         ).click()
         self.driver.refresh()
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_timeZone_elementCheck(self):
         """时区-元素检查"""
         """
@@ -92,11 +90,7 @@ class TimeZone(Base):
         Save_Button = self.driver.find_element_by_xpath(TimeZoneLocators.Save)
         assert Save_Button.is_displayed()
 
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_B_timeZone_canSelect(self):
         """时区-正常下拉并选中"""
         """
@@ -104,7 +98,6 @@ class TimeZone(Base):
                     点击下拉框 ： 显示下拉列表
                     点击选择某一个时区 ： 能选择成功，并显示出来
         """
-
 
         # 断言：用例-1636 : 时区下拉框，能正常下拉并选中
         # 点击3个时区进行检查
@@ -150,27 +143,30 @@ class TimeZone(Base):
         timezone_value = self.driver.find_element_by_tag_name("input").get_attribute('value')
         assert timezone_value == "(GMT+12:00)Fiji, Kamchatka, Marshall Is.", timezone_value
 
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_C_timeZone_selectFull(self):
         """时区-下拉框显示完整检查"""
         TimeZone_AllSelect = [
             "Eniwetok, Kwajalein", "Midway Island, Samoa", "Hawaii", "Alaska", "Pacific Time (US & Canada); Tijuana",
-            "Arizona", "Mountain Time (US & Canada)", "Central Time (US & Canada)", "Mexico City, Tegucigalpa", "Saskatchewan",
-            "Bogota, Lima, Quito", "Eastern Time (US & Canada)", "Indiana (East)", "Atlantic Time (Canada)", "Caracas, La Paz",
+            "Arizona", "Mountain Time (US & Canada)", "Central Time (US & Canada)", "Mexico City, Tegucigalpa",
+            "Saskatchewan",
+            "Bogota, Lima, Quito", "Eastern Time (US & Canada)", "Indiana (East)", "Atlantic Time (Canada)",
+            "Caracas, La Paz",
             "Santiago", "Newfoundland", "Brasilia", "Buenos Aires, Georgetown", "Mid-Atlantic",
-            "Azores, Cape Verde Is.", "Casablanca, Monrovia", "Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London", "Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna", "Belgrade, Bratislava, Budapest, Ljubljana, Prague",
-            "Barcelona, Madrid", "Brussels, Copenhagen, Madrid, Paris, Vilnius", "Paris", "Sarajevo, Skopje, Sofija, Warsaw, Zagreb", "Athens, Istanbul, Minsk",
+            "Azores, Cape Verde Is.", "Casablanca, Monrovia", "Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London",
+            "Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna", "Belgrade, Bratislava, Budapest, Ljubljana, Prague",
+            "Barcelona, Madrid", "Brussels, Copenhagen, Madrid, Paris, Vilnius", "Paris",
+            "Sarajevo, Skopje, Sofija, Warsaw, Zagreb", "Athens, Istanbul, Minsk",
             "Bucharest", "Cairo", "Harare, Pretoria", "Helsinki, Riga, Tallinn", "Jerusalem",
             "Baghdad, Kuwait, Riyadh", "Moscow, St. Petersburg, Volgograd", "Mairobi", "Tehran", "Abu Dhabi, Muscat",
-            "Baku, Tbilisi", "Kabul", "Ekaterinburg", "Islamabad, Karachi, Tashkent", "Mumbai, Calcutta, Madras, New Delhi",
-            "Astana, Almaty, Dhaka", "Colombo", "Bangkok, Hanoi, Jakarta", "Beijing, Chongqing, Hong Kong, Urumqi", "Perth",
+            "Baku, Tbilisi", "Kabul", "Ekaterinburg", "Islamabad, Karachi, Tashkent",
+            "Mumbai, Calcutta, Madras, New Delhi",
+            "Astana, Almaty, Dhaka", "Colombo", "Bangkok, Hanoi, Jakarta", "Beijing, Chongqing, Hong Kong, Urumqi",
+            "Perth",
             "Singapore", "Taipei", "Osaka, Sapporo, Tokyo", "Seoul", "Yakutsk",
             "Adelaide", "Darwin", "Brisbane", "Canberra, Melbourne, Sydney", "Guam, Port Moresby",
-            "Hobart", "Vladivostok", "Magadan, Solomon Is., New Caledonia", "Auckland, Wllington", "Fiji, Kamchatka, Marshall Is."
+            "Hobart", "Vladivostok", "Magadan, Solomon Is., New Caledonia", "Auckland, Wllington",
+            "Fiji, Kamchatka, Marshall Is."
         ]
         # 点击 时区框
         WebDriverWait(self.driver, 10).until(
@@ -185,13 +181,10 @@ class TimeZone(Base):
                 EC.element_to_be_clickable((By.XPATH, TimeZone_All))
             )
             Select = self.driver.find_element_by_xpath(TimeZone_All).text[11:]
-            assert Select == TimeZone_AllSelect[i-1], Select
+            assert Select == TimeZone_AllSelect[i - 1], Select
             i += 1
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_D_timeZone_save_ok_notEdit(self):
         """时区-未修改时区可成功保存"""
         # 直接点击 保存 按钮
@@ -212,11 +205,7 @@ class TimeZone(Base):
         Timezone_Value = self.driver.find_element_by_tag_name("input").get_attribute('value')
         assert Timezone_Value == "(GMT-05:00)Eastern Time (US & Canada)", Timezone_Value
 
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_E_timeZone_save_ok_edit(self):
         """时区-已修改时区可成功保存"""
         # 点击 时区框
@@ -245,4 +234,3 @@ class TimeZone(Base):
         )
         timezone_value = self.driver.find_element_by_tag_name("input").get_attribute('value')
         assert timezone_value == "(GMT+08:00)Beijing, Chongqing, Hong Kong, Urumqi", timezone_value
-

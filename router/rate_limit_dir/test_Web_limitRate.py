@@ -7,7 +7,7 @@
 import unittest
 import time
 from selenium import webdriver
-from .. base import Base
+from ..base import Base
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -24,40 +24,7 @@ from .rate_limit_testcase import Test_rate_limit
 from .rate_limit_conf import *
 
 
-
-
-
 class LimitRate(Base):
-
-    # def setUp(self):
-    #     super(LimitRate, self).setUp()
-    #     # 鼠标移动到切换“我的WiFi”按钮上
-    #     WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-    #         EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
-    #     )
-    #     mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
-    #     ActionChains(self.driver).move_to_element(mouse).perform()
-    #     # 点击 接入设备
-    #     WebDriverWait(self.driver, const.MEDIUM_WAIT+10).until(
-    #         EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
-    #     )
-    #     time.sleep(1)
-    #     self.driver.find_element_by_xpath(CommonLocators.Devices).click()
-    #
-    #     self.driver.refresh()
-    #     # 点击主网-设置
-    #     Set = DevicesLocators.Set.format(num=1)
-    #     WebDriverWait(self.driver, const.MEDIUM_WAIT+5).until(
-    #         EC.element_to_be_clickable((By.XPATH, Set))
-    #     ).click()
-    #     # 切换到限速页
-    #     WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-    #         EC.element_to_be_clickable((By.XPATH, LimitRateLocators.Page_RateLimit))
-    #     ).click()
-
-
-
-
     # 以下定义2个变量：有线和5G的限速页url变量。目的：用于判断当前页是在有线的限速页，还是5G的限速页
     url_wired_limitRatePage = ""
     url_5g_limitRatePage = ""
@@ -104,10 +71,6 @@ class LimitRate(Base):
             ).click()
             Current_Url = self.driver.current_url
 
-
-
-
-
     # @unittest.skip("跳过")
     def test_A_get_url(self):
         """操作步骤：获取有线的限速url、5G的限速url"""
@@ -141,12 +104,6 @@ class LimitRate(Base):
             else:
                 LimitRate.url_5g_limitRatePage = self.driver.current_url  # 获取5G的限速url
             i += 1
-
-
-
-
-
-
 
     # #@unittest.skip("跳过")
     # def test_B_limitRate_onlyLimitUpload(self):
@@ -238,8 +195,8 @@ class LimitRate(Base):
     #         assert False
     #
     #     # 前提已完成，开始检验用例
-    #     Result = Test_rate_limit.test_rate_limit_1()
-    #     if Result == 1:
+    #     result = Test_rate_limit.test_rate_limit_1()
+    #     if result == 1:
     #         print("【成功】")
     #         assert True
     #     else:
@@ -344,8 +301,8 @@ class LimitRate(Base):
     #         assert False
     #
     #     # 前提已完成，开始检验用例
-    #     Result = Test_rate_limit.test_rate_limit_2()
-    #     if Result == 1:
+    #     result = Test_rate_limit.test_rate_limit_2()
+    #     if result == 1:
     #         print("【成功】")
     #         assert True
     #     else:
@@ -450,8 +407,8 @@ class LimitRate(Base):
     #         assert False
     #
     #     # 前提已完成，开始检验用例
-    #     Result = Test_rate_limit.test_rate_limit_3()
-    #     if Result == 1:
+    #     result = Test_rate_limit.test_rate_limit_3()
+    #     if result == 1:
     #         print("【成功】")
     #         assert True
     #     else:
@@ -554,8 +511,8 @@ class LimitRate(Base):
     #         assert False
     #
     #     # 前提已完成，开始检验用例
-    #     Result = Test_rate_limit.test_rate_limit_4()
-    #     if Result == 1:
+    #     result = Test_rate_limit.test_rate_limit_4()
+    #     if result == 1:
     #         print("【成功】")
     #         assert True
     #     else:
@@ -604,10 +561,6 @@ class LimitRate(Base):
     #
     #
 
-
-
-
-
     @unittest.skip("跳过")
     def test_K_limitRate_5(self):
         """【检验】用例-979:关闭限速后，上行和下行速度不被限制"""
@@ -622,22 +575,13 @@ class LimitRate(Base):
             assert False
 
         # 前提已完成，开始检验用例
-        Result = Test_rate_limit.test_rate_limit_5()
-        if Result == 1:
+        result = Test_rate_limit.test_rate_limit_5()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_L_limitRate_edit_statu_on(self):
@@ -668,15 +612,7 @@ class LimitRate(Base):
             Statu_class = self.driver.find_element_by_xpath(LimitRateLocators.Statu).get_attribute('class')
             assert Statu_class == "box checked", Statu_class
 
-
-
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_M_limitRate_6(self):
         """【检验】用例-981：对单个设备限速后，不影响其他设备 (对设备A限速成功后，设备B不会被限速)"""
         self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
@@ -690,22 +626,13 @@ class LimitRate(Base):
             assert False
 
         # 前提已完成，开始检验用例
-        Result = Test_rate_limit.test_rate_limit_6()
-        if Result == 1:
+        result = Test_rate_limit.test_rate_limit_6()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_N_limitRate_edits(self):
@@ -713,7 +640,7 @@ class LimitRate(Base):
         # 设备A（有线）
         self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
         # 上下行的值（500、1000）与开关状态（开启）理应都是配置好的，但还是要检验一遍
-        flag = False    #用于标记是否需要修改，False为不需要修改，True为需要修改
+        flag = False  # 用于标记是否需要修改，False为不需要修改，True为需要修改
         # 上行：500
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitRateLocators.Upload))
@@ -741,7 +668,7 @@ class LimitRate(Base):
             self.driver.find_element_by_xpath(LimitRateLocators.Statu).click()
             flag = True
 
-        if flag == True:    #即需要修改，则需要点击 保存 按钮
+        if flag == True:  # 即需要修改，则需要点击 保存 按钮
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, LimitRateLocators.Save))
             ).click()
@@ -780,15 +707,6 @@ class LimitRate(Base):
             EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-
-
-
-
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_O_limitRate_7(self):
@@ -850,22 +768,13 @@ class LimitRate(Base):
             assert False
 
         # 前提已完成，开始检验用例
-        Result = Test_rate_limit.test_rate_limit_7()
-        if Result == 1:
+        result = Test_rate_limit.test_rate_limit_7()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_P_limitRate_edits_5G(self):
@@ -903,13 +812,6 @@ class LimitRate(Base):
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
-
-
-
-
-
-
-
     @unittest.skip("跳过")
     def test_Q_limitRate_8(self):
         """【检验】用例-1612:无线接入，限速功能可生效"""
@@ -941,19 +843,13 @@ class LimitRate(Base):
             assert False
 
         # 前提已完成，开始检验用例
-        Result = Test_rate_limit.test_rate_limit_8()
-        if Result == 1:
+        result = Test_rate_limit.test_rate_limit_8()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
 
     #
     #
@@ -1034,8 +930,8 @@ class LimitRate(Base):
     #         assert False
     #
     #     # 前提已完成，开始检验用例
-    #     Result = Test_rate_limit.test_rate_limit_9()
-    #     if Result == 1:
+    #     result = Test_rate_limit.test_rate_limit_9()
+    #     if result == 1:
     #         print("【成功】")
     #         assert True
     #     else:

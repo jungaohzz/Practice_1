@@ -7058,7 +7058,7 @@
                             <option value="">----------</option>
                         </select>
                         <label style="color: snow">结果:</label>
-                        <select class="chosen-select form-control" data-placeholder="----------" style="width: 300px;" name="filterResult" id="filterResult">
+                        <select class="chosen-select form-control" data-placeholder="----------" style="width: 300px;" name="filterresult" id="filterresult">
                             <option value="">----------</option>
                         </select>
                         <div style="float: right">
@@ -7129,205 +7129,45 @@
 <script type="text/javascript">
     var resultData = {
     "testPass": 3,
-    "testResult": [
+    "testresult": [
         {
-            "className": "PortForwarding",
-            "methodName": "test_A_get_url",
-            "description": "操作步骤：获取端口转发页url",
-            "spendTime": "6.21 s",
+            "className": "AdminPassword",
+            "methodName": "test_A_set_newPassword",
+            "description": "操作步骤：修改管理密码",
+            "spendTime": "11.5 s",
             "status": "成功",
             "log": [
                 ""
             ]
         },
         {
-            "className": "PortForwarding",
-            "methodName": "test_B_set_accessWay_StaticIP",
-            "description": "操作步骤：设置WAN口为静态IP接入，并配置一条端口转发规则",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_C_2",
-            "description": "【检验】用例-3997:WAN口接入为静态IP接入时，配置一条端口转发规则，该规则生效",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_D_set_accessWay_PPPoE",
-            "description": "操作步骤：设置WAN口为PPPoE接入，并配置一条端口转发规则",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_E_3",
-            "description": "【检验】用例-3996 : WAN口接入为PPPOE接入时，配置一条端口转发规则，该规则生效",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_F_set_accessWay_DHCP",
-            "description": "操作步骤：设置WAN口为DHCP接入，并配置一条端口转发规则",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_G_1",
-            "description": "【检验】用例-3995:WAN口接入为DHCP接入时，配置一条端口转发规则，该规则生效",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_H_add",
-            "description": "操作步骤：设置一条单对单TCP&UDP协议端口转发规则",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_I_4",
-            "description": "【检验】用例-2774 : 设置一条单对单TCP&UDP协议端口转发规则，外网访问WAN口的TCP连接匹配到该规则，该数据包只被转发到规则中的主机",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_J_5",
-            "description": "【检验】用例-2312 : 设置一条单对单TCP&UDP协议端口转发规则，外网访问WAN口的UDP连接匹配到该规则，该数据包只被转发到规则中的主机",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_K_add",
-            "description": "操作步骤：设置一条多个端口对多个端口的TCP&UDP端口转发规则",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_L_6",
-            "description": "【检验】用例-3405 : 设置一条多个端口对多个端口的TCP&UDP端口转发规则，外网访问WAN口的连接匹配到该规则，该数据包只被转发到规则中的主机",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_M_add",
-            "description": "操作步骤：设置一条单对单TCP协议端口转发规则",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_N_7",
-            "description": "【检验】用例-2310 : 设置一条单对单TCP协议端口转发规则，外网访问WAN口的连接匹配到该规则，该数据包只被转发到规则中的主机",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_O_9",
-            "description": "【检验】用例-2678 : 设置一条单对单TCP协议端口转发规则，外网访问WAN口的连接没有完全匹配到规则，该数据包不被转发到规则中的主机",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_P_11",
-            "description": "【检验】用例-3383 : 设置一条单对单TCP协议端口转发规则，内网访问WAN口的连接匹配到该规则，该数据包只被转发到规则中的主机",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_Q_13",
-            "description": "【检验】用例-3391 : 设置一条单对单TCP协议端口转发规则，内网访问WAN口的连接没有完全匹配到该规则，该数据包不被转发到规则中的主机",
-            "spendTime": "0.0 s",
-            "status": "跳过",
-            "log": [
-                "跳过"
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_R_off",
-            "description": "操作步骤：将单对单TCP协议端口转发规则的状态关闭",
-            "spendTime": "5.08 s",
-            "status": "成功",
-            "log": [
-                ""
-            ]
-        },
-        {
-            "className": "PortForwarding",
-            "methodName": "test_S_18",
-            "description": "【检验】用例-3395 : 关闭一条单端口对单端口的TCP协议端口转发规则，外网访问WAN口的连接匹配到该规则，该数据包不被转发到规则中的主机",
-            "spendTime": "2.21 s",
+            "className": "AdminPassword",
+            "methodName": "test_B_1",
+            "description": "【检验】用例-102272 : 修改管理密码，旧密码失效，新密码生效",
+            "spendTime": "2.94 s",
             "status": "成功",
             "log": [
                 "【成功】",
                 ""
             ]
+        },
+        {
+            "className": "AdminPassword",
+            "methodName": "test_C_set_defaultPassword",
+            "description": "操作步骤：修改回默认的管理密码",
+            "spendTime": "10.8 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
         }
     ],
     "testName": "路由器功能自动化测试报告",
-    "testAll": 19,
+    "testAll": 3,
     "testFail": 0,
-    "beginTime": "2019-11-11 17:07:24",
-    "totalTime": "25s",
-    "testSkip": 16,
+    "beginTime": "2019-11-12 11:31:42",
+    "totalTime": "38s",
+    "testSkip": 0,
     "testError": 0
 };
 
@@ -7340,7 +7180,7 @@
         if ($(obj).text() == '展开') {
             var len = $(obj).parent().parent().children().length;
             var detailLog = "";
-            var logs = resultData["testResult"][parseInt($(obj).attr("buttonIndex"))]["log"];
+            var logs = resultData["testresult"][parseInt($(obj).attr("buttonIndex"))]["log"];
             $(obj).text("收缩");
             $(obj).removeClass("btn-primary");
             $(obj).addClass("btn-danger");
@@ -7370,7 +7210,7 @@
         $("#filterSkip").text(resultData["testSkip"]);
         var classNames = [];
         var results = [];
-        $.each(resultData["testResult"], function (i, n) {
+        $.each(resultData["testresult"], function (i, n) {
             if (classNames.indexOf(n["className"]) == -1) {
                 classNames.push(n["className"]);
             }
@@ -7383,20 +7223,20 @@
             $("#filterClass").append("<option value='" + n + "' hassubinfo='true'>" + n + "</option>");
         });
         $.each(results, function (i, n) {
-            $("#filterResult").append("<option value='" + n + "' hassubinfo='true'>" + n + "</option>");
+            $("#filterresult").append("<option value='" + n + "' hassubinfo='true'>" + n + "</option>");
         });
 
         $("#filterClass").chosen({search_contains: true});
-        $("#filterResult").chosen({search_contains: true});
+        $("#filterresult").chosen({search_contains: true});
 
-        function generateResult(className, caseResult) {
+        function generateresult(className, caseresult) {
             $("#detailBody").children().remove();
             var filterAll = 0;
             var filterOk = 0;
             var filterFail = 0;
             var filterSkip = 0;
-            $.each(resultData["testResult"], function (i, n) {
-                if ((className == "" || n["className"] == className) && (caseResult == "" || n["status"] == caseResult)) {
+            $.each(resultData["testresult"], function (i, n) {
+                if ((className == "" || n["className"] == className) && (caseresult == "" || n["status"] == caseresult)) {
                     filterAll += 1;
                     var status = "";
                     if (n["status"] == '成功') {
@@ -7427,18 +7267,18 @@
             $("#filterSkip").text(filterSkip);
         }
 
-        generateResult("", "");
+        generateresult("", "");
 
         $("#filterClass").on('change', function () {
             var className = $("#filterClass").val();
-            var caseResult = $("#filterResult").val();
-            generateResult(className, caseResult);
+            var caseresult = $("#filterresult").val();
+            generateresult(className, caseresult);
         });
 
-        $("#filterResult").on('change', function () {
+        $("#filterresult").on('change', function () {
             var className = $("#filterClass").val();
-            var caseResult = $("#filterResult").val();
-            generateResult(className, caseResult);
+            var caseresult = $("#filterresult").val();
+            generateresult(className, caseresult);
         });
 
         //$(".chosen-select").trigger("chosen:updated");

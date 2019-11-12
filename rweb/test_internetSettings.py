@@ -19,8 +19,8 @@ from rweb.path.dmzHost import DmzHostLocators
 from rweb.path.internetSettings import InternetSettingsLocators
 from rweb.path.routerManagement import RouterManagementLocators
 
-
 """上网设置"""
+
 
 class InternetSettings(Base):
     def setUp(self):
@@ -37,7 +37,7 @@ class InternetSettings(Base):
         ).click()
         time.sleep(2)
 
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_PPPoE(self):
         """上网设置-设置为PPPoE"""
         # WebDriverWait(self.driver, 10).until(
@@ -103,8 +103,6 @@ class InternetSettings(Base):
         # Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
         # assert Internet_Way_value == "PPPoE", Internet_Way_value
 
-
-
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )
@@ -149,12 +147,12 @@ class InternetSettings(Base):
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Shadow))
             )
 
-
         # 断言：是否为：PPPoE：
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )
-        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute("value")
+        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute(
+            "value")
         assert Internet_Way_value == "PPPoE", Internet_Way_value
 
         # # 进入 管理设备 页，目的：断言那根线是否是通的
@@ -169,14 +167,11 @@ class InternetSettings(Base):
         # ).click()
         # time.sleep(2)
 
-
         # # 断言：判断主页那根线是否是通的
         # time.sleep(5)
         # self.driver.refresh()
         # time.sleep(5)
         # assert self.driver.find_element_by_xpath(InternetSettingsLocators.Line).get_attribute('class') == "line"
-
-
 
     @unittest.skip("跳过")
     def test_B_StaticIP(self):
@@ -184,7 +179,8 @@ class InternetSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )
-        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
+        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute(
+            'value')
         # 如果上网方式不为静态IP，才进行下面的if操作，切换为静态IP
         if Internet_Way_value != "Static IP":
             # 点击上网方式
@@ -251,9 +247,9 @@ class InternetSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )
-        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
+        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute(
+            'value')
         assert Internet_Way_value == "Static IP", Internet_Way_value
-
 
     @unittest.skip("跳过")
     def test_C_DHCP(self):
@@ -261,7 +257,8 @@ class InternetSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )
-        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
+        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute(
+            'value')
         # 如果上网方式不为动态IP，才进行下面的if操作，切换为动态IP
         if Internet_Way_value != "DHCP":
             # 点击上网方式
@@ -308,22 +305,6 @@ class InternetSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )
-        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
+        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute(
+            'value')
         assert Internet_Way_value == "DHCP", Internet_Way_value
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -5,7 +5,6 @@
 # @Author:  GaoJun
 
 
-
 import unittest
 from .test_base import Base
 from selenium.webdriver.support.ui import WebDriverWait
@@ -25,6 +24,7 @@ from rweb.path.guestWifi import GuestWifiLocators
 
 """访客WiFi"""
 
+
 class GuestWifi(Base):
     def setUp(self):
         super(GuestWifi, self).setUp()
@@ -40,8 +40,7 @@ class GuestWifi(Base):
         ).click()
         time.sleep(2)
 
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_guestWifi_on(self):
         """访客WiFi-启用"""
         time.sleep(2)
@@ -76,7 +75,7 @@ class GuestWifi(Base):
             WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, GuestWifiLocators.Encryption))
             ).click()
-            Encryption_WPA_WPA2_PSK=GuestWifiLocators.Encryption_Alls.format(num=2)
+            Encryption_WPA_WPA2_PSK = GuestWifiLocators.Encryption_Alls.format(num=2)
             WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, Encryption_WPA_WPA2_PSK))
             ).click()
@@ -108,9 +107,7 @@ class GuestWifi(Base):
         Statu_class = self.driver.find_element_by_xpath(GuestWifiLocators.Satatu).get_attribute('class')
         assert Statu_class == "switch switch-animation checked", Statu_class
 
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_B_guestWifi_off(self):
         """访客WiFi-关闭"""
         time.sleep(2)  # 用于切换按钮

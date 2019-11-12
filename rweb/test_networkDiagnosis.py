@@ -23,8 +23,8 @@ from rweb.path.ddns import DDNSLocators
 from rweb.path.networkMode import NetworkModeLocators
 from rweb.path.networkDiagnosis import NetworkDiagnosisLocators
 
-
 """网络诊断"""
+
 
 class NetworkDiagnosis(Base):
     def setUp(self):
@@ -41,8 +41,7 @@ class NetworkDiagnosis(Base):
         ).click()
         time.sleep(2)
 
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_networkDiagnosis_ping(self):
         """网络诊断-ping"""
         # 点击 ping
@@ -62,11 +61,7 @@ class NetworkDiagnosis(Base):
         ).click()
         time.sleep(2)
 
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_B_networkDiagnosis_traceroute(self):
         """网络诊断-traceroute"""
         # 点击 traceroute
@@ -86,12 +81,7 @@ class NetworkDiagnosis(Base):
         ).click()
         time.sleep(2)
 
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_C_networkDiagnosis_nslookup(self):
         """网络诊断-nslookup"""
         # 点击 nslookup

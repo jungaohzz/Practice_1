@@ -5,9 +5,10 @@
 # @Author:  GaoJun
 
 """管理密码"""
+
+
 class AdminPasswordLocators(object):
     # 新密码
     New_Password = "//input[@type='password']"
 
     Save = "//button[@class='btn']"
-

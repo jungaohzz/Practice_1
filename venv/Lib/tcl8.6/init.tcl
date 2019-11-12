@@ -343,9 +343,9 @@ proc unknown args {
 		}
 		uplevel 1 [list ::catch \
 			[concat exec $redir $new [lrange $args 1 end]] \
-			::tcl::UnknownResult ::tcl::UnknownOptions]
+			::tcl::Unknownresult ::tcl::UnknownOptions]
 		dict incr ::tcl::UnknownOptions -level
-		return -options $::tcl::UnknownOptions $::tcl::UnknownResult
+		return -options $::tcl::UnknownOptions $::tcl::Unknownresult
 	    }
 	}
 	if {$name eq "!!"} {
@@ -360,9 +360,9 @@ proc unknown args {
 	    tclLog $newcmd
 	    history change $newcmd 0
 	    uplevel 1 [list ::catch $newcmd \
-		    ::tcl::UnknownResult ::tcl::UnknownOptions]
+		    ::tcl::Unknownresult ::tcl::UnknownOptions]
 	    dict incr ::tcl::UnknownOptions -level
-	    return -options $::tcl::UnknownOptions $::tcl::UnknownResult
+	    return -options $::tcl::UnknownOptions $::tcl::Unknownresult
 	}
 
 	set ret [catch {set candidates [info commands $name*]} msg]
@@ -390,9 +390,9 @@ proc unknown args {
 	}
 	if {[llength $cmds] == 1} {
 	    uplevel 1 [list ::catch [lreplace $args 0 0 [lindex $cmds 0]] \
-		    ::tcl::UnknownResult ::tcl::UnknownOptions]
+		    ::tcl::Unknownresult ::tcl::UnknownOptions]
 	    dict incr ::tcl::UnknownOptions -level
-	    return -options $::tcl::UnknownOptions $::tcl::UnknownResult
+	    return -options $::tcl::UnknownOptions $::tcl::Unknownresult
 	}
 	if {[llength $cmds]} {
 	    return -code error "ambiguous command name \"$name\": [lsort $cmds]"

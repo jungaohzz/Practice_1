@@ -55,7 +55,7 @@ class Base(unittest.TestCase):
         #         ).click()
         #         time.sleep(0.5)
         #     except:
-        #         print("正常")
+        #         print("没有升级弹窗")
 
     @classmethod
     def tearDownClass(cls):

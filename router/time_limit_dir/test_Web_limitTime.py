@@ -7,7 +7,7 @@
 import unittest
 import time
 
-from .. base import Base
+from ..base import Base
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -18,39 +18,10 @@ from rweb.path.common import CommonLocators
 from rweb.path.devices import DevicesLocators
 from rweb.path.limitTime import LimitTimeLocators
 
-from . time_limit_testcase import Test_time_limit
-
-
-
+from .time_limit_testcase import Test_time_limit
 
 
 class LimitTime(Base):
-
-    # def setUp(self):
-    #     super(LimitTime, self).setUp()
-    #     # 鼠标移动到切换“我的WiFi”按钮上
-    #     WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-    #         EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_MyWifi))
-    #     )
-    #     mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_MyWifi)
-    #     ActionChains(self.driver).move_to_element(mouse).perform()
-    #     # 点击 接入设备
-    #     WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
-    #         EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
-    #     ).click()
-    #     self.driver.refresh()
-    #     # 点击主网-设置
-    #     Set = DevicesLocators.Set.format(num=1)
-    #     WebDriverWait(self.driver, const.MEDIUM_WAIT + 10).until(
-    #         EC.element_to_be_clickable((By.XPATH, Set))
-    #     )
-    #     time.sleep(0.5)
-    #     self.driver.find_element_by_xpath(Set).click()
-
-
-
-
-
     # 定义2个变量：有线和5G的限时的url变量。目的：用于判断当前页是在有线的限时页，还是5G的限时页
     url_wired_limitTimePage = ""
     url_5g_limitTimePage = ""
@@ -91,10 +62,6 @@ class LimitTime(Base):
                 EC.element_to_be_clickable((By.XPATH, Set))
             ).click()
             Current_Url = self.driver.current_url
-
-
-
-
 
     # @unittest.skip("跳过")
     def test_A_get_url(self):
@@ -144,15 +111,7 @@ class LimitTime(Base):
             i += 1
             time.sleep(1)
 
-
-
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_B_limitTime_add(self):
         """操作步骤：新增 星期一"""
         self.switch_to_limitTimePage_wired_5g_24g("Wired", self.driver.current_url)
@@ -224,9 +183,9 @@ class LimitTime(Base):
     #         assert False
     #
     #     # 前提已完成，开始检验用例
-    #     Result = Test_time_limit.test_time_limit_1()
-    #     print(Result)
-    #     if Result == 1:
+    #     result = Test_time_limit.test_time_limit_1()
+    #     print(result)
+    #     if result == 1:
     #         print("【成功】开关开启，设备A在限时时间段内无法访问外网")
     #         assert True
     #     else:
@@ -266,9 +225,9 @@ class LimitTime(Base):
     #         assert False
     #
     #     # 前提已完成，开始检验用例
-    #     Result = Test_time_limit.test_time_limit_2()
-    #     print(Result)
-    #     if Result == 1:
+    #     result = Test_time_limit.test_time_limit_2()
+    #     print(result)
+    #     if result == 1:
     #         print("【成功】设备A的限时条目，不会影响设备B的访问")
     #         assert True
     #     else:
@@ -336,9 +295,9 @@ class LimitTime(Base):
     #         assert False
     #
     #     # 前提已完成，开始检验用例
-    #     Result = Test_time_limit.test_time_limit_3()
-    #     print(Result)
-    #     if Result == 1:
+    #     result = Test_time_limit.test_time_limit_3()
+    #     print(result)
+    #     if result == 1:
     #         print("【成功】开关关闭，设备A在任何时间段都可以访问外网")
     #         assert True
     #     else:
@@ -438,9 +397,9 @@ class LimitTime(Base):
     #         assert False
     #
     #     # 前提已完成，开始检验用例
-    #     Result = Test_time_limit.test_time_limit_4()
-    #     print(Result)
-    #     if Result == 1:
+    #     result = Test_time_limit.test_time_limit_4()
+    #     print(result)
+    #     if result == 1:
     #         print("【成功】修改限时时段后，新限时时段生效，旧限时时段失效")
     #         assert True
     #     else:
@@ -570,9 +529,9 @@ class LimitTime(Base):
     #         assert False
     #
     #     # 前提已完成，开始检验用例
-    #     Result = Test_time_limit.test_time_limit_5()
-    #     print(Result)
-    #     if Result == 1:
+    #     result = Test_time_limit.test_time_limit_5()
+    #     print(result)
+    #     if result == 1:
     #         print("【成功】开启多个限时条目，设备A在限时时段内无法访问外网")
     #         assert True
     #     else:
@@ -719,9 +678,9 @@ class LimitTime(Base):
     #
     #
     #     # 前提已完成，开始检验用例
-    #     Result = Test_time_limit.test_time_limit_6()
-    #     print(Result)
-    #     if Result == 1:
+    #     result = Test_time_limit.test_time_limit_6()
+    #     print(result)
+    #     if result == 1:
     #         print("【成功】多个设备在其限时时间段内，都无法访问外网")
     #         assert True
     #     else:

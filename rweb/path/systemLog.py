@@ -5,6 +5,8 @@
 # @Author:  GaoJun
 
 """路由器日志"""
+
+
 class SystemLogLocators(object):
     Statu = "//div[@class='form']/div[1]/div/div"
     SystemLog_Text = "//div[@class='log-container']/pre[2]"

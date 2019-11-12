@@ -6,8 +6,8 @@
 
 """接入设备"""
 
-class DevicesLocators(object):
 
+class DevicesLocators(object):
     """主网列表"""
     MyWifi = "//div[@class='tabs']/div[1]"
     # 列表头
@@ -29,23 +29,8 @@ class DevicesLocators(object):
     Set = "//div[@class='table-inner']/div[2]/div/ul[{num}]/li[@class='column-black-list']/span[1]"
     AddtoBlacklist = "//div[@class='table-inner']/div[2]/div/ul[1]/li[@class='column-black-list']/span[2]"
 
-
-
-
-
-
-
-
-
     """访客列表"""
     Guest = "//div[@class='tabs']/div[2]"
-
-
-
-
-
-
-
 
     """离线列表"""
     Offline = "//div[@class='tabs']/div[3]"

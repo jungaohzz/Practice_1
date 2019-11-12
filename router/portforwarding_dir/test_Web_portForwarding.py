@@ -7,7 +7,7 @@
 
 import unittest
 from selenium import webdriver
-from .. base import Base
+from ..base import Base
 from rweb import const
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -21,7 +21,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 class PortForwarding(Base):
-
     # 定义端口转发页的url
     url_portForwardingPage = ""
 
@@ -40,11 +39,6 @@ class PortForwarding(Base):
             time.sleep(2)
             Current_Url = self.driver.current_url
 
-
-
-
-
-
     def set_access_way(self, Way):
         """设置接入方式：DHCP、静态IP、PPPoE"""
         # 先进入 上网设置 页
@@ -61,10 +55,11 @@ class PortForwarding(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )
-        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
+        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute(
+            'value')
 
-        flag = False    #标记是否有修改，False为没有修改，True为有修改
-        if Way == "DHCP":       # 动态拨号
+        flag = False  # 标记是否有修改，False为没有修改，True为有修改
+        if Way == "DHCP":  # 动态拨号
             # 如果上网方式不为动态IP，才进行下面的if操作，切换为动态IP
             if Internet_Way_value != "DHCP":
                 # 点击上网方式
@@ -77,7 +72,7 @@ class PortForwarding(Base):
                 ).click()
                 flag = True
 
-        elif Way == "PPPoE":    # PPPoE
+        elif Way == "PPPoE":  # PPPoE
             # 如果上网方式不为PPPoE，才进行下面的if操作，切换为PPPoE
             if Internet_Way_value != "PPPoE":
                 # 点击上网方式
@@ -99,7 +94,7 @@ class PortForwarding(Base):
                 ).clear()
                 self.driver.find_element_by_xpath(InternetSettingsLocators.PPPoE_Password).send_keys("gaojun@2019")
                 flag = True
-        else:                   # 静态拨号
+        else:  # 静态拨号
             # 如果上网方式不为静态IP，才进行下面的if操作，切换为静态IP
             if Internet_Way_value != "Static IP":
                 # 点击上网方式
@@ -172,11 +167,6 @@ class PortForwarding(Base):
             # Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
             # assert Internet_Way_value == "DHCP", Internet_Way_value
 
-
-
-
-
-
     def deleteAll(self):
         """删除所有转发规则"""
         flag = False
@@ -201,11 +191,8 @@ class PortForwarding(Base):
                 )
                 time.sleep(1)
 
-
-
-
-
-    def add(self, ProtocolType, Name, OutNetIp, OutNetPort_start, OutNetPort_end, LocalIp, LocalPort_start, LocalPort_end):
+    def add(self, ProtocolType, Name, OutNetIp, OutNetPort_start, OutNetPort_end, LocalIp, LocalPort_start,
+            LocalPort_end):
         """配置端口转发规则"""
         # 点击 新增 按钮
         WebDriverWait(self.driver, 10).until(
@@ -259,12 +246,6 @@ class PortForwarding(Base):
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
-
-
-
-
-
-
     def test_A_get_url(self):
         """操作步骤：获取端口转发页url"""
         # 鼠标模拟移动到：设置
@@ -280,10 +261,6 @@ class PortForwarding(Base):
         PortForwarding.url_portForwardingPage = self.driver.current_url
         time.sleep(1)
 
-
-
-
-
     @unittest.skip("跳过")
     def test_B_set_accessWay_StaticIP(self):
         """操作步骤：设置WAN口为静态IP接入，并配置一条端口转发规则"""
@@ -293,11 +270,7 @@ class PortForwarding(Base):
         self.switch_to_portForwardingPage(self.driver.current_url)
         self.deleteAll()
         # 新增转发规则
-        self.add("TCP", "无外网IP", None, 1, 2, "192.168.127.100", 1, 2)   #？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-
-
-
-
+        self.add("TCP", "无外网IP", None, 1, 2, "192.168.127.100", 1, 2)  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
 
     @unittest.skip("跳过")
     def test_C_2(self):
@@ -318,7 +291,8 @@ class PortForwarding(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )
-        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
+        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute(
+            'value')
         if Internet_Way_value != "Static IP":
             print("【备注】该用例无法验证，原因：WAN口接入方式不为静态IP")
             assert False
@@ -371,16 +345,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_D_set_accessWay_PPPoE(self):
@@ -391,10 +362,7 @@ class PortForwarding(Base):
         self.switch_to_portForwardingPage(self.driver.current_url)
         self.deleteAll()
         # 新增转发规则
-        self.add("TCP", "无外网IP", None, 1, 2, "192.168.127.100", 1, 2)   #？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-
-
-
+        self.add("TCP", "无外网IP", None, 1, 2, "192.168.127.100", 1, 2)  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
 
     @unittest.skip("跳过")
     def test_E_3(self):
@@ -469,16 +437,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_F_set_accessWay_DHCP(self):
@@ -489,10 +454,7 @@ class PortForwarding(Base):
         self.switch_to_portForwardingPage(self.driver.current_url)
         self.deleteAll()
         # 新增转发规则
-        self.add("TCP", "无外网IP", None, 1, 2, "192.168.127.100", 1, 2)   #？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-
-
-
+        self.add("TCP", "无外网IP", None, 1, 2, "192.168.127.100", 1, 2)  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
 
     @unittest.skip("跳过")
     def test_G_1(self):
@@ -513,7 +475,8 @@ class PortForwarding(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, InternetSettingsLocators.Internet_Way))
         )
-        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
+        Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute(
+            'value')
         if Internet_Way_value != "DHCP":
             print("【备注】该用例无法验证，原因：WAN口接入方式不为DHCP")
             assert False
@@ -565,17 +528,14 @@ class PortForwarding(Base):
         #     'class') == "switch switch-animation checked"
 
         # 前提检验完成，开始检验用例
-        time.sleep(5)   #是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  #？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_H_add(self):
@@ -586,9 +546,6 @@ class PortForwarding(Base):
         self.deleteAll()
         # 新增转发规则
         self.add("TCP&UDP", "无外网IP", None, 1, 1, "192.168.127.100", 1, 1)  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-
-
-
 
     @unittest.skip("跳过")
     def test_I_4(self):
@@ -642,16 +599,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_J_5(self):
@@ -705,16 +659,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_K_off(self):
@@ -735,11 +686,6 @@ class PortForwarding(Base):
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_L_16(self):
@@ -802,18 +748,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_M_17(self):
@@ -876,18 +817,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_N_add(self):
@@ -897,10 +833,8 @@ class PortForwarding(Base):
         # 清空转发规则
         self.deleteAll()
         # 新增转发规则
-        self.add("TCP&UDP", "无外网IP", None, 5000, 6000, "192.168.127.100", 5000, 6000)  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-
-
-
+        self.add("TCP&UDP", "无外网IP", None, 5000, 6000, "192.168.127.100", 5000,
+                 6000)  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
 
     @unittest.skip("跳过")
     def test_O_6(self):
@@ -954,16 +888,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_P_off(self):
@@ -984,10 +915,6 @@ class PortForwarding(Base):
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-
-
-
-
 
     @unittest.skip("跳过")
     def test_Q_15(self):
@@ -1050,17 +977,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
 
     @unittest.skip("跳过")
     def test_R_add(self):
@@ -1071,10 +994,6 @@ class PortForwarding(Base):
         self.deleteAll()
         # 新增转发规则
         self.add("TCP", "无外网IP", None, 1, 1, "192.168.127.100", 1, 1)  # ？？？？？？？？？？？？？？？？？？？？？？？？？
-
-
-
-
 
     @unittest.skip("跳过")
     def test_S_7(self):
@@ -1128,17 +1047,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
 
     @unittest.skip("跳过")
     def test_T_9(self):
@@ -1192,16 +1107,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_U_11(self):
@@ -1255,16 +1167,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_V_13(self):
@@ -1318,16 +1227,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_W_off(self):
@@ -1348,10 +1254,6 @@ class PortForwarding(Base):
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-
-
-
-
 
     @unittest.skip("跳过")
     def test_X_18(self):
@@ -1407,24 +1309,20 @@ class PortForwarding(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, PortForwardingLocators.List_Statu))
         )
-        Statu_Class =  self.driver.find_element_by_xpath(PortForwardingLocators.List_Statu).get_attribute('class')
+        Statu_Class = self.driver.find_element_by_xpath(PortForwardingLocators.List_Statu).get_attribute('class')
         if Statu_Class != "switch switch-animation":
             print("【备注】该用例无法验证，原因：端口转发状态不为关闭")
             assert False
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
 
     @unittest.skip("跳过")
     def test_Y_add(self):
@@ -1435,10 +1333,6 @@ class PortForwarding(Base):
         self.deleteAll()
         # 新增转发规则
         self.add("UDP", "无外网IP", None, 1, 1, "192.168.127.100", 1, 1)  # ？？？？？？？？？？？？？？？？？？？？？？？？？
-
-
-
-
 
     @unittest.skip("跳过")
     def test_Z_8(self):
@@ -1492,16 +1386,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_a_10(self):
@@ -1555,16 +1446,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_b_12(self):
@@ -1618,16 +1506,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_c_14(self):
@@ -1681,17 +1566,13 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
 
     @unittest.skip("跳过")
     def test_d_off(self):
@@ -1712,10 +1593,6 @@ class PortForwarding(Base):
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-
-
-
-
 
     @unittest.skip("跳过")
     def test_e_19(self):
@@ -1778,13 +1655,10 @@ class PortForwarding(Base):
 
         # 前提检验完成，开始检验用例
         # time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-

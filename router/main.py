@@ -21,13 +21,7 @@ from .timezone_dir.test_Web_timeZone import TimeZone
 from .clonemacaddress_dir.test_Web_cloneMacAddress import CloneMacAddress
 from .portforwarding_dir.test_Web_portForwarding import PortForwarding
 from .dmzhost_dir.test_Web_dmzHost import DmzHost
-
-
-
-
-
-
-
+from .adminpassword_dir.test_Web_adminPassword import AdminPassword
 
 
 def core():
@@ -35,7 +29,7 @@ def core():
     class_tests = [
         # 执行顺序建议：
         # CloneMacAddress最好最后执行，因为用例里有恢复出厂设置的步骤
-        PortForwarding
+        AdminPassword
     ]
 
     for t in class_tests:
@@ -54,6 +48,3 @@ if __name__ == "__main__":
     result.report(filename="功能自动化测试",
                   description="路由器功能自动化测试报告",
                   log_path=log_path)
-
-
-

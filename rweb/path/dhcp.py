@@ -5,6 +5,8 @@
 # @Author:  GaoJun
 
 """DHCP"""
+
+
 class DhcpLocators(object):
     Lan_Ip = "//div[@class='form']/div[1]/div/div/div/input"
 

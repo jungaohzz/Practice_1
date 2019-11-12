@@ -21,9 +21,6 @@ from rweb.path.limitRate import LimitRateLocators
 from rweb.path.websiteBlacklist import WebsiteBlacklistLocators
 
 
-
-
-
 class LimitTime(Base):
 
     def setUp(self):
@@ -45,9 +42,7 @@ class LimitTime(Base):
             EC.element_to_be_clickable((By.XPATH, Set))
         ).click()
 
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_limitTime_null(self):
         """限时-列表为空检验"""
         """
@@ -59,9 +54,7 @@ class LimitTime(Base):
         List_Null_text = self.driver.find_element_by_xpath(LimitTimeLocators.List_Null).text
         assert List_Null_text == "Empty", List_Null_text
 
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_B_limitTime_insertCheck(self):
         """限时-新增框元素检查、默认值检查、重复时间为空保存有提示、取消则未新增成功"""
         """
@@ -88,7 +81,7 @@ class LimitTime(Base):
         ).click()
 
         time.sleep(1)
-        #断言：限时开关-元素检查及默认值（开）
+        # 断言：限时开关-元素检查及默认值（开）
         assert self.driver.find_element_by_xpath("//div[@class='modal-form']/div[1]/label").text == "Time Limit"
         Insert_Statu_class = self.driver.find_element_by_xpath(LimitTimeLocators.Insert_Statu).get_attribute('class')
         assert Insert_Statu_class == "switch switch-animation checked", Insert_Statu_class
@@ -98,21 +91,23 @@ class LimitTime(Base):
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_Statu))
         ).click()
         Insert_Statu_class = self.driver.find_element_by_xpath(LimitTimeLocators.Insert_Statu).get_attribute('class')
-        assert Insert_Statu_class == "switch switch-animation", Insert_Statu_class      #验证可关闭
+        assert Insert_Statu_class == "switch switch-animation", Insert_Statu_class  # 验证可关闭
         time.sleep(2)
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_Statu))
         ).click()
         Insert_Statu_class = self.driver.find_element_by_xpath(LimitTimeLocators.Insert_Statu).get_attribute('class')
-        assert Insert_Statu_class == "switch switch-animation checked", Insert_Statu_class      #验证可开启
+        assert Insert_Statu_class == "switch switch-animation checked", Insert_Statu_class  # 验证可开启
 
         # 断言：断网时间-元素检查及默认值（00:00）
         assert self.driver.find_element_by_xpath("//div[@class='modal-form']/div[2]/label").text == "Cut off time"
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_CutOffTime_Form))
         ).click()
-        Hour_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[1]/ul/li[1]").get_attribute('class')
-        Minute_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[2]/ul/li[1]").get_attribute('class')
+        Hour_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[1]/ul/li[1]").get_attribute(
+            'class')
+        Minute_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[2]/ul/li[1]").get_attribute(
+            'class')
         assert Hour_class == "selected", Hour_class
         assert Minute_class == "selected", Minute_class
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -124,8 +119,10 @@ class LimitTime(Base):
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_RecoveryTime_Form))
         ).click()
-        Hour_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[1]/ul/li[24]").get_attribute('class')
-        Minute_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[2]/ul/li[60]").get_attribute('class')
+        Hour_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[1]/ul/li[24]").get_attribute(
+            'class')
+        Minute_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[2]/ul/li[60]").get_attribute(
+            'class')
         assert Hour_class == "selected", Hour_class
         assert Minute_class == "selected", Minute_class
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -166,12 +163,7 @@ class LimitTime(Base):
         List_Null_text = self.driver.find_element_by_xpath(LimitTimeLocators.List_Null).text
         assert List_Null_text == "Empty", List_Null_text
 
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_C_limitTime_add(self):
         """限时-新增"""
         """
@@ -235,12 +227,7 @@ class LimitTime(Base):
         )
         assert self.driver.find_element_by_xpath(Statu).get_attribute('class') == "switch switch-animation checked"
 
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_D_limitTime_timeStyle(self):
         """限时-时间显示格式为24小时制"""
         """
@@ -259,11 +246,7 @@ class LimitTime(Base):
         print(Recovery_time_value)
         assert Recovery_time_value == "23:59", Recovery_time_value
 
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_E_limitTime_elementCheck(self):
         """限时-列表页面元素检测"""
         """
@@ -334,10 +317,7 @@ class LimitTime(Base):
         Insert = LimitTimeLocators.Add.format(num="last()")
         assert self.driver.find_element_by_xpath(Insert).is_displayed()
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_F_limitTime_edit_elementCheck(self):
         """限时-编辑-元素检查及默认值"""
         """
@@ -370,8 +350,10 @@ class LimitTime(Base):
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_CutOffTime_Form))
         ).click()
-        Hour_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[1]/ul/li[15]").get_attribute('class')
-        Minute_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[2]/ul/li[52]").get_attribute('class')
+        Hour_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[1]/ul/li[15]").get_attribute(
+            'class')
+        Minute_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[2]/ul/li[52]").get_attribute(
+            'class')
         assert Hour_class == "selected", Hour_class
         assert Minute_class == "selected", Minute_class
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -383,8 +365,10 @@ class LimitTime(Base):
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_RecoveryTime_Form))
         ).click()
-        Hour_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[1]/ul/li[24]").get_attribute('class')
-        Minute_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[2]/ul/li[60]").get_attribute('class')
+        Hour_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[1]/ul/li[24]").get_attribute(
+            'class')
+        Minute_class = self.driver.find_element_by_xpath("//div[@class='combobox']/div/div[2]/ul/li[60]").get_attribute(
+            'class')
         assert Hour_class == "selected", Hour_class
         assert Minute_class == "selected", Minute_class
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -433,11 +417,7 @@ class LimitTime(Base):
         assert Recovery_Time_text == "23:59", Recovery_Time_text
         time.sleep(2)
 
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_G_limitTime_editValue(self):
         """限时-编辑-修改参数值"""
         """
@@ -486,11 +466,7 @@ class LimitTime(Base):
         )
         assert self.driver.find_element_by_xpath(Statu).get_attribute('class') == "switch switch-animation checked"
 
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_H_limitTime_addWeekdays(self):
         """限时-新增-重复时间为周一 ~ 周五，显示为：Weekdays"""
         """
@@ -565,7 +541,7 @@ class LimitTime(Base):
         Repeat_value = self.driver.find_element_by_xpath(Repeat).text
         assert Repeat_value == "Weekdays", Repeat_value
 
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_I_limitTime_editStatu(self):
         """限时-列表中修改状态：由开变为关"""
         """
@@ -589,10 +565,7 @@ class LimitTime(Base):
         )
         assert self.driver.find_element_by_xpath(Statu).get_attribute('class') == "switch switch-animation"
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_J_limitTime_addEveryday(self):
         """限时-新增-重复时间每天，显示为：Everyday"""
         """
@@ -673,10 +646,7 @@ class LimitTime(Base):
         Repeat_value = self.driver.find_element_by_xpath(Repeat).text
         assert Repeat_value == "Everyday", Repeat_value
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_K_limitTime_add_sixDay(self):
         """限时-新增-重复时间为任意6天，显示具体的星期"""
         """
@@ -698,13 +668,12 @@ class LimitTime(Base):
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_Statu))
         ).click()
 
-
         # 用例 - 2023: 新增框 - 断网时间，恢复时间下拉框显示24小时制，且可正常选择任意时间
         # 判断断网时间是否显示24小时制 及 选择任意时间： 若选择2个时间成功，则该判断成功
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_CutOffTime_Form))
         ).click()
-        Hour_22 = LimitTimeLocators.Hour.format(num=22)         #判断22:10是否可成功选择
+        Hour_22 = LimitTimeLocators.Hour.format(num=22)  # 判断22:10是否可成功选择
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, Hour_22))
         ).click()
@@ -718,7 +687,7 @@ class LimitTime(Base):
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, LimitTimeLocators.Insert_CutOffTime_Form))
         ).click()
-        Hour_14 = LimitTimeLocators.Hour.format(num=14)         #判断14:54是否可成功选择
+        Hour_14 = LimitTimeLocators.Hour.format(num=14)  # 判断14:54是否可成功选择
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, Hour_14))
         ).click()
@@ -787,13 +756,7 @@ class LimitTime(Base):
         Repeat_value = self.driver.find_element_by_xpath(Repeat).text
         assert Repeat_value == "Monday / Tuesday / Wednesday / Thursday / Friday / Saturday", Repeat_value
 
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_L_limitTime_add_otherMondey(self):
         """限时-新增-再添加一个星期一，显示2个星期一"""
         """
@@ -867,12 +830,7 @@ class LimitTime(Base):
         )
         assert self.driver.find_element_by_xpath(Statu).get_attribute('class') == "switch switch-animation"
 
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_M_limitTime_add_morethanFive(self):
         """限时-新增-超过5条记录后不能新增"""
         """
@@ -890,11 +848,7 @@ class LimitTime(Base):
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Error_Toast).text == "Already reached the limit"
 
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_N_limitTime_timeSort(self):
         """限时-列表按断网时间升序排"""
         """
@@ -910,10 +864,7 @@ class LimitTime(Base):
         assert Cut_Off_Time_1_value == "14:51", Cut_Off_Time_1_value
         assert Cut_Off_Time_2_value == "14:52", Cut_Off_Time_2_value
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_O_limitTime_delete(self):
         """限时-删除限时记录"""
         flag = False
@@ -932,10 +883,7 @@ class LimitTime(Base):
                 )
                 time.sleep(2)
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_P_limitTime_add_eachWeek(self):
         """限时-新增-重复时间只为其中一天，显示为具体的天数"""
         """
@@ -1004,4 +952,3 @@ class LimitTime(Base):
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
             i += 1
         time.sleep(1)
-

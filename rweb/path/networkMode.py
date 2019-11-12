@@ -5,6 +5,8 @@
 # @Author:  GaoJun
 
 """工作方式"""
+
+
 class NetworkModeLocators(object):
     Router_Mode = "//div[@class='form']/div/div/div[1]/div[1]"
     Bridge_Mode = "//div[@class='form']/div/div/div[2]/div[1]"

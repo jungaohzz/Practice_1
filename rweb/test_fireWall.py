@@ -19,6 +19,8 @@ from rweb.path.dmzHost import DmzHostLocators
 from rweb.path.fireWall import FireWallLocators
 
 """防火墙"""
+
+
 class FireWall(Base):
 
     def setUp(self):
@@ -71,7 +73,6 @@ class FireWall(Base):
         Firewall_Statu_class = self.driver.find_element_by_xpath(FireWallLocators.Firewall_Statu).get_attribute('class')
         assert Firewall_Statu_class == "switch switch-animation checked", Firewall_Statu_class
 
-
         # 关闭防火墙
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, FireWallLocators.Firewall_Statu))
@@ -82,7 +83,7 @@ class FireWall(Base):
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
-        #time.sleep(2)  # 用于按钮切换
+        # time.sleep(2)  # 用于按钮切换
         # 断言：判断开关是否关闭
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, FireWallLocators.Firewall_Statu))

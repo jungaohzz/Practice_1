@@ -24,8 +24,8 @@ from rweb.path.devices import DevicesLocators
 from rweb.path.blacklist import BlacklistLocators
 from selenium.common.exceptions import NoSuchElementException
 
-
 """黑名单"""
+
 
 class Blacklist(Base):
     def setUp(self):
@@ -42,16 +42,13 @@ class Blacklist(Base):
         ).click()
         time.sleep(1)
 
-
     @unittest.skip("跳过")
     def test_A_blacklist_MyWifi(self):
         """黑名单-从主网加入黑名单"""
 
-
     @unittest.skip("跳过")
     def test_B_blacklist_Guest(self):
         """黑名单-从访客加入黑名单"""
-
 
     # @unittest.skip("跳过")
     def test_C_blacklist_Offline(self):
@@ -61,7 +58,7 @@ class Blacklist(Base):
             EC.element_to_be_clickable((By.XPATH, DevicesLocators.Offline))
         ).click()
 
-        time.sleep(2)   #用于切换到离线列表
+        time.sleep(2)  # 用于切换到离线列表
 
         try:
             # 如果离线设备列表找不到第一个设备名元素，则该列表为空
@@ -96,7 +93,7 @@ class Blacklist(Base):
             #     assert self.driver.find_element_by_xpath(DevicesLocators.Offline_DeviceName_First).text != DeviceName_First
             # except:
             #     pass
-            #DeviceName_First = self.driver.find_element_by_xpath(DevicesLocators.Offline_DeviceName_First).text
+            # DeviceName_First = self.driver.find_element_by_xpath(DevicesLocators.Offline_DeviceName_First).text
 
             # 断言：检验是否加入黑名单列表中
             # DeviceName_First = self.driver.find_element_by_xpath(DevicesLocators.Offline_DeviceName_First).text
@@ -116,12 +113,6 @@ class Blacklist(Base):
             print(self.driver.find_element_by_xpath(BlacklistLocators.Device_Name).text)
             assert self.driver.find_element_by_xpath(BlacklistLocators.Device_Name).text == DeviceName_First
             print(555555)
-
-
         except NoSuchElementException:
             print("离线设备列表为空，暂无法检验从离线列表加入黑名单的功能是否正常！")
-
-            print(2222222)
-            #assert 1 == 0       # 该断言用于使该用例失败
-
-
+            # assert 1 == 0       # 该断言用于使该用例失败

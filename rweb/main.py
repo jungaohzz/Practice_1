@@ -36,7 +36,7 @@ from .test_devices import Devices
 
 def core():
     s = []
-    class_tests =     [
+    class_tests = [
         # 建议执行顺序（倒序排如下）：
         # 管理路由器、管理密码、工作方式、限时（？如果被限制住未删掉情况怎么处理）
         # LimitTime, LimitRate,LimitWebsiteBlacklist
@@ -47,9 +47,6 @@ def core():
         s.append(suite)
     t_s = unittest.TestSuite(s)
     return t_s
-
-
-
 
 
 if __name__ == "__main__":

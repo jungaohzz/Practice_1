@@ -18,7 +18,7 @@
 3、访客WiFi设置中：未通过测试
    test_a_test_guest_wifi_15
 
-4、guestWiFiset最后修改完后，需要将Precondition修改为False
+4、guestWiFiset最后修改完后，需要将PRECONDITION修改为False
 
 5、staticDhcpLease中：未通过测试
    test_C_init

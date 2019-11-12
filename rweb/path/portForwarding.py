@@ -5,6 +5,8 @@
 # @Author:  GaoJun
 
 """端口转发"""
+
+
 class PortForwardingLocators(object):
     """端口转发 首页 - 列表"""
     Add = "//button[@class='btn btn-small']"
@@ -25,7 +27,6 @@ class PortForwardingLocators(object):
     Edit = "//div[@class='table-body']/div[1]/div[6]/a[1]"
     Delete = "//div[@class='table-body']/div[1]/div[6]/a[2]"
     Delete_ok = "//div[@class='dialog-buttons']/button[2]"
-
 
     """新增端口转发"""
     ProtocolType_TcpUdp = "//div[@class='radio-wrap']/div/div[1]/div[1]"

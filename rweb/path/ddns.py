@@ -5,9 +5,10 @@
 # @Author:  GaoJun
 
 """DDNS"""
+
+
 class DDNSLocators(object):
     # 服务提供商
-    "/html/body/div[1]/div/div/div/div[1]/div[2]/div[1]/div[1]/div/div[1]"
     Service_Provider_DynDNS = "//div[@class='form']/div[1]/div/div[1]"
     Service_Provider_Oray = "//div[@class='form']/div[1]/div/div[2]"
     # 域名

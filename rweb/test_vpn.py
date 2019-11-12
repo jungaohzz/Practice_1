@@ -27,8 +27,8 @@ from rweb.path.systemLog import SystemLogLocators
 from rweb.path.vpn import VpnLocators
 import random
 
-
 """VPN"""
+
 
 class VPN(Base):
     def setUp(self):
@@ -45,8 +45,7 @@ class VPN(Base):
         ).click()
         time.sleep(2)
 
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_vpn_pptp(self):
         """VPN-新增PPTP"""
         # 点击 新增 按钮
@@ -128,8 +127,7 @@ class VPN(Base):
             EC.element_to_be_clickable((By.XPATH, VpnLocators.Delete_Ok))
         ).click()
 
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_B_vpn_l2tp(self):
         """VPN-新增L2TP"""
         # 点击 新增 按钮
@@ -201,8 +199,7 @@ class VPN(Base):
         )
         assert self.driver.find_element_by_xpath(VpnLocators.Password).get_attribute("value") == "gaojun@2019"
 
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_C_vpn_on(self):
         """VPN-打开VPN"""
         time.sleep(2)
@@ -230,11 +227,7 @@ class VPN(Base):
         Statu_class = self.driver.find_element_by_xpath(VpnLocators.Statu).get_attribute('class')
         assert Statu_class == "switch switch-animation checked", Statu_class
 
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_D_vpn_off(self):
         """VPN-关闭VPN"""
         time.sleep(2)
@@ -263,8 +256,7 @@ class VPN(Base):
         Statu_class = self.driver.find_element_by_xpath(VpnLocators.Statu).get_attribute('class')
         assert Statu_class == "switch switch-animation", Statu_class
 
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_E_vpn_deleteAll(self):
         """VPN-删除所有VPN"""
         time.sleep(2)

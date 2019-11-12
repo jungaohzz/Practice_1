@@ -5,16 +5,15 @@
 # @Author:  GaoJun
 
 """首页"""
-class CommonLocators(object):
 
+
+class CommonLocators(object):
     """登录页面"""
     SetupWifi = "//div[@class='form']/div[2]/button[@class='btn']"
     InputPassword = "//input"
     Login = "//div[@class='form-item']/button"
 
-
     """更新提示框"""
-
 
     """我的WiFi"""
     # 一级目录：我的WiFi
@@ -25,11 +24,6 @@ class CommonLocators(object):
     Devices = "//div[@class='nav-wrap nav-wrap--laptop']/ul/li[1]/ul/li[2]"
     # 互联网
     Internet = "//div[@class='nav-wrap nav-wrap--laptop']/ul/li[1]/ul/li[3]"
-
-
-
-
-
 
     """设置"""
     # 一级目录：设置
@@ -46,8 +40,6 @@ class CommonLocators(object):
     Timezone = "//div[@class='nav-wrap nav-wrap--laptop']/ul/li[2]/ul/li[5]"
     # 访客WiFi
     Guest_WiFi = "//div[@class='nav-wrap nav-wrap--laptop']/ul/li[2]/ul/li[6]"
-
-
 
     """高级设置"""
     # 一级目录：高级设置
@@ -87,8 +79,8 @@ class CommonLocators(object):
     Language = "//span[@class='current-text']"
     Language_Chinese = "//div[@class='right-wrap']/div[1]/ul/li[1]"
     Language_English = "//div[@class='right-wrap']/div[1]/ul/li[2]"
-    Language_Deutsch = "//div[@class='right-wrap']/div[1]/ul/li[3]"         # 德语
-    Language_Dutch =   "//div[@class='right-wrap']/div[1]/ul/li[4]"         # 荷兰语
+    Language_Deutsch = "//div[@class='right-wrap']/div[1]/ul/li[3]"     # 德语
+    Language_Dutch = "//div[@class='right-wrap']/div[1]/ul/li[4]"       # 荷兰语
 
     """退出登录"""
     Logout = "//div[@class='exit']"

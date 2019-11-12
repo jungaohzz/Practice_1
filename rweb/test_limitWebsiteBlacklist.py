@@ -21,7 +21,6 @@ from rweb.path.limitRate import LimitRateLocators
 from rweb.path.websiteBlacklist import WebsiteBlacklistLocators
 
 
-
 class LimitWebsiteBlacklist(Base):
 
     def setUp(self):
@@ -50,11 +49,7 @@ class LimitWebsiteBlacklist(Base):
             EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Page_WebsiteBlacklist))
         ).click()
 
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_limitWebsiteBlacklist_listDefault(self):
         """网址黑名单-列表默认情况检查"""
         """
@@ -76,10 +71,7 @@ class LimitWebsiteBlacklist(Base):
         assert Empty_Text == "Empty", Empty_Text
         self.driver.refresh()
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_B_limitWebsiteBlacklist_insertElementCheck(self):
         """网址黑名单-新增框元素检查"""
         """
@@ -111,10 +103,7 @@ class LimitWebsiteBlacklist(Base):
         assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Save).is_displayed()
         self.driver.refresh()
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_C_limitWebsiteBlacklist_required(self):
         """网址黑名单-新增网址框-必填项和超过范围检查"""
         """
@@ -147,10 +136,7 @@ class LimitWebsiteBlacklist(Base):
         assert Error_Message == "Domain name should be within 30 characters", Error_Message
         self.driver.refresh()
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_D_limitWebsiteBlacklist_anyCharacter(self):
         """网址黑名单-新增网址框-支持输入任意字符"""
         """
@@ -209,9 +195,7 @@ class LimitWebsiteBlacklist(Base):
         assert Website_Value == "123abc%^&测试", Website_Value
         self.driver.refresh()
 
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_E_limitWebsiteBlacklist_notStandard(self):
         """网址黑名单-新增网址框-不符合规则输入有错误提示"""
         """
@@ -387,10 +371,7 @@ class LimitWebsiteBlacklist(Base):
         assert Error_Message == "Invalid domain name", Error_Message
         self.driver.refresh()
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_F_limitWebsiteBlacklist_errorNotSave(self):
         """网址黑名单-新增网址框-有错误提示不能保存"""
         """
@@ -455,10 +436,7 @@ class LimitWebsiteBlacklist(Base):
         assert Error_Note == "Invalid domain name", Error_Note
         self.driver.refresh()
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_G_limitWebsiteBlacklist_add_Cancel(self):
         """网址黑名单-新增-取消不新增"""
         """
@@ -486,12 +464,7 @@ class LimitWebsiteBlacklist(Base):
         assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.List_Null).is_displayed()
         self.driver.refresh()
 
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_H_limitWebsiteBlacklist_add_ok(self):
         """网址黑名单-新增成功"""
         """
@@ -528,7 +501,7 @@ class LimitWebsiteBlacklist(Base):
         )
         assert self.driver.find_element_by_xpath(List_Website).text == "www.baidu.com"
 
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_I_limitWebsiteBlacklist_add_exist_error(self):
         """网址黑名单-新增已存在的网址报错"""
         """
@@ -556,10 +529,7 @@ class LimitWebsiteBlacklist(Base):
         assert Error_Note == "Data is existing already", Error_Note
         self.driver.refresh()
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_J_limitWebsiteBlacklist_elementCheck(self):
         """网址黑名单-页面元素检查"""
         """
@@ -594,12 +564,7 @@ class LimitWebsiteBlacklist(Base):
         # 断言：页面元素包含按钮：新增
         assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Add).is_displayed()
 
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_K_limitWebsiteBlacklist_delete(self):
         """网址黑名单-删除"""
         """
@@ -629,13 +594,7 @@ class LimitWebsiteBlacklist(Base):
         )
         assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.List_Null).is_displayed()
 
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_L_limitWebsiteBlacklist_add_number(self):
         """网址黑名单-新增-网址为数字，检查排列顺序"""
         """
@@ -645,7 +604,7 @@ class LimitWebsiteBlacklist(Base):
         用例-1964 : 网址列表-网址显示正确
                     添加几个不同的网址成功后，查看列表是否正常显示添加的网址：是
         """
-        Insert_List=["01", "03", "02"]
+        Insert_List = ["01", "03", "02"]
 
         i = 0
         while i <= 2:
@@ -686,11 +645,7 @@ class LimitWebsiteBlacklist(Base):
         # 调用删除函数，使其删除干净，以便后面用例执行
         self.test_K_limitWebsiteBlacklist_delete()
 
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_M_limitWebsiteBlacklist_add_letter(self):
         """网址黑名单-新增-网址为字母，检查排列顺序"""
         """
@@ -767,10 +722,7 @@ class LimitWebsiteBlacklist(Base):
         # 调用删除函数，使其删除干净，以便后面用例执行
         self.test_K_limitWebsiteBlacklist_delete()
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_N_limitWebsiteBlacklist_order_number_letter(self):
         """网址黑名单-网址列表-网址字符优先级按（数字>大写字母>小写字母>其他）排序检测"""
         """
@@ -828,10 +780,7 @@ class LimitWebsiteBlacklist(Base):
         # 调用删除函数，使其删除干净，以便后面用例执行
         self.test_K_limitWebsiteBlacklist_delete()
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_O_limitWebsiteBlacklist_add_15(self):
         """网址黑名单-添加15条记录"""
         """
@@ -891,13 +840,10 @@ class LimitWebsiteBlacklist(Base):
         while j <= 15:
             List_Website = WebsiteBlacklistLocators.List_Website.format(num=j)
             List_Website_name = self.driver.find_element_by_xpath(List_Website).text
-            assert List_Website_name == Insert_List[j-1], List_Website_name
+            assert List_Website_name == Insert_List[j - 1], List_Website_name
             j += 1
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_P_limitWebsiteBlacklist_add_morethan15(self):
         """网址黑名单-超过15条记录再添加检验"""
         """
@@ -919,10 +865,7 @@ class LimitWebsiteBlacklist(Base):
         Error_Note = self.driver.find_element_by_xpath(CommonLocators.Error_Toast).text
         assert Error_Note == "Already reached the limit", Error_Note
 
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_Q_limitWebsiteBlacklist_statu_on(self):
         """网址黑名单-修改状态：由关变为开"""
         # 状态理应为关闭，如果为关闭状态才进行if的启用操作
@@ -940,7 +883,7 @@ class LimitWebsiteBlacklist(Base):
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
         self.driver.refresh()
-        time.sleep(2)   #用于状态按钮切换
+        time.sleep(2)  # 用于状态按钮切换
         # 断言：判断开关是否开启
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.Statu))
@@ -948,14 +891,7 @@ class LimitWebsiteBlacklist(Base):
         Statu_class = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Statu).get_attribute('class')
         assert Statu_class == "switch switch-animation checked", Statu_class
 
-
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_R_limitWebsiteBlacklist_statu_off(self):
         """网址黑名单-修改状态：由开变为关"""
         # 状态理应为开启，如果为开启状态才进行if的关闭操作
@@ -980,12 +916,7 @@ class LimitWebsiteBlacklist(Base):
         Statu_class = self.driver.find_element_by_xpath(WebsiteBlacklistLocators.Statu).get_attribute('class')
         assert Statu_class == "switch switch-animation", Statu_class
 
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_S_limitWebsiteBlacklist_delete_all(self):
         """网址黑名单-删除所有，目的：恢复初始状态"""
         flag = False
@@ -1010,6 +941,3 @@ class LimitWebsiteBlacklist(Base):
             EC.element_to_be_clickable((By.XPATH, WebsiteBlacklistLocators.List_Null))
         )
         assert self.driver.find_element_by_xpath(WebsiteBlacklistLocators.List_Null).is_displayed()
-
-
-

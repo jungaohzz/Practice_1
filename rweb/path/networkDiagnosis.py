@@ -5,6 +5,8 @@
 # @Author:  GaoJun
 
 """网络诊断"""
+
+
 class NetworkDiagnosisLocators(object):
     # 诊断工具
     Diagnostics_Tools = "//div[@class='form']/div[1]/div/div/input"

@@ -5,6 +5,8 @@
 # @Author:  GaoJun
 
 """限速"""
+
+
 class LimitRateLocators(object):
     Page_RateLimit = "//div[@class='tabs tabs']/div[2]"
 

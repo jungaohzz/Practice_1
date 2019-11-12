@@ -5,8 +5,9 @@
 # @Author:  GaoJun
 
 """时区"""
-class TimeZoneLocators(object):
 
-    TimeZone ="//input[@class='select-text']"
+
+class TimeZoneLocators(object):
+    TimeZone = "//input[@class='select-text']"
     TimeZone_All = "//ul[@class='select-popup']/li[{num}]"
     Save = "//button[@class='btn']"

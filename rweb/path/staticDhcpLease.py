@@ -5,6 +5,8 @@
 # @Author:  GaoJun
 
 """Mac与IP绑定"""
+
+
 class StaticDHCPLeaseLocators(object):
     """Mac与IP绑定 首页 - 列表"""
     # 重启生效
@@ -23,8 +25,6 @@ class StaticDHCPLeaseLocators(object):
     Edit = "//div[@class='table-body']/div/div[4]/a[1]"
     Delete = "//div[@class='table-body']/div/div[4]/a[2]"
     Delete_ok = "//div[@class='dialog-buttons']/button[2]"
-
-
 
     """新增Mac与IP绑定"""
     Name = "//div[@class='form']/div[2]/div/div/div/input"

@@ -5,13 +5,12 @@
 # @Author:  GaoJun
 
 """限时"""
+
+
 class LimitTimeLocators(object):
     Page_TimeLimit = "//div[@class='tabs tabs']/div[2]"
 
-
     Add = "//button[@class='btn btn-small']"
-
-
 
     """列表"""
     # 列表头
@@ -27,10 +26,6 @@ class LimitTimeLocators(object):
     Edit = "//div[@class='table-body']/div[{num}]/div[4]/a[1]"
     Delete = "//div[@class='table-body']/div[{num}]/div[4]/a[2]"
 
-
-
-
-
     """新增限时"""
     Insert_Statu = "//div[@class='item']/div/div"
     Insert_CutOffTime_Form = "//div[@class='modal-form']/div[2]/div"
@@ -38,7 +33,6 @@ class LimitTimeLocators(object):
     Form_Confirm = "//div[@class='combobox']/div[@class='button-wrap']/button[2]"
     Hour = "//div[@class='combobox']/div[1]/div/ul/li[{num}+1]"
     Minute = "//div[@class='combobox']/div[1]/div[2]/ul/li[{num}+1]"
-
 
     Insert_RecoveryTime = "//div[@class='modal-form']/div[3]/div"
 

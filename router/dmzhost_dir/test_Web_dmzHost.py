@@ -5,7 +5,7 @@
 # @Author:  GaoJun
 
 import unittest
-from .. base import Base
+from ..base import Base
 from rweb import const
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -22,25 +22,8 @@ from rweb.path.dmzHost import DmzHostLocators
 
 """DMZ主机"""
 
-class DmzHost(Base):
-    # def setUp(self):
-    #     super(DmzHost, self).setUp()
-    #     # 鼠标模拟移动到：高级设置
-    #     WebDriverWait(self.driver, 10).until(
-    #         EC.presence_of_element_located((By.XPATH, CommonLocators.LEVEL_1_AdvancedSettings))
-    #     )
-    #     mouse = self.driver.find_element_by_xpath(CommonLocators.LEVEL_1_AdvancedSettings)
-    #     ActionChains(self.driver).move_to_element(mouse).perform()
-    #     # 点击 DMZ主机
-    #     WebDriverWait(self.driver, 10).until(
-    #         EC.element_to_be_clickable((By.XPATH, CommonLocators.DMZ_Host))
-    #     ).click()
-    #     time.sleep(2)
-    #
-    #     # WebDriverWait(self.driver,10).until_not(
-    #     #     EC.presence_of_element_located((By.XPATH, CommonLocators.Loading))
-    #     # )
 
+class DmzHost(Base):
     # 定义DMZ主机页的url
     url_dmzhostPage = ""
 
@@ -61,11 +44,6 @@ class DmzHost(Base):
             ).click()
             time.sleep(2)
             Current_Url = self.driver.current_url
-
-
-
-
-
 
     def set_access_way(self, Way):
         """设置接入方式：DHCP、静态IP、PPPoE"""
@@ -196,11 +174,6 @@ class DmzHost(Base):
             # Internet_Way_value = self.driver.find_element_by_xpath(InternetSettingsLocators.Internet_Way).get_attribute('value')
             # assert Internet_Way_value == "DHCP", Internet_Way_value
 
-
-
-
-
-
     def test_A_get_url(self):
         """操作步骤：获取端口转发页url"""
         # 鼠标模拟移动到：设置
@@ -219,10 +192,6 @@ class DmzHost(Base):
         time.sleep(2)
         DmzHost.url_dmzhostPage = self.driver.current_url
         time.sleep(1)
-
-
-
-
 
     @unittest.skip("跳过")
     def test_B_set_accessWay_PPPoE(self):
@@ -257,11 +226,6 @@ class DmzHost(Base):
             EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_C_2(self):
@@ -298,18 +262,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_D_set_accessWay_StaticIP(self):
@@ -344,11 +303,6 @@ class DmzHost(Base):
             EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_E_3(self):
@@ -385,18 +339,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_F_set_accessWay_DHCP(self):
@@ -414,7 +363,7 @@ class DmzHost(Base):
         time.sleep(0.5)
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, DmzHostLocators.DmzHostIp))
-        ).send_keys("192.168.127.200")      #？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        ).send_keys("192.168.127.200")  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
         # 判断：开关如果为关闭，才进行开启操作
         if self.driver.find_element_by_xpath(DmzHostLocators.Statu).get_attribute('class') == "box":
             WebDriverWait(self.driver, 10).until(
@@ -431,12 +380,6 @@ class DmzHost(Base):
             EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
-
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_G_1(self):
@@ -473,18 +416,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_H_edit(self):
@@ -517,11 +455,6 @@ class DmzHost(Base):
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
-
-
-
-
-
     @unittest.skip("跳过")
     def test_I_4(self):
         """【检验】用例-3999 : 修改DMZ规则后，新规则生效，旧规则失效"""
@@ -536,17 +469,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
 
     @unittest.skip("跳过")
     def test_J_5(self):
@@ -562,16 +491,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_K_6(self):
@@ -587,16 +513,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_L_7(self):
@@ -612,16 +535,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_M_8(self):
@@ -637,17 +557,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
 
     @unittest.skip("跳过")
     def test_N_9(self):
@@ -663,16 +579,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_O_10(self):
@@ -688,16 +601,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_P_11(self):
@@ -713,16 +623,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_Q_12(self):
@@ -738,16 +645,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_R_13(self):
@@ -763,16 +667,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_S_14(self):
@@ -788,16 +689,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_T_15(self):
@@ -813,16 +711,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_U_16(self):
@@ -838,17 +733,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
 
     @unittest.skip("跳过")
     def test_V_edit_off(self):
@@ -873,9 +764,6 @@ class DmzHost(Base):
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
 
-
-
-
     @unittest.skip("跳过")
     def test_W_17(self):
         """【检验】用例-2504 : 关闭DMZ主机后，外网访问WAN口的TCP报文，未匹配到路由器已建立的连接，不会被转发给DMZ主机"""
@@ -892,16 +780,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_X_18(self):
@@ -919,16 +804,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_Y_19(self):
@@ -946,16 +828,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_Z_20(self):
@@ -973,16 +852,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_a_21(self):
@@ -1000,16 +876,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_b_22(self):
@@ -1027,16 +900,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_c_23(self):
@@ -1054,16 +924,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_d_24(self):
@@ -1081,16 +948,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_e_25(self):
@@ -1108,16 +972,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_f_26(self):
@@ -1135,16 +996,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_g_27(self):
@@ -1162,16 +1020,13 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_h_28(self):
@@ -1189,13 +1044,10 @@ class DmzHost(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)  # 是否需要等待时间，待配置生效？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        Result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
-        if Result == 1:
+        result = 1  # ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-

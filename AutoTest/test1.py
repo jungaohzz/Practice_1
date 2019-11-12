@@ -8,8 +8,7 @@ import time
 class LearnElement(unittest.TestCase):
     # 初始化，打开浏览器
     def setUp(self):
-        p = "F:\chromedriver.exe"
-        self.driver = webdriver.Chrome(p)
+        self.driver = webdriver.Chrome()
         self.driver.get('https://console.gtsiom.net/#/login')
         time.sleep(5)
 

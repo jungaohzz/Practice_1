@@ -5,6 +5,8 @@
 # @Author:  GaoJun
 
 """MAC地址克隆"""
+
+
 class CloneMacAddressLocators(object):
     Default_Mac_Button = "//div[@class='form']/div[1]/div"
     Custom_Mac_Button = "//div[@class='form']/div[2]/div[1]"

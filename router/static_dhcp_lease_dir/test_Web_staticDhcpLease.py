@@ -5,7 +5,7 @@
 # @Author:  GaoJun
 
 import unittest
-from .. base import Base
+from ..base import Base
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -19,14 +19,13 @@ from rweb.path.staticDhcpLease import StaticDHCPLeaseLocators
 from rweb.path.wifiSettings import WifiSettingsLocators
 from rweb.path.guestWifi import GuestWifiLocators
 from rweb import const
-from ..common_dir import common_conf,common_fun
+from ..common_dir import common_conf, common_fun
 from .static_dhcp_lease_testcase import Test_static_dhcp_lease
 
 """Mac与IP绑定"""
 
 
 class StaticDHCPLease(Base):
-
     # 定义 Mac与IP绑定 相关前置条件的变量
     Precondition = True
     # 定义有线网卡配置的Mac和IP是否生效的变量
@@ -36,7 +35,7 @@ class StaticDHCPLease(Base):
     url_staticDHCPLeasePage = ""
 
     def switch_to_staticDHCPLeasePage(self, Current_Url):  # 切换到 Mac与IP绑定 页
-        if StaticDHCPLease.Precondition == False:
+        if not StaticDHCPLease.Precondition:
             print("【失败】Mac与IP绑定测试的相关前置条件配置失败")
             assert False
 
@@ -57,16 +56,9 @@ class StaticDHCPLease(Base):
             time.sleep(1)
             Current_Url = self.driver.current_url
 
-
-
-
-
-
-
-
     def add(self, Type, Mac, IP):
         """操作步骤：新增记录"""
-        if StaticDHCPLease.Precondition == False:
+        if not StaticDHCPLease.Precondition:
             print("【失败】主WiFi默认设置或Mac与IP绑定相关前置条件配置失败")
             assert False
 
@@ -117,16 +109,10 @@ class StaticDHCPLease(Base):
         )
         time.sleep(1)
 
-
-
-
-
-
-
     def deleteAlls(self):
         """操作步骤：删除列表所有记录"""
         flag = False
-        while flag == False:
+        while not flag:
             try:
                 assert self.driver.find_element_by_xpath(StaticDHCPLeaseLocators.List_Null).is_displayed()
                 flag = True
@@ -145,12 +131,6 @@ class StaticDHCPLease(Base):
                 WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                     EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
                 )
-
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_A_staticDHCPLease_default(self):
@@ -187,9 +167,9 @@ class StaticDHCPLease(Base):
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Encryption_Button))
         )
-        Encryption_Value = self.driver.find_element_by_xpath(WifiSettingsLocators.Encryption_Button).get_attribute(
+        encryption_value = self.driver.find_element_by_xpath(WifiSettingsLocators.Encryption_Button).get_attribute(
             'value')
-        if Encryption_Value != "WPA/WPA2-PSK":
+        if encryption_value != "WPA/WPA2-PSK":
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Encryption_Button))
             ).click()
@@ -281,7 +261,7 @@ class StaticDHCPLease(Base):
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Encryption_Button))
             )
-            Encryption_Value = self.driver.find_element_by_xpath(WifiSettingsLocators.Encryption_Button).get_attribute(
+            encryption_value = self.driver.find_element_by_xpath(WifiSettingsLocators.Encryption_Button).get_attribute(
                 'value')
             # 获取密码
             time.sleep(1)
@@ -304,7 +284,7 @@ class StaticDHCPLease(Base):
                 'class')
 
             # 判断是否设置成功
-            if Wifi_Name_Text != common_conf.ssid_2g and Encryption_Value != "WPA/WPA2-PSK" and WiFi_Password_Text != common_conf.wlan_password and \
+            if Wifi_Name_Text != common_conf.ssid_2g and encryption_value != "WPA/WPA2-PSK" and WiFi_Password_Text != common_conf.wlan_password and \
                     Hide_SSID_class != "switch switch-animation" and Smart_Connect_class != "switch switch-animation checked":
                 print("【失败】主WiFi设置为默认值操作失败")
                 StaticDHCPLease.Precondition = False
@@ -313,12 +293,6 @@ class StaticDHCPLease(Base):
                 print("【成功】主WiFi设置为默认值操作成功")
                 StaticDHCPLease.Precondition = True
                 assert True
-
-
-
-
-
-
 
     # @unittest.skip("跳过")
     def test_B_get_url(self):
@@ -337,13 +311,7 @@ class StaticDHCPLease(Base):
         StaticDHCPLease.url_staticDHCPLeasePage = self.driver.current_url
         time.sleep(1)
 
-
-
-
-
-
-
-    #未通过测试！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    # 未通过测试！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     # 未通过测试！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     # 未通过测试！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     # 未通过测试！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
@@ -363,8 +331,8 @@ class StaticDHCPLease(Base):
         i = 1
         while i <= 2 and flag == False:  # 如果第1次失败，则尝试第2次配置
             print("这是第%s次init" % i)
-            Result = Test_static_dhcp_lease.test_static_dhcp_lease_init()
-            if Result == 1:
+            result = Test_static_dhcp_lease.test_static_dhcp_lease_init()
+            if result == 1:
                 print("【成功】Mac与IP绑定测试的相关前置条件配置成功")
                 flag = True
                 StaticDHCPLease.Precondition = True
@@ -379,18 +347,11 @@ class StaticDHCPLease(Base):
                 assert False
             i += 1
 
-
-
-
-
-
-
-
-
     """
         验证：用例1-X系列
         配置有线网卡WIRED1的静态IP为static_ip1，能成功获取到对应ip地址
     """
+
     @unittest.skip("跳过")
     def test_D_staticDHCPLease_add_wired1(self):
         """操作步骤：配置WIRED1-static_ip1"""
@@ -399,11 +360,6 @@ class StaticDHCPLease(Base):
             assert False
 
         self.add("WIRED1", common_conf.wired1_mac, common_conf.static_ip1)
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_E_staticDhcpLease_1(self):
@@ -434,18 +390,13 @@ class StaticDHCPLease(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)
-        Result = Test_static_dhcp_lease.test_static_dhcp_lease_1()
-        if Result == 1:
+        result = Test_static_dhcp_lease.test_static_dhcp_lease_1()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
 
     """
         验证：用例2-X系列
@@ -454,6 +405,7 @@ class StaticDHCPLease(Base):
         test_static_dhcp_lease_2_1测试结果为1时，再将static_ip1绑定到WLAN5G1
         生效后执行test_static_dhcp_lease_2_2，然后使得WLAN5G1连接到WiFi并且拿到的ip为static_ip1，并且WIRED1拿到的ip不为static_ip1
     """
+
     @unittest.skip("跳过")
     def test_F_staticDHCPLease_add_wired1(self):
         """操作步骤：配置WIRED1-static_ip1"""
@@ -463,10 +415,6 @@ class StaticDHCPLease(Base):
 
         self.deleteAlls()
         self.add("WIRED1", common_conf.wired1_mac, common_conf.static_ip1)
-
-
-
-
 
     @unittest.skip("跳过")
     def test_G_staticDhcpLease_2_1(self):
@@ -494,8 +442,8 @@ class StaticDHCPLease(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)
-        Result = Test_static_dhcp_lease.test_static_dhcp_lease_2_1()
-        if Result == 1:
+        result = Test_static_dhcp_lease.test_static_dhcp_lease_2_1()
+        if result == 1:
             print("【成功】")
             StaticDHCPLease.Wired1_Effect = True
             assert True
@@ -503,11 +451,6 @@ class StaticDHCPLease(Base):
             print("【失败】")
             StaticDHCPLease.Wired1_Effect = False
             assert False
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_H_staticDHCPLease_add_wlan5G1(self):
@@ -520,11 +463,6 @@ class StaticDHCPLease(Base):
         self.deleteAlls()
         # 新增记录：将static_ip1绑定到WLAN5G1
         self.add("WLAN5G1", common_conf.wlan5g_mac, common_conf.static_ip1)
-
-
-
-
-
 
     # 未通过测试！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     # 未通过测试！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
@@ -545,21 +483,13 @@ class StaticDHCPLease(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)
-        Result = Test_static_dhcp_lease.test_static_dhcp_lease_2_2()
-        if Result == 1:
+        result = Test_static_dhcp_lease.test_static_dhcp_lease_2_2()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
-
-
 
     """
         验证：用例3-X系列
@@ -568,6 +498,7 @@ class StaticDHCPLease(Base):
         test_static_dhcp_lease_3_1测试结果为1时，修改WIRED1的静态IP为static_ip2
         保存生效后再执行test_static_dhcp_lease_3_2
     """
+
     @unittest.skip("跳过")
     def test_J_staticDHCPLease_add_wired1(self):
         """操作步骤：配置WIRED1-static_ip1"""
@@ -576,10 +507,6 @@ class StaticDHCPLease(Base):
             assert False
         self.deleteAlls()
         self.add("WIRED1", common_conf.wired1_mac, common_conf.static_ip1)
-
-
-
-
 
     @unittest.skip("跳过")
     def test_K_staticDhcpLease_3_1(self):
@@ -607,8 +534,8 @@ class StaticDHCPLease(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)
-        Result = Test_static_dhcp_lease.test_static_dhcp_lease_3_1()
-        if Result == 1:
+        result = Test_static_dhcp_lease.test_static_dhcp_lease_3_1()
+        if result == 1:
             print("【成功】")
             StaticDHCPLease.Wired1_Effect = True
             assert True
@@ -616,11 +543,6 @@ class StaticDHCPLease(Base):
             print("【失败】")
             StaticDHCPLease.Wired1_Effect = False
             assert False
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_L_staticDHCPLease_add_wired1(self):
@@ -634,11 +556,6 @@ class StaticDHCPLease(Base):
         # 新增记录：将static_ip1绑定到WLAN5G1
         self.add("WIRED1", common_conf.wired1_mac, common_conf.static_ip2)
 
-
-
-
-
-
     @unittest.skip("跳过")
     def test_M_staticDhcpLease_3_2(self):
         """【检验】用例-4009 : 修改一条MAC/IP绑定规则，新规则生效，老规则失效"""
@@ -651,21 +568,13 @@ class StaticDHCPLease(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)
-        Result = Test_static_dhcp_lease.test_static_dhcp_lease_3_2()
-        if Result == 1:
+        result = Test_static_dhcp_lease.test_static_dhcp_lease_3_2()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
-
-
 
     """
         验证：用例4-X系列   
@@ -674,6 +583,7 @@ class StaticDHCPLease(Base):
         test_static_dhcp_lease_4测试结果为1时，然后不做任何修改
         保存生效后，再执行test_static_dhcp_lease_4，测试结果为1表示通过
     """
+
     @unittest.skip("跳过")
     def test_N_staticDHCPLease_add_wired1(self):
         """操作步骤：配置WIRED1-static_ip1"""
@@ -682,11 +592,6 @@ class StaticDHCPLease(Base):
             assert False
         self.deleteAlls()
         self.add("WIRED1", common_conf.wired1_mac, common_conf.static_ip1)
-
-
-
-
-
 
     @unittest.skip("跳过")
     def test_O_staticDhcpLease_4(self):
@@ -714,8 +619,8 @@ class StaticDHCPLease(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)
-        Result = Test_static_dhcp_lease.test_static_dhcp_lease_4()
-        if Result == 1:
+        result = Test_static_dhcp_lease.test_static_dhcp_lease_4()
+        if result == 1:
             print("【成功】")
             StaticDHCPLease.Wired1_Effect = True
             assert True
@@ -723,9 +628,6 @@ class StaticDHCPLease(Base):
             print("【失败】")
             StaticDHCPLease.Wired1_Effect = False
             assert False
-
-
-
 
     @unittest.skip("跳过")
     def test_P_staticDhcpLease_4(self):
@@ -739,19 +641,13 @@ class StaticDHCPLease(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)
-        Result = Test_static_dhcp_lease.test_static_dhcp_lease_4()
-        if Result == 1:
+        result = Test_static_dhcp_lease.test_static_dhcp_lease_4()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
-
-
-
-
-
-
 
     # """
     #     验证：用例5-X系列
@@ -800,8 +696,8 @@ class StaticDHCPLease(Base):
     #
     #     # 前提检验完成，开始检验用例
     #     time.sleep(5)
-    #     Result = Test_static_dhcp_lease.test_static_dhcp_lease_5_1()
-    #     if Result == 1:
+    #     result = Test_static_dhcp_lease.test_static_dhcp_lease_5_1()
+    #     if result == 1:
     #         print("【成功】")
     #         StaticDHCPLease.Wired1_Effect = True
     #         assert True
@@ -848,8 +744,8 @@ class StaticDHCPLease(Base):
     #
     #     # 前提检验完成，开始检验用例
     #     time.sleep(5)
-    #     Result = Test_static_dhcp_lease.test_static_dhcp_lease_5_2()
-    #     if Result == 1:
+    #     result = Test_static_dhcp_lease.test_static_dhcp_lease_5_2()
+    #     if result == 1:
     #         print("【成功】")
     #         assert True
     #     else:

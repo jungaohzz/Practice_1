@@ -14,16 +14,13 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from . import const
-import re   # 正则表达式
+import re  # 正则表达式
 
 from rweb.path.common import CommonLocators
 from rweb.path.devices import DevicesLocators
 from rweb.path.limitTime import LimitTimeLocators
 from rweb.path.limitRate import LimitRateLocators
 from rweb.path.websiteBlacklist import WebsiteBlacklistLocators
-
-
-
 
 
 class Devices(Base):
@@ -41,8 +38,6 @@ class Devices(Base):
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Devices))
         ).click()
         self.driver.refresh()
-
-
 
     @unittest.skip("跳过")
     def test_A_devices_elementCheck(self):
@@ -99,11 +94,7 @@ class Devices(Base):
         Actions_Text = self.driver.find_element_by_xpath(Actions).text
         assert Actions_Text == "Actions", Actions_Text
 
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_devices_wired_elementCheck(self):
         """接入设备-有线设备接入-元素检查"""
         """
@@ -173,12 +164,12 @@ class Devices(Base):
         Mac = self.driver.find_element_by_xpath(DevicesLocators.MyWifi_List_Mac).text
         assert re.match(r"^\s*([0-9a-fA-F]{2,2}:){5,5}[0-9a-fA-F]{2,2}\s*$", Mac), Mac
 
-
         # 断言：实时速率 字段包含元素：上行图标 + 上行速率
         WebDriverWait(self.driver, 15).until(
             EC.presence_of_element_located((By.XPATH, "//div[@class='table-inner']/div[2]/div/ul/li[2]/div/div[1]/img"))
         )
-        assert self.driver.find_element_by_xpath("//div[@class='table-inner']/div[2]/div/ul/li[2]/div/div[1]/img").is_displayed()
+        assert self.driver.find_element_by_xpath(
+            "//div[@class='table-inner']/div[2]/div/ul/li[2]/div/div[1]/img").is_displayed()
         WebDriverWait(self.driver, 15).until(
             EC.presence_of_element_located((By.XPATH, DevicesLocators.MyWifi_List_Speed_Uplink))
         )
@@ -188,7 +179,8 @@ class Devices(Base):
         WebDriverWait(self.driver, 15).until(
             EC.presence_of_element_located((By.XPATH, "//div[@class='table-inner']/div[2]/div/ul/li[2]/div/div[2]/img"))
         )
-        assert self.driver.find_element_by_xpath("//div[@class='table-inner']/div[2]/div/ul/li[2]/div/div[2]/img").is_displayed()
+        assert self.driver.find_element_by_xpath(
+            "//div[@class='table-inner']/div[2]/div/ul/li[2]/div/div[2]/img").is_displayed()
         WebDriverWait(self.driver, 15).until(
             EC.presence_of_element_located((By.XPATH, DevicesLocators.MyWifi_List_Speed_Downlink))
         )
@@ -231,5 +223,3 @@ class Devices(Base):
         )
         AddtoBlacklist_Text = self.driver.find_element_by_xpath(DevicesLocators.AddtoBlacklist).text
         assert AddtoBlacklist_Text == "Add to Blacklist", AddtoBlacklist_Text
-
-

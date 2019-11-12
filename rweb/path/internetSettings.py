@@ -5,6 +5,8 @@
 # @Author:  GaoJun
 
 """上网设置"""
+
+
 class InternetSettingsLocators(object):
     # 上网方式
     Internet_Way = "//div[@class='form']/div[1]/div/div/input"
@@ -28,8 +30,6 @@ class InternetSettingsLocators(object):
     StaticIP_Gateway = "//div[@class='form']/div[4]/div[3]/div/div/div/input"
     # DNS
     StaticIP_DNS = "//div[@class='form']/div[4]/div[4]/div/div/div/input"
-
-
 
     # 自动获取DNS
     DNS_Auto = "//div[@class='form']/div[2]/div[1]/div/div[1]/div[1]"

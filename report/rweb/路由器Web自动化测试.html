@@ -7058,7 +7058,7 @@
                             <option value="">----------</option>
                         </select>
                         <label style="color: snow">结果:</label>
-                        <select class="chosen-select form-control" data-placeholder="----------" style="width: 300px;" name="filterResult" id="filterResult">
+                        <select class="chosen-select form-control" data-placeholder="----------" style="width: 300px;" name="filterresult" id="filterresult">
                             <option value="">----------</option>
                         </select>
                         <div style="float: right">
@@ -7129,7 +7129,7 @@
 <script type="text/javascript">
     var resultData = {
     "testPass": 3,
-    "testResult": [
+    "testresult": [
         {
             "className": "GuestWifi",
             "methodName": "test_A_guestWifi_on",
@@ -7410,7 +7410,7 @@
         if ($(obj).text() == '展开') {
             var len = $(obj).parent().parent().children().length;
             var detailLog = "";
-            var logs = resultData["testResult"][parseInt($(obj).attr("buttonIndex"))]["log"];
+            var logs = resultData["testresult"][parseInt($(obj).attr("buttonIndex"))]["log"];
             $(obj).text("收缩");
             $(obj).removeClass("btn-primary");
             $(obj).addClass("btn-danger");
@@ -7440,7 +7440,7 @@
         $("#filterSkip").text(resultData["testSkip"]);
         var classNames = [];
         var results = [];
-        $.each(resultData["testResult"], function (i, n) {
+        $.each(resultData["testresult"], function (i, n) {
             if (classNames.indexOf(n["className"]) == -1) {
                 classNames.push(n["className"]);
             }
@@ -7453,20 +7453,20 @@
             $("#filterClass").append("<option value='" + n + "' hassubinfo='true'>" + n + "</option>");
         });
         $.each(results, function (i, n) {
-            $("#filterResult").append("<option value='" + n + "' hassubinfo='true'>" + n + "</option>");
+            $("#filterresult").append("<option value='" + n + "' hassubinfo='true'>" + n + "</option>");
         });
 
         $("#filterClass").chosen({search_contains: true});
-        $("#filterResult").chosen({search_contains: true});
+        $("#filterresult").chosen({search_contains: true});
 
-        function generateResult(className, caseResult) {
+        function generateresult(className, caseresult) {
             $("#detailBody").children().remove();
             var filterAll = 0;
             var filterOk = 0;
             var filterFail = 0;
             var filterSkip = 0;
-            $.each(resultData["testResult"], function (i, n) {
-                if ((className == "" || n["className"] == className) && (caseResult == "" || n["status"] == caseResult)) {
+            $.each(resultData["testresult"], function (i, n) {
+                if ((className == "" || n["className"] == className) && (caseresult == "" || n["status"] == caseresult)) {
                     filterAll += 1;
                     var status = "";
                     if (n["status"] == '成功') {
@@ -7497,18 +7497,18 @@
             $("#filterSkip").text(filterSkip);
         }
 
-        generateResult("", "");
+        generateresult("", "");
 
         $("#filterClass").on('change', function () {
             var className = $("#filterClass").val();
-            var caseResult = $("#filterResult").val();
-            generateResult(className, caseResult);
+            var caseresult = $("#filterresult").val();
+            generateresult(className, caseresult);
         });
 
-        $("#filterResult").on('change', function () {
+        $("#filterresult").on('change', function () {
             var className = $("#filterClass").val();
-            var caseResult = $("#filterResult").val();
-            generateResult(className, caseResult);
+            var caseresult = $("#filterresult").val();
+            generateresult(className, caseresult);
         });
 
         //$(".chosen-select").trigger("chosen:updated");

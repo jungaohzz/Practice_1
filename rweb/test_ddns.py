@@ -19,8 +19,10 @@ from rweb.path.dmzHost import DmzHostLocators
 from rweb.path.dhcp import DhcpLocators
 from rweb.path.cloneMacAddress import CloneMacAddressLocators
 from rweb.path.ddns import DDNSLocators
+from rweb import const
 
 """DDNS"""
+
 
 class DDNS(Base):
     def setUp(self):
@@ -37,8 +39,7 @@ class DDNS(Base):
         ).click()
         time.sleep(2)
 
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_set_DynDNS(self):
         """DDNS-设置DynDNS"""
         # 选择服务提供商：DynDNS
@@ -103,8 +104,6 @@ class DDNS(Base):
             EC.presence_of_element_located((By.XPATH, DDNSLocators.Statu))
         )
         assert self.driver.find_element_by_xpath(DDNSLocators.Statu).get_attribute('class') == "box checked"
-
-
 
     # @unittest.skip("跳过")
     def test_B_set_Oray(self):
@@ -171,6 +170,3 @@ class DDNS(Base):
             EC.presence_of_element_located((By.XPATH, DDNSLocators.Statu))
         )
         assert self.driver.find_element_by_xpath(DDNSLocators.Statu).get_attribute('class') == "box checked"
-
-
-

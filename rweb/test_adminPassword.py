@@ -21,8 +21,8 @@ from rweb.path.internetSettings import InternetSettingsLocators
 from rweb.path.routerManagement import RouterManagementLocators
 from rweb.path.adminPassword import AdminPasswordLocators
 
-
 """管理密码"""
+
 
 class AdminPassword(Base):
     def setUp(self):
@@ -39,7 +39,7 @@ class AdminPassword(Base):
         ).click()
         time.sleep(2)
 
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_set_admin_password(self):
         """管理密码-设置管理密码：各种字符组合"""
         # 输入 新密码，各种组合
@@ -51,12 +51,12 @@ class AdminPassword(Base):
             EC.element_to_be_clickable((By.XPATH, AdminPasswordLocators.Save))
         ).click()
 
-        #断言：修改成功后会跳转到登录页面，则查看是否有“登录”按钮即可
+        # 断言：修改成功后会跳转到登录页面，则查看是否有“登录”按钮即可
         WebDriverWait(self.driver, const.REBOOT_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Login))
         )
 
-        #重新登录
+        # 重新登录
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.InputPassword))
         ).send_keys(const.PASSWORD_MIX)
@@ -93,5 +93,3 @@ class AdminPassword(Base):
         WebDriverWait(self.driver, const.REBOOT_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Login))
         )
-
-

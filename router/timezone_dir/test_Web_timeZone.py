@@ -5,7 +5,7 @@
 # @Author:  GaoJun
 
 
-from .. base import Base
+from ..base import Base
 import unittest
 from rweb import const
 from selenium.webdriver.support.ui import WebDriverWait
@@ -16,7 +16,6 @@ import time
 from rweb.path.common import CommonLocators
 from rweb.path.timeZone import TimeZoneLocators
 from .timezone_testcase import Test_timezone
-
 
 
 class TimeZone(Base):
@@ -35,12 +34,7 @@ class TimeZone(Base):
         ).click()
         self.driver.refresh()
 
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_timeZone_Chinese(self):
         """操作步骤：修改时区为中国时区"""
         # 点击 时区框
@@ -63,14 +57,7 @@ class TimeZone(Base):
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
         time.sleep(1)
 
-
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_B_timeZone_1(self):
         """【检验】用例-4833 : 修改系统时区为时区A后，系统时间为时区A时间"""
         # 前提条件：将时区修改为中国时区：(GMT+08:00)北京、重庆、香港、乌鲁木齐
@@ -85,21 +72,15 @@ class TimeZone(Base):
 
         # 前提检验完成，开始检验用例
         time.sleep(5)
-        Result = Test_timezone.test_timezone_1()
-        if Result == 1:
+        result = Test_timezone.test_timezone_1()
+        if result == 1:
             print("【成功】")
             assert True
         else:
             print("【失败】")
             assert False
 
-
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_C_timeZone_Eastern(self):
         """操作步骤：将时区恢复默认的东部时间"""
         # 点击 时区框
@@ -122,9 +103,6 @@ class TimeZone(Base):
         assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
         time.sleep(1)
 
-
-
-
     # 路由器未实现该功能
     # #@unittest.skip("跳过")
     # def test_D_timeZone_1(self):
@@ -143,8 +121,8 @@ class TimeZone(Base):
     #
     #     # 前提检验完成，开始检验用例
     #     time.sleep(5)
-    #     Result = Test_timezone.test_timezone_1()
-    #     if Result == 1:
+    #     result = Test_timezone.test_timezone_1()
+    #     if result == 1:
     #         print("【成功】")
     #         assert True
     #     else:

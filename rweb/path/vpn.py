@@ -5,8 +5,9 @@
 # @Author:  GaoJun
 
 
-
 """VPN"""
+
+
 class VpnLocators(object):
     Add = "//button[@class='btn btn-middle']"
     Statu = "//div[@class='vpn-list']/div[1]/div[1]/div[2]/div"

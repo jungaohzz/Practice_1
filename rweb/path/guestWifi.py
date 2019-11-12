@@ -11,7 +11,6 @@ class GuestWifiLocators(object):
     Satatu = "//div[@class='form']/div[1]/div/div"
     Settings = "/html/body/div[1]/div/div/div/div[1]/div[2]/div/div[2]/div[4]/button"
 
-
     # 有效时长
     Active_Time = "//div[@class='form']/div[2]/div[1]/div/div/input"
     Active_Time_1day = "//div[@class='form']/div[2]/div[1]/div/div/ul/li[2]"

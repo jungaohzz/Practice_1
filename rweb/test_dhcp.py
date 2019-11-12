@@ -20,6 +20,7 @@ from rweb.path.dhcp import DhcpLocators
 
 """DHCP"""
 
+
 class Dhcp(Base):
     def setUp(self):
         super(Dhcp, self).setUp()
@@ -34,7 +35,6 @@ class Dhcp(Base):
             EC.element_to_be_clickable((By.XPATH, CommonLocators.DHCP))
         ).click()
         time.sleep(2)
-
 
     # @unittest.skip("跳过")
     def test_A_dhcp_auto_change(self):
@@ -53,16 +53,14 @@ class Dhcp(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, DhcpLocators.IpPool_Start_NetwordSegment))
         )
-        assert self.driver.find_element_by_xpath(DhcpLocators.IpPool_Start_NetwordSegment).get_attribute("value") == "192.168.120."
+        assert self.driver.find_element_by_xpath(DhcpLocators.IpPool_Start_NetwordSegment).get_attribute(
+            "value") == "192.168.120."
 
         # 断言：地址池结束ip是否自动更改网段
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, DhcpLocators.IpPool_End_NetwordSegment))
         )
         assert self.driver.find_element_by_xpath(DhcpLocators.IpPool_End_NetwordSegment).get_attribute("value") == "192.168.120."
-
-
-
 
     # @unittest.skip("跳过")
     def test_B_dhcp_save(self):

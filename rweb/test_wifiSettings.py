@@ -22,6 +22,7 @@ from rweb.path.routerManagement import RouterManagementLocators
 
 """WiFi设置"""
 
+
 class WifiSettings(Base):
     def setUp(self):
         super(WifiSettings, self).setUp()
@@ -37,8 +38,7 @@ class WifiSettings(Base):
         ).click()
         time.sleep(2)
 
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_A_wifiSetting_changePassword(self):
         """WiFi设置-修改WiFi密码为各种字符组合"""
         # 密码框，输入各种组合，如：abc~!@#$%^123
@@ -77,10 +77,8 @@ class WifiSettings(Base):
         WebDriverWait(self.driver, 60).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.WiFi_Password))
         )
-        assert self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute("value") =="abc~!@#$%^123"
-
-
-
+        assert self.driver.find_element_by_xpath(WifiSettingsLocators.WiFi_Password).get_attribute(
+            "value") == "abc~!@#$%^123"
 
     # @unittest.skip("跳过")
     def test_B_wifiSetting_SmartConnect_off(self):
@@ -89,7 +87,8 @@ class WifiSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.XPATH, WifiSettingsLocators.Smart_Connect))
         )
-        Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class')
+        Smart_Connect_class = self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute(
+            'class')
         # 默认状态：打开
         # 如果状态为：打开，才进行if的关闭操作
         if Smart_Connect_class == "switch switch-animation checked":
@@ -97,7 +96,7 @@ class WifiSettings(Base):
             WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
             ).click()
-            time.sleep(2)   #用于开关切换
+            time.sleep(2)  # 用于开关切换
 
             # 保存
             WebDriverWait(self.driver, 10).until(
@@ -130,4 +129,5 @@ class WifiSettings(Base):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, WifiSettingsLocators.Smart_Connect))
         )
-        assert self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute('class') == "switch switch-animation"
+        assert self.driver.find_element_by_xpath(WifiSettingsLocators.Smart_Connect).get_attribute(
+            'class') == "switch switch-animation"

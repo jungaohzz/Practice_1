@@ -14,7 +14,5 @@ MEDIUM_WAIT = 10
 SLOW_WAIT = 30
 REBOOT_WAIT = 60
 
-
-
 # 复杂的密码组合
 PASSWORD_MIX = "Gj~!@#$%^&*()123<>:"

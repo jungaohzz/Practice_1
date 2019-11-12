@@ -13,6 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from rweb import const
 from rweb.path.common import CommonLocators
+from .common_dir import common_conf
 
 
 class Base(unittest.TestCase):
@@ -25,7 +26,7 @@ class Base(unittest.TestCase):
 
         WebDriverWait(cls.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.InputPassword))
-        ).send_keys(const.PASSWORD)
+        ).send_keys(common_conf.telnet_password)
 
         WebDriverWait(cls.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Login))

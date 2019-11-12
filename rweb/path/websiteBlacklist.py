@@ -5,6 +5,8 @@
 # @Author:  GaoJun
 
 """网址黑名单"""
+
+
 class WebsiteBlacklistLocators(object):
     Page_WebsiteBlacklist = "//div[@class='tabs tabs']/div[3]"
 

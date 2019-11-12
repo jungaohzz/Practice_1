@@ -21,12 +21,7 @@ from rweb.path.devices import DevicesLocators
 from rweb.path.routerManagement import RouterManagementLocators
 
 
-
-
-
-
 class RouterManagement(Base):
-
 
     @unittest.skip("跳过")
     def test_A_routerManagement_elementsCheck(self):
@@ -57,9 +52,6 @@ class RouterManagement(Base):
         Add_Node_Text = self.driver.find_element_by_xpath(RouterManagementLocators.Add_Node).text
         assert Add_Node_Text == "Add a node", Add_Node_Text
 
-
-
-
     @unittest.skip("跳过")
     def test_B_routerManagement_page(self):
         """管理路由器-默认页及页面切换"""
@@ -76,7 +68,8 @@ class RouterManagement(Base):
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.Mesh_Topology))
         )
-        Mesh_Topology_Class = self.driver.find_element_by_xpath(RouterManagementLocators.Mesh_Topology).get_attribute('class')
+        Mesh_Topology_Class = self.driver.find_element_by_xpath(RouterManagementLocators.Mesh_Topology).get_attribute(
+            'class')
         # 断言：是否选中“Mesh拓扑图”tab页
         assert Mesh_Topology_Class == "tab selected", Mesh_Topology_Class
         # 断言：是否显示“Mesh拓扑图”tab页下的“Mesh穿墙” 和 “完整拓扑” 状态开关
@@ -106,7 +99,8 @@ class RouterManagement(Base):
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.Mesh_Topology))
         )
-        Mesh_Topology_Class = self.driver.find_element_by_xpath(RouterManagementLocators.Mesh_Topology).get_attribute("class")
+        Mesh_Topology_Class = self.driver.find_element_by_xpath(RouterManagementLocators.Mesh_Topology).get_attribute(
+            "class")
         # 断言：是否选中“Mesh拓扑图”tab页
         assert Mesh_Topology_Class == "tab selected", Mesh_Topology_Class
         # 断言：是否显示“Mesh拓扑图”tab页下的“Mesh穿墙” 和 “完整拓扑” 状态开关
@@ -128,8 +122,6 @@ class RouterManagement(Base):
         Start_Button = self.driver.find_element_by_xpath("//div[@class='page']/div[2]/div[1]/div[2]/button")
         assert Start_Button.is_displayed()
 
-
-
     @unittest.skip("跳过")
     def test_C_routerManagement_increaseMeshCoverage_default_note(self):
         """管理路由器-Mesh穿墙-默认状态及提示"""
@@ -146,7 +138,8 @@ class RouterManagement(Base):
         )
 
         # 断言：用例-5523 : 开关默认关闭
-        IncreaseMeshCoverage_Class = self.driver.find_element_by_xpath(RouterManagementLocators.Increase_Mesh_Coverage_Statu).get_attribute("class")
+        IncreaseMeshCoverage_Class = self.driver.find_element_by_xpath(
+            RouterManagementLocators.Increase_Mesh_Coverage_Statu).get_attribute("class")
         assert IncreaseMeshCoverage_Class == "switch switch-animation", IncreaseMeshCoverage_Class
 
         # 断言：用例-5522 : 点击开关旁叹号，弹出提示
@@ -164,8 +157,6 @@ class RouterManagement(Base):
         Note_Content_Text = self.driver.find_element_by_xpath(Note_Content).text
         assert Note_Content_Text == 'Once "Increase mesh coverage" enabled, Wi-Fi coverage will increase.', Note_Content_Text
 
-
-
     @unittest.skip("跳过")
     def test_D_routerManagement_confirmBox(self):
         """管理路由器-Mesh穿墙/完整拓扑-确认框元素检查及取消按钮"""
@@ -175,7 +166,8 @@ class RouterManagement(Base):
                     按钮：取消，确定
         用例-5612 : 确认框，点击取消，关闭弹框
         """
-        Statu_Class = self.driver.find_element_by_xpath(RouterManagementLocators.Increase_Mesh_Coverage_Statu).get_attribute("class")
+        Statu_Class = self.driver.find_element_by_xpath(
+            RouterManagementLocators.Increase_Mesh_Coverage_Statu).get_attribute("class")
 
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.Increase_Mesh_Coverage_Statu))
@@ -186,7 +178,8 @@ class RouterManagement(Base):
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Dialog))
         )
-        Note_Text = self.driver.find_element_by_xpath("//div[@class='dialog-container mask-layer']/div[@class='dialog-content']/div[1]").text
+        Note_Text = self.driver.find_element_by_xpath(
+            "//div[@class='dialog-container mask-layer']/div[@class='dialog-content']/div[1]").text
         assert Note_Text == "This will cause all devices to be disconnected. Do you wish to proceed?", Note_Text
         # 确认框是否有按钮：取消
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
@@ -200,7 +193,6 @@ class RouterManagement(Base):
         assert self.driver.find_element_by_xpath(CommonLocators.Confirm).is_displayed()
         print(1111111)
 
-
         # 断言：用例-5612 : 确认框，点击取消，关闭弹框
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, CommonLocators.Cancel))
@@ -208,9 +200,6 @@ class RouterManagement(Base):
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until_not(
             EC.presence_of_element_located((By.XPATH, CommonLocators.Dialog))
         )
-
-
-
 
     @unittest.skip("跳过")
     def test_E_routerManagement_increaseMeshCoverage_on(self):
@@ -226,7 +215,8 @@ class RouterManagement(Base):
                     查看（mesh组网通道）配置项，是否2.4G和5G组网通道都已开启 ： 是
         """
         # 默认是关闭的，如果是关闭的才进行下面的if打开操作
-        Statu_Class = self.driver.find_element_by_xpath(RouterManagementLocators.Increase_Mesh_Coverage_Statu).get_attribute("class")
+        Statu_Class = self.driver.find_element_by_xpath(
+            RouterManagementLocators.Increase_Mesh_Coverage_Statu).get_attribute("class")
         if Statu_Class == "switch switch-animation":
             WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
                 EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.Increase_Mesh_Coverage_Statu))
@@ -258,27 +248,26 @@ class RouterManagement(Base):
             i = 1
             while i <= 5:
                 time.sleep(1)
-                Shade_Time = int(self.driver.find_element_by_xpath("//div[@class='reboot-model-contanier']/div[3]").text[-3:-1])
+                Shade_Time = int(
+                    self.driver.find_element_by_xpath("//div[@class='reboot-model-contanier']/div[3]").text[-3:-1])
                 assert Shade_Time == 60 - i, Shade_Time
                 i += 1
 
             # 重启的60s，检查成功后是否有toast提示
-            WebDriverWait(self.driver, const.REBOOT_WAIT-5).until(
+            WebDriverWait(self.driver, const.REBOOT_WAIT - 5).until(
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
             time.sleep(1)
 
             # 断言：用例-5526 : 开启开关成功
-            Statu_Class = self.driver.find_element_by_xpath(RouterManagementLocators.Increase_Mesh_Coverage_Statu).get_attribute("class")
+            Statu_Class = self.driver.find_element_by_xpath(
+                RouterManagementLocators.Increase_Mesh_Coverage_Statu).get_attribute("class")
             assert Statu_Class == "switch switch-animation checked", Statu_Class
 
         else:
             print("备注：开关默认不为关，故暂未验证开启功能")
-            assert 2 == 1       # 作用：使该用例失败
-
-
-
+            assert 2 == 1  # 作用：使该用例失败
 
     @unittest.skip("跳过")
     def test_F_routerManagement_increaseMeshCoverage_off(self):
@@ -327,28 +316,26 @@ class RouterManagement(Base):
             i = 1
             while i <= 5:
                 time.sleep(1)
-                Shade_Time = int(self.driver.find_element_by_xpath("//div[@class='reboot-model-contanier']/div[3]").text[-3:-1])
+                Shade_Time = int(
+                    self.driver.find_element_by_xpath("//div[@class='reboot-model-contanier']/div[3]").text[-3:-1])
                 assert Shade_Time == 60 - i, Shade_Time
                 i += 1
 
             # 重启的60s，检查成功后是否有toast提示
-            WebDriverWait(self.driver, const.REBOOT_WAIT-5).until(
+            WebDriverWait(self.driver, const.REBOOT_WAIT - 5).until(
                 EC.presence_of_element_located((By.XPATH, CommonLocators.Success_Toast))
             )
             assert self.driver.find_element_by_xpath(CommonLocators.Success_Toast).text == "Successful operation"
             time.sleep(1)
 
             # 断言：用例-5527 : 关闭开关成功
-            Statu_Class = self.driver.find_element_by_xpath(RouterManagementLocators.Increase_Mesh_Coverage_Statu).get_attribute("class")
+            Statu_Class = self.driver.find_element_by_xpath(
+                RouterManagementLocators.Increase_Mesh_Coverage_Statu).get_attribute("class")
             assert Statu_Class == "switch switch-animation", Statu_Class
 
         else:
             print("备注：开关理应不是打开状态，故暂未验证关闭功能")
             assert 2 == 1  # 作用：使该用例失败
-
-
-
-
 
     @unittest.skip("跳过")
     def test_G_routerManagement_completeGraph_default_note(self):
@@ -362,7 +349,8 @@ class RouterManagement(Base):
         )
 
         # 断言：用例-5523 : 开关默认关闭
-        CompleteGraph_Class = self.driver.find_element_by_xpath(RouterManagementLocators.Complete_Graph_Statu).get_attribute("class")
+        CompleteGraph_Class = self.driver.find_element_by_xpath(
+            RouterManagementLocators.Complete_Graph_Statu).get_attribute("class")
         assert CompleteGraph_Class == "switch switch-animation", CompleteGraph_Class
 
         # 断言：用例-5522 : 点击开关旁叹号，弹出提示
@@ -379,10 +367,6 @@ class RouterManagement(Base):
         Note_Content = RouterManagementLocators.Complete_Graph_Note.format(num=3)
         Note_Content_Text = self.driver.find_element_by_xpath(Note_Content).text
         assert Note_Content_Text == 'All available connections will be illustrated in complete graph mode. Since Mercku nodes are able to pick up the best connections automatically, unused connections will be omitted when disabling complete graph, which describes the mesh link status more clearly.', Note_Content_Text
-
-
-
-
 
     @unittest.skip("跳过")
     def test_H_routerManagement_editDeviceName_elementsCheck(self):
@@ -423,7 +407,7 @@ class RouterManagement(Base):
             EC.presence_of_element_located((By.XPATH, RouterManagementLocators.Box_Title))
         )
         Title_Text = self.driver.find_element_by_xpath(RouterManagementLocators.Box_Title).text
-        assert Title_Text== "Device", Title_Text
+        assert Title_Text == "Device", Title_Text
         # 断言：是否有按钮：取消
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.presence_of_element_located((By.XPATH, RouterManagementLocators.Box_Cancel))
@@ -460,13 +444,10 @@ class RouterManagement(Base):
         ]
         i = 1
         while i <= 15:
-            Optional_Name =self.driver.find_element_by_xpath(RouterManagementLocators.Box_Optional_Name.format(num=i)).text
-            assert Optional_Name == Optional_Name_List[i-1], Optional_Name
+            Optional_Name = self.driver.find_element_by_xpath(
+                RouterManagementLocators.Box_Optional_Name.format(num=i)).text
+            assert Optional_Name == Optional_Name_List[i - 1], Optional_Name
             i += 1
-
-
-
-
 
     @unittest.skip("跳过")
     def test_I_routerManagement_editDeviceName_edit(self):
@@ -521,7 +502,6 @@ class RouterManagement(Base):
         Error_Text = self.driver.find_element_by_xpath(RouterManagementLocators.Box_Error).text
         assert Error_Text == "The name should not be empty", Error_Text
 
-
         # 断言：用例-1737 : 设备名称编辑框-输入内容长度超限，错误提示
         WebDriverWait(self.driver, const.MEDIUM_WAIT).until(
             EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.Box_DeviceName))
@@ -535,7 +515,6 @@ class RouterManagement(Base):
         )
         Error_Text = self.driver.find_element_by_xpath(RouterManagementLocators.Box_Error).text
         assert Error_Text == "The name is too long", Error_Text
-
 
         # 断言：用例-1736 : 设备名称编辑框-可以输入任意字符
         # 断言：输入：数字
@@ -588,7 +567,6 @@ class RouterManagement(Base):
         )
         DeviceName = self.driver.find_element_by_xpath(RouterManagementLocators.Box_DeviceName).get_attribute('value')
         assert DeviceName == "M2l@主路由", DeviceName
-
 
         # 断言：用例-1735 : 设备名称编辑框-点击设备名称下拉框中的设备名能成功选中并替换设备框中的内容
         time.sleep(1)
@@ -644,8 +622,6 @@ class RouterManagement(Base):
         PrimaryRoute_Name = self.driver.find_element_by_xpath(RouterManagementLocators.PrimaryRoute_Name).text
         assert PrimaryRoute_Name == PrimaryRoute_Name_Default, PrimaryRoute_Name
 
-
-
     @unittest.skip("跳过")
     def test_J_routerManagement_editDeviceName_errorNotSave(self):
         """管理路由器-修改设备名称-有异常提示时不能保存"""
@@ -698,9 +674,6 @@ class RouterManagement(Base):
         Error_Text = self.driver.find_element_by_xpath(RouterManagementLocators.Box_Error).text
         assert Error_Text == "The name is too long", Error_Text
 
-
-
-
     @unittest.skip("跳过")
     def test_K_routerManagement_editDeviceName_save_ok(self):
         """管理路由器-修改设备名称-保存成功"""
@@ -728,7 +701,7 @@ class RouterManagement(Base):
             EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.Box_Confirm))
         ).click()
         # 断言：关闭弹框
-        WebDriverWait(self.driver, const.MEDIUM_WAIT+5).until_not(
+        WebDriverWait(self.driver, const.MEDIUM_WAIT + 5).until_not(
             EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.Box))
         )
         # 断言：设备名称显示修改后的名称
@@ -765,9 +738,6 @@ class RouterManagement(Base):
         )
         PrimaryRoute_Name = self.driver.find_element_by_xpath(RouterManagementLocators.PrimaryRoute_Name).text
         assert PrimaryRoute_Name == "Locker room", PrimaryRoute_Name
-
-
-
 
     @unittest.skip("跳过")
     def test_L_routerManagement_reboot_elementsCheck(self):
@@ -825,12 +795,7 @@ class RouterManagement(Base):
             EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.Mesh_Topology))
         ).click()
 
-
-
-
-
-
-    #@unittest.skip("跳过")
+    # @unittest.skip("跳过")
     def test_M_routerManagement_reboot_ok(self):
         """管理路由器-重启-重启成功检查"""
         """
@@ -894,11 +859,6 @@ class RouterManagement(Base):
         )
         assert self.driver.find_element_by_xpath(CommonLocators.Logout).is_displayed()
 
-
-
-
-
-
     @unittest.skip("跳过")
     def test_N_routerManagement_factoryReset_elementsCheck(self):
         """管理路由器-恢复出厂设置-元素检查"""
@@ -955,11 +915,6 @@ class RouterManagement(Base):
             EC.element_to_be_clickable((By.XPATH, RouterManagementLocators.Mesh_Topology))
         ).click()
 
-
-
-
-
-
     @unittest.skip("跳过")
     def test_O_routerManagement_factoryReset_ok(self):
         """管理路由器-恢复出厂设置-恢复出厂设置成功检查"""
@@ -1007,9 +962,8 @@ class RouterManagement(Base):
 
         # 用例-1779 : 主路由，恢复出厂设置能成功
         # 断言：重启的60s，重置成功后会跳转到“设置路由器”页，查看是否有“设置路由器”按钮即可
-        WebDriverWait(self.driver, const.REBOOT_WAIT+10).until(
+        WebDriverWait(self.driver, const.REBOOT_WAIT + 10).until(
             EC.presence_of_element_located((By.XPATH, CommonLocators.SetupWifi))
         )
         SetupWifi_Text = self.driver.find_element_by_xpath(CommonLocators.SetupWifi).text
         assert SetupWifi_Text == "Setup Wi-Fi", SetupWifi_Text
-

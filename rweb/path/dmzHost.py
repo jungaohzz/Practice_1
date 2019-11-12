@@ -5,8 +5,9 @@
 # @Author:  GaoJun
 
 """DMZ主机"""
-class DmzHostLocators(object):
 
+
+class DmzHostLocators(object):
     DmzHostIp = "//div[@class='inputarea']/div/input"
     Statu = "//div[@class='checkbox-container']/label/div"
     Save = "//button[@class='btn']"

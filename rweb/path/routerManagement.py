@@ -14,9 +14,8 @@ class RouterManagementLocators(object):
     Increase_Mesh_Coverage_Statu = "//div[@class='switch-wrap']/div[1]/div/div"
     # 完整拓扑
     Complete_Graph_Icon = "//div[@class='switch-wrap']/div[2]/label/div/div/div[1]/img"
-    Complete_Graph_Note ="//div[@class='switch-wrap']/div[2]/label/div/div/div[2]/div[{num}]"
+    Complete_Graph_Note = "//div[@class='switch-wrap']/div[2]/label/div/div/div[2]/div[{num}]"
     Complete_Graph_Statu = "//div[@class='switch-wrap']/div[2]/div/div"
-
 
     """列表"""
     List = "//div[@class='mesh-info']/div[1]/div/div[2]"
@@ -26,7 +25,6 @@ class RouterManagementLocators(object):
     PrimaryRoute_Reboot = "//div[@class='table-content']/div/div[7]/span[1]"
     # 恢复出厂
     PrimaryRoute_Factory_Reset = "//div[@class='table-content']/div/div[7]/span[2]"
-
 
     """修改设备名称弹框"""
     Box = "//div[@class='modal-dialog edit-name-modal']/div[@class='modal-content']"
